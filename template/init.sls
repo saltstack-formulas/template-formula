@@ -1,12 +1,10 @@
-foo-common:
-  pkg.installed
+{% from "template/map.jinja" import template with context %}
 
-{% if grains['id'] == pillar['template']['master'] %}
-foo-service:
+template:
   pkg:
     - installed
+    - name: {{ template.pkg }}
   service:
     - running
+    - name: {{ template.service }}
     - enable: True
-
-{% endif %}
