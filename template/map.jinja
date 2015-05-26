@@ -1,7 +1,26 @@
-{% set template = salt['grains.filter_by']({
-    'default': {
-        'pkg': 'template',
-        'service': 'template',
-        'config': '/etc/template.conf',
-    },
-}, merge=salt['pillar.get']('template:lookup')) %}
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{## Start with  defaults from defaults.sls ##}
+{% import_yaml 'template/defaults.yml' as default_settings %}
+
+{## setup variable using grains['os_family'] based logic ##}
+{% set os_family_map = salt['grains.filter_by']({
+        'Arch': {
+            "pkg" : 'template-arch',
+        },
+        'RedHat': {
+            "config": '/etc/template.conf',
+        }
+  }, grain="os_family")
+%}
+{## Merge the flavor_map to the default settings ##}
+{% do default_settings.template.update(os_family_map) %}
+
+{## Merge in template:lookup pillar ##}
+{% set template_settings = salt['pillar.get'](
+        'template:lookup',
+        default=default_settings.template,
+        merge=True
+    )
+%}
