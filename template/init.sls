@@ -1,8 +1,7 @@
-{% from "template/map.jinja" import template with context %}
+# -*- coding: utf-8 -*-
+# vim: ft=sls
 
-template:
-  pkg.installed:
-    - name: {{ template.pkg }}
-  service.running:
-    - name: {{ template.service }}
-    - enable: True
+include:
+  - template.package
+  - template.file
+  - template.service
