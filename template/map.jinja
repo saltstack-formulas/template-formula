@@ -26,7 +26,7 @@ that differ from whats in defaults.yaml
 
 {## Merge in template:lookup pillar ##}
 {% set template = salt['pillar.get'](
-        'template',
+        'template:lookup',
         default=default_settings.template,
         merge=True
     )
