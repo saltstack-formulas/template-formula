@@ -19,4 +19,24 @@ Available states
 ``template``
 ------------
 
-Installs the template package, and starts the associated template service.
+Installs the template package, configures it and starts the associated template service.
+
+``template.install``
+--------------------
+
+Installs the template package.
+
+``template.config``
+-------------------
+
+Configure the template package. If this state is not included, the package configuration is
+untouched.
+
+If the package has many configuration files, it's advised to set ``manage_*`` parameters, defaulting
+to `False`, in order to be able to manage them independently.
+
+``template.service``
+--------------------
+
+Starts the associated template service.
+
