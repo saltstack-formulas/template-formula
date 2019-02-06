@@ -1,0 +1,56 @@
+{%- macro files_switch(prefix,
+                       files,
+                       default_files_switch=['id', 'os_family'],
+                       indent_width=6) %}
+  {#
+    Returns a valid value for the "source" parameter of a "file.managed"
+    state function. This makes easier the usage of the Template Override and
+    Files Switch (TOFS) pattern.
+
+    Params:
+      * prefix: basename of the formula to be used as directory prefix
+      * files: ordered list of files to look for, with full path
+      * default_files_switch: if there's no pillar 'prefix:files_switch'
+        this is the ordered list of grains to use as selector switch of the
+        directories under "prefix/files"
+      * indent_witdh: indentation of the result value to conform to YAML
+
+    Example:
+
+    If we have a state:
+
+      /etc/xxx/xxx.conf:
+        file:
+          - managed
+          - source: {{ files_switch('xxx', ['/etc/xxx/xxx.conf',
+                                            '/etc/xxx/xxx.conf.jinja']) }}
+          - template: jinja
+
+    In a minion with id=theminion and os_family=RedHat, it's going to be
+    rendered as:
+
+      /etc/xxx/xxx.conf:
+        file:
+          - managed
+          - source:
+            - salt://xxx/files/theminion/etc/xxx/xxx.conf
+            - salt://xxx/files/theminion/etc/xxx/xxx.conf.jinja
+            - salt://xxx/files/RedHat/etc/xxx/xxx.conf
+            - salt://xxx/files/RedHat/etc/xxx/xxx.conf.jinja
+            - salt://xxx/files/default/etc/xxx/xxx.conf
+            - salt://xxx/files/default/etc/xxx/xxx.conf.jinja
+  #}
+  {%- set files_switch_list = salt['pillar.get'](prefix ~ ':files_switch',
+                                           default_files_switch) %}
+  {%- for grain in files_switch_list if grains.get(grain) is defined %}
+    {%- for file in files %}
+    {%- set url = '- salt://' ~ prefix ~ '/files/' ~
+                  grains.get(grain) ~ file %}
+{{ url | indent(indent_width, true) }}
+    {%- endfor %}
+  {%- endfor %}
+    {%- for file in files %}
+    {%- set url = '- salt://' ~ prefix ~ '/files/default' ~ file %}
+{{ url | indent(indent_width, true) }}
+    {%- endfor %}
+{%- endmacro %}
