@@ -1,23 +1,28 @@
 # TOFS: A pattern for using Saltstack
+
 Roberto Moreda <moreda@allenta.com>
 29/12/2014
 
-All that follows is a proposal based on my experience with [Saltstack](http://www.saltstack.com/). The good thing of a piece of software like this is that you can "bend it" to suit your needs in many possible ways, and this is one of them. All the recommendations and thoughts are given "as it is" with no warranty of any type.  
+Modified by Daniel Dehennin <daniel.dehennin@baby-gnu.org>
+
+All that follows is a proposal based on my experience with [Saltstack](http://www.saltstack.com/). The good thing of a piece of software like this is that you can "bend it" to suit your needs in many possible ways, and this is one of them. All the recommendations and thoughts are given "as it is" with no warranty of any type.
 
 
 ## Usage of values in pillar vs templates in file_roots
-Among other functions, the _master_ (or _salt-master_) serves files to the _minions_ (or _salt-minions_). The [file_roots](http://docs.saltstack.com/en/latest/ref/file_server/file_roots.html) is the list of directories used in sequence to find a file when a minion requires it: the first match is served to the minion. Those files could be [state files](http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html) or configuration templates, among others.  
 
-Using Saltstack is a simple and effective way to implement configuration management, but even in a [non multitenant](http://en.wikipedia.org/wiki/Multitenancy) scenario, it's not a good idea to generally accesible some data (e.g. the database password in our [Zabbix](http://www.zabbix.com/) server configuration file or the private key of our [Nginx](http://nginx.org/en/) TLS certificate).
+Among other functions, the _master_ (or _salt-master_) serves files to the _minions_ (or _salt-minions_). The [file_roots](http://docs.saltstack.com/en/latest/ref/file_server/file_roots.html) is the list of directories used in sequence to find a file when a minion requires it: the first match is served to the minion. Those files could be [state files](http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html) or configuration templates, among others.
+
+Using Saltstack is a simple and effective way to implement configuration management, but even in a [non multitenant](http://en.wikipedia.org/wiki/Multitenancy) scenario, it's not a good idea to generally accessible some data (e.g. the database password in our [Zabbix](http://www.zabbix.com/) server configuration file or the private key of our [Nginx](http://nginx.org/en/) TLS certificate).
 
 To avoid this situation we can use the [pillar mechanism](http://docs.saltstack.com/en/latest/topics/pillar/), which is designed to provide a controlled access to data from the minions based on some selection rules. As pillar data could be easily integrated in the [Jinja](http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html) templates, it's a good mechanism to store values to be used in the final render of state files and templates.
 
-There are a variety of approaches on usage of pillar and templates seen in [saltstack-formulas](https://github.com/saltstack-formulas) repositories. [Some](https://github.com/saltstack-formulas/nginx-formula/pull/18) [developments](https://github.com/saltstack-formulas/php-formula/pull/14) stress the initial purpose of pillar data into an storage for most of possible variables for a determined system configuration. This, in my opinion, shifting too much load from the original template files approach. Adding up some [non-trivial Jinja](https://github.com/spsoit/nginx-formula/blob/81de880fe0276dd9488ffa15bc78944c0fc2b919/nginx/ng/files/nginx.conf) code as essential part of composing the state file definitely makes Saltstack state files (hence formulas) more difficult to read. The extreme of this approach is that we could end up with a new render mechanism, implemented in Jinja, storing everything needed in pillar data to compose configurations. Additionally, we are establishing a strong dependency with the Jinja renderer. 
+There are a variety of approaches on usage of pillar and templates seen in [saltstack-formulas](https://github.com/saltstack-formulas) repositories. [Some](https://github.com/saltstack-formulas/nginx-formula/pull/18) [developments](https://github.com/saltstack-formulas/php-formula/pull/14) stress the initial purpose of pillar data into an storage for most of possible variables for a determined system configuration. This, in my opinion, shifting too much load from the original template files approach. Adding up some [non-trivial Jinja](https://github.com/spsoit/nginx-formula/blob/81de880fe0276dd9488ffa15bc78944c0fc2b919/nginx/ng/files/nginx.conf) code as essential part of composing the state file definitely makes Saltstack state files (hence formulas) more difficult to read. The extreme of this approach is that we could end up with a new render mechanism, implemented in Jinja, storing everything needed in pillar data to compose configurations. Additionally, we are establishing a strong dependency with the Jinja renderer.
 
 Opposed to the _put in file\_roots the code and in pillar the data_ approach, there's the _pillar as a store for a set of key-values_ approach. A full-blown configuration file abstracted in pillar and jinja is complicated to develop, understand and maintain. I think it's better a simpler approach keeping a configuration file templated using just a basic (non-extensive but extensible) set of pillar values.
 
 
 ## On reusability of Saltstack state files
+
 There's a brilliant initiative of the Saltstack community called [salt-formulas](https://github.com/saltstack-formulas). The goal is to provide state files, pillar examples and configuration templates ready to be used for provisioning. I'm a contributor or two small ones: [zabbix-formula](https://github.com/saltstack-formulas/zabbix-formula) and [varnish-formula](https://github.com/saltstack-formulas/varnish-formula).
 
 The [design guidelines](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html) for formulas are clear in many aspects and it's a recommended reading for anyone willing to write state files, even non-formulaic ones.
@@ -26,9 +31,10 @@ In the next section I'm going to describe my proposal to extend even further the
 
 
 ## The Template Override and Files Switch (TOFS) pattern
+
 I understand a formula as a **complete, independent set of Saltstack state and configuration template files sufficient to configure a system**. A system could be something as simple as a ntp server or some other much more complex service that requires many state and configuration template files.
 
-The customization of a formula should be done mainly by providing pillar data used later to render either the state or the configuration template files. 
+The customization of a formula should be done mainly by providing pillar data used later to render either the state or the configuration template files.
 
 Let's work with the NTP example. A basic formula that follows the [design guidelines](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html) has the following files and directories tree:
 
@@ -163,7 +169,8 @@ ntp:
 ```
 
 
-###Template Override
+### Template Override
+
 If the customization based on pillar data is not enough, we can override the template creating a new one in `/srv/saltstack/salt/ntp/files/default/etc/ntp.conf.jinja`
 
 ```
@@ -179,10 +186,11 @@ server {{ server }}
 {% endfor %}
 ```
 
-This way we are localy **overriding the template files** offered by the formula in order to make a more complex adaptation. Of course, this could be applied as well to any of the files, including the state files.
+This way we are locally **overriding the template files** offered by the formula in order to make a more complex adaptation. Of course, this could be applied as well to any of the files, including the state files.
 
 
-###Files Switch
+### Files Switch
+
 To bring some order into the set of template files included in a formula, as we commented, we suggest have a similar structure to a normal final file system under `files/default`.
 
 We can make coexist different templates for different minions, classified by any [grain](http://docs.saltstack.com/en/latest/topics/targeting/grains.html) value, just creating new directories under `files`. This mechanism is based in **using values of some grains as a switch for the directories under `files/`**.
