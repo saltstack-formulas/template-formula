@@ -270,7 +270,28 @@ Configure NTP:
       - pkg: Install NTP package
 ```
 
-The generalization of this comes with the usage of the macro `files_switch` in all `source` parameters for the `file.managed` function.
+We can simplify the `conf.sls` with a new `files_switch` macro to use in `source` parameter for the `file.managed` function.
+
+```
+## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls
+include:
+  - ntp
+
+{% from 'ntp/map.jinja' import ntp with context %}
+{% from 'ntp/macros.jinja' import files_switch %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
+    - source: {{ files_switch('ntp', ['/etc/ntp.conf.jinja']) }}
+    - watch_in:
+      - service: Enable and start NTP service
+    - require:
+      - pkg: Install NTP package
+```
+
+In `macros.jinja`, we define this new macro `files_switch`.
 
 ```
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja
