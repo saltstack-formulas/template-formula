@@ -68,9 +68,9 @@ file_roots:
 {% set ntp = salt['grains.filter_by']({
   'default': {
     'pkg': 'ntp',
-    'service': 'ntp'
-    'config': '/etc/ntp.conf'
-  }
+    'service': 'ntp',
+    'config': '/etc/ntp.conf',
+  },
 }, merge=salt['pillar.get']('ntp:lookup')) %}
 ```
 
@@ -78,16 +78,18 @@ In `init.sls` we have the minimal states required to have NTP configured. In man
 
 ```
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/init.sls
-ntp:
-  pkg:
-    - installed
+{% from 'ntp/map.jinja' import ntp with context %}
+
+Install NTP:
+  pkg.installed:
     - name: {{ ntp.pkg }}
-  service:
-    - running
+
+Enable and start NTP:
+  service.running:
     - name: {{ ntp.service }}
     - enabled: True
     - require:
-      - pkg: ntp
+      - pkg: Install NTP package
 ```
 
 In `conf.sls` we have the configuration states. In most cases that is just managing configuration file templates and making them be watched by the service.
@@ -97,15 +99,17 @@ In `conf.sls` we have the configuration states. In most cases that is just manag
 include:
   - ntp
 
-{{ ntp.conf }}:
-  file:
-    - managed
-    - template jinja
+{% from 'ntp/map.jinja' import ntp with context %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
     - source: salt://ntp/files/default/etc/ntp.conf.jinja
     - watch_in:
-      - service: ntp
+      - service: Enable and start NTP service
     - require:
-      - pkg: ntp
+      - pkg: Install NTP package
 ```
 
 Under `files/default` there's an structure that mimics the one in the minion in order to avoid clashes and confusion on where to put the needed templates. There you can find a mostly standard template for configuration file.
@@ -118,7 +122,7 @@ Under `files/default` there's an structure that mimics the one in the minion in 
 {% set default_servers = ['0.ubuntu.pool.ntp.org',
                           '1.ubuntu.pool.ntp.org',
                           '2.ubuntu.pool.ntp.org',
-                          '3.ubuntu.pool.ntp.org']}
+                          '3.ubuntu.pool.ntp.org'] %}
 
 driftfile /var/lib/ntp/ntp.drift
 statistics loopstats peerstats clockstats
@@ -217,17 +221,19 @@ To make this work we need a `conf.sls` state file that takes a list of possible 
 include:
   - ntp
 
-{{ ntp.conf }}:
-  file:
-    - managed
-    - template jinja
+{% from 'ntp/map.jinja' import ntp with context %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
     - source:
       - salt://ntp/files/{{ grains.get('os_family', 'default') }}/etc/ntp.conf.jinja
       - salt://ntp/files/default/etc/ntp.conf.jinja
     - watch_in:
-      - service: ntp
+      - service: Enable and start NTP service
     - require:
-      - pkg: ntp
+      - pkg: Install NTP package
 ```
 
 If we want to cover the possibility of a special template for a minion identified by `node01` then we could have a specific template in `/srv/saltstack/salt/ntp/files/node01/etc/ntp.conf.jinja`.
@@ -248,18 +254,20 @@ To make this work we could write a specially crafted `conf.sls`.
 include:
   - ntp
 
-{{ ntp.conf }}:
-  file:
-    - managed
-    - template jinja
+{% from 'ntp/map.jinja' import ntp with context %}
+
+Configure NTP:
+  file.managed:
+    - name: {{ ntp.config }}
+    - template: jinja
     - source:
       - salt://ntp/files/{{ grains.get('id') }}/etc/ntp.conf.jinja
       - salt://ntp/files/{{ grains.get('os_family') }}/etc/ntp.conf.jinja
       - salt://ntp/files/default/etc/ntp.conf.jinja
     - watch_in:
-      - service: ntp
+      - service: Enable and start NTP service
     - require:
-      - pkg: ntp
+      - pkg: Install NTP package
 ```
 
 The generalization of this comes with the usage of the macro `files_switch` in all `source` parameters for the `file.managed` function.
