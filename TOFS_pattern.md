@@ -284,52 +284,53 @@ The generalization of this comes with the usage of the macro `files_switch` in a
     Files Switch (TOFS) pattern.
 
     Params:
-      * prefix: basename of the formula to be used as directory prefix
+      * prefix: pillar prefix to custom ':files_switch'. Colons ':'
+        are replaced by '/' to be used as directory prefix (<path_prefix>)
       * files: ordered list of files to look for, with full path
-      * default_files_switch: if there's no pillar 'prefix:files_switch'
-        this is the ordered list of grains to use as selector switch of the
-        directories under "prefix/files"
+      * default_files_switch: if there's no pillar
+        '<prefix>:files_switch' this is the ordered list of grains to
+        use as selector switch of the directories under
+        "<path_prefix>/files"
       * indent_witdh: indentation of the result value to conform to YAML
 
     Example:
 
     If we have a state:
 
-      /etc/xxx/xxx.conf:
-        file:
-          - managed
-          - source: {{ files_switch('xxx', ['/etc/xxx/xxx.conf',
-                                            '/etc/xxx/xxx.conf.jinja']) }}
+      Deploy configuration:
+        file.managed:
+          - name: /etc/yyy/zzz.conf
+          - source: {{ files_switch('xxx', ['/etc/yyy/zzz.conf',
+                                            '/etc/yyy/zzz.conf.jinja']) }}
           - template: jinja
 
     In a minion with id=theminion and os_family=RedHat, it's going to be
     rendered as:
 
-      /etc/xxx/xxx.conf:
-        file:
-          - managed
+      Deploy configuration:
+        file.managed:
+          - name: /etc/yyy/zzz.conf
           - source:
-            - salt://xxx/files/theminion/etc/xxx/xxx.conf
-            - salt://xxx/files/theminion/etc/xxx/xxx.conf.jinja
-            - salt://xxx/files/RedHat/etc/xxx/xxx.conf
-            - salt://xxx/files/RedHat/etc/xxx/xxx.conf.jinja
-            - salt://xxx/files/default/etc/xxx/xxx.conf
-            - salt://xxx/files/default/etc/xxx/xxx.conf.jinja
+            - salt://xxx/files/theminion/etc/yyy/zzz.conf
+            - salt://xxx/files/theminion/etc/yyy/zzz.conf.jinja
+            - salt://xxx/files/RedHat/etc/yyy/zzz.conf
+            - salt://xxx/files/RedHat/etc/yyy/zzz.conf.jinja
+            - salt://xxx/files/default/etc/yyy/zzz.conf
+            - salt://xxx/files/default/etc/yyy/zzz.conf.jinja
   #}
+  {%- set path_prefix = prefix|replace(':', '/') %}
   {%- set files_switch_list = salt['pillar.get'](prefix ~ ':files_switch',
                                            default_files_switch) %}
   {%- for grain in files_switch_list if grains.get(grain) is defined %}
     {%- for file in files %}
-    {%- set url = '- salt://' ~ prefix ~ '/files/' ~
+    {%- set url = '- salt://' ~ path_prefix ~ '/files/' ~
                   grains.get(grain) ~ file %}
 {{ url | indent(indent_width, true) }}
     {%- endfor %}
   {%- endfor %}
     {%- for file in files %}
-    {%- set url = '- salt://' ~ prefix ~ '/files/default' ~ file %}
+    {%- set url = '- salt://' ~ path_prefix ~ '/files/default' ~ file %}
 {{ url | indent(indent_width, true) }}
     {%- endfor %}
 {%- endmacro %}
 ```
-
-
