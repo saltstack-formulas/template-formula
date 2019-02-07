@@ -307,7 +307,7 @@ In `macros.jinja`, we define this new macro `files_switch`.
     Params:
       * prefix: pillar prefix to custom ':files_switch'. Colons ':'
         are replaced by '/' to be used as directory prefix (<path_prefix>)
-      * files: ordered list of files to look for, with full path
+      * files: ordered list of files to look for
       * default_files_switch: if there's no pillar
         '<prefix>:files_switch' this is the ordered list of grains to
         use as selector switch of the directories under
@@ -344,13 +344,17 @@ In `macros.jinja`, we define this new macro `files_switch`.
                                            default_files_switch) %}
   {%- for grain in files_switch_list if grains.get(grain) is defined %}
     {%- for file in files %}
-    {%- set url = '- salt://' ~ path_prefix ~ '/files/' ~
-                  grains.get(grain) ~ file %}
+      {%- set url = '- salt://' ~ '/'.join([path_prefix,
+                                            'files',
+                                            grains.get(grain),
+                                            file.lstrip('/')]) %}
 {{ url | indent(indent_width, true) }}
     {%- endfor %}
   {%- endfor %}
     {%- for file in files %}
-    {%- set url = '- salt://' ~ path_prefix ~ '/files/default' ~ file %}
+      {%- set url = '- salt://' ~ '/'.join([path_prefix,
+                                            'files/default',
+                                            file.lstrip('/')]) %}
 {{ url | indent(indent_width, true) }}
     {%- endfor %}
 {%- endmacro %}
