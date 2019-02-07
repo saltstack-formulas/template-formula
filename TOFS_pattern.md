@@ -338,6 +338,7 @@ In `macros.jinja`, we define this new macro `files_switch`.
             - salt://xxx/files/RedHat/etc/yyy/zzz.conf.jinja
             - salt://xxx/files/default/etc/yyy/zzz.conf
             - salt://xxx/files/default/etc/yyy/zzz.conf.jinja
+          - template: jinja
   #}
   {%- set path_prefix = prefix|replace(':', '/') %}
   {%- set files_switch_list = salt['pillar.get'](prefix ~ ':files_switch',
