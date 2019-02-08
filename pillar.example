@@ -1,3 +1,10 @@
 template:
   lookup:
     master: template-master
+
+  # The files_switch key serves as a selector for alternative
+  # directories under the formula files directory. See TOFS pattern
+  # doc for more info.
+  files_switch:
+    - id
+    - os_familly
