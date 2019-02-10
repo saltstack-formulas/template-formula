@@ -4,6 +4,9 @@
 {% from "template/map.jinja" import template with context %}
 {% from "template/macros.jinja" import files_switch with context %}
 
+include:
+  - template.install
+
 template-config:
   file.managed:
     - name: {{ template.config }}
