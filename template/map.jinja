@@ -1,33 +1,22 @@
 # -*- coding: utf-8 -*-
 # vim: ft=jinja
 
-{## Start with defaults from defaults.yaml ##}
-{% import_yaml 'template/defaults.yaml' as default_settings %}
+{## Start imports as  ##}
+{% import_yaml 'template/defaults.yaml' as defaults %}
+{% import_yaml 'template/osfamilymap.yaml' ad osfamilymap %}
+{% import_yaml 'template/osmap.yaml' ad osmap %}
 
-{##
-Setup variables using grains['os_family'] based logic, only add key:values
-that differ from what is in defaults.yaml
-##}
-{% set os_family_map = salt['grains.filter_by']({
-        'Debian': {},
-        'Suse': {},
-        'Arch': {
-            "pkg" : 'template-arch',
-        },
-        'RedHat': {
-            "config": '/etc/template.conf',
-        },
-  }
-  , grain="os_family"
-  , merge=salt['pillar.get']('template:lookup'))
-%}
-{## Merge the flavor_map to the default settings ##}
-{% do default_settings.template.update(os_family_map) %}
+{## merge the osfamilymap ##}
+{% set osfamily = salt['grains.filter_by']('osfamilymap', grain='os_family_map') or{} %}
+{% do salt['defaults.merge'](defaults['template'], osfamily) %}
 
-{## Merge in template:lookup pillar ##}
-{% set template = salt['pillar.get'](
-        'template',
-        default=default_settings.template,
-        merge=True
-    )
-%}
+{## merge the osmap ##}
+{% set osmap = salt['grains.filter_by']('osmap', grain='os') or{} %}
+{% do salt['defaults.merge'](defaults['template'], osmap) %}
+
+{## merge the lookup ##}
+{% lookup = salt['pillar.get']('template:lookup', default={}, merge=True) %}
+{% do salt['defaults.merge'](defaults['template'], lookup) %}
+
+{## merge the template pillar ##}
+{% set template = salt['pillar.get']('template', default=defaults['template'], merge=True) %}

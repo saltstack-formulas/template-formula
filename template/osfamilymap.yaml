@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-                                                                                             
+# # vim: ft=yaml
+---
+Debian:
+  pkg: template-debian
+  config: /etc/template.d/custom.conf
+
+RedHat:
+  pkg: template-redhat
+  config: /etc/template.conf
+
+Suse:
+  pkg: template-suse
+
+Arch:
+  pkg: template-arch
+  

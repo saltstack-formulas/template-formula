@@ -3,7 +3,7 @@ template-formula
 ================
 
 A SaltStack formula that is empty. It has dummy content to help with a quick
-start on a new formula.
+start on a new formula and it serves as a style guide.
 
 **NOTE**
 
@@ -27,4 +27,24 @@ Available states
 ``template``
 ------------
 
-Installs the template package, and starts the associated template service.
+Meta-state (This is a state that includes other states)
+
+This installs the template package, and starts the associated template service.
+
+``template.install``
+--------------------
+
+This state will install the template package only.
+
+``template.config``
+-------------------
+
+This state will configure the template service and has a depency on ``template.install``
+via include list.
+
+``template.service``
+--------------------
+
+This state will start the template service and has a depency on ``template.config``
+via include list.
+
