@@ -1,6 +1,10 @@
 template formula
 ================
 
+0.1.2 (2019-02-12)
+
+- Update map.jinja, osfamilymap.yaml & osmap.yaml
+
 0.1.1 (2019-02-10)
 
 - Update map.jinja and README

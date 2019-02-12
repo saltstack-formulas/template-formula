@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-                                                                                             
-# # vim: ft=yaml
+# vim: ft=yaml
+#
+# Setup variables using grains['os_family'] based logic.
+# You just need to add the key:values for an `os_family` that differ
+# from `defaults.yaml`.
+# Only add an `os_family` which is/will be supported by the formula
+# (empty `os_family`s do not need to be listed, just added here as an example).
 ---
 Debian:
   pkg: template-debian
@@ -12,6 +18,19 @@ RedHat:
 Suse:
   pkg: template-suse
 
+Gentoo: {}
+
 Arch:
   pkg: template-arch
-  
+  service:
+    name: service-arch
+
+Alpine: {}
+
+FreeBSD: {}
+
+OpenBSD: {}
+
+Windows: {}
+
+MacOS: {}
