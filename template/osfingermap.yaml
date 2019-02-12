@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Setup variables using grains['osfinger'] based logic.
+# You just need to add the key:values for an `osfinger` that differ
+# from `defaults.yaml` + `os_family.yaml` + `osmap.yaml`.
+# Only add an `osfinger` which is/will be supported by the formula
+# (empty `osfinger`s do not need to be listed, just added here as an example).
+---
+CentOS-6:
+  pkg: template-centos-6
+  config: /etc/template.d/custom-centos-6.conf
+CentOS-7: {}

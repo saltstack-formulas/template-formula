@@ -2,21 +2,21 @@
 # vim: ft=jinja
 
 {## Start imports as ##}
-{% import_yaml 'template/defaults.yaml' as defaults %}
+{% import_yaml 'template/defaults.yaml' as default_settings %}
 {% import_yaml 'template/osfamilymap.yaml' as osfamilymap %}
 {% import_yaml 'template/osmap.yaml' as osmap %}
+{% import_yaml 'template/osfingermap.yaml' as osfingermap %}
 
-{## Merge the osfamilymap ##}
-{% set osfamily = salt['grains.filter_by'](osfamilymap, grain='os_family') or {} %}
-{% do salt['defaults.merge'](defaults['template'], osfamily) %}
-
-{## Merge the osmap ##}
-{% set os = salt['grains.filter_by'](osmap, grain='os') or {} %}
-{% do salt['defaults.merge'](defaults['template'], os) %}
-
-{## Merge the lookup ##}
-{% set lookup = salt['pillar.get']('template:lookup', default={}) %}
-{% do salt['defaults.merge'](defaults['template'], lookup) %}
+{% set defaults = salt['grains.filter_by'](default_settings,
+    default='template',
+    merge=salt['grains.filter_by'](osfamilymap, grain='os_family',
+      merge=salt['grains.filter_by'](osmap, grain='os',
+        merge=salt['grains.filter_by'](osfingermap, grain='osfinger',
+          merge=salt['pillar.get']('template:lookup', default={})
+        )
+      )
+    )
+) %}
 
 {## Merge the template pillar ##}
-{% set template = salt['pillar.get']('template', default=defaults['template'], merge=True) %}
+{% set template = salt['pillar.get']('template', default=defaults, merge=True) %}
