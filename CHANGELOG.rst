@@ -1,6 +1,12 @@
 template formula
 ================
 
+0.1.3 (2019-02-12)
+
+- Use grains.filter_by instead of defaults.merge in map.jinja
+- Add osfingermap.yaml
+- Add tags and update VERSION and CHANGELOG
+
 0.1.2 (2019-02-12)
 
 - Update map.jinja, osfamilymap.yaml & osmap.yaml
