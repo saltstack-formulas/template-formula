@@ -2,7 +2,10 @@
 # vim: ft=yaml
 #
 # Setup variables using grains['os_family'] based logic.
-# Only add key:values that differ from `defaults.yaml`.
+# You just need to add the key:values for an `os_family` that differ
+# from `defaults.yaml`.
+# Only add an `os_family` which is/will be supported by the formula
+# (empty `os_family`s do not need to be listed, just added here as an example).
 ---
 Debian:
   pkg: template-debian
@@ -19,6 +22,8 @@ Gentoo: {}
 
 Arch:
   pkg: template-arch
+  service:
+    name: service-arch
 
 Alpine: {}
 
