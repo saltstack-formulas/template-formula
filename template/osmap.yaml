@@ -1,8 +1,15 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
+#
+# Setup variables using grains['os'] based logic.
+# Only add key:values that differ from `defaults.yaml` + `os_family.yaml`.
 ---
+Ubuntu:
+  pkg: template-ubuntu
+
 Fedora:
   pkg: template-fedora
 
-Ubuntu:
-  pkg: template-ubuntu
+Raspbian: {}
+
+SmartOS: {}
