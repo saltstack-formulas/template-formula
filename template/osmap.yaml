@@ -7,15 +7,29 @@
 # Only add an `os` which is/will be supported by the formula
 # (empty `os`es do not need to be listed, just added here as an example).
 ---
+# os_family: Debian
 Ubuntu:
   pkg: template-ubuntu
   config: /etc/template.d/custom-ubuntu.conf
 
+Raspbian: {}
+
+# os_family: RedHat
 Fedora:
   pkg: template-fedora
   service:
     name: service-fedora
 
-Raspbian: {}
+CentOS: {}
 
+# os_family: Suse
+openSUSE: {}
+
+# os_family: Gentoo
+Funtoo: {}
+
+# os_family: Arch
+Manjaro: {}
+
+# os_family: Solaris
 SmartOS: {}
