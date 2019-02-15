@@ -34,7 +34,7 @@ provisioner:
         "*":
           - template
   pillars-from-files:
-    pihole.sls: pillar.example
+    template.sls: pillar.example
 platforms:
   - name: centos-7
     driver_config:
