@@ -1,6 +1,10 @@
 template formula
 ================
 
+0.1.5 (2019-02-15)
+
+- Fix missing ')' in TOFS example
+
 0.1.4 (2019-02-15)
 
 - Remove obsolete VERSION file
