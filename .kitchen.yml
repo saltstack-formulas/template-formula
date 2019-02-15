@@ -1,0 +1,83 @@
+driver:
+  name: docker
+  use_sudo: false
+  privileged: true
+  forward:
+    - 80
+
+provisioner:
+  name: salt_solo
+  salt_install: bootstrap
+  salt_version: latest
+  salt_bootstrap_url: https://bootstrap.saltstack.com
+  is_file_root: true
+  require_chef: false
+  salt_copy_filter:
+    - Dockerfile
+    - .drone.yml
+    - .git
+    - .gitignore
+    - .kitchen
+    - .kitchen.yml
+    - Gemfile
+    - Gemfile.lock
+    - requirements.txt
+    - tests
+    - .travis.yml
+  state_top:
+    base:
+      "*":
+        - template
+  pillars:
+    top.sls:
+      base:
+        "*":
+          - template
+  pillars-from-files:
+    pihole.sls: pillar.example
+platforms:
+  - name: centos-7
+    driver_config:
+      run_command: /usr/lib/systemd/systemd
+  - name: ubuntu-18.04
+    driver_config:
+      run_command: /lib/systemd/systemd
+  - name: debian-9
+    driver_config:
+      run_command: /lib/systemd/systemd
+  - name: opensuse
+    driver_config:
+      run_command: /usr/lib/systemd/systemd
+      provision_command:
+        - systemctl enable sshd.service
+        - echo 'L /run/docker.sock - - - - /docker.sock' > /etc/tmpfiles.d/docker.conf
+    provisioner:
+      salt_bootstrap_options: -X -p rsync git v<%= version %> >/dev/null
+  - name: arch
+    driver_config:
+      image: archlinux/base
+      run_command: /usr/lib/systemd/systemd
+      provision_command:
+        - sudo ln -s /usr/lib/libidn2.so /usr/lib/libidn2.so.4
+        - pacman -Syu --noconfirm systemd
+        - pacman -Syu --noconfirm grep awk procps
+        - systemctl enable sshd
+        - echo 'L /run/docker.sock - - - - /docker.sock' > /etc/tmpfiles.d/docker.conf
+    provisioner:
+      salt_bootstrap_options: -X -p rsync git v<%= version %> >/dev/null
+
+suites:
+  - name: nitrogen
+    provisioner:
+      salt_bootstrap_options: -qX -p git -p curl -p sudo git 2017.7
+  - name: oxygen
+    provisioner:
+      salt_bootstrap_options: -qX -p git -p curl -p sudo git 2018.3
+  - name: develop
+    provisioner:
+      salt_bootstrap_options: -qX -p git -p curl -p sudo git develop
+
+verifier:
+  name: shell
+  remote_exec: false
+  command: pytest -v tests/integration/

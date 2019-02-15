@@ -1,0 +1,56 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: salt_solo
+  salt_install: bootstrap
+  salt_version: latest
+  salt_bootstrap_url: https://bootstrap.saltstack.com
+  is_file_root: true
+  require_chef: false
+  salt_copy_filter:
+    - Dockerfile
+    - .drone.yml
+    - .git
+    - .gitignore
+    - .kitchen
+    - .kitchen.yml
+    - Gemfile
+    - Gemfile.lock
+    - requirements.txt
+    - tests
+    - .travis.yml
+  state_top:
+    base:
+      "*":
+        - template
+  pillars:
+    top.sls:
+      base:
+        "*":
+          - template
+  pillars-from-files:
+    pihole.sls: pillar.example
+platforms:
+  - name: generic\centos7
+  - name: generic\ubuntu-16.04
+  - name: generic\ubuntu-18.04
+  - name: generic\debian-8
+  - name: generic\opensuse42
+  - name: generic\arch
+
+suites:
+  - name: nitrogen
+    provisioner:
+      salt_bootstrap_options: -qX -p git -p curl -p sudo git 2017.7
+  - name: oxygen
+    provisioner:
+      salt_bootstrap_options: -qX -p git -p curl -p sudo git 2018.3
+  - name: develop
+    provisioner:
+      salt_bootstrap_options: -qX -p git -p curl -p sudo git develop
+
+verifier:
+  name: shell
+  remote_exec: false
+  command: pytest -v tests/integration/
