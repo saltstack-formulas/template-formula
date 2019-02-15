@@ -10,7 +10,7 @@ include:
 template-config:
   file.managed:
     - name: {{ template.config }}
-    - source: {{ files_switch('template', ['example.tmpl'] }}
+    - source: {{ files_switch('template', ['example.tmpl']) }}
     - mode: 644
     - user: root
     - group: root
