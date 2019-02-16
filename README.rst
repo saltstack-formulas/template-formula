@@ -26,7 +26,7 @@ corresponds with `gitchangelog<https://github.com/vaab/gitchangelog>`_
 
     gitchangelog > CHANGELOG.rst
 
-Use the instructions at https://github.com/vaab/gitchangelog/blob/master/README.rst#single-executable-installation to install program.
+Use the instructions at https://github.com/vaab/gitchangelog/blob/master/README.rst#single-executable-installation to install the program.
 
 
 Available states
