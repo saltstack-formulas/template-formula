@@ -2,6 +2,23 @@ Changelog
 =========
 
 
+(unreleased)
+------------
+
+Fix
+~~~
+- Typo in the installation instructions. [Niels Abspoel]
+
+Other
+~~~~~
+- Update README with link to install `gitchangelog` [Imran Iqbal]
+
+
+v0.1.6 (2019-02-16)
+-------------------
+- Add changelog generator. [Niels Abspoel]
+
+
 v0.1.5 (2019-02-15)
 -------------------
 - Prepare `v0.1.5` [Imran Iqbal]
