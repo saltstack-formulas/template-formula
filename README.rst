@@ -18,6 +18,16 @@ wich contains the currently released version. Formula is versioned according to 
 
 See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning>`_ for more details.
 
+Changelog
+=========
+
+To generate a changelog there is an included .gitchangelog.rc file which
+corresponds with `gitchangelog<https://github.com/vaab/gitchangelog>`_
+
+    gitchangelog > CHANGELOG.rst
+
+
+
 Available states
 ================
 
