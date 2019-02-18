@@ -5,8 +5,5 @@ license: Apache-2.0
 summary: Verify that the template formula is setup and configured correctly
 supports:
   - os-name: debian
-    release: 9.5
   - os-name: centos
-    release: 7.6.1810
   - os-name: ubuntu
-    release: 18.04
