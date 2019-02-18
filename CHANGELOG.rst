@@ -1,6 +1,9 @@
 Changelog
 =========
 
+v0.2.0 (2019-02-17)
+-------------------
+- Added a working testing scaffold and travis support. [Javier Bértoli]
 
 v0.1.7 (2019-02-16)
 -------------------

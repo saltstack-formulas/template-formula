@@ -1,0 +1,19 @@
+sudo: required
+cache: bundler
+language: ruby
+
+services:
+  - docker
+
+before_install:
+  - bundle install
+
+env:
+  matrix:
+    - INSTANCE: default-debian-9
+    - INSTANCE: default-ubuntu-1804
+    - INSTANCE: default-centos-7
+
+script:
+  - bundle exec kitchen verify ${INSTANCE}
+
