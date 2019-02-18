@@ -1,11 +1,8 @@
 name: template
 title: Template Formula
 maintainer: Your Name
-copyright: Your Name
-copyright_email: your.email@example.com
 license: Apache-2.0
 summary: Verify that the template formula is setup and configured correctly
-version: 0.1.0
 supports:
   - os-name: debian
     release: 9.5
