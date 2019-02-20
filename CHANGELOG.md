@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/saltstack-formulas/template-formula/compare/v0.3.0...v0.3.1) (2019-02-20)
+
+
+### Documentation
+
+* **changelog:** merge previous `rst` into new `md` format ([2b4e485](https://github.com/saltstack-formulas/template-formula/commit/2b4e485))
+
 # [0.3.0](https://github.com/saltstack-formulas/template-formula/compare/v0.2.0...v0.3.0) (2019-02-20)
 
 
@@ -149,4 +156,3 @@
 ## [0.0.1](https://github.com/saltstack-formulas/template-formula/releases/tag/v0.0.1) (2019-02-10)
 
 * Initial commit. [Lukas Erlacher]
-
