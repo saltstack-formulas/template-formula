@@ -10,22 +10,48 @@ driver_config:
   privileged: true
   provision_command: mkdir -p /run/sshd
 
+# Make sure the platforms listed below match up with
+# the `env.matrix` instances defined in `.travis.yml`
 platforms:
   - name: debian-9
     driver_config:
       # This run_command is required to test systemd services in docker
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt-get install udev -y
+        - apt install udev -y
+  - name: debian-8
+    driver_config:
+      run_command: /lib/systemd/systemd
+      provision_command:
+        - apt install udev -y
   - name: ubuntu-18.04
     driver_config:
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt-get install udev -y
+        - apt install udev -y
+  - name: ubuntu-16.04
+    driver_config:
+      run_command: /lib/systemd/systemd
+      provision_command:
+        - apt install udev -y
   - name: centos-7
     driver_config:
       image: centos:7
       run_command: /usr/lib/systemd/systemd
+  # - name: centos-6
+  #   driver_config:
+  #     image: centos:6
+  #     run_command: /usr/lib/systemd/systemd
+  - name: fedora
+    driver_config:
+      image: fedora
+      run_command: /usr/lib/systemd/systemd
+      provision_command:
+        - yum install udev -y
+  # - name: opensuse-leap
+  #   driver_config:
+  #     image: opensuse/leap
+  #     run_command: /usr/lib/systemd/systemd
 
 provisioner:
   name: salt_solo
