@@ -1,5 +1,7 @@
 // No release is triggered for the types commented out below.
 // Commits using these types will be incorporated into the next release.
+//
+// NOTE: Any changes here must be reflected in `CONTRIBUTING.md`.
 module.exports = [
   {breaking: true, release: 'major'},
   // {type: 'build', release: 'patch'},

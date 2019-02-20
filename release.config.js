@@ -31,6 +31,7 @@ module.exports = {
               note.title = `BREAKING CHANGES`
           })
 
+          // NOTE: Any changes here must be reflected in `CONTRIBUTING.md`.
           if (commit.type === `feat`) {
               commit.type = `Features`
           } else if (commit.type === `fix`) {
@@ -49,6 +50,8 @@ module.exports = {
               commit.type = `Tests`
           } else if (commit.type === `build`) {
               commit.type = `Build System`
+          // } else if (commit.type === `chore`) {
+          //     commit.type = `Maintenance`
           } else if (commit.type === `ci`) {
               commit.type = `Continuous Integration`
           } else {
