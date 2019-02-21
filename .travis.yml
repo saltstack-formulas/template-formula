@@ -23,10 +23,6 @@ env:
 script:
   - bundle exec kitchen verify ${INSTANCE}
 
-before_deploy:
-  # Only deploy if the build passed successfully
-  - test $TRAVIS_TEST_RESULT = 0
-
 jobs:
   include:
     # Define the commitlint stage
