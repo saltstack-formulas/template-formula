@@ -1,3 +1,9 @@
+stages:
+  - test
+  - commitlint
+  - name: release
+    if: branch = master
+
 sudo: required
 cache: bundler
 language: ruby
@@ -22,9 +28,16 @@ before_deploy:
   - test $TRAVIS_TEST_RESULT = 0
 
 jobs:
-  # Only run if this is the `master` branch
-  if: branch = master
   include:
+    # Define the commitlint stage
+    - stage: commitlint
+      language: node_js
+      node_js: lts/*
+      before_install: skip
+      script:
+        - npm install @commitlint/config-conventional -D
+        - npm install @commitlint/travis-cli -D
+        - commitlint-travis
     # Define the release stage that runs semantic-release
     - stage: release
       language: node_js
