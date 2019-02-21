@@ -25,7 +25,7 @@ env:
     - INSTANCE: default-centos-7
     # - INSTANCE: default-centos-6
     - INSTANCE: default-fedora
-    # - INSTANCE: default-opensuse-leap
+    - INSTANCE: default-opensuse-leap
 
 script:
   - bundle exec kitchen verify ${INSTANCE}
