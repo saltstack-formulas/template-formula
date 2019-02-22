@@ -1,5 +1,10 @@
 # How to contribute
 
+<table><tr><th>Table of Contents</th></tr><tr><td>
+<!-- toc -->
+<!-- tocstop -->
+</td></tr></table>
+
 ## Commit message formatting
 
 ### Automation of multiple processes
