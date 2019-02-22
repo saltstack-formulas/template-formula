@@ -2,6 +2,8 @@
 
 ## Commit message formatting
 
+### Automation of multiple processes
+
 This repo uses [`semantic-release`](https://github.com/semantic-release/semantic-release) for automating numerous processes such as bumping the version number appropriately, creating new tags/releases and updating the changelog.
 The entire process relies on the structure of commit messages to determine the version bump, which is then used for the rest of the automation.
 
@@ -24,6 +26,15 @@ So based on the example above:
 * The `type` translates into a `Documentation` sub-heading.
 * The `(scope):` will be shown in bold text without the brackets.
 * The `subject` follows the `scope` as standard text.
+
+### Linting commit messages in Travis CI
+
+This repo uses [`commitlint`](https://github.com/conventional-changelog/commitlint) for checking commit messages during CI testing.
+This ensures that they are in accordance with the `semantic-release` settings.
+
+For more details about the default settings, refer back to the `commitlint` [reference rules](https://conventional-changelog.github.io/commitlint/#/reference-rules). 
+
+### Relationship between commit type and version bump
 
 This formula applies some customisations to the defaults, as outlined in the table below,
 based upon the [type](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type) of the commit:
