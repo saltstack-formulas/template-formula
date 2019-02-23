@@ -14,9 +14,10 @@ start on a new formula and it serves as a style guide.
 
 .. contents:: **Table of Contents**
 
-**NOTE**
+General notes
+=============
 
-See the full `Salt Formulas installation and usage instructions
+See the full `SaltStack Formulas installation and usage instructions
 <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
 
 If you are interested in writing or contributing to formulas, please pay attention to the `Writing Formula Section
