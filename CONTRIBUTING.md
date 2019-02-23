@@ -4,8 +4,16 @@ This document will eventually outline all aspects of guidance to make your contr
 What it already contains is information about _commit message formatting_ and how that directly affects the numerous automated processes that are used for this repo.
 
 <table><tr><th>Table of Contents</th></tr><tr><td>
+
 <!-- toc -->
+
+- [Commit message formatting](#commit-message-formatting)
+  * [Automation of multiple processes](#automation-of-multiple-processes)
+  * [Linting commit messages in Travis CI](#linting-commit-messages-in-travis-ci)
+  * [Relationship between commit type and version bump](#relationship-between-commit-type-and-version-bump)
+
 <!-- tocstop -->
+
 </td></tr></table>
 
 ## Commit message formatting

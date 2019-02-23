@@ -8,8 +8,17 @@ Modified by Daniel Dehennin <daniel.dehennin@baby-gnu.org>
 All that follows is a proposal based on my experience with [Saltstack](http://www.saltstack.com/). The good thing of a piece of software like this is that you can "bend it" to suit your needs in many possible ways, and this is one of them. All the recommendations and thoughts are given "as it is" with no warranty of any type.
 
 <table><tr><th>Table of Contents</th></tr><tr><td>
+
 <!-- toc -->
+
+- [Usage of values in pillar vs templates in file_roots](#usage-of-values-in-pillar-vs-templates-in-file_roots)
+- [On reusability of Saltstack state files](#on-reusability-of-saltstack-state-files)
+- [The Template Override and Files Switch (TOFS) pattern](#the-template-override-and-files-switch-tofs-pattern)
+  * [Template Override](#template-override)
+  * [Files Switch](#files-switch)
+
 <!-- tocstop -->
+
 </td></tr></table>
 
 
