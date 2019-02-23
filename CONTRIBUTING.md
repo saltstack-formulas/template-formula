@@ -1,10 +1,18 @@
 # How to contribute
 
+This document will eventually outline all aspects of guidance to make your contributing experience a fruitful and enjoyable one.
+What it already contains is information about _commit message formatting_ and how that directly affects the numerous automated processes that are used for this repo.
+
+<table><tr><th>Table of Contents</th></tr><tr><td>
+<!-- toc -->
+<!-- tocstop -->
+</td></tr></table>
+
 ## Commit message formatting
 
 ### Automation of multiple processes
 
-This repo uses [`semantic-release`](https://github.com/semantic-release/semantic-release) for automating numerous processes such as bumping the version number appropriately, creating new tags/releases and updating the changelog.
+This formula uses [`semantic-release`](https://github.com/semantic-release/semantic-release) for automating numerous processes such as bumping the version number appropriately, creating new tags/releases and updating the changelog.
 The entire process relies on the structure of commit messages to determine the version bump, which is then used for the rest of the automation.
 
 Full details are available in the upstream docs regarding the [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
@@ -19,7 +27,7 @@ type(scope): subject
 Besides the version bump, the changelog and release notes are formatted accordingly.
 So based on the example above:
 
-> ### Documentation
+> <h3>Documentation</h3>
 > 
 > * **contributing:** add commit message formatting instructions
 
@@ -29,7 +37,7 @@ So based on the example above:
 
 ### Linting commit messages in Travis CI
 
-This repo uses [`commitlint`](https://github.com/conventional-changelog/commitlint) for checking commit messages during CI testing.
+This formula uses [`commitlint`](https://github.com/conventional-changelog/commitlint) for checking commit messages during CI testing.
 This ensures that they are in accordance with the `semantic-release` settings.
 
 For more details about the default settings, refer back to the `commitlint` [reference rules](https://conventional-changelog.github.io/commitlint/#/reference-rules). 

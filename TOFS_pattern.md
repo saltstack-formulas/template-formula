@@ -7,6 +7,11 @@ Modified by Daniel Dehennin <daniel.dehennin@baby-gnu.org>
 
 All that follows is a proposal based on my experience with [Saltstack](http://www.saltstack.com/). The good thing of a piece of software like this is that you can "bend it" to suit your needs in many possible ways, and this is one of them. All the recommendations and thoughts are given "as it is" with no warranty of any type.
 
+<table><tr><th>Table of Contents</th></tr><tr><td>
+<!-- toc -->
+<!-- tocstop -->
+</td></tr></table>
+
 
 ## Usage of values in pillar vs templates in file_roots
 

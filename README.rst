@@ -12,9 +12,12 @@ template-formula
 A SaltStack formula that is empty. It has dummy content to help with a quick
 start on a new formula and it serves as a style guide.
 
-**NOTE**
+.. contents:: **Table of Contents**
 
-See the full `Salt Formulas installation and usage instructions
+General notes
+=============
+
+See the full `SaltStack Formulas installation and usage instructions
 <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
 
 If you are interested in writing or contributing to formulas, please pay attention to the `Writing Formula Section
