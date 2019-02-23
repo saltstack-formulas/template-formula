@@ -40,7 +40,7 @@ This formula applies some customisations to the defaults, as outlined in the tab
 based upon the [type](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type) of the commit:
 
 Type|Heading|Description|Bump (default)|Bump (custom)
------|-----|-----|-----|-----
+---|---|---|:-:|:-:
 `build`|Build System|Changes related to the build system|–|
 `chore`|–|Changes to the build process or auxiliary tools and libraries such as documentation generation|–|
 `ci`|Continuous Integration|Changes to the continuous integration configuration|–|
