@@ -1,8 +1,7 @@
-{%- macro files_switch(prefix,
-                       files,
+{%- macro files_switch(files,
                        default_files_switch=['id', 'os_family'],
                        indent_width=6) %}
-  {#
+  {#-
     Returns a valid value for the "source" parameter of a "file.managed"
     state function. This makes easier the usage of the Template Override and
     Files Switch (TOFS) pattern.
@@ -43,22 +42,42 @@
             - salt://xxx/files/default/etc/yyy/zzz.conf.jinja
           - template: jinja
   #}
-  {%- set path_prefix = prefix|replace(':', '/') %}
-  {%- set files_switch_list = salt['pillar.get'](prefix ~ ':files_switch',
-                                           default_files_switch) %}
-  {%- for grain in files_switch_list if grains.get(grain) is defined %}
-    {%- for file in files %}
-      {%- set url = '- salt://' ~ '/'.join([path_prefix,
-                                            'files',
-                                            grains.get(grain),
-                                            file.lstrip('/')]) %}
+  {#- Get the `topdir` from `tpldir` #}
+  {%- set topdir = tpldir.split('/')[0] %}
+  {%- set path_prefix = salt['config.get'](topdir ~ ':tofs:path_prefix', topdir) %}
+  {%- set files_dir = salt['config.get'](topdir ~ ':tofs:dirs:files', 'files') %}
+  {%- set files_switch_list = salt['config.get'](
+      topdir ~ ':tofs:files_switch',
+      default_files_switch
+  ) %}
+  {#- Only add to [''] when supporting older TOFS implementations #}
+  {%- for path_prefix_ext in [''] %}
+    {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
+    {#- For older TOFS implementation, use `files_switch` from the pillar #}
+    {#- Use the default, new method otherwise #}
+    {%- set fsl = salt['pillar.get'](
+        topdir ~ path_prefix_ext|replace('/', ':') ~ ':files_switch',
+        files_switch_list
+    ) %}
+    {#- Append an empty value to evaluate as `default` in the loop below #}
+    {%- if '' not in fsl %}
+      {%- do fsl.append('') %}
+    {%- endif %}
+    {%- for fs in fsl %}
+      {%- for file in files %}
+        {%- if fs %}
+          {%- set fs_dir = salt['config.get'](fs, fs) %}
+        {%- else %}
+          {%- set fs_dir = salt['config.get'](topdir ~ ':tofs:dirs:default', 'default') %}
+        {%- endif %}
+        {%- set url = '- salt://' ~ '/'.join([
+            path_prefix_inc_ext,
+            files_dir,
+            fs_dir,
+            file.lstrip('/')
+        ]) %}
 {{ url | indent(indent_width, true) }}
+      {%- endfor %}
     {%- endfor %}
   {%- endfor %}
-    {%- for file in files %}
-      {%- set url = '- salt://' ~ '/'.join([path_prefix,
-                                            'files/default',
-                                            file.lstrip('/')]) %}
-{{ url | indent(indent_width, true) }}
-    {%- endfor %}
 {%- endmacro %}
