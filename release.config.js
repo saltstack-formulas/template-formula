@@ -14,7 +14,7 @@ module.exports = {
         prepareCmd: 'sh ./update_FORMULA.sh ${nextRelease.version}',
       }],
       ['@semantic-release/git', {
-        assets: ['CHANGELOG.md', 'FORMULA'],
+        assets: ['*.md', 'FORMULA'],
       }],
       '@semantic-release/github',
   ],
