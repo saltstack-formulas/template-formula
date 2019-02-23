@@ -27,7 +27,7 @@ type(scope): subject
 Besides the version bump, the changelog and release notes are formatted accordingly.
 So based on the example above:
 
-> ### Documentation
+> <h3>Documentation</h3>
 > 
 > * **contributing:** add commit message formatting instructions
 
