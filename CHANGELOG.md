@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.7.0](https://github.com/saltstack-formulas/template-formula/compare/v0.6.0...v0.7.0) (2019-02-23)
+
+
+### Features
+
+* **tofs:** implement backwards-compatible TOFSv2 for configurability ([068a94d](https://github.com/saltstack-formulas/template-formula/commit/068a94d)), closes [/freenode.logbot.info/saltstack-formulas/20190214#c1995273](https://github.com//freenode.logbot.info/saltstack-formulas/20190214/issues/c1995273) [/freenode.logbot.info/saltstack-formulas/20190214#c1995487](https://github.com//freenode.logbot.info/saltstack-formulas/20190214/issues/c1995487)
+
 # [0.6.0](https://github.com/saltstack-formulas/template-formula/compare/v0.5.0...v0.6.0) (2019-02-23)
 
 
