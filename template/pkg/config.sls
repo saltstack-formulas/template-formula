@@ -2,11 +2,11 @@
 # vim: ft=sls
 
 {%- set topdir = tpldir.split('/')[0] %}
-{%- from tpldir ~ "/map.jinja" import template with context %}
-{%- from tpldir ~ "/macros.jinja" import files_switch with context %}
+{%- from salt['file.dirname'](tpldir) ~ "/map.jinja" import template with context %}
+{%- from salt['file.dirname'](tpldir) ~ "/macros.jinja" import files_switch with context %}
 
 include:
-  - template.install
+  - .install
 
 template-config:
   file.managed:

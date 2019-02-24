@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- from tpldir ~ "/map.jinja" import template with context %}
+{%- from salt['file.dirname'](tpldir) ~ "/map.jinja" import template with context %}
 
 include:
-  - template.config
+  - .config
 
 template-name:
   service.running:
