@@ -48,14 +48,12 @@ platforms:
       run_command: /usr/lib/systemd/systemd
       provision_command:
         - yum install -y udev
-  # Note, as of February 2019:
-  #   There have been numerous issues with getting `opensuse` to work
-  #   Note: There have been numerous issues with getting `opensuse` to work
-  #     * `opensuse` is deprecated
-  #     * `opensuse/leap` grabs `15.x`, which doesn't run the `inspec` tests
-  #     * `opensuse/tumbleweed` doesn't install `salt-minion`
-  #     * `opensuse/leap:42.3` does work
-  #     * `opensuse/salt-minion` uses `42.3` with `salt-minion` pre-installed
+  # As of February 2019, there have been problems getting `opensuse` to work:
+  #   * `opensuse` is deprecated
+  #   * `opensuse/leap` grabs `15.x`, which doesn't run the `inspec` tests
+  #   * `opensuse/tumbleweed` doesn't install `salt-minion`
+  #   * `opensuse/leap:42.3` does work
+  #   * `opensuse/salt-minion` uses `42.3` with `salt-minion` pre-installed
   - name: opensuse-leap-salt-minion
     driver_config:
       image: opensuse/salt-minion
