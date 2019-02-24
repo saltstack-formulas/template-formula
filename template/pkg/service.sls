@@ -6,7 +6,9 @@
 include:
   - .config
 
-template-name:
+template-service:
   service.running:
     - name: {{ template.service.name }}
     - enable: True
+    - require:
+      - sls: {{ tpldot }}.config

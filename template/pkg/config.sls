@@ -21,3 +21,5 @@ template-config:
     - user: root
     - group: root
     - template: jinja
+    - require:
+      - sls: {{ tpldot }}.install
