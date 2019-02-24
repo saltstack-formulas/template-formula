@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 # vim: ft=jinja
 
-{## Start imports as ##}
-{% import_yaml 'template/defaults.yaml' as default_settings %}
-{% import_yaml 'template/osfamilymap.yaml' as osfamilymap %}
-{% import_yaml 'template/osmap.yaml' as osmap %}
-{% import_yaml 'template/osfingermap.yaml' as osfingermap %}
+{#- Get the `topdir` from `tpldir` #}
+{%- set topdir = tpldir.split('/')[0] %}
+{#- Start imports as #}
+{%- import_yaml topdir ~ "/defaults.yaml" as default_settings %}
+{%- import_yaml topdir ~ "/osfamilymap.yaml" as osfamilymap %}
+{%- import_yaml topdir ~ "/osmap.yaml" as osmap %}
+{%- import_yaml topdir ~ "/osfingermap.yaml" as osfingermap %}
 
 {% set defaults = salt['grains.filter_by'](default_settings,
     default='template',
@@ -18,5 +20,5 @@
     )
 ) %}
 
-{## Merge the template pillar ##}
+{#- Merge the template pillar #}
 {% set template = salt['pillar.get']('template', default=defaults, merge=True) %}
