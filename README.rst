@@ -82,7 +82,7 @@ then uninstalls the package.
 ``template.service.clean``
 --------------------------
 
-This state will stop the template service only.
+This state will stop the template service and disable it at boot time.
 
 ``template.config.clean``
 -------------------------
