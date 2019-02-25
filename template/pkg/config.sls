@@ -7,7 +7,7 @@
 {%- from topdir ~ "/macros.jinja" import files_switch with context %}
 
 include:
-  - .install
+  - {{ topdir }}.pkg.install
 
 template-config:
   file.managed:
@@ -23,4 +23,4 @@ template-config:
     - group: root
     - template: jinja
     - require:
-      - sls: {{ tpldot }}.install
+      - sls: {{ topdir }}.pkg.install

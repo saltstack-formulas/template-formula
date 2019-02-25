@@ -2,4 +2,4 @@
 # vim: ft=sls
 
 include:
-  - template.pkg
+  - .pkg
