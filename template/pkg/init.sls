@@ -3,5 +3,3 @@
 
 include:
   - .install
-  - .config
-  - .service

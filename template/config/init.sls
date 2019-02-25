@@ -2,6 +2,4 @@
 # vim: ft=sls
 
 include:
-  - .pkg
-  - .config
-  - .service
+  - .file

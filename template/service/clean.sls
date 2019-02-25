@@ -5,12 +5,7 @@
 {%- set topdir = tpldir.split('/')[0] %}
 {%- from topdir ~ "/map.jinja" import template with context %}
 
-include:
-  - {{ topdir }}.pkg.config
-
-template-service:
-  service.running:
+template-service-dead:
+  service.dead:
     - name: {{ template.service.name }}
-    - enable: True
-    - require:
-      - sls: {{ topdir }}.pkg.config
+    - enable: False

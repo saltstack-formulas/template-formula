@@ -6,10 +6,11 @@
 {%- from topdir ~ "/map.jinja" import template with context %}
 
 include:
-  - {{ topdir }}.config.clean
+  - {{ topdir }}.config.file
 
-template-pkg-removed:
-  pkg.removed:
-    - name: {{ template.pkg }}
+template-service:
+  service.running:
+    - name: {{ template.service.name }}
+    - enable: True
     - require:
-      - sls: {{ topdir }}.config.clean
+      - sls: {{ topdir }}.config.file
