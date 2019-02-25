@@ -3,14 +3,15 @@
 
 {#- Get the `topdir` from `tpldir` #}
 {%- set topdir = tpldir.split('/')[0] %}
+{%- set sls_config_file = topdir ~ '.config.file' %}
 {%- from topdir ~ "/map.jinja" import template with context %}
 
 include:
-  - {{ topdir }}.config.file
+  - {{ sls_config_file }}
 
 template-service:
   service.running:
     - name: {{ template.service.name }}
     - enable: True
     - require:
-      - sls: {{ topdir }}.config.file
+      - sls: {{ sls_config_file }}

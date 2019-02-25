@@ -3,14 +3,15 @@
 
 {#- Get the `topdir` from `tpldir` #}
 {%- set topdir = tpldir.split('/')[0] %}
+{%- set sls_service_clean = topdir ~ '.service.clean' %}
 {%- from topdir ~ "/map.jinja" import template with context %}
 {%- from topdir ~ "/macros.jinja" import files_switch with context %}
 
 include:
-  - {{ topdir }}.service.clean
+  - {{ sls_service_clean }}
 
 template-config-absent:
   file.absent:
     - name: {{ template.config }}
     - require:
-      - sls: {{ topdir }}.service.clean
+      - sls: {{ sls_service_clean }}

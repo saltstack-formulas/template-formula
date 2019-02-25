@@ -3,13 +3,14 @@
 
 {#- Get the `topdir` from `tpldir` #}
 {%- set topdir = tpldir.split('/')[0] %}
+{%- set sls_config_clean = topdir ~ '.config.clean' %}
 {%- from topdir ~ "/map.jinja" import template with context %}
 
 include:
-  - {{ topdir }}.config.clean
+  - {{ sls_config_clean }}
 
 template-pkg-removed:
   pkg.removed:
     - name: {{ template.pkg }}
     - require:
-      - sls: {{ topdir }}.config.clean
+      - sls: {{ sls_config_clean }}

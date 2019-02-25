@@ -3,11 +3,12 @@
 
 {#- Get the `topdir` from `tpldir` #}
 {%- set topdir = tpldir.split('/')[0] %}
+{%- set sls_pkg_install = topdir ~ '.pkg.install' %}
 {%- from topdir ~ "/map.jinja" import template with context %}
 {%- from topdir ~ "/macros.jinja" import files_switch with context %}
 
 include:
-  - {{ topdir }}.pkg.install
+  - {{ sls_pkg_install }}
 
 template-config:
   file.managed:
@@ -23,4 +24,4 @@ template-config:
     - group: root
     - template: jinja
     - require:
-      - sls: {{ topdir }}.pkg.install
+      - sls: {{ sls_pkg_install }}
