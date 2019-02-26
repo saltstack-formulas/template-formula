@@ -4,4 +4,4 @@
 include:
   - .service.clean
   - .config.clean
-  - .pkg.clean
+  - .package.clean
