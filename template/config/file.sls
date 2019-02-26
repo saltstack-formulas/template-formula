@@ -10,7 +10,7 @@
 include:
   - {{ sls_package_install }}
 
-template-config:
+template-config-file-file-managed:
   file.managed:
     - name: {{ template.config }}
     - source: {{ files_switch(

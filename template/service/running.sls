@@ -9,7 +9,7 @@
 include:
   - {{ sls_config_file }}
 
-template-service:
+template-service-running-service-running:
   service.running:
     - name: {{ template.service.name }}
     - enable: True

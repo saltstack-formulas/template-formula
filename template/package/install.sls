@@ -5,6 +5,6 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import template with context %}
 
-template-pkg:
+template-package-install-pkg-installed:
   pkg.installed:
     - name: {{ template.pkg }}

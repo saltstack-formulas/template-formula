@@ -9,7 +9,7 @@
 include:
   - {{ sls_config_clean }}
 
-template-pkg-removed:
+template-package-clean-pkg-removed:
   pkg.removed:
     - name: {{ template.pkg }}
     - require:

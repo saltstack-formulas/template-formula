@@ -10,7 +10,7 @@
 include:
   - {{ sls_service_clean }}
 
-template-config-absent:
+template-config-clean-file-absent:
   file.absent:
     - name: {{ template.config }}
     - require:

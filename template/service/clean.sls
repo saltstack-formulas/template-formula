@@ -5,7 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import template with context %}
 
-template-service-dead:
+template-service-clean-service-dead:
   service.dead:
     - name: {{ template.service.name }}
     - enable: False
