@@ -60,13 +60,13 @@ This state will install the template package only.
 ``template.config``
 -------------------
 
-This state will configure the template service and has a depency on ``template.install``
+This state will configure the template service and has a dependency on ``template.install``
 via include list.
 
 ``template.service``
 --------------------
 
-This state will start the template service and has a depency on ``template.config``
+This state will start the template service and has a dependency on ``template.config``
 via include list.
 
 ``template.clean``
@@ -87,7 +87,7 @@ This state will stop the template service and disable it at boot time.
 ``template.config.clean``
 -------------------------
 
-This state will remove the configuration of the template service and has a depency on ``template.service.clean``
+This state will remove the configuration of the template service and has a dependency on ``template.service.clean``
 via include list.
 
 ``template.package.clean``
