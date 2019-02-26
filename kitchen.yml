@@ -19,7 +19,7 @@ platforms:
     driver_config:
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt install -y udev
+        - apt-get update && apt-get install -y udev
   # With the release of `2019.2`, `debian-8` is no longer working
   # Disabling until the following upstream bug has been resolved:
   #   * https://github.com/saltstack/salt/issues/51808
@@ -27,17 +27,17 @@ platforms:
   #   driver_config:
   #     run_command: /lib/systemd/systemd
   #     provision_command:
-  #       - apt install -y udev
+  #       - apt-get update && apt-get install -y udev
   - name: ubuntu-18.04
     driver_config:
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt install -y udev
+        - apt-get update && apt-get install -y udev
   - name: ubuntu-16.04
     driver_config:
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt install -y udev
+        - apt-get update && apt-get install -y udev
   - name: centos-7
     driver_config:
       image: centos:7
@@ -50,7 +50,7 @@ platforms:
     driver_config:
       run_command: /usr/lib/systemd/systemd
       provision_command:
-        - yum install -y udev
+        - yum -y update && yum -y install udev
   # As of February 2019, there have been problems getting `opensuse` to work:
   #   * `opensuse` is deprecated
   #   * `opensuse/leap` grabs `15.x`, which doesn't run the `inspec` tests
@@ -62,7 +62,7 @@ platforms:
       image: opensuse/salt-minion
       run_command: /usr/lib/systemd/systemd
       provision_command:
-        - zypper install -y udev
+        - zypper refresh && zypper install -y udev
         - systemctl enable sshd.service
         - cat /etc/os-release
 
