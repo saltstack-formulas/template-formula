@@ -69,5 +69,20 @@ Type|Heading|Description|Bump (default)|Bump (custom)
 `style`|Styles|Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc.)|–|0.0.1
 `test`|Tests|Adding missing or correcting existing tests|–|0.0.1
 
-* Adding `BREAKING CHANGE` to the footer of the extended description of the commit message will **always** trigger a `major` version change, no matter which type has been used.
+### Use `BREAKING CHANGE` to trigger a `major` version change
 
+Adding `BREAKING CHANGE` to the footer of the extended description of the commit message will **always** trigger a `major` version change, no matter which type has been used.
+This will be appended to the changelog and release notes as well.
+To preserve good formatting of these notes, the following format is prescribed:
+
+* `BREAKING CHANGE: <explanation in paragraph format>.`
+
+An example of that:
+
+```git
+...
+
+BREAKING CHANGE: With the removal of all of the `.sls` files under
+`template/package/`, this formula no longer supports the installation of
+packages.
+```
