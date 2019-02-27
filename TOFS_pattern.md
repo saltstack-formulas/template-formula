@@ -13,11 +13,18 @@ All that follows is a proposal based on my experience with [SaltStack](http://ww
 
 <!-- toc -->
 
-- [Usage of values in pillar vs templates in file_roots](#usage-of-values-in-pillar-vs-templates-in-file_roots)
-- [On reusability of SaltStack state files](#on-reusability-of-saltstack-state-files)
+- [Usage of values in pillar vs templates in `file_roots`](#usage-of-values-in-pillar-vs-templates-in-file_roots)
+- [On the reusability of SaltStack state files](#on-the-reusability-of-saltstack-state-files)
 - [The Template Override and Files Switch (TOFS) pattern](#the-template-override-and-files-switch-tofs-pattern)
+  * [Example: NTP before applying TOFS](#example-ntp-before-applying-tofs)
   * [Template Override](#template-override)
   * [Files Switch](#files-switch)
+  * [Using the `files_switch` macro](#using-the-files_switch-macro)
+  * [How to customise the `source` further](#how-to-customise-the-source-further)
+    + [Customise `files`](#customise-files)
+    + [Customise the use of grains](#customise-the-use-of-grains)
+    + [Customise the `default` path](#customise-the-default-path)
+    + [Customise the list of template `files`](#customise-the-list-of-template-files)
 
 <!-- tocstop -->
 
