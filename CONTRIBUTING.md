@@ -11,6 +11,7 @@ What it already contains is information about _commit message formatting_ and ho
   * [Automation of multiple processes](#automation-of-multiple-processes)
   * [Linting commit messages in Travis CI](#linting-commit-messages-in-travis-ci)
   * [Relationship between commit type and version bump](#relationship-between-commit-type-and-version-bump)
+  * [Use `BREAKING CHANGE` to trigger a `major` version change](#use-breaking-change-to-trigger-a-major-version-change)
 
 <!-- tocstop -->
 
