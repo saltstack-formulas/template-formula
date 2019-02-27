@@ -42,12 +42,12 @@
             - salt://xxx/files/default/etc/yyy/zzz.conf.jinja
           - template: jinja
   #}
-  {#- Get the `topdir` from `tpldir` #}
-  {%- set topdir = tpldir.split('/')[0] %}
-  {%- set path_prefix = salt['config.get'](topdir ~ ':tofs:path_prefix', topdir) %}
-  {%- set files_dir = salt['config.get'](topdir ~ ':tofs:dirs:files', 'files') %}
+  {#- Get the `tplroot` from `tpldir` #}
+  {%- set tplroot = tpldir.split('/')[0] %}
+  {%- set path_prefix = salt['config.get'](tplroot ~ ':tofs:path_prefix', tplroot) %}
+  {%- set files_dir = salt['config.get'](tplroot ~ ':tofs:dirs:files', 'files') %}
   {%- set files_switch_list = salt['config.get'](
-      topdir ~ ':tofs:files_switch',
+      tplroot ~ ':tofs:files_switch',
       default_files_switch
   ) %}
   {#- Only add to [''] when supporting older TOFS implementations #}
@@ -56,7 +56,7 @@
     {#- For older TOFS implementation, use `files_switch` from the pillar #}
     {#- Use the default, new method otherwise #}
     {%- set fsl = salt['pillar.get'](
-        topdir ~ path_prefix_ext|replace('/', ':') ~ ':files_switch',
+        tplroot ~ path_prefix_ext|replace('/', ':') ~ ':files_switch',
         files_switch_list
     ) %}
     {#- Append an empty value to evaluate as `default` in the loop below #}
@@ -68,7 +68,7 @@
         {%- if fs %}
           {%- set fs_dir = salt['config.get'](fs, fs) %}
         {%- else %}
-          {%- set fs_dir = salt['config.get'](topdir ~ ':tofs:dirs:default', 'default') %}
+          {%- set fs_dir = salt['config.get'](tplroot ~ ':tofs:dirs:default', 'default') %}
         {%- endif %}
         {%- set url = '- salt://' ~ '/'.join([
             path_prefix_inc_ext,
