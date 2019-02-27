@@ -293,6 +293,7 @@ We can simplify the `conf.sls` with the new `files_switch` macro to use in the `
 include:
   - ntp
 
+{%- set tplroot = tpldir.split('/')[0] %}
 {%- from 'ntp/map.jinja' import ntp with context %}
 {%- from 'ntp/macros.jinja' import files_switch %}
 
@@ -300,45 +301,54 @@ Configure NTP:
   file.managed:
     - name: {{ ntp.config }}
     - template: jinja
-    - source: {{ files_switch('ntp', ['/etc/ntp.conf.jinja']) }}
+    - source: {{ files_switch(
+                  salt['config.get'](
+                      tplroot ~ ':tofs:files:Configure NTP',
+                      ['/etc/ntp.conf.jinja']
+                  )
+            ) }}
     - watch_in:
       - service: Enable and start NTP service
     - require:
       - pkg: Install NTP package
 ```
 
+* This uses `config.get`, searching for `nfs:tofs:files:Configure NTP` to determine the list of template files to use.
+* If this does not yield any results, the default of `['/etc/ntp.conf.jinja']` will be used.
+
 In `macros.jinja`, we define this new macro `files_switch`.
 
 ```
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja
-{%- macro files_switch(prefix,
-                       files,
+{%- macro files_switch(files,
                        default_files_switch=['id', 'os_family'],
                        indent_width=6) %}
-  {#
+  {#-
     Returns a valid value for the "source" parameter of a "file.managed"
     state function. This makes easier the usage of the Template Override and
     Files Switch (TOFS) pattern.
 
     Params:
-      * prefix: pillar prefix to custom ':files_switch'. Colons ':'
-        are replaced by '/' to be used as directory prefix (<path_prefix>)
       * files: ordered list of files to look for
       * default_files_switch: if there's no pillar
-        '<prefix>:files_switch' this is the ordered list of grains to
+        '<tplroot>:tofs:files_switch' this is the ordered list of grains to
         use as selector switch of the directories under
         "<path_prefix>/files"
       * indent_witdh: indentation of the result value to conform to YAML
 
-    Example:
+    Example (based on a `tplroot` of `xxx`):
 
     If we have a state:
 
       Deploy configuration:
         file.managed:
           - name: /etc/yyy/zzz.conf
-          - source: {{ files_switch('xxx', ['/etc/yyy/zzz.conf',
-                                            '/etc/yyy/zzz.conf.jinja']) }}
+          - source: {{ files_switch(
+                          salt['config.get'](
+                              tplroot ~ ':tofs:files:Deploy configuration',
+                              ['/etc/yyy/zzz.conf', '/etc/yyy/zzz.conf.jinja']
+                          )
+                    ) }}
           - template: jinja
 
     In a minion with id=theminion and os_family=RedHat, it's going to be
@@ -356,23 +366,43 @@ In `macros.jinja`, we define this new macro `files_switch`.
             - salt://xxx/files/default/etc/yyy/zzz.conf.jinja
           - template: jinja
   #}
-  {%- set path_prefix = prefix|replace(':', '/') %}
-  {%- set files_switch_list = salt['pillar.get'](prefix ~ ':files_switch',
-                                           default_files_switch) %}
-  {%- for grain in files_switch_list if grains.get(grain) is defined %}
-    {%- for file in files %}
-      {%- set url = '- salt://' ~ '/'.join([path_prefix,
-                                            'files',
-                                            grains.get(grain),
-                                            file.lstrip('/')]) %}
+  {#- Get the `tplroot` from `tpldir` #}
+  {%- set tplroot = tpldir.split('/')[0] %}
+  {%- set path_prefix = salt['config.get'](tplroot ~ ':tofs:path_prefix', tplroot) %}
+  {%- set files_dir = salt['config.get'](tplroot ~ ':tofs:dirs:files', 'files') %}
+  {%- set files_switch_list = salt['config.get'](
+      tplroot ~ ':tofs:files_switch',
+      default_files_switch
+  ) %}
+  {#- Only add to [''] when supporting older TOFS implementations #}
+  {%- for path_prefix_ext in [''] %}
+    {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
+    {#- For older TOFS implementation, use `files_switch` from the pillar #}
+    {#- Use the default, new method otherwise #}
+    {%- set fsl = salt['pillar.get'](
+        tplroot ~ path_prefix_ext|replace('/', ':') ~ ':files_switch',
+        files_switch_list
+    ) %}
+    {#- Append an empty value to evaluate as `default` in the loop below #}
+    {%- if '' not in fsl %}
+      {%- do fsl.append('') %}
+    {%- endif %}
+    {%- for fs in fsl %}
+      {%- for file in files %}
+        {%- if fs %}
+          {%- set fs_dir = salt['config.get'](fs, fs) %}
+        {%- else %}
+          {%- set fs_dir = salt['config.get'](tplroot ~ ':tofs:dirs:default', 'default') %}
+        {%- endif %}
+        {%- set url = '- salt://' ~ '/'.join([
+            path_prefix_inc_ext,
+            files_dir,
+            fs_dir,
+            file.lstrip('/')
+        ]) %}
 {{ url | indent(indent_width, true) }}
+      {%- endfor %}
     {%- endfor %}
   {%- endfor %}
-    {%- for file in files %}
-      {%- set url = '- salt://' ~ '/'.join([path_prefix,
-                                            'files/default',
-                                            file.lstrip('/')]) %}
-{{ url | indent(indent_width, true) }}
-    {%- endfor %}
 {%- endmacro %}
 ```
