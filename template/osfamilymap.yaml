@@ -5,7 +5,9 @@
 # You just need to add the key:values for an `os_family` that differ
 # from `defaults.yaml`.
 # Only add an `os_family` which is/will be supported by the formula
-# (empty `os_family`s do not need to be listed, just added here as an example).
+#
+# This file can be safely removed if you do not need to provide defaults via
+# the `os_family` grain.
 ---
 Debian:
   pkg: template-debian
