@@ -70,7 +70,7 @@ Let's work with the NTP example. A basic formula that follows the [design guidel
 
 In order to use it, let's assume a [masterless configuration](http://docs.saltstack.com/en/latest/topics/tutorials/quickstart.html) and this relevant section of `/etc/salt/minion`:
 
-```
+```yaml
 pillar_roots:
   base:
     - /srv/saltstack/pillar
@@ -81,7 +81,7 @@ file_roots:
     - /srv/saltstack/salt-formulas/ntp-saltstack-formula
 ```
 
-```
+```jinja
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/map.jinja
 {%- set ntp = salt['grains.filter_by']({
   'default': {
@@ -94,7 +94,7 @@ file_roots:
 
 In `init.sls` we have the minimal states required to have NTP configured. In many cases `init.sls` is almost equivalent to an `apt-get install` or a `yum install` of the package.
 
-```
+```sls
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/init.sls
 {%- from 'ntp/map.jinja' import ntp with context %}
 
@@ -112,7 +112,7 @@ Enable and start NTP:
 
 In `conf.sls` we have the configuration states. In most cases, that is just managing configuration file templates and making them to be watched by the service.
 
-```
+```sls
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls
 include:
   - ntp
@@ -132,7 +132,7 @@ Configure NTP:
 
 Under `files/default`, there is a structure that mimics the one in the minion in order to avoid clashes and confusion on where to put the needed templates. There you can find a mostly standard template for the configuration file.
 
-```
+```jinja
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/files/default/etc/ntp.conf.jinja
 # Managed by saltstack
 # Edit pillars or override this template in saltstack if you need customization
@@ -163,7 +163,7 @@ With all this, it is easy to install and configure a simple NTP server by just r
 
 Alternatively, you can define a highstate in `/srv/saltstack/salt/top.sls` and run `salt-call state.highstate`.
 
-```
+```sls
 ## /srv/saltstack/salt/top.sls
 base:
   '*':
@@ -172,7 +172,7 @@ base:
 
 **Customizing the formula just with pillar data**, we have the option to define the NTP servers.
 
-```
+```sls
 ## /srv/saltstack/pillar/top.sls
 base:
   '*':
@@ -180,7 +180,7 @@ base:
 ```
 
 
-```
+```sls
 ## /srv/saltstack/pillar/ntp.sls
 ntp:
   servers:
@@ -195,7 +195,7 @@ ntp:
 
 If the customization based on pillar data is not enough, we can override the template by creating a new one in `/srv/saltstack/salt/ntp/files/default/etc/ntp.conf.jinja`
 
-```
+```jinja
 ## /srv/saltstack/salt/ntp/files/default/etc/ntp.conf.jinja
 # Managed by saltstack
 # Edit pillars or override this template in saltstack if you need customization
@@ -234,7 +234,7 @@ If we decide that we want `os_family` as switch, then we could provide the formu
 
 To make this work we need a `conf.sls` state file that takes a list of possible files as the configuration template.
 
-```
+```sls
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls
 include:
   - ntp
@@ -256,7 +256,7 @@ Configure NTP:
 
 If we want to cover the possibility of a special template for a minion identified by `node01` then we could have a specific template in `/srv/saltstack/salt/ntp/files/node01/etc/ntp.conf.jinja`.
 
-```
+```jinja
 ## /srv/saltstack/salt/ntp/files/node01/etc/ntp.conf.jinja
 # Managed by saltstack
 # Edit pillars or override this template in saltstack if you need customization
@@ -267,7 +267,7 @@ If we want to cover the possibility of a special template for a minion identifie
 
 To make this work we could write a specially crafted `conf.sls`.
 
-```
+```sls
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls
 include:
   - ntp
@@ -292,7 +292,7 @@ Configure NTP:
 
 We can simplify the `conf.sls` with the new `files_switch` macro to use in the `source` parameter for the `file.managed` state.
 
-```
+```sls
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/conf.sls
 include:
   - ntp
@@ -322,7 +322,7 @@ Configure NTP:
 
 In `macros.jinja`, we define this new macro `files_switch`.
 
-```
+```jinja
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja
 {%- macro files_switch(files,
                        default_files_switch=['id', 'os_family'],
