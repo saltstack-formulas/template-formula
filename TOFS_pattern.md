@@ -52,6 +52,8 @@ I understand a formula as a **complete, independent set of SaltStack state and c
 
 The customization of a formula should be done mainly by providing pillar data used later to render either the state or the configuration template files.
 
+### Example: NTP before applying TOFS
+
 Let's work with the NTP example. A basic formula that follows the [design guidelines](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html) has the following files and directories tree:
 
 ```
@@ -285,6 +287,8 @@ Configure NTP:
     - require:
       - pkg: Install NTP package
 ```
+
+### Using the `files_switch` macro
 
 We can simplify the `conf.sls` with the new `files_switch` macro to use in the `source` parameter for the `file.managed` state.
 
