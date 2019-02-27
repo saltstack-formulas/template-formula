@@ -81,7 +81,7 @@ file_roots:
 
 ```
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/map.jinja
-{% set ntp = salt['grains.filter_by']({
+{%- set ntp = salt['grains.filter_by']({
   'default': {
     'pkg': 'ntp',
     'service': 'ntp',
@@ -94,7 +94,7 @@ In `init.sls` we have the minimal states required to have NTP configured. In man
 
 ```
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/init.sls
-{% from 'ntp/map.jinja' import ntp with context %}
+{%- from 'ntp/map.jinja' import ntp with context %}
 
 Install NTP:
   pkg.installed:
@@ -115,7 +115,7 @@ In `conf.sls` we have the configuration states. In most cases, that is just mana
 include:
   - ntp
 
-{% from 'ntp/map.jinja' import ntp with context %}
+{%- from 'ntp/map.jinja' import ntp with context %}
 
 Configure NTP:
   file.managed:
@@ -134,8 +134,8 @@ Under `files/default`, there is a structure that mimics the one in the minion in
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/files/default/etc/ntp.conf.jinja
 # Managed by saltstack
 # Edit pillars or override this template in saltstack if you need customization
-{% set settings = salt['pillar.get']('ntp', {}) %}
-{% set default_servers = ['0.ubuntu.pool.ntp.org',
+{%- set settings = salt['pillar.get']('ntp', {}) %}
+{%- set default_servers = ['0.ubuntu.pool.ntp.org',
                           '1.ubuntu.pool.ntp.org',
                           '2.ubuntu.pool.ntp.org',
                           '3.ubuntu.pool.ntp.org'] %}
@@ -146,9 +146,9 @@ filegen loopstats file loopstats type day enable
 filegen peerstats file peerstats type day enable
 filegen clockstats file clockstats type day enable
 
-{% for server in settings.get('servers', default_servers) %}
+{%- for server in settings.get('servers', default_servers) %}
 server {{ server }}
-{% endfor %}
+{%- endfor %}
 
 restrict -4 default kod notrap nomodify nopeer noquery
 restrict -6 default kod notrap nomodify nopeer noquery
@@ -201,9 +201,9 @@ If the customization based on pillar data is not enough, we can override the tem
 # Some bizarre configurations here
 # ...
 
-{% for server in settings.get('servers', default_servers) %}
+{%- for server in settings.get('servers', default_servers) %}
 server {{ server }}
-{% endfor %}
+{%- endfor %}
 ```
 
 This way we are locally **overriding the template files** offered by the formula in order to make a more complex adaptation. Of course, this could be applied as well to any of the files, including the state files.
@@ -237,7 +237,7 @@ To make this work we need a `conf.sls` state file that takes a list of possible 
 include:
   - ntp
 
-{% from 'ntp/map.jinja' import ntp with context %}
+{%- from 'ntp/map.jinja' import ntp with context %}
 
 Configure NTP:
   file.managed:
@@ -270,7 +270,7 @@ To make this work we could write a specially crafted `conf.sls`.
 include:
   - ntp
 
-{% from 'ntp/map.jinja' import ntp with context %}
+{%- from 'ntp/map.jinja' import ntp with context %}
 
 Configure NTP:
   file.managed:
@@ -293,8 +293,8 @@ We can simplify the `conf.sls` with the new `files_switch` macro to use in the `
 include:
   - ntp
 
-{% from 'ntp/map.jinja' import ntp with context %}
-{% from 'ntp/macros.jinja' import files_switch %}
+{%- from 'ntp/map.jinja' import ntp with context %}
+{%- from 'ntp/macros.jinja' import files_switch %}
 
 Configure NTP:
   file.managed:
