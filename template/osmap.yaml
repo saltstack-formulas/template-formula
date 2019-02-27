@@ -5,7 +5,9 @@
 # You just need to add the key:values for an `os` that differ
 # from `defaults.yaml` + `os_family.yaml`.
 # Only add an `os` which is/will be supported by the formula
-# (empty `os`es do not need to be listed, just added here as an example).
+#
+# This file can be safely removed if you do not need to provide defaults via
+# the `os` grain.
 ---
 # os_family: Debian
 Ubuntu:
