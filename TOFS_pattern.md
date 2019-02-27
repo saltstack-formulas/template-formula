@@ -410,3 +410,108 @@ In `macros.jinja`, we define this new macro `files_switch`.
   {%- endfor %}
 {%- endmacro %}
 ```
+
+### How to customise the `source` further
+
+The examples below are based on an `Ubuntu` minion called `theminion` being configured via. pillar.
+
+Using the default settings of the `files_switch` macro above,
+the `source` will be:
+
+```sls
+          - source:
+            - salt://ntp/files/theminion/etc/ntp.conf.jinja
+            - salt://ntp/files/Debian/etc/ntp.conf.jinja
+            - salt://ntp/files/default/etc/ntp.conf.jinja
+```
+
+#### Customise `files`
+
+The `files` portion can be customised:
+
+```sls
+ntp:
+  tofs:
+    dirs:
+      files: files_alt
+```
+
+Resulting in:
+
+```sls
+          - source:
+            - salt://ntp/files_alt/theminion/etc/ntp.conf.jinja
+            - salt://ntp/files_alt/Debian/etc/ntp.conf.jinja
+            - salt://ntp/files_alt/default/etc/ntp.conf.jinja
+```
+
+#### Customise the use of grains
+
+Grains can be customised and even arbitrary paths can be supplied:
+
+```sls
+ntp:
+  tofs:
+    files_switch:
+      - any/path/can/be/used/here
+      - id
+      - os
+      - os_family
+```
+
+Resulting in:
+
+
+```sls
+          - source:
+            - salt://ntp/files/any/path/can/be/used/here/etc/ntp.conf.jinja
+            - salt://ntp/files/theminion/etc/ntp.conf.jinja
+            - salt://ntp/files/Ubuntu/etc/ntp.conf.jinja
+            - salt://ntp/files/Debian/etc/ntp.conf.jinja
+            - salt://ntp/files/default/etc/ntp.conf.jinja
+```
+
+#### Customise the `default` path
+
+The `default` portion of the path can be customised:
+
+```sls
+ntp:
+  tofs:
+    dirs:
+      default: default_alt
+```
+
+Resulting in:
+
+```sls
+          - source:
+            ...
+            - salt://ntp/files/default_alt/etc/ntp.conf.jinja
+```
+
+#### Customise the list of template `files`
+
+The list of template `files` can be given:
+
+```sls
+ntp:
+  tofs:
+    files:
+      Configure NTP:
+        - '/etc/ntp.conf.jinja'
+        - '/etc/ntp.conf_alt.jinja'
+```
+
+Resulting in:
+
+
+```sls
+          - source:
+            - salt://ntp/files/theminion/etc/ntp.conf.jinja
+            - salt://ntp/files/theminion/etc/ntp.conf_alt.jinja
+            - salt://ntp/files/Debian/etc/ntp.conf.jinja
+            - salt://ntp/files/Debian/etc/ntp.conf_alt.jinja
+            - salt://ntp/files/default/etc/ntp.conf.jinja
+            - salt://ntp/files/default/etc/ntp.conf_alt.jinja
+```
