@@ -76,7 +76,7 @@ provisioner:
     - .kitchen
     - .git
   pillars-from-files:
-    template.sls: pillar.example
+    template.sls: pillar-example.sls
   pillars:
     top.sls:
       base:
