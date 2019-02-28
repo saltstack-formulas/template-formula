@@ -48,9 +48,11 @@ Available states
 
 Meta-state (This is a state that includes other states)
 
-This installs the template package, and starts the associated template service.
+This installs the template package,
+manages the template configuration file and then
+starts the associated template service.
 
-``template.install``
+``template.package``
 --------------------
 
 This state will install the template package only.
@@ -58,12 +60,39 @@ This state will install the template package only.
 ``template.config``
 -------------------
 
-This state will configure the template service and has a depency on ``template.install``
+This state will configure the template service and has a dependency on ``template.install``
 via include list.
 
 ``template.service``
 --------------------
 
-This state will start the template service and has a depency on ``template.config``
+This state will start the template service and has a dependency on ``template.config``
+via include list.
+
+``template.clean``
+------------------
+
+Meta-state (This is a state that includes other states)
+
+this state will undo everything performed in the ``template`` meta-state in reverse order, i.e.
+stops the service,
+removes the configuration file and
+then uninstalls the package.
+
+``template.service.clean``
+--------------------------
+
+This state will stop the template service and disable it at boot time.
+
+``template.config.clean``
+-------------------------
+
+This state will remove the configuration of the template service and has a dependency on ``template.service.clean``
+via include list.
+
+``template.package.clean``
+--------------------------
+
+This state will remove the template package and has a depency on ``template.config.clean``
 via include list.
 
