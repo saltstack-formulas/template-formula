@@ -20,8 +20,9 @@ platforms:
       run_command: /lib/systemd/systemd
       provision_command:
         - apt-get update && apt-get install -y udev
-  - name: debian-8
+  - name: debian-8-backports
     driver_config:
+      image: debian:jessie-backports
       run_command: /lib/systemd/systemd
       provision_command:
         - apt-get update && apt-get install -y udev
