@@ -20,14 +20,11 @@ platforms:
       run_command: /lib/systemd/systemd
       provision_command:
         - apt-get update && apt-get install -y udev
-  # With the release of `2019.2`, `debian-8` is no longer working
-  # Disabling until the following upstream bug has been resolved:
-  #   * https://github.com/saltstack/salt/issues/51808
-  # - name: debian-8
-  #   driver_config:
-  #     run_command: /lib/systemd/systemd
-  #     provision_command:
-  #       - apt-get update && apt-get install -y udev
+  - name: debian-8
+    driver_config:
+      run_command: /lib/systemd/systemd
+      provision_command:
+        - apt-get update && apt-get install -y udev
   - name: ubuntu-18.04
     driver_config:
       run_command: /lib/systemd/systemd
