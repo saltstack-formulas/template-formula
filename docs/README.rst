@@ -14,7 +14,7 @@ start on a new formula and it serves as a style guide.
 .. contents:: **Table of Contents**
 
 General notes
-=============
+-------------
 
 See the full `SaltStack Formulas installation and usage instructions
 <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
@@ -29,7 +29,7 @@ See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/dev
 
 
 Contributing to this repo
-=========================
+-------------------------
 
 **Commit message formatting is significant!!**
 
@@ -37,13 +37,13 @@ Please see `CONTRIBUTING <CONTRIBUTING.rst>`_ for more details.
 
 
 Available states
-================
+----------------
 
 .. contents::
     :local:
 
 ``template``
-------------
+^^^^^^^^^^^^
 
 Meta-state (This is a state that includes other states)
 
@@ -52,24 +52,24 @@ manages the template configuration file and then
 starts the associated template service.
 
 ``template.package``
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 This state will install the template package only.
 
 ``template.config``
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 This state will configure the template service and has a dependency on ``template.install``
 via include list.
 
 ``template.service``
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 This state will start the template service and has a dependency on ``template.config``
 via include list.
 
 ``template.clean``
-------------------
+^^^^^^^^^^^^^^^^^^
 
 Meta-state (This is a state that includes other states)
 
@@ -79,18 +79,18 @@ removes the configuration file and
 then uninstalls the package.
 
 ``template.service.clean``
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will stop the template service and disable it at boot time.
 
 ``template.config.clean``
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will remove the configuration of the template service and has a dependency on ``template.service.clean``
 via include list.
 
 ``template.package.clean``
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will remove the template package and has a depency on ``template.config.clean``
 via include list.
