@@ -1,3 +1,5 @@
+.. _readme:
+
 template-formula
 ================
 
@@ -33,7 +35,7 @@ Contributing to this repo
 
 **Commit message formatting is significant!!**
 
-Please see `CONTRIBUTING <CONTRIBUTING.rst>`_ for more details.
+Please see :ref:`contributing <CONTRIBUTING>` for more details.
 
 
 Available states
