@@ -6,6 +6,8 @@ How to contribute
 This document will eventually outline all aspects of guidance to make your contributing experience a fruitful and enjoyable one.
 What it already contains is information about *commit message formatting* and how that directly affects the numerous automated processes that are used for this repo.
 
+.. contents:: **Table of Contents**
+
 Commit message formatting
 -------------------------
 

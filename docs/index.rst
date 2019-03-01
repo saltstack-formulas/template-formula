@@ -15,3 +15,4 @@ Welcome to template-formula's documentation!
 
     README <README>
     CONTRIBUTING
+    TOFS_pattern
