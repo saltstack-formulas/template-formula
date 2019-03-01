@@ -3,11 +3,19 @@
 template-formula
 ================
 
-|img_travis| |img_sr|
+|img_travis| |docs| |img_sr|
 
 .. |img_travis| image:: https://travis-ci.com/saltstack-formulas/template-formula.svg?branch=master
+    :alt: Travis CI Build Status
+    :scale: 100%
     :target: https://travis-ci.com/saltstack-formulas/template-formula
+.. |docs| image:: https://readthedocs.org/projects/docs/badge/?version=latest
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://template-formula.readthedocs.io/en/latest/?badge=latest
 .. |img_sr| image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+    :alt: Semantic Release
+    :scale: 100%
     :target: https://github.com/semantic-release/semantic-release
 
 A SaltStack formula that is empty. It has dummy content to help with a quick
