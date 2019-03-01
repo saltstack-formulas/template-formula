@@ -12,3 +12,4 @@ Welcome to template-formula's documentation!
     :glob:
 
     README <README>
+    CONTRIBUTING
