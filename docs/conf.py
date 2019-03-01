@@ -149,3 +149,25 @@ latex_documents = [
         'manual',
     ),
 ]
+
+
+# -- Functions: `setup`, docstring preprocessing, etc. -----------------------
+
+def setup(app):
+    """Prepare the Sphinx application object.
+
+    Used for providing a custom CSS file for override styles.
+
+    Parameters
+    ----------
+    app : object
+        The Sphinx application object.
+
+    Returns
+    -------
+    app : object
+        The Sphinx application object.
+
+    """
+    app.add_stylesheet('css/custom.css')
+    return app
