@@ -3,12 +3,29 @@
 TOFS: A pattern for using SaltStack
 ===================================
 
-Roberto Moreda moreda@allenta.com
-29/12/2014
+.. list-table::
+    :name: tofs-authors
+    :header-rows: 1
+    :stub-columns: 1
+    :widths: 2,2,3,2
 
-Modified by Daniel Dehennin daniel.dehennin@baby-gnu.org
+    * -
+      - Person
+      - Contact
+      - Date
+    * - Authored by
+      - Roberto Moreda
+      - moreda@allenta.com
+      - 29/12/2014
+    * - Modified by
+      - Daniel Dehennin
+      - daniel.dehennin@baby-gnu.org
+      - 07/02/2019
+    * - Modified by
+      - Imran Iqbal
+      - https://github.com/myii
+      - 23/02/2019
 
-Updated by Imran Iqbal https://github.com/myii
 
 All that follows is a proposal based on my experience with `SaltStack <http://www.saltstack.com/>`_. The good thing of a piece of software like this is that you can "bend it" to suit your needs in many possible ways, and this is one of them. All the recommendations and thoughts are given "as it is" with no warranty of any type.
 
