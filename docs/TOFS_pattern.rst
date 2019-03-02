@@ -329,96 +329,11 @@ We can simplify the ``conf.sls`` with the new ``files_switch`` macro to use in t
 * This uses ``config.get``\ , searching for ``nfs:tofs:files:Configure NTP`` to determine the list of template files to use.
 * If this does not yield any results, the default of ``['/etc/ntp.conf.jinja']`` will be used.
 
-In ``macros.jinja``\ , we define this new macro ``files_switch``.
+In ``macros.jinja``, we define this new macro ``files_switch``.
 
-.. code-block:: jinja
-
-   ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja
-   {%- macro files_switch(files,
-                          default_files_switch=['id', 'os_family'],
-                          indent_width=6) %}
-     {#-
-       Returns a valid value for the "source" parameter of a "file.managed"
-       state function. This makes easier the usage of the Template Override and
-       Files Switch (TOFS) pattern.
-
-       Params:
-         * files: ordered list of files to look for
-         * default_files_switch: if there's no pillar
-           '<tplroot>:tofs:files_switch' this is the ordered list of grains to
-           use as selector switch of the directories under
-           "<path_prefix>/files"
-         * indent_witdh: indentation of the result value to conform to YAML
-
-       Example (based on a `tplroot` of `xxx`):
-
-       If we have a state:
-
-         Deploy configuration:
-           file.managed:
-             - name: /etc/yyy/zzz.conf
-             - source: {{ files_switch(
-                             salt['config.get'](
-                                 tplroot ~ ':tofs:files:Deploy configuration',
-                                 ['/etc/yyy/zzz.conf', '/etc/yyy/zzz.conf.jinja']
-                             )
-                       ) }}
-             - template: jinja
-
-       In a minion with id=theminion and os_family=RedHat, it's going to be
-       rendered as:
-
-         Deploy configuration:
-           file.managed:
-             - name: /etc/yyy/zzz.conf
-             - source:
-               - salt://xxx/files/theminion/etc/yyy/zzz.conf
-               - salt://xxx/files/theminion/etc/yyy/zzz.conf.jinja
-               - salt://xxx/files/RedHat/etc/yyy/zzz.conf
-               - salt://xxx/files/RedHat/etc/yyy/zzz.conf.jinja
-               - salt://xxx/files/default/etc/yyy/zzz.conf
-               - salt://xxx/files/default/etc/yyy/zzz.conf.jinja
-             - template: jinja
-     #}
-     {#- Get the `tplroot` from `tpldir` #}
-     {%- set tplroot = tpldir.split('/')[0] %}
-     {%- set path_prefix = salt['config.get'](tplroot ~ ':tofs:path_prefix', tplroot) %}
-     {%- set files_dir = salt['config.get'](tplroot ~ ':tofs:dirs:files', 'files') %}
-     {%- set files_switch_list = salt['config.get'](
-         tplroot ~ ':tofs:files_switch',
-         default_files_switch
-     ) %}
-     {#- Only add to [''] when supporting older TOFS implementations #}
-     {%- for path_prefix_ext in [''] %}
-       {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
-       {#- For older TOFS implementation, use `files_switch` from the pillar #}
-       {#- Use the default, new method otherwise #}
-       {%- set fsl = salt['pillar.get'](
-           tplroot ~ path_prefix_ext|replace('/', ':') ~ ':files_switch',
-           files_switch_list
-       ) %}
-       {#- Append an empty value to evaluate as `default` in the loop below #}
-       {%- if '' not in fsl %}
-         {%- do fsl.append('') %}
-       {%- endif %}
-       {%- for fs in fsl %}
-         {%- for file in files %}
-           {%- if fs %}
-             {%- set fs_dir = salt['config.get'](fs, fs) %}
-           {%- else %}
-             {%- set fs_dir = salt['config.get'](tplroot ~ ':tofs:dirs:default', 'default') %}
-           {%- endif %}
-           {%- set url = '- salt://' ~ '/'.join([
-               path_prefix_inc_ext,
-               files_dir,
-               fs_dir,
-               file.lstrip('/')
-           ]) %}
-   {{ url | indent(indent_width, true) }}
-         {%- endfor %}
-       {%- endfor %}
-     {%- endfor %}
-   {%- endmacro %}
+.. literalinclude:: ../template/macros.jinja
+   :caption: /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja
+   :language: jinja
 
 How to customise the ``source`` further
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
