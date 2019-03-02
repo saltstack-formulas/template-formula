@@ -37,14 +37,12 @@ which contains the currently released version. This formula is versioned accordi
 
 See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning>`_ for more details.
 
-
 Contributing to this repo
 -------------------------
 
 **Commit message formatting is significant!!**
 
 Please see :ref:`contributing <CONTRIBUTING>` for more details.
-
 
 Available states
 ----------------

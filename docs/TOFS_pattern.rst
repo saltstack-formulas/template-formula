@@ -26,7 +26,6 @@ TOFS: A pattern for using SaltStack
       - https://github.com/myii
       - 23/02/2019
 
-
 All that follows is a proposal based on my experience with `SaltStack <http://www.saltstack.com/>`_. The good thing of a piece of software like this is that you can "bend it" to suit your needs in many possible ways, and this is one of them. All the recommendations and thoughts are given "as it is" with no warranty of any type.
 
 .. contents:: **Table of Contents**
