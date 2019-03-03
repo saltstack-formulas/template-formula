@@ -5,11 +5,23 @@ How to contribute
 
 This document will eventually outline all aspects of guidance to make your contributing experience a fruitful and enjoyable one.
 What it already contains is information about *commit message formatting* and how that directly affects the numerous automated processes that are used for this repo.
+It also covers how to contribute to this *formula's documentation*.
 
 .. contents:: **Table of Contents**
 
+Overview
+--------
+
+Submitting a pull request is more than just code!
+To achieve a quality product, the *tests* and *documentation* need to be updated as well.
+An excellent pull request will include these in the changes, wherever relevant.
+
 Commit message formatting
 -------------------------
+
+Since every type of change requires making Git commits,
+we will start by covering the importance of ensuring that all of your commit
+messages are in the correct format.
 
 Automation of multiple processes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -22,7 +34,7 @@ The key factor is that the first line of the commit message must follow this for
 
 .. code-block::
 
-    type(scope): subject
+   type(scope): subject
 
 
 * E.g. ``docs(contributing): add commit message formatting instructions``.
@@ -32,11 +44,11 @@ So based on the example above:
 
 ..
 
-    .. raw:: html
+   .. raw:: html
 
-        <h3>Documentation</h3>
+      <h3>Documentation</h3>
 
-    * **contributing:** add commit message formatting instructions
+   * **contributing:** add commit message formatting instructions
 
 
 * The ``type`` translates into a ``Documentation`` sub-heading.
@@ -49,7 +61,7 @@ Linting commit messages in Travis CI
 This formula uses `commitlint <https://github.com/conventional-changelog/commitlint>`_ for checking commit messages during CI testing.
 This ensures that they are in accordance with the ``semantic-release`` settings.
 
-For more details about the default settings, refer back to the ``commitlint`` `reference rules <https://conventional-changelog.github.io/commitlint/#/reference-rules>`_. 
+For more details about the default settings, refer back to the ``commitlint`` `reference rules <https://conventional-changelog.github.io/commitlint/#/reference-rules>`_.
 
 Relationship between commit type and version bump
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,72 +70,73 @@ This formula applies some customisations to the defaults, as outlined in the tab
 based upon the `type <https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type>`_ of the commit:
 
 .. list-table::
-    :name: commit-type-vs-version-bump
-    :header-rows: 1
-    :stub-columns: 0
-    :widths: 1,2,3,1,1
+   :name: commit-type-vs-version-bump
+   :header-rows: 1
+   :stub-columns: 0
+   :widths: 1,2,3,1,1
 
-    * - Type
-      - Heading
-      - Description
-      - Bump (default)
-      - Bump (custom)
-    * - ``build``
-      - Build System
-      - Changes related to the build system
-      - –
-      - 
-    * - ``chore``
-      - –
-      - Changes to the build process or auxiliary tools and libraries such as documentation generation
-      - –
-      - 
-    * - ``ci``
-      - Continuous Integration
-      - Changes to the continuous integration configuration
-      - –
-      - 
-    * - ``docs``
-      - Documentation
-      - Documentation only changes
-      - –
-      - 0.0.1
-    * - ``feat``
-      - Features
-      - A new feature
-      - 0.1.0
-      - 
-    * - ``fix``
-      - Bug Fixes
-      - A bug fix
-      - 0.0.1
-      - 
-    * - ``perf``
-      - Performance Improvements
-      - A code change that improves performance
-      - 0.0.1
-      - 
-    * - ``refactor``
-      - Code Refactoring
-      - A code change that neither fixes a bug nor adds a feature
-      - –
-      - 0.0.1
-    * - ``revert``
-      - Reverts
-      - A commit used to revert a previous commit
-      - –
-      - 0.0.1
-    * - ``style``
-      - Styles
-      - Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc.)
-      - –
-      - 0.0.1
-    * - ``test``
-      - Tests
-      - Adding missing or correcting existing tests
-      - –
-      - 0.0.1
-
+   * - Type
+     - Heading
+     - Description
+     - Bump (default)
+     - Bump (custom)
+   * - ``build``
+     - Build System
+     - Changes related to the build system
+     - –
+     -
+   * - ``chore``
+     - –
+     - Changes to the build process or auxiliary tools and libraries such as
+       documentation generation
+     - –
+     -
+   * - ``ci``
+     - Continuous Integration
+     - Changes to the continuous integration configuration
+     - –
+     -
+   * - ``docs``
+     - Documentation
+     - Documentation only changes
+     - –
+     - 0.0.1
+   * - ``feat``
+     - Features
+     - A new feature
+     - 0.1.0
+     -
+   * - ``fix``
+     - Bug Fixes
+     - A bug fix
+     - 0.0.1
+     -
+   * - ``perf``
+     - Performance Improvements
+     - A code change that improves performance
+     - 0.0.1
+     -
+   * - ``refactor``
+     - Code Refactoring
+     - A code change that neither fixes a bug nor adds a feature
+     - –
+     - 0.0.1
+   * - ``revert``
+     - Reverts
+     - A commit used to revert a previous commit
+     - –
+     - 0.0.1
+   * - ``style``
+     - Styles
+     - Changes that do not affect the meaning of the code (white-space,
+       formatting, missing semi-colons, etc.)
+     - –
+     - 0.0.1
+   * - ``test``
+     - Tests
+     - Adding missing or correcting existing tests
+     - –
+     - 0.0.1
 
 Use ``BREAKING CHANGE`` to trigger a ``major`` version change
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,16 +145,102 @@ Adding ``BREAKING CHANGE`` to the footer of the extended description of the comm
 This will be appended to the changelog and release notes as well.
 To preserve good formatting of these notes, the following format is prescribed:
 
-
 * ``BREAKING CHANGE: <explanation in paragraph format>.``
 
 An example of that:
 
 .. code-block:: git
 
-    ...
+   ...
 
-    BREAKING CHANGE: With the removal of all of the `.sls` files under
-    `template/package/`, this formula no longer supports the installation of
-    packages.
+   BREAKING CHANGE: With the removal of all of the `.sls` files under
+   `template package`, this formula no longer supports the installation of
+   packages.
+
+Documentation
+-------------
+
+Toolchain
+^^^^^^^^^
+
+The documentation for this formula is written in
+`reStructuredText <https://en.wikipedia.org/wiki/ReStructuredText>`_
+(also known as RST, ReST, or reST).
+It is built by
+`Sphinx <https://en.wikipedia.org/wiki/Sphinx_(documentation_generator)>`_
+and hosted on
+`Read the Docs <https://en.wikipedia.org/wiki/Read_the_Docs>`_.
+
+Adding a new page
+^^^^^^^^^^^^^^^^^
+
+Adding a new page involves two steps:
+
+#. Use the
+   :ref:`provided page template <saltstack_formulas_rst_page_template>`
+   to create a new page.
+#. Add the page name under the ``toctree`` list in ``index.rst``.
+
+   a. Do not just append it to the list.
+   #. Select the best place where it fits within the overall documentation.
+
+SaltStack-Formulas' RST page template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _saltstack_formulas_rst_page_template
+
+Use the following template when creating a new page.
+This ensures consistency across the documentation for this formula.
+The heading symbols have been selected in accordance to the output rendered by the
+`Markdown to reStructuredText converter <https://github.com/miyakogi/m2r#restrictions>`_
+we are using for some of the pages of this documentation.
+
+.. code-block:: rst
+
+   .. _template:
+
+   [Page title]
+   ============
+
+   [Introductory paragraph]
+
+   .. contents:: **Table of Contents**
+
+   [Heading 2]
+   -----------
+
+   [Heading 3]
+   ^^^^^^^^^^^
+
+   [Heading 4]
+   ~~~~~~~~~~~
+
+   [Heading 5]
+   """""""""""
+
+   [Heading 6]
+   ###########
+
+#. The first line is an anchor that can be used to link back to (the top of)
+   this file.
+
+   a. Change this to be the lowercase version of the file name.
+   #. Do not include the ``.rst`` file extension.
+   #. Use hyphens (``-``) instead of spaces or non-letter characters.
+
+#. Change the ``[Page title]`` accordingly, matching the same number of equals
+   signs (``=``) underneath.
+#. Change the ``[Introductory paragraph]`` to be a short summary of the page
+   content.
+   Use no more than three paragraphs for this.
+#. Leave the ``..contents:: **Table of Contents**`` line as it is.
+#. Use the remaining headings as required to break up the page content.
+
+   a. You will rarely need to use beyond ``[Heading 4]``.
+   #. Again, no single heading should have more than about three paragraphs of
+      content before the next heading or sub-heading is used.
+
+Obviously, it is not necessary to follow the steps in the order above.
+For example, it is usually easier to write the ``[Introductory paragraph]``
+at the end.
 

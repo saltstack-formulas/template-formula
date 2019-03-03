@@ -6,17 +6,17 @@ template-formula
 |img_travis| |docs| |img_sr|
 
 .. |img_travis| image:: https://travis-ci.com/saltstack-formulas/template-formula.svg?branch=master
-    :alt: Travis CI Build Status
-    :scale: 100%
-    :target: https://travis-ci.com/saltstack-formulas/template-formula
+   :alt: Travis CI Build Status
+   :scale: 100%
+   :target: https://travis-ci.com/saltstack-formulas/template-formula
 .. |docs| image:: https://readthedocs.org/projects/docs/badge/?version=latest
-    :alt: Documentation Status
-    :scale: 100%
-    :target: https://template-formula.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+   :scale: 100%
+   :target: https://template-formula.readthedocs.io/en/latest/?badge=latest
 .. |img_sr| image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-    :alt: Semantic Release
-    :scale: 100%
-    :target: https://github.com/semantic-release/semantic-release
+   :alt: Semantic Release
+   :scale: 100%
+   :target: https://github.com/semantic-release/semantic-release
 
 A SaltStack formula that is empty. It has dummy content to help with a quick
 start on a new formula and it serves as a style guide.
@@ -37,25 +37,23 @@ which contains the currently released version. This formula is versioned accordi
 
 See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning>`_ for more details.
 
-
 Contributing to this repo
 -------------------------
 
 **Commit message formatting is significant!!**
 
-Please see :ref:`contributing <CONTRIBUTING>` for more details.
-
+Please see :ref:`How to contribute <CONTRIBUTING>` for more details.
 
 Available states
 ----------------
 
 .. contents::
-    :local:
+   :local:
 
 ``template``
 ^^^^^^^^^^^^
 
-Meta-state (This is a state that includes other states)
+*Meta-state (This is a state that includes other states)*.
 
 This installs the template package,
 manages the template configuration file and then
@@ -81,7 +79,7 @@ via include list.
 ``template.clean``
 ^^^^^^^^^^^^^^^^^^
 
-Meta-state (This is a state that includes other states)
+*Meta-state (This is a state that includes other states)*.
 
 this state will undo everything performed in the ``template`` meta-state in reverse order, i.e.
 stops the service,
@@ -96,12 +94,12 @@ This state will stop the template service and disable it at boot time.
 ``template.config.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will remove the configuration of the template service and has a dependency on ``template.service.clean``
-via include list.
+This state will remove the configuration of the template service and has a
+dependency on ``template.service.clean`` via include list.
 
 ``template.package.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will remove the template package and has a depency on ``template.config.clean``
-via include list.
+This state will remove the template package and has a depency on
+``template.config.clean`` via include list.
 
