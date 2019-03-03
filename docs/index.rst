@@ -8,7 +8,7 @@ Welcome to template-formula's documentation!
 ============================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents
    :numbered:
    :glob:
@@ -16,3 +16,5 @@ Welcome to template-formula's documentation!
    README <README>
    CONTRIBUTING
    TOFS_pattern
+   AUTHORS
+   CHANGELOG
