@@ -11,7 +11,7 @@ module.exports = {
         changelogTitle: '# Changelog',
       }],
       ['@semantic-release/exec', {
-        prepareCmd: 'sh ./update_FORMULA.sh ${nextRelease.version}',
+        prepareCmd: 'sh bin/pre-commit_semantic-release.sh ${nextRelease.version}',
       }],
       ['@semantic-release/git', {
         assets: ['*.md', 'docs/*.rst', 'FORMULA'],
