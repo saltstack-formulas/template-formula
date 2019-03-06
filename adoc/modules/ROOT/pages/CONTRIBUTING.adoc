@@ -1,3 +1,4 @@
 = How to contribute
 
-WIP.
+This document will eventually outline all aspects of guidance to make
+your contributing experience a fruitful and enjoyable one.
