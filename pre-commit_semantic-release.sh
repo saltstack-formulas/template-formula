@@ -7,7 +7,13 @@ sed -i -e "s_^\(version:\).*_\1 ${1}_" FORMULA
 
 
 ###############################################################################
-# (B) Use `m2r` to convert automatically produced `.md` docs to `.rst`
+# (B) Update `adoc/antora.yml` with `${nextRelease.version}`
+###############################################################################
+sed -i -e "s_^\(version:\).*_\1 '${1}'_" adoc/antora.yml
+
+
+###############################################################################
+# (C) Use `m2r` to convert automatically produced `.md` docs to `.rst`
 ###############################################################################
 
 # Install `m2r`

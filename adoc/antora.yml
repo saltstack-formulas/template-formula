@@ -1,0 +1,6 @@
+name: template-formula
+title: template-formula
+version: '1.2.0' 
+start_page: ROOT:README.adoc
+nav:
+- modules/ROOT/nav.adoc

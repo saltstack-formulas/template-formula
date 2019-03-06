@@ -1,0 +1,3 @@
+.Formula
+* xref:ROOT:README.adoc[README]
+* xref:ROOT:CONTRIBUTING.adoc[How to contribute]
