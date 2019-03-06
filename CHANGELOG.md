@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/myii/template-formula/compare/v1.3.0...v1.3.1) (2019-03-06)
+
+
+### Documentation
+
+* **contributing:** start initial paragraph ([5687022](https://github.com/myii/template-formula/commit/5687022))
+
 # [1.3.0](https://github.com/myii/template-formula/compare/v1.2.0...v1.3.0) (2019-03-06)
 
 
