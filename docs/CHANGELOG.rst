@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.3.0 <https://github.com/myii/template-formula/compare/v1.2.0...v1.3.0>`_ (2019-03-06)
+--------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** leave only ``release`` stage for fast Antora testing (\ `661e1b3 <https://github.com/myii/template-formula/commit/661e1b3>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **antora:** introduce Antora-based documentation (\ `df706c2 <https://github.com/myii/template-formula/commit/df706c2>`_\ )
+
 `1.2.0 <https://github.com/saltstack-formulas/template-formula/compare/v1.1.2...v1.2.0>`_ (2019-03-03)
 ----------------------------------------------------------------------------------------------------------
 
