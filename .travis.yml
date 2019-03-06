@@ -1,46 +1,46 @@
 stages:
-  - test
-  - commitlint
+  # - test
+  # - commitlint
   - name: release
     if: branch = master AND type != pull_request
 
-sudo: required
-cache: bundler
-language: ruby
-
-services:
-  - docker
-
-before_install:
-  - bundle install
-
-# Make sure the instances listed below match up with
-# the `platforms` defined in `kitchen.yml`
-env:
-  matrix:
-    - INSTANCE: default-debian-9
-    - INSTANCE: default-debian-8-backports
-    - INSTANCE: default-ubuntu-1804
-    - INSTANCE: default-ubuntu-1604
-    - INSTANCE: default-centos-7
-    # - INSTANCE: default-centos-6
-    - INSTANCE: default-fedora
-    - INSTANCE: default-opensuse-leap-salt-minion
-
-script:
-  - bundle exec kitchen verify ${INSTANCE}
+# sudo: required
+# cache: bundler
+# language: ruby
+#
+# services:
+#   - docker
+#
+# before_install:
+#   - bundle install
+#
+# # Make sure the instances listed below match up with
+# # the `platforms` defined in `kitchen.yml`
+# env:
+#   matrix:
+#     - INSTANCE: default-debian-9
+#     - INSTANCE: default-debian-8-backports
+#     - INSTANCE: default-ubuntu-1804
+#     - INSTANCE: default-ubuntu-1604
+#     - INSTANCE: default-centos-7
+#     # - INSTANCE: default-centos-6
+#     - INSTANCE: default-fedora
+#     - INSTANCE: default-opensuse-leap-salt-minion
+#
+# script:
+#   - bundle exec kitchen verify ${INSTANCE}
 
 jobs:
   include:
-    # Define the commitlint stage
-    - stage: commitlint
-      language: node_js
-      node_js: lts/*
-      before_install: skip
-      script:
-        - npm install @commitlint/config-conventional -D
-        - npm install @commitlint/travis-cli -D
-        - commitlint-travis
+    # # Define the commitlint stage
+    # - stage: commitlint
+    #   language: node_js
+    #   node_js: lts/*
+    #   before_install: skip
+    #   script:
+    #     - npm install @commitlint/config-conventional -D
+    #     - npm install @commitlint/travis-cli -D
+    #     - commitlint-travis
     # Define the release stage that runs semantic-release
     - stage: release
       language: node_js
