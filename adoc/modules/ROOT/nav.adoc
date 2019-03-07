@@ -1,3 +1,11 @@
+.General
+* xref:ROOT:CONTRIBUTING.adoc[How to contribute]
+** xref:ROOT:CONTRIBUTING.adoc#commit_message_formatting[Commit message formatting]
+*** xref:ROOT:CONTRIBUTING.adoc#automatic_version_bump[Automatic version bump]
+*** xref:ROOT:CONTRIBUTING.adoc#commit_type_vs_version_bump[Commit type vs. version bump]
+** xref:ROOT:CONTRIBUTING.adoc#documentation[Documentation]
+*** xref:ROOT:CONTRIBUTING.adoc#saltstack_formulas_rst_page_template[RST page template]
+
 .Formula
 * xref:ROOT:README.adoc[README]
-* xref:ROOT:CONTRIBUTING.adoc[How to contribute]
+** xref:ROOT:README.adoc#states[Available states]

@@ -19,12 +19,14 @@ the _tests_ and _documentation_ need to be updated as well.
 An excellent pull request will include these in the changes,
 wherever relevant.
 
+[#commit_message_formatting]
 == Commit message formatting
 
 Since every type of change requires making Git commits,
 we will start by covering the importance of ensuring that
 all of your commit messages are in the correct format.
 
+[#automatic_version_bump]
 === Automation of multiple processes
 
 This formula uses
@@ -76,6 +78,7 @@ refer back to the `commitlint`
 https://conventional-changelog.github.io/commitlint/#/reference-rules[reference
 rules].
 
+[#commit_type_vs_version_bump]
 === Relationship between commit type and version bump
 
 This formula applies some customisations to the defaults,
@@ -186,6 +189,7 @@ BREAKING CHANGE: With the removal of all of the `.sls` files under
 packages.
 ----
 
+[#documentation]
 == Documentation
 
 .This section refers to the _Read the Docs_ documentation

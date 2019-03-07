@@ -41,6 +41,7 @@ Please see
 xref:ROOT:CONTRIBUTING.adoc[How to contribute]
 for more details.
 
+[#states]
 == Available states
 
 === `template`
