@@ -2,3 +2,186 @@
 
 This document will eventually outline all aspects of guidance to make
 your contributing experience a fruitful and enjoyable one.
+What it already contains is information about _commit message formatting_
+and how that directly affects the numerous automated processes that are used
+for this repo.
+It also covers how to contribute to this _formula's documentation_.
+
+// This `toc` will not show up in GitHub directly, only in the GitHub pages.
+// Antora applies all of the `toc` settings when rendering the HTML.
+toc::[]
+
+== Overview
+
+Submitting a pull request is more than just code!
+To achieve a quality product,
+the _tests_ and _documentation_ need to be updated as well.
+An excellent pull request will include these in the changes,
+wherever relevant.
+
+== Commit message formatting
+
+Since every type of change requires making Git commits,
+we will start by covering the importance of ensuring that
+all of your commit messages are in the correct format.
+
+=== Automation of multiple processes
+
+This formula uses
+https://github.com/semantic-release/semantic-release[semantic-release]
+for automating numerous processes such as
+bumping the version number appropriately,
+creating new tags/releases
+and updating the changelog.
+The entire process relies on the structure of commit messages to
+determine the version bump,
+which is then used for the rest of the automation.
+
+Full details are available in the upstream docs regarding the
+https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines[Angular
+Commit Message Conventions].
+The key factor is that the first line of the commit message must follow this format:
+
+.Commit message format
+[source%nowrap,]
+----
+type(scope): subject
+----
+
+* E.g. `docs(contributing): add commit message formatting instructions`.
+
+Besides the version bump,
+the changelog and release notes are formatted accordingly.
+So based on the example above:
+
+____
++++<h3>Documentation</h3>+++
+
+* *contributing:* add commit message formatting instructions
+____
+
+* The `type` translates into a `Documentation` sub-heading.
+* The `(scope):` will be shown in bold text without the brackets.
+* The `subject` follows the `scope` as standard text.
+
+=== Linting commit messages in Travis CI
+
+This formula uses
+https://github.com/conventional-changelog/commitlint[commitlint]
+for checking commit messages during CI testing.
+This ensures that they are in accordance with the `semantic-release` settings.
+
+For more details about the default settings,
+refer back to the `commitlint`
+https://conventional-changelog.github.io/commitlint/#/reference-rules[reference
+rules].
+
+=== Relationship between commit type and version bump
+
+This formula applies some customisations to the defaults,
+as outlined in the table below, based upon the
+https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type[type]
+of the commit:
+
+[cols=",,,^,^",options="header",]
+
+.Commit type vs. version bump
+[format="psv", separator="|", frame="all", grid="all", float="left", options="header", cols="<.<14m,<.<25d,<.<37d,^.<12m,^.<12m", width="100"]
+|===
+^.^|Type
+^.^|Heading
+^.^|Description
+^.^|Bump (default)
+^.^|Bump (custom)
+
+|build 
+|Build System 
+|Changes related to the build system 
+|– 
+|
+
+|chore 
+|– 
+|Changes to the build process or auxiliary tools
+and libraries such as documentation generation 
+|– 
+|
+
+|ci 
+|Continuous Integration 
+|Changes to the continuous integration configuration 
+|– 
+|
+
+|docs 
+|Documentation 
+|Documentation only changes 
+|– 
+|0.0.1
+
+|feat 
+|Features 
+|A new feature 
+|0.1.0 
+|
+
+|fix 
+|Bug Fixes 
+|A bug fix 
+|0.0.1 
+|
+
+|perf 
+|Performance Improvements 
+|A code change that improves performance 
+|0.0.1 
+|
+
+|refactor 
+|Code Refactoring 
+|A code change that neither fixes a bug nor adds a feature 
+|– 
+|0.0.1
+
+|revert 
+|Reverts 
+|A commit used to revert a previous commit 
+|– 
+|0.0.1
+
+|style 
+|Styles 
+|Changes that do not affect the meaning of the code
+(white-space, formatting, missing semi-colons, etc.) 
+|– 
+|0.0.1
+
+|test 
+|Tests 
+|Adding missing or correcting existing tests 
+|– 
+|0.0.1
+|===
+
+== Use `BREAKING CHANGE` to trigger a `major` version change
+
+Adding `BREAKING CHANGE` to the footer of the extended description of the
+commit message will *always* trigger a `major` version change,
+no matter which type has been used.
+This will be appended to the changelog and release notes as well.
+To preserve good formatting of these notes,
+the following format is prescribed:
+
+* `BREAKING CHANGE: <explanation in paragraph format>.`
+
+An example of that:
+
+.Example of supplying `BREAKING CHANGE` in a commit message
+[source%nowrap, git]
+----
+...
+
+BREAKING CHANGE: With the removal of all of the `.sls` files under
+`template package`, this formula no longer supports the installation of
+packages.
+----
