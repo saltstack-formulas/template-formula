@@ -11,6 +11,7 @@ It also covers how to contribute to this _formula's documentation_.
 // Antora applies all of the `toc` settings when rendering the HTML.
 toc::[]
 
+[abstract]
 == Overview
 
 Submitting a pull request is more than just code!

@@ -12,6 +12,7 @@ as a style guide.
 // Antora applies all of the `toc` settings when rendering the HTML.
 toc::[]
 
+[abstract]
 == General notes
 
 See the full
