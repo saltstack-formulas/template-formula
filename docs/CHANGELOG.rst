@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.2.1 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.0...v1.2.1>`_ (2019-03-07)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** ``pillars-from-files`` => ``pillars_from_files`` (\ `7c954a7 <https://github.com/saltstack-formulas/template-formula/commit/7c954a7>`_\ ), closes `/github.com/saltstack-formulas/packages-formula/pull/50#discussion_r262769817 <https://github.com//github.com/saltstack-formulas/packages-formula/pull/50/issues/discussion_r262769817>`_
+
+Styles
+^^^^^^
+
+
+* **map:** use ``-`` for each Jinja block (\ `64e3834 <https://github.com/saltstack-formulas/template-formula/commit/64e3834>`_\ )
+
 `1.2.0 <https://github.com/saltstack-formulas/template-formula/compare/v1.1.2...v1.2.0>`_ (2019-03-03)
 ----------------------------------------------------------------------------------------------------------
 
