@@ -163,7 +163,7 @@ and libraries such as documentation generation
 |0.0.1
 |===
 
-== Use `BREAKING CHANGE` to trigger a `major` version change
+=== Use `BREAKING CHANGE` to trigger a `major` version change
 
 Adding `BREAKING CHANGE` to the footer of the extended description of the
 commit message will *always* trigger a `major` version change,
@@ -185,3 +185,96 @@ BREAKING CHANGE: With the removal of all of the `.sls` files under
 `template package`, this formula no longer supports the installation of
 packages.
 ----
+
+== Documentation
+
+.This section refers to the _Read the Docs_ documentation
+[WARNING]
+====
+This section is relevant to the _Read the Docs_ documentation
+that currently exists while this _Antora_ solution is being evaluated.
+====
+
+=== Toolchain
+
+The documentation for this formula is written in
+https://en.wikipedia.org/wiki/ReStructuredText[reStructuredText]
+(also known as RST, ReST, or reST).
+It is built by
+https://en.wikipedia.org/wiki/Sphinx_(documentation_generator)[Sphinx]
+and hosted on https://en.wikipedia.org/wiki/Read_the_Docs[Read the Docs].
+
+=== Adding a new page
+
+Adding a new page involves two steps:
+
+. Use the
+xref:#saltstack_formulas_rst_page_template[provided page template]
+to create a new page.
+. Add the page name under the `toctree` list in `index.rst`.
+.. Do not just append it to the list.
+.. Select the best place where it fits within the overall documentation.
+
+=== SaltStack-Formulas' RST page template
+
+Use the following template when creating a new page.
+This ensures consistency across the documentation for this formula.
+The heading symbols have been selected in accordance to the
+output rendered by the
+https://github.com/miyakogi/m2r#restrictions[Markdown to
+reStructuredText converter]
+we are using for some of the pages of this documentation.
+
+[#saltstack_formulas_rst_page_template]
+.RST page template
+[source%nowrap, rst]
+----
+.. _template: # <1>
+
+[Page title] # <2>
+============
+
+[Introductory paragraph] # <3>
+
+.. contents:: **Table of Contents** # <4>
+
+[Heading 2] # <5>
+-----------
+
+[Heading 3] # <5>
+^^^^^^^^^^^
+
+[Heading 4] # <5>
+~~~~~~~~~~~
+
+[Heading 5] # <6>
+"""""""""""
+
+[Heading 6] # <6>
+###########
+----
+
+<1> The first line is an anchor that can be used to link back to
+(the top of) this file.
+* Change this to be the lowercase version of the file name.
+* Do not include the `.rst` file extension.
+* Use hyphens (`-`) instead of spaces or non-letter characters.
+
+<2> Change the `[Page title]` accordingly.
+Match the same number of equals signs (`=`) underneath.
+
+<3> Change the `[Introductory paragraph]` to be
+a short summary of the page content.
+Use no more than three paragraphs for this.
+
+<4> Leave the `..contents:: **Table of Contents**` line as it is.
+
+<5> Use the remaining headings as required to break up the page content.
+Again, no single heading should have more than about
+three paragraphs of content before the next heading or sub-heading is used.
+
+<6> You will rarely need to use beyond `[Heading 4]`.
+
+Obviously, it is not necessary to follow the steps in the order above.
+For example, it is usually easier to write the `[Introductory paragraph]`
+at the end.
