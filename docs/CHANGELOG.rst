@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.2.2 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.1...v1.2.2>`_ (2019-03-09)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **tofs:** update use of state ID in ``config`` and ``pillar`` (\ `3d9a24c <https://github.com/saltstack-formulas/template-formula/commit/3d9a24c>`_\ )
+* **tofs:** use ``source_files`` instead of ``files`` (\ `5110716 <https://github.com/saltstack-formulas/template-formula/commit/5110716>`_\ ), closes `/freenode.logbot.info/saltstack-formulas/20190308#c2046753 <https://github.com//freenode.logbot.info/saltstack-formulas/20190308/issues/c2046753>`_
+
 `1.2.1 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.0...v1.2.1>`_ (2019-03-07)
 ----------------------------------------------------------------------------------------------------------
 
