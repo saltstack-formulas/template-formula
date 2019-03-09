@@ -32,7 +32,7 @@ template:
     #   files: files_alt
     #   default: default_alt
     # files:
-    #   template-config:
+    #   template-config-file-file-managed:
     #     - 'example_alt.tmpl'
     #     - 'example_alt.tmpl.jinja'
 
