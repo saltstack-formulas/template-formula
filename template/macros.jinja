@@ -1,4 +1,4 @@
-{%- macro files_switch(files,
+{%- macro files_switch(source_files,
                        default_files_switch=['id', 'os_family'],
                        indent_width=6) %}
   {#-
@@ -7,7 +7,7 @@
     Files Switch (TOFS) pattern.
 
     Params:
-      * files: ordered list of files to look for
+      * source_files: ordered list of files to look for
       * default_files_switch: if there's no pillar
         '<tplroot>:tofs:files_switch' this is the ordered list of grains to
         use as selector switch of the directories under
@@ -23,7 +23,7 @@
           - name: /etc/yyy/zzz.conf
           - source: {{ files_switch(
                           salt['config.get'](
-                              tplroot ~ ':tofs:files:Deploy configuration',
+                              tplroot ~ ':tofs:source_files:Deploy configuration',
                               ['/etc/yyy/zzz.conf', '/etc/yyy/zzz.conf.jinja']
                           )
                     ) }}
@@ -66,7 +66,7 @@
       {%- do fsl.append('') %}
     {%- endif %}
     {%- for fs in fsl %}
-      {%- for file in files %}
+      {%- for source_file in source_files %}
         {%- if fs %}
           {%- set fs_dir = salt['config.get'](fs, fs) %}
         {%- else %}
@@ -76,7 +76,7 @@
             path_prefix_inc_ext,
             files_dir,
             fs_dir,
-            file.lstrip('/')
+            source_file.lstrip('/')
         ]) %}
 {{ url | indent(indent_width, true) }}
       {%- endfor %}

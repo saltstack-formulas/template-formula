@@ -31,7 +31,7 @@ template:
     # dirs:
     #   files: files_alt
     #   default: default_alt
-    # files:
+    # source_files:
     #   template-config-file-file-managed:
     #     - 'example_alt.tmpl'
     #     - 'example_alt.tmpl.jinja'

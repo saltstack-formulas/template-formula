@@ -316,7 +316,7 @@ We can simplify the ``conf.sls`` with the new ``files_switch`` macro to use in t
        - template: jinja
        - source: {{ files_switch(
                      salt['config.get'](
-                         tplroot ~ ':tofs:files:Configure NTP',
+                         tplroot ~ ':tofs:source_files:Configure NTP',
                          ['/etc/ntp.conf.jinja']
                      )
                ) }}
@@ -326,7 +326,7 @@ We can simplify the ``conf.sls`` with the new ``files_switch`` macro to use in t
          - pkg: Install NTP package
 
 
-* This uses ``config.get``, searching for ``nfs:tofs:files:Configure NTP`` to determine the list of template files to use.
+* This uses ``config.get``, searching for ``nfs:tofs:source_files:Configure NTP`` to determine the list of template files to use.
 * If this does not yield any results, the default of ``['/etc/ntp.conf.jinja']`` will be used.
 
 In ``macros.jinja``, we define this new macro ``files_switch``.
@@ -417,16 +417,16 @@ Resulting in:
            ...
            - salt://ntp/files/default_alt/etc/ntp.conf.jinja
 
-Customise the list of template ``files``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Customise the list of ``source_files``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The list of template ``files`` can be given:
+The list of ``source_files`` can be given:
 
 .. code-block:: sls
 
    ntp:
      tofs:
-       files:
+       source_files:
          Configure NTP:
            - '/etc/ntp.conf.jinja'
            - '/etc/ntp.conf_alt.jinja'
