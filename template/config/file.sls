@@ -15,7 +15,7 @@ template-config-file-file-managed:
     - name: {{ template.config }}
     - source: {{ files_switch(
                     salt['config.get'](
-                        tplroot ~ ':tofs:files:template-config',
+                        tplroot ~ ':tofs:source_files:template-config-file-file-managed',
                         ['example.tmpl', 'example.tmpl.jinja']
                     )
               ) }}
