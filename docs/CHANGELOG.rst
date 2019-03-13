@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.2.3 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.2...v1.2.3>`_ (2019-03-13)
+----------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **tofs:** incorrect path for “source_files” lookup key (\ `a76f659 <https://github.com/saltstack-formulas/template-formula/commit/a76f659>`_\ )
+
 `1.2.2 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.1...v1.2.2>`_ (2019-03-09)
 ----------------------------------------------------------------------------------------------------------
 
