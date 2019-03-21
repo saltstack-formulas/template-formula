@@ -314,12 +314,10 @@ We can simplify the ``conf.sls`` with the new ``files_switch`` macro to use in t
      file.managed:
        - name: {{ ntp.config }}
        - template: jinja
-       - source: {{ files_switch(
-                     salt['config.get'](
-                         tplroot ~ ':tofs:source_files:Configure NTP',
-                         ['/etc/ntp.conf.jinja']
-                     )
-               ) }}
+       - source: {{ files_switch(['/etc/ntp.conf.jinja'],
+                                 lookup='Configure NTP'
+                    )
+                 }}
        - watch_in:
          - service: Enable and start NTP service
        - require:

@@ -13,12 +13,10 @@ include:
 template-config-file-file-managed:
   file.managed:
     - name: {{ template.config }}
-    - source: {{ files_switch(
-                    salt['config.get'](
-                        tplroot ~ ':tofs:source_files:template-config-file-file-managed',
-                        ['example.tmpl', 'example.tmpl.jinja']
-                    )
-              ) }}
+    - source: {{ files_switch(['example.tmpl', 'example.tmpl.jinja'],
+                              lookup='template-config-file-file-managed'
+                 )
+              }}
     - mode: 644
     - user: root
     - group: root

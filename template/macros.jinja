@@ -1,4 +1,5 @@
 {%- macro files_switch(source_files,
+                       lookup=None,
                        default_files_switch=['id', 'os_family'],
                        indent_width=6) %}
   {#-
@@ -8,6 +9,8 @@
 
     Params:
       * source_files: ordered list of files to look for
+      * lookup: key under '<tplroot>:tofs:source_files' to override
+        list of source files
       * default_files_switch: if there's no pillar
         '<tplroot>:tofs:files_switch' this is the ordered list of grains to
         use as selector switch of the directories under
@@ -21,11 +24,8 @@
       Deploy configuration:
         file.managed:
           - name: /etc/yyy/zzz.conf
-          - source: {{ files_switch(
-                          salt['config.get'](
-                              tplroot ~ ':tofs:source_files:Deploy configuration',
-                              ['/etc/yyy/zzz.conf', '/etc/yyy/zzz.conf.jinja']
-                          )
+          - source: {{ files_switch(['/etc/yyy/zzz.conf', '/etc/yyy/zzz.conf.jinja'],
+                                    lookup='Deploy configuration'
                     ) }}
           - template: jinja
 
@@ -52,6 +52,11 @@
       tplroot ~ ':tofs:files_switch',
       default_files_switch
   ) %}
+  {#- Lookup files or fallback to source_files parameter #}
+  {%- set src_files = salt['config.get'](
+      tplroot ~ ':tofs:source_files:' ~ lookup,
+      source_files
+  ) %}
   {#- Only add to [''] when supporting older TOFS implementations #}
   {%- for path_prefix_ext in [''] %}
     {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
@@ -66,7 +71,7 @@
       {%- do fsl.append('') %}
     {%- endif %}
     {%- for fs in fsl %}
-      {%- for source_file in source_files %}
+      {%- for src_file in src_files %}
         {%- if fs %}
           {%- set fs_dir = salt['config.get'](fs, fs) %}
         {%- else %}
@@ -76,7 +81,7 @@
             path_prefix_inc_ext,
             files_dir,
             fs_dir,
-            source_file.lstrip('/')
+            src_file.lstrip('/')
         ]) %}
 {{ url | indent(indent_width, true) }}
       {%- endfor %}
