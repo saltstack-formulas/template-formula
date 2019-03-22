@@ -20,25 +20,25 @@ platforms:
       image: debian:9
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt-get update && apt-get install -y udev
+        - apt-get update && apt-get install -y udev locales
   - name: debian-8-backports
     driver_config:
       image: debian:jessie-backports
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt-get update && apt-get install -y udev
+        - apt-get update && apt-get install -y udev locales
   - name: ubuntu-18.04
     driver_config:
       image: ubuntu:18.04
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt-get update && apt-get install -y udev
+        - apt-get update && apt-get install -y udev locales
   - name: ubuntu-16.04
     driver_config:
       image: ubuntu:16.04
       run_command: /lib/systemd/systemd
       provision_command:
-        - apt-get update && apt-get install -y udev
+        - apt-get update && apt-get install -y udev locales
   - name: centos-7
     driver_config:
       image: centos:7
@@ -64,7 +64,7 @@ platforms:
       image: opensuse/salt-minion
       run_command: /usr/lib/systemd/systemd
       provision_command:
-        - zypper refresh && zypper install -y udev
+        - zypper refresh && zypper install -y udev locales
         - systemctl enable sshd.service
         - cat /etc/os-release
 
