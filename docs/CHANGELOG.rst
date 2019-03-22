@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.2.4 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.3...v1.2.4>`_ (2019-03-22)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **tofs:** avoid using “salt['config.get']” for formula writers (\ `60d43e7 <https://github.com/saltstack-formulas/template-formula/commit/60d43e7>`_\ )
+
 `1.2.3 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.2...v1.2.3>`_ (2019-03-13)
 ----------------------------------------------------------------------------------------------------------
 
