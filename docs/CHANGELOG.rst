@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.2.5 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.4...v1.2.5>`_ (2019-03-23)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **travis:** use version numbers in Gemfile to prevent failed builds (\ `35f7111 <https://github.com/saltstack-formulas/template-formula/commit/35f7111>`_\ )
+
 `1.2.4 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.3...v1.2.4>`_ (2019-03-22)
 ----------------------------------------------------------------------------------------------------------
 
