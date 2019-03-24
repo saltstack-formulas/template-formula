@@ -2,6 +2,35 @@
 Changelog
 =========
 
+`2.0.0 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.6...v2.0.0>`_ (2019-03-24)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **tofs:** move “files_switch” macro to “libtofs.jinja” (\ `da7e692 <https://github.com/saltstack-formulas/template-formula/commit/da7e692>`_\ )
+
+BREAKING CHANGES
+^^^^^^^^^^^^^^^^
+
+
+* 
+  **tofs:** every formula writer will need to change the import
+  to use this new version.
+
+* 
+  template/libtofs.jinja: provides the “files_switch” macro.
+
+* 
+  docs/TOFS_pattern.rst: update documentation to use the new path.
+
+* 
+  template/config/clean.sls: change import from “macros.jinja” to “libtofs.jinja”.
+
+* 
+  template/config/file.sls: ditoo.
+
 `1.2.6 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.5...v1.2.6>`_ (2019-03-24)
 ----------------------------------------------------------------------------------------------------------
 
