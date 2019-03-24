@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.2.6 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.5...v1.2.6>`_ (2019-03-24)
+----------------------------------------------------------------------------------------------------------
+
+Reverts
+^^^^^^^
+
+
+* **kitchen+travis:** use ``debian:jessie-backports`` as ``debian-8`` (\ `dcd141a <https://github.com/saltstack-formulas/template-formula/commit/dcd141a>`_\ ), closes `/github.com/saltstack/salt-pack/issues/657#issuecomment-474954298 <https://github.com//github.com/saltstack/salt-pack/issues/657/issues/issuecomment-474954298>`_
+
 `1.2.5 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.4...v1.2.5>`_ (2019-03-23)
 ----------------------------------------------------------------------------------------------------------
 
