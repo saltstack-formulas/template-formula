@@ -12,13 +12,13 @@
       * source_files: ordered list of files to look for
       * lookup: key under '<tplroot>:tofs:source_files' to override
         list of source files
-      * default_files_switch: if there's no pillar
+      * default_files_switch: if there's no config (e.g. pillar)
         '<tplroot>:tofs:files_switch' this is the ordered list of grains to
         use as selector switch of the directories under
         "<path_prefix>/files"
       * indent_witdh: indentation of the result value to conform to YAML
       * v1_path_prefix: (deprecated) only used for injecting a path prefix into
-        the source, to support older TOFS pillars
+        the source, to support older TOFS configs
 
     Example (based on a `tplroot` of `xxx`):
 
@@ -67,9 +67,9 @@
   {%- endif %}
   {%- for path_prefix_ext in path_prefix_exts %}
     {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
-    {#- For older TOFS implementation, use `files_switch` from the pillar #}
+    {#- For older TOFS implementation, use `files_switch` from the config #}
     {#- Use the default, new method otherwise #}
-    {%- set fsl = salt['pillar.get'](
+    {%- set fsl = salt['config.get'](
         tplroot ~ path_prefix_ext|replace('/', ':') ~ ':files_switch',
         files_switch_list
     ) %}
