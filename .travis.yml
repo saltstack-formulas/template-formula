@@ -19,7 +19,7 @@ before_install:
 env:
   matrix:
     - INSTANCE: default-debian-9
-    - INSTANCE: default-debian-8-backports
+    - INSTANCE: default-debian-8
     - INSTANCE: default-ubuntu-1804
     - INSTANCE: default-ubuntu-1604
     - INSTANCE: default-centos-7
