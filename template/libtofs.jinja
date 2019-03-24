@@ -1,7 +1,8 @@
 {%- macro files_switch(source_files,
                        lookup=None,
                        default_files_switch=['id', 'os_family'],
-                       indent_width=6) %}
+                       indent_width=6,
+                       v1_path_prefix='') %}
   {#-
     Returns a valid value for the "source" parameter of a "file.managed"
     state function. This makes easier the usage of the Template Override and
@@ -16,6 +17,8 @@
         use as selector switch of the directories under
         "<path_prefix>/files"
       * indent_witdh: indentation of the result value to conform to YAML
+      * v1_path_prefix: (deprecated) only used for injecting a path prefix into
+        the source, to support older TOFS pillars
 
     Example (based on a `tplroot` of `xxx`):
 
@@ -58,7 +61,11 @@
       source_files
   ) %}
   {#- Only add to [''] when supporting older TOFS implementations #}
-  {%- for path_prefix_ext in [''] %}
+  {%- set path_prefix_exts = [''] %}
+  {%- if v1_path_prefix != '' %}
+    {%- do path_prefix_exts.append(v1_path_prefix) %}
+  {%- endif %}
+  {%- for path_prefix_ext in path_prefix_exts %}
     {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
     {#- For older TOFS implementation, use `files_switch` from the pillar #}
     {#- Use the default, new method otherwise #}
