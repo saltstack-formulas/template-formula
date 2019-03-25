@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.1](https://github.com/saltstack-formulas/template-formula/compare/v2.0.0...v2.0.1) (2019-03-25)
+
+
+### Code Refactoring
+
+* **tofs:** ensure (v2 > v1 > default) checking for `src_files` ([3e62d7b](https://github.com/saltstack-formulas/template-formula/commit/3e62d7b))
+* **tofs:** make `files_switch` macro fully portable ([a98b777](https://github.com/saltstack-formulas/template-formula/commit/a98b777))
+* **tofs:** use `config` rather than `pillar` throughout ([5730e94](https://github.com/saltstack-formulas/template-formula/commit/5730e94))
+
 # [2.0.0](https://github.com/saltstack-formulas/template-formula/compare/v1.2.6...v2.0.0) (2019-03-24)
 
 
