@@ -22,8 +22,7 @@ template-package-install-pkg-installed-test:
   module_and_function: pkg.version
   args:
     - bash
-  assertion: assertNotEqual
-  expected-return: ''
+  assertion: assertNotEmpty
 
 template-service-running-service-status:
   module_and_function: service.status
