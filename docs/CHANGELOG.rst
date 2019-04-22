@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`2.0.2 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.1...v2.0.2>`_ (2019-04-22)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **config_clean:** remove unused import from ``libtofs.jinja`` (\ `b7cb585 <https://github.com/saltstack-formulas/template-formula/commit/b7cb585>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen+travis:** implement new distro-python-salt_version matrix (\ `bd4792d <https://github.com/saltstack-formulas/template-formula/commit/bd4792d>`_\ )
+
 `2.0.1 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.0...v2.0.1>`_ (2019-03-25)
 ----------------------------------------------------------------------------------------------------------
 
