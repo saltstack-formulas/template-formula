@@ -10,11 +10,15 @@
 # the `os_finger` grain.
 ---
 # os: Ubuntu
+Ubuntu-14.04:
+  unsupported: 'osfinger: Ubuntu 14.04 (does not use `systemd`).'
+Ubuntu-16.04: {}
 Ubuntu-18.04:
   config: /etc/template.d/custom-ubuntu-18.04.conf
 
 # os: CentOS
 CentOS-6:
-  pkg: template-centos-6
-  config: /etc/template.d/custom-centos-6.conf
-CentOS-7: {}
+  unsupported: 'osfinger: CentOS 6 (does not use `systemd`).'
+CentOS-7:
+  pkg: template-centos-7
+  config: /etc/template.d/custom-centos-7.conf

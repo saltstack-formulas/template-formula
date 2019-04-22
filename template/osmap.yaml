@@ -14,7 +14,8 @@ Ubuntu:
   pkg: template-ubuntu
   config: /etc/template.d/custom-ubuntu.conf
 
-Raspbian: {}
+Raspbian:
+  unsupported: 'os: Raspbian (`armhf` architecture).'
 
 # os_family: RedHat
 Fedora:
