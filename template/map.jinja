@@ -4,10 +4,10 @@
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
 {#- Start imports as #}
-{%- import_yaml tplroot ~ "/defaults.yaml" or {} as default_settings %}
-{%- import_yaml tplroot ~ "/osfamilymap.yaml" or {} as osfamilymap %}
-{%- import_yaml tplroot ~ "/osmap.yaml" or {} as osmap %}
-{%- import_yaml tplroot ~ "/osfingermap.yaml" or {} as osfingermap %}
+{%- import_yaml tplroot ~ "/defaults.yaml" as default_settings %}
+{%- import_yaml tplroot ~ "/osfamilymap.yaml" as osfamilymap %}
+{%- import_yaml tplroot ~ "/osmap.yaml" as osmap %}
+{%- import_yaml tplroot ~ "/osfingermap.yaml" as osfingermap %}
 
 {%- set defaults = salt['grains.filter_by'](default_settings,
     default='template',

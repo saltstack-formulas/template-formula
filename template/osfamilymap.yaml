@@ -6,8 +6,9 @@
 # from `defaults.yaml`.
 # Only add an `os_family` which is/will be supported by the formula
 #
-# This file can be safely removed if you do not need to provide defaults via
-# the `os_family` grain.
+# If you do not need to provide defaults via the `os_family` grain,
+# you will need to provide at least an empty dict in this file, e.g.
+# osfamilymap: {}
 ---
 Debian:
   pkg: template-debian
