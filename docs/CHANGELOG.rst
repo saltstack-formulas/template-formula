@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`2.0.3 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.2...v2.0.3>`_ (2019-04-24)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **comments:** explain that at least an empty dict is required (\ `426f955 <https://github.com/saltstack-formulas/template-formula/commit/426f955>`_\ ), closes `#93 <https://github.com/saltstack-formulas/template-formula/issues/93>`_
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use pre-salted images instead (\ `2855ed6 <https://github.com/saltstack-formulas/template-formula/commit/2855ed6>`_\ )
+
 `2.0.2 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.1...v2.0.2>`_ (2019-04-22)
 ----------------------------------------------------------------------------------------------------------
 
