@@ -6,8 +6,9 @@
 # from `defaults.yaml` + `os_family.yaml`.
 # Only add an `os` which is/will be supported by the formula
 #
-# This file can be safely removed if you do not need to provide defaults via
-# the `os` grain.
+# If you do not need to provide defaults via the `os` grain,
+# you will need to provide at least an empty dict in this file, e.g.
+# osmap: {}
 ---
 # os_family: Debian
 Ubuntu:

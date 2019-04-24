@@ -6,8 +6,9 @@
 # from `defaults.yaml` + `os_family.yaml` + `osmap.yaml`.
 # Only add an `osfinger` which is/will be supported by the formula
 #
-# This file can be safely removed if you do not need to provide defaults via
-# the `os_finger` grain.
+# If you do not need to provide defaults via the `os_finger` grain,
+# you will need to provide at least an empty dict in this file, e.g.
+# osfingermap: {}
 ---
 # os: Ubuntu
 Ubuntu-18.04:
