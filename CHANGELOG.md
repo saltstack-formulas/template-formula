@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.4](https://github.com/saltstack-formulas/template-formula/compare/v2.0.3...v2.0.4) (2019-04-27)
+
+
+### Code Refactoring
+
+* **map:** use `config.get` instead of `pillar.get` ([5dc0b86](https://github.com/saltstack-formulas/template-formula/commit/5dc0b86))
+
+
+### Continuous Integration
+
+* **gemfile:** update `kitchen-salt` version ([ad31c32](https://github.com/saltstack-formulas/template-formula/commit/ad31c32))
+
 ## [2.0.3](https://github.com/saltstack-formulas/template-formula/compare/v2.0.2...v2.0.3) (2019-04-24)
 
 
