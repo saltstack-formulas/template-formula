@@ -47,6 +47,7 @@ coverage.xml
 .hypothesis/
 .kitchen
 .kitchen.local.yml
+kitchen.local.yml
 
 # Translations
 *.mo
