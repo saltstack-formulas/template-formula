@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.0.5 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.4...v2.0.5>`_ (2019-04-30)
+----------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **tofs:** remove whitespace from blank line (\ `0881b7d <https://github.com/saltstack-formulas/template-formula/commit/0881b7d>`_\ )
+
 `2.0.4 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.3...v2.0.4>`_ (2019-04-27)
 ----------------------------------------------------------------------------------------------------------
 
