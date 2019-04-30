@@ -432,7 +432,7 @@ The list of ``source_files`` can be given:
 Resulting in:
 
 .. code-block:: sls
-   
+
          - source:
            - salt://ntp/files/theminion/etc/ntp.conf.jinja
            - salt://ntp/files/theminion/etc/ntp.conf_alt.jinja
