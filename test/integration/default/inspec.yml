@@ -9,3 +9,4 @@ supports:
   - os-name: centos
   - os-name: fedora
   - os-name: opensuse
+  - os-name: suse
