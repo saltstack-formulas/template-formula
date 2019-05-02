@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`2.0.6 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.5...v2.0.6>`_ (2019-05-02)
+----------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen+travis:** use latest pre-salted images (\ `91ef13b <https://github.com/saltstack-formulas/template-formula/commit/91ef13b>`_\ )
+
+Tests
+^^^^^
+
+
+* **inspec:** disable ``service``\ -based tests for ``opensuse-leap-15`` (\ `848c2ad <https://github.com/saltstack-formulas/template-formula/commit/848c2ad>`_\ )
+
 `2.0.5 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.4...v2.0.5>`_ (2019-04-30)
 ----------------------------------------------------------------------------------------------------------
 
