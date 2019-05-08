@@ -64,7 +64,7 @@ platforms:
   - name: centos-6-2017-7-py2
     driver:
       image: netmanagers/salt-2017.7-py2:centos-6
-      run_options: '--entrypoint /sbin/init'
+      run_command: /sbin/init
   - name: fedora-28-2017-7-py2
     driver:
       image: netmanagers/salt-2017.7-py2:fedora-28
