@@ -34,7 +34,7 @@ env:
     - INSTANCE: default-debian-8-2017-7-py2
     - INSTANCE: default-ubuntu-1604-2017-7-py2
     # TODO: Enable after improving the formula to work with other than `systemd`
-    # - INSTANCE: default-centos-6-2017-7-py2
+    - INSTANCE: default-centos-6-2017-7-py2
     - INSTANCE: default-fedora-28-2017-7-py2
     - INSTANCE: default-opensuse-leap-42-2017-7-py2
 
