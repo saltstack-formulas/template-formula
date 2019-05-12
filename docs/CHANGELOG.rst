@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.0 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.6...v2.1.0>`_ (2019-05-12)
+----------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **centos-6:** reshape formula and tests for this platform (\ `a4b1608 <https://github.com/saltstack-formulas/template-formula/commit/a4b1608>`_\ ), closes `#104 <https://github.com/saltstack-formulas/template-formula/issues/104>`_
+
 `2.0.6 <https://github.com/saltstack-formulas/template-formula/compare/v2.0.5...v2.0.6>`_ (2019-05-02)
 ----------------------------------------------------------------------------------------------------------
 
