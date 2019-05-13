@@ -11,9 +11,6 @@ language: ruby
 services:
   - docker
 
-before_install:
-  - bundle install
-
 # Make sure the instances listed below match up with
 # the `platforms` defined in `kitchen.yml`
 env:
