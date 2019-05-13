@@ -157,6 +157,21 @@ An example of that:
    `template package`, this formula no longer supports the installation of
    packages.
 
+
+Semantic release formulas
+-------------------------
+
+These formulas are already compatible with semantic-release:
+
+* `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
+* `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
+* `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
+* `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
+* `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
+* `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
+* `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
+
+
 Documentation
 -------------
 
