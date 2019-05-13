@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.3](https://github.com/saltstack-formulas/template-formula/compare/v2.1.2...v2.1.3) (2019-05-13)
+
+
+### Bug Fixes
+
+* **travis:** don't install gems twice ([925d8e2](https://github.com/saltstack-formulas/template-formula/commit/925d8e2))
+
+
+### Documentation
+
+* **readme:** add testing section based on `postgres-formula` ([c309d5f](https://github.com/saltstack-formulas/template-formula/commit/c309d5f))
+
 ## [2.1.2](https://github.com/saltstack-formulas/template-formula/compare/v2.1.1...v2.1.2) (2019-05-13)
 
 
