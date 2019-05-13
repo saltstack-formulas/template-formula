@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/saltstack-formulas/template-formula/compare/v2.1.1...v2.1.2) (2019-05-13)
+
+
+### Bug Fixes
+
+* **gitignore:** add Gemfile.lock to .gitignore ([87fa410](https://github.com/saltstack-formulas/template-formula/commit/87fa410))
+
 ## [2.1.1](https://github.com/saltstack-formulas/template-formula/compare/v2.1.0...v2.1.1) (2019-05-13)
 
 
