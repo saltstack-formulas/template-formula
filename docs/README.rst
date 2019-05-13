@@ -103,3 +103,33 @@ dependency on ``template.service.clean`` via include list.
 This state will remove the template package and has a depency on
 ``template.config.clean`` via include list.
 
+Testing
+-------
+
+Linux testing is done with ``kitchen-salt``.
+
+``kitchen converge``
+^^^^^^^^^^^^^^^^^^^^
+
+Creates the docker instance and runs the ``template`` main state, ready for testing.
+
+``kitchen verify``
+^^^^^^^^^^^^^^^^^^
+
+Runs the ``inspec`` tests on the actual instance.
+
+``kitchen destroy``
+^^^^^^^^^^^^^^^^^^^
+
+Removes the docker instance.
+
+``kitchen test``
+^^^^^^^^^^^^^^^^
+
+Runs all of the stages above in one go: i.e. ``destroy`` + ``converge`` + ``verify`` + ``destroy``.
+
+``kitchen login``
+^^^^^^^^^^^^^^^^^
+
+Gives you SSH access to the instance for manual testing.
+
