@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.5](https://github.com/saltstack-formulas/template-formula/compare/v2.1.4...v2.1.5) (2019-05-15)
+
+
+### Bug Fixes
+
+* **`map.jinja`:** use tplroot ([b9c5e03](https://github.com/saltstack-formulas/template-formula/commit/b9c5e03))
+
 ## [2.1.4](https://github.com/saltstack-formulas/template-formula/compare/v2.1.3...v2.1.4) (2019-05-15)
 
 
