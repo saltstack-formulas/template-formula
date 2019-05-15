@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.7 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.6...v2.1.7>`_ (2019-05-15)
+----------------------------------------------------------------------------------------------------------
+
+Styles
+^^^^^^
+
+
+* **indent:** fix indentation (\ `34d1307 <https://github.com/saltstack-formulas/template-formula/commit/34d1307>`_\ )
+
 `2.1.6 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.5...v2.1.6>`_ (2019-05-15)
 ----------------------------------------------------------------------------------------------------------
 
