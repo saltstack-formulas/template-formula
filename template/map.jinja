@@ -33,12 +33,13 @@
       )
     )
  %}
+
 {%- set config = salt['grains.filter_by'](
       {'defaults': defaults},
       default='defaults',
       merge=_config
     )
- %}
+%}
 
-{#- Change to whatever variable name you like #}
+{#- Change **template** to match with your formula's name and then remove this line #}
 {%- set template = config %}
