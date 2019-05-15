@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.4 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.3...v2.1.4>`_ (2019-05-15)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **\ ``map.jinja``\ :** remove ``merge`` from ``config.get`` (for ``salt-ssh``\ ) (\ `00e474c <https://github.com/saltstack-formulas/template-formula/commit/00e474c>`_\ ), closes `#95 <https://github.com/saltstack-formulas/template-formula/issues/95>`_
+
 `2.1.3 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.2...v2.1.3>`_ (2019-05-13)
 ----------------------------------------------------------------------------------------------------------
 
