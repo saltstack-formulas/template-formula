@@ -9,16 +9,36 @@
 {%- import_yaml tplroot ~ "/osmap.yaml" as osmap %}
 {%- import_yaml tplroot ~ "/osfingermap.yaml" as osfingermap %}
 
-{%- set defaults = salt['grains.filter_by'](default_settings,
-    default=tplroot,
-    merge=salt['grains.filter_by'](osfamilymap, grain='os_family',
-      merge=salt['grains.filter_by'](osmap, grain='os',
-        merge=salt['grains.filter_by'](osfingermap, grain='osfinger',
-          merge=salt['config.get'](tplroot ~ ':lookup', default={})
+{#- Retrieve the config dict only once #}
+{%- set _config = salt['config.get'](tplroot, default={}) %}
+
+{%- set defaults = salt['grains.filter_by'](
+      default_settings,
+      default=tplroot,
+      merge=salt['grains.filter_by'](
+        osfamilymap,
+        grain='os_family',
+        merge=salt['grains.filter_by'](
+          osmap,
+          grain='os',
+          merge=salt['grains.filter_by'](
+            osfingermap,
+            grain='osfinger',
+            merge=salt['grains.filter_by'](
+              _config,
+              default='lookup'
+            )
+          )
         )
       )
     )
-) %}
+ %}
+{%- set config = salt['grains.filter_by'](
+      {'defaults': defaults},
+      default='defaults',
+      merge=_config
+    )
+ %}
 
-{#- Merge the template config (e.g. from pillar) #}
-{%- set template = salt['config.get'](tplroot, default=defaults) %}
+{#- Change to whatever variable name you like #}
+{%- set template = config %}
