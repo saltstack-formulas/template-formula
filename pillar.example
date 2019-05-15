@@ -4,6 +4,9 @@
 template:
   lookup:
     master: template-master
+    # Just for testing purposes
+    winner: lookup
+    added_in_lookup: lookup_value
 
   # Using bash package and udev service as an example. This allows us to
   # test the template formula itself. You should set these parameters to
@@ -42,3 +45,11 @@ template:
     #     - 'example_alt.tmpl'
     #     - 'example_alt.tmpl.jinja'
 
+    # For testing purposes
+    source_files:
+      template-config-file-file-managed:
+        - 'example.tmpl.jinja'
+
+  # Just for testing purposes
+  winner: pillar
+  added_in_pillar: pillar_value

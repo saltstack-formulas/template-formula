@@ -19,7 +19,9 @@ template-config-file-file-managed:
               }}
     - mode: 644
     - user: root
-    - group: root
+    - group: {{ template.rootgroup }}
     - template: jinja
     - require:
       - sls: {{ sls_package_install }}
+    - context:
+        template: {{ template | json}}
