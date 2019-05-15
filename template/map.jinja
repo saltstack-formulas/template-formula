@@ -10,15 +10,15 @@
 {%- import_yaml tplroot ~ "/osfingermap.yaml" as osfingermap %}
 
 {%- set defaults = salt['grains.filter_by'](default_settings,
-    default='template',
+    default=tplroot,
     merge=salt['grains.filter_by'](osfamilymap, grain='os_family',
       merge=salt['grains.filter_by'](osmap, grain='os',
         merge=salt['grains.filter_by'](osfingermap, grain='osfinger',
-          merge=salt['config.get']('template:lookup', default={})
+          merge=salt['config.get'](tplroot ~ ':lookup', default={})
         )
       )
     )
 ) %}
 
 {#- Merge the template config (e.g. from pillar) #}
-{%- set template = salt['config.get']('template', default=defaults) %}
+{%- set template = salt['config.get'](tplroot, default=defaults) %}
