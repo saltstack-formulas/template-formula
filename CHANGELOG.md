@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.6](https://github.com/saltstack-formulas/template-formula/compare/v2.1.5...v2.1.6) (2019-05-15)
+
+
+### Bug Fixes
+
+* **`map.jinja`:** _merge_ defaults and `config.get` ([91bc2f0](https://github.com/saltstack-formulas/template-formula/commit/91bc2f0))
+
 ## [2.1.5](https://github.com/saltstack-formulas/template-formula/compare/v2.1.4...v2.1.5) (2019-05-15)
 
 
