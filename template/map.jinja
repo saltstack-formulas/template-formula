@@ -21,4 +21,4 @@
 ) %}
 
 {#- Merge the template config (e.g. from pillar) #}
-{%- set template = salt['config.get']('template', default=defaults, merge=True) %}
+{%- set template = salt['config.get']('template', default=defaults) %}
