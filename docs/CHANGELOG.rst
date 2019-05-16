@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.8 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.7...v2.1.8>`_ (2019-05-16)
+----------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **contributing:** add recent ``semantic-release`` formulas (\ `#110 <https://github.com/saltstack-formulas/template-formula/issues/110>`_\ ) (\ `ab7afd4 <https://github.com/saltstack-formulas/template-formula/commit/ab7afd4>`_\ )
+
 `2.1.7 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.6...v2.1.7>`_ (2019-05-15)
 ----------------------------------------------------------------------------------------------------------
 
