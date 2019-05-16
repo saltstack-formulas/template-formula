@@ -36,8 +36,11 @@ FreeBSD:
 OpenBSD:
   rootgroup: wheel
 
-Solaris: {}
+Solaris:
+  unsupported: 'osfamily: Solaris.'
 
-Windows: {}
+Windows:
+  unsupported: 'osfamily: Windows.'
 
-MacOS: {}
+MacOS:
+  unsupported: 'osfamily: MacOS.'
