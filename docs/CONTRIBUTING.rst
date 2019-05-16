@@ -166,9 +166,14 @@ These formulas are already compatible with semantic-release:
 * `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 * `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 * `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
+* `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
 * `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
+* `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
 * `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
+* `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
+* `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
+* `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 
 
