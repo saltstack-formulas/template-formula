@@ -180,5 +180,4 @@ These formulas are already compatible with semantic-release:
 Documentation
 -------------
 
-`Documentation contributing guidelines <CONTRIBUTING_DOCS>`
-
+`Documentation contributing guidelines <CONTRIBUTING_DOCS.rst>`_
