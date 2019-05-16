@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.9](https://github.com/saltstack-formulas/template-formula/compare/v2.1.8...v2.1.9) (2019-05-16)
+
+
+### Documentation
+
+* move contributing sections and links to ease adaptation ([741896d](https://github.com/saltstack-formulas/template-formula/commit/741896d))
+
 ## [2.1.8](https://github.com/saltstack-formulas/template-formula/compare/v2.1.7...v2.1.8) (2019-05-16)
 
 
