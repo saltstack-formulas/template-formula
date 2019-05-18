@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.11](https://github.com/saltstack-formulas/template-formula/compare/v2.1.10...v2.1.11) (2019-05-18)
+
+
+### Documentation
+
+* **contributing:** add recent `semantic-release` formula ([486b393](https://github.com/saltstack-formulas/template-formula/commit/486b393))
+
 ## [2.1.10](https://github.com/saltstack-formulas/template-formula/compare/v2.1.9...v2.1.10) (2019-05-16)
 
 
