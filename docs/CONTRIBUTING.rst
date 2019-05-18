@@ -166,6 +166,7 @@ These formulas are already compatible with semantic-release:
 * `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 * `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 * `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
+* `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
 * `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
