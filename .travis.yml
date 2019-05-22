@@ -13,27 +13,38 @@ services:
 
 # Make sure the instances listed below match up with
 # the `platforms` defined in `kitchen.yml`
+# NOTE: Please try to select up to six instances that add some meaningful
+#       testing of the formula's behaviour. If possible, try to refrain from
+#       the classical "chosing all the instances because I want to test on
+#       another/all distro/s" trap: it will just add time to the testing (see
+#       the discussion on #121).  As an example, the set chosen below covers
+#       the most used distros families, systemd and non-systemd and the latest
+#       three supported Saltstack versions with python2 and 3."
+#       As for `kitchen.yml`, that should still contain all of the platforms,
+#       to allow for comprehensive local testing
+#       Ref: https://github.com/saltstack-formulas/template-formula/issues/118
+#       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
 env:
   matrix:
     - INSTANCE: default-debian-9-2019-2-py3
-    - INSTANCE: default-ubuntu-1804-2019-2-py3
+    # - INSTANCE: default-ubuntu-1804-2019-2-py3
     - INSTANCE: default-centos-7-2019-2-py3
-    - INSTANCE: default-fedora-29-2019-2-py3
+    # - INSTANCE: default-fedora-29-2019-2-py3
     - INSTANCE: default-opensuse-leap-15-2019-2-py3
-    - INSTANCE: default-debian-9-2018-3-py2
+    # - INSTANCE: default-debian-9-2018-3-py2
     - INSTANCE: default-ubuntu-1604-2018-3-py2
-    - INSTANCE: default-centos-7-2018-3-py2
+    # - INSTANCE: default-centos-7-2018-3-py2
     - INSTANCE: default-fedora-29-2018-3-py2
     # TODO: Use this when fixed instead of `opensuse-leap-42`
     # Ref: https://github.com/netmanagers/salt-image-builder/issues/2
     # - INSTANCE: default-opensuse-leap-15-2018-3-py2
-    - INSTANCE: default-opensuse-leap-42-2018-3-py2
-    - INSTANCE: default-debian-8-2017-7-py2
-    - INSTANCE: default-ubuntu-1604-2017-7-py2
+    # - INSTANCE: default-opensuse-leap-42-2018-3-py2
+    # - INSTANCE: default-debian-8-2017-7-py2
+    # - INSTANCE: default-ubuntu-1604-2017-7-py2
     # TODO: Enable after improving the formula to work with other than `systemd`
     - INSTANCE: default-centos-6-2017-7-py2
-    - INSTANCE: default-fedora-28-2017-7-py2
-    - INSTANCE: default-opensuse-leap-42-2017-7-py2
+    # - INSTANCE: default-fedora-28-2017-7-py2
+    # - INSTANCE: default-opensuse-leap-42-2017-7-py2
 
 script:
   - bundle exec kitchen verify ${INSTANCE}
