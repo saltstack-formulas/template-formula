@@ -104,6 +104,21 @@ Testing
 
 Linux testing is done with ``kitchen-salt``.
 
+Requirements
+^^^^^^^^^^^^
+
+* Ruby
+* Docker
+
+.. code-block:: bash
+
+   $ gem install bundler
+   $ bundle install
+   $ bundle exec kitchen test [platform]
+
+Where ``[platform]`` is the platform name defined in ``kitchen.yml``,
+e.g. ``debian-9-2019-2-py3``.
+
 ``kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^
 
