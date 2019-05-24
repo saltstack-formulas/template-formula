@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.13 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.12...v2.1.13>`_ (2019-05-24)
+-------------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** add testing requirements section (from ``vault-formula``\ ) (\ `e04413e <https://github.com/saltstack-formulas/template-formula/commit/e04413e>`_\ )
+
 `2.1.12 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.11...v2.1.12>`_ (2019-05-24)
 -------------------------------------------------------------------------------------------------------------
 
