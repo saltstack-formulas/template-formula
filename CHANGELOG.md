@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.12](https://github.com/saltstack-formulas/template-formula/compare/v2.1.11...v2.1.12) (2019-05-24)
+
+
+### Continuous Integration
+
+* **travis:** improve recommended matrix usage comment ([b08a0fd](https://github.com/saltstack-formulas/template-formula/commit/b08a0fd))
+* **travis:** reduce matrix down to 6 instances (ref: [#118](https://github.com/saltstack-formulas/template-formula/issues/118)) ([a8834e2](https://github.com/saltstack-formulas/template-formula/commit/a8834e2))
+
+
+### Documentation
+
+* **contributing:** add `bind-formula` to `semantic-release` formulas ([3da78b0](https://github.com/saltstack-formulas/template-formula/commit/3da78b0))
+
 ## [2.1.11](https://github.com/saltstack-formulas/template-formula/compare/v2.1.10...v2.1.11) (2019-05-18)
 
 
