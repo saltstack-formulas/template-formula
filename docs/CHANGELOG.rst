@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.15 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.14...v2.1.15>`_ (2019-05-25)
+-------------------------------------------------------------------------------------------------------------
+
+Tests
+^^^^^
+
+
+* **\ ``services_spec``\ :** remove temporary ``suse`` conditional (\ `00d4a77 <https://github.com/saltstack-formulas/template-formula/commit/00d4a77>`_\ )
+
 `2.1.14 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.13...v2.1.14>`_ (2019-05-25)
 -------------------------------------------------------------------------------------------------------------
 
