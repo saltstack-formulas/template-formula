@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.14 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.13...v2.1.14>`_ (2019-05-25)
+-------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **\ ``config/file``\ :** add missing space before Jinja ``}}`` (\ `5cd08ab <https://github.com/saltstack-formulas/template-formula/commit/5cd08ab>`_\ )
+
 `2.1.13 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.12...v2.1.13>`_ (2019-05-24)
 -------------------------------------------------------------------------------------------------------------
 
