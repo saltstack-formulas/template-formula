@@ -24,4 +24,4 @@ template-config-file-file-managed:
     - require:
       - sls: {{ sls_package_install }}
     - context:
-        template: {{ template | json}}
+        template: {{ template | json }}
