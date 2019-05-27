@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{#- Determine the type of command being run #}
+{%- if salt['config.get']('__cli') == 'salt-minion' %}
+{%-   set cli = 'minion' %}
+{%- elif salt['config.get']('__cli') == 'salt-call' %}
+{%-   if salt['config.get']('root_dir').endswith('/running_data') %}
+{%-     set cli = 'ssh' %}
+{%-   else %}
+{%-     set cli = 'local' %}
+{%-   endif %}
+{%- else %}
+{%-   set cli = 'unknown' %}
+{%- endif %}
+{%- do salt['log.debug']('[libsaltcli] the salt command type has been identified to be: ' ~ cli) %}
