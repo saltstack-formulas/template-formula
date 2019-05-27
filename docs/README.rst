@@ -120,27 +120,27 @@ Where ``[platform]`` is the platform name defined in ``kitchen.yml``,
 e.g. ``debian-9-2019-2-py3``.
 
 ``bin/kitchen converge``
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates the docker instance and runs the ``template`` main state, ready for testing.
 
 ``bin/kitchen verify``
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Runs the ``inspec`` tests on the actual instance.
 
 ``bin/kitchen destroy``
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Removes the docker instance.
 
 ``bin/kitchen test``
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Runs all of the stages above in one go: i.e. ``destroy`` + ``converge`` + ``verify`` + ``destroy``.
 
 ``bin/kitchen login``
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 Gives you SSH access to the instance for manual testing.
 
