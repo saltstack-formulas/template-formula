@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.17](https://github.com/saltstack-formulas/template-formula/compare/v2.1.16...v2.1.17) (2019-05-27)
+
+
+### Continuous Integration
+
+* **kitchen:** add Bundler binstub for Kitchen ([7bb7c53](https://github.com/saltstack-formulas/template-formula/commit/7bb7c53))
+
+
+### Documentation
+
+* **readme:** tidy headings ([d931ed1](https://github.com/saltstack-formulas/template-formula/commit/d931ed1))
+
 ## [2.1.16](https://github.com/saltstack-formulas/template-formula/compare/v2.1.15...v2.1.16) (2019-05-27)
 
 
