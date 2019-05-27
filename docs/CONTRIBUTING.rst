@@ -176,6 +176,7 @@ These formulas are already compatible with semantic-release:
 * `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
 * `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
 * `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
+* `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 
 
