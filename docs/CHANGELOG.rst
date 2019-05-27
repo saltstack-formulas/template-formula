@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.1.16 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.15...v2.1.16>`_ (2019-05-27)
+-------------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **contributing:** add ufw formula to semantic release formulas (\ `18ff689 <https://github.com/saltstack-formulas/template-formula/commit/18ff689>`_\ )
+
 `2.1.15 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.14...v2.1.15>`_ (2019-05-25)
 -------------------------------------------------------------------------------------------------------------
 
