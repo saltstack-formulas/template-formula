@@ -89,10 +89,10 @@
         {%- endif %}
         {%- set url = [
             '- salt:/',
-            path_prefix_inc_ext,
-            files_dir,
-            fs_dir,
-            src_file,
+            path_prefix_inc_ext.strip('/'),
+            files_dir.strip('/'),
+            fs_dir.strip('/'),
+            src_file.strip('/'),
         ] | select | join('/') %}
 {{ url | indent(indent_width, true) }}
       {%- endfor %}
