@@ -87,12 +87,13 @@
         {%- else %}
           {%- set fs_dir = salt['config.get'](tplroot ~ ':tofs:dirs:default', 'default') %}
         {%- endif %}
-        {%- set url = '- salt://' ~ '/'.join([
-            path_prefix_inc_ext,
-            files_dir,
-            fs_dir,
-            src_file.lstrip('/')
-        ]) %}
+        {%- set url = [
+            '- salt:/',
+            path_prefix_inc_ext.strip('/'),
+            files_dir.strip('/'),
+            fs_dir.strip('/'),
+            src_file.strip('/'),
+        ] | select | join('/') %}
 {{ url | indent(indent_width, true) }}
       {%- endfor %}
     {%- endfor %}
