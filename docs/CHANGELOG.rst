@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`2.1.18 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.17...v2.1.18>`_ (2019-05-29)
+-------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **\ ``libtofs``\ :** use ``select`` to deal with empty strings in path (\ `afe0751 <https://github.com/saltstack-formulas/template-formula/commit/afe0751>`_\ )
+* **\ ``libtofs``\ :** use ``strip`` to deal with leading/trailing slashes (\ `2563a46 <https://github.com/saltstack-formulas/template-formula/commit/2563a46>`_\ )
+
 `2.1.17 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.16...v2.1.17>`_ (2019-05-27)
 -------------------------------------------------------------------------------------------------------------
 
