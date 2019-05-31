@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`2.2.1 <https://github.com/saltstack-formulas/template-formula/compare/v2.2.0...v2.2.1>`_ (2019-05-31)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **\ ``osfamilymap``\ :** avoid *BSD ambiguity with MacOS ``rootgroup`` (\ `3338605 <https://github.com/saltstack-formulas/template-formula/commit/3338605>`_\ )
+
 `2.2.0 <https://github.com/saltstack-formulas/template-formula/compare/v2.1.18...v2.2.0>`_ (2019-05-31)
 -----------------------------------------------------------------------------------------------------------
 
