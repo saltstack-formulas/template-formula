@@ -11,7 +11,7 @@
 # osfamilymap: {}
 ---
 {%- if grains.os == 'MacOS' %}
-  {% set rootgroup = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
+{%-   set macos_rootgroup = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
 {%- endif %}
 
 Debian:
@@ -45,4 +45,4 @@ Solaris: {}
 Windows: {}
 
 MacOS:
-  rootgroup: {{ rootgroup | d('') }}
+  rootgroup: {{ macos_rootgroup | d('') }}
