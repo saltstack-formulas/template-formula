@@ -10,6 +10,10 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osfamilymap: {}
 ---
+{%- if grains.os == 'MacOS' %}
+  {% set rootgroup = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
+{%- endif %}
+
 Debian:
   pkg: template-debian
   config: /etc/template.d/custom.conf
@@ -40,4 +44,5 @@ Solaris: {}
 
 Windows: {}
 
-MacOS: {}
+MacOS:
+  rootgroup: {{ rootgroup | d('') }}

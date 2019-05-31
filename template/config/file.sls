@@ -20,6 +20,7 @@ template-config-file-file-managed:
     - mode: 644
     - user: root
     - group: {{ template.rootgroup }}
+    - makedirs: True
     - template: jinja
     - require:
       - sls: {{ sls_package_install }}
