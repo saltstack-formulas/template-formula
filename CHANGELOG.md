@@ -1,5 +1,12 @@
 # Changelog
 
+# [2.2.0](https://github.com/saltstack-formulas/template-formula/compare/v2.1.18...v2.2.0) (2019-05-31)
+
+
+### Features
+
+* **macos:** basic package and group handling ([8c3fe22](https://github.com/saltstack-formulas/template-formula/commit/8c3fe22))
+
 ## [2.1.18](https://github.com/saltstack-formulas/template-formula/compare/v2.1.17...v2.1.18) (2019-05-29)
 
 
