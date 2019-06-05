@@ -16,6 +16,7 @@ Ubuntu-18.04:
 
 # os: CentOS
 CentOS-6:
-  pkg: template-centos-6
+  pkg:
+    name: template-centos-6
   config: /etc/template.d/custom-centos-6.conf
 CentOS-7: {}

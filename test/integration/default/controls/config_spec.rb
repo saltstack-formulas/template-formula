@@ -12,7 +12,7 @@ control 'Template configuration' do
     its('content') { should include '"added_in_lookup": "lookup_value"' }
     its('content') { should include '"config": "/etc/template-formula.conf"' }
     its('content') { should include '"lookup": {"added_in_lookup": "lookup_value",' }
-    its('content') { should include '"pkg": "' }
+    its('content') { should include '"pkg": {"name": "' }
     its('content') { should include '"service": {"name": "' }
     its('content') { should include '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", "osfinger", "os", "os_family"], "source_files": {"template-config-file-file-managed": ["example.tmpl.jinja"]}' }
     its('content') { should include '"winner": "pillar"}' }
