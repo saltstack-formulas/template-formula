@@ -26,19 +26,24 @@ services:
 #       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
 env:
   matrix:
-    - INSTANCE: default-debian-9-2019-2-py3
-    # - INSTANCE: default-ubuntu-1804-2019-2-py3
+    - INSTANCE: default-debian-9-develop-py3
+    # - INSTANCE: default-ubuntu-1804-develop-py3
+    # - INSTANCE: default-centos-7-develop-py3
+    # - INSTANCE: default-fedora-29-develop-py3
+    # - INSTANCE: default-opensuse-leap-15-develop-py3
+    # - INSTANCE: default-debian-9-2019-2-py3
+    - INSTANCE: default-ubuntu-1804-2019-2-py3
     - INSTANCE: default-centos-7-2019-2-py3
     # - INSTANCE: default-fedora-29-2019-2-py3
-    - INSTANCE: default-opensuse-leap-15-2019-2-py3
+    # - INSTANCE: default-opensuse-leap-15-2019-2-py3
     # - INSTANCE: default-debian-9-2018-3-py2
-    - INSTANCE: default-ubuntu-1604-2018-3-py2
+    # - INSTANCE: default-ubuntu-1604-2018-3-py2
     # - INSTANCE: default-centos-7-2018-3-py2
     - INSTANCE: default-fedora-29-2018-3-py2
     # TODO: Use this when fixed instead of `opensuse-leap-42`
     # Ref: https://github.com/netmanagers/salt-image-builder/issues/2
     # - INSTANCE: default-opensuse-leap-15-2018-3-py2
-    # - INSTANCE: default-opensuse-leap-42-2018-3-py2
+    - INSTANCE: default-opensuse-leap-42-2018-3-py2
     # - INSTANCE: default-debian-8-2017-7-py2
     # - INSTANCE: default-ubuntu-1604-2017-7-py2
     # TODO: Enable after improving the formula to work with other than `systemd`
