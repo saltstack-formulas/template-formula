@@ -11,6 +11,39 @@ driver:
 # Make sure the platforms listed below match up with
 # the `env.matrix` instances defined in `.travis.yml`
 platforms:
+  ## SALT `develop`
+  - name: debian-9-develop-py3
+    driver:
+      image: netmanagers/salt-develop-py3:debian-9
+      provision_command:
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
+  - name: ubuntu-1804-develop-py3
+    driver:
+      image: netmanagers/salt-develop-py3:ubuntu-18.04
+      provision_command:
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
+  - name: centos-7-develop-py3
+    driver:
+      image: netmanagers/salt-develop-py3:centos-7
+      provision_command:
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
+  - name: fedora-29-develop-py3
+    driver:
+      image: netmanagers/salt-develop-py3:fedora-29
+      provision_command:
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
+  - name: opensuse-leap-15-develop-py3
+    driver:
+      image: netmanagers/salt-develop-py3:opensuse-leap-15
+      provision_command:
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
+      run_command: /usr/lib/systemd/systemd
+
   ## SALT 2019.2
   - name: debian-9-2019-2-py3
     driver:
