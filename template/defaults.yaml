@@ -2,7 +2,8 @@
 # vim: ft=yaml
 ---
 template:
-  pkg: template
+  pkg:
+    name: template
   rootgroup: root
   config: '/etc/template'
   service:

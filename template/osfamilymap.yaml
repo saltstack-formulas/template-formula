@@ -15,20 +15,24 @@
 {%- endif %}
 
 Debian:
-  pkg: template-debian
+  pkg:
+    name: template-debian
   config: /etc/template.d/custom.conf
 
 RedHat:
-  pkg: template-redhat
+  pkg:
+    name: template-redhat
   config: /etc/template.conf
 
 Suse:
-  pkg: template-suse
+  pkg:
+    name: template-suse
 
 Gentoo: {}
 
 Arch:
-  pkg: template-arch
+  pkg:
+    name: template-arch
   service:
     name: service-arch
 

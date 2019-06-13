@@ -12,14 +12,16 @@
 ---
 # os_family: Debian
 Ubuntu:
-  pkg: template-ubuntu
+  pkg:
+    name: template-ubuntu
   config: /etc/template.d/custom-ubuntu.conf
 
 Raspbian: {}
 
 # os_family: RedHat
 Fedora:
-  pkg: template-fedora
+  pkg:
+    name: template-fedora
   service:
     name: service-fedora
 

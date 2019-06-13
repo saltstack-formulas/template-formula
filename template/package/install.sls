@@ -7,4 +7,4 @@
 
 template-package-install-pkg-installed:
   pkg.installed:
-    - name: {{ template.pkg }}
+    - name: {{ template.pkg.name }}

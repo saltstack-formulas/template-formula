@@ -11,6 +11,6 @@ include:
 
 template-package-clean-pkg-removed:
   pkg.removed:
-    - name: {{ template.pkg }}
+    - name: {{ template.pkg.name }}
     - require:
       - sls: {{ sls_config_clean }}

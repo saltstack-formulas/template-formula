@@ -12,11 +12,13 @@ template:
   # test the template formula itself. You should set these parameters to
   # examples that make sense in the contexto of the formula you're writing.
   {%- if grains.osfinger == 'CentOS-6' %}
-  pkg: cronie
+  pkg:
+    name: cronie
   service:
     name: crond
   {%- else %}
-  pkg: bash
+  pkg:
+    name: bash
   service:
     name: systemd-udevd
   {%- endif %}
