@@ -4,7 +4,7 @@ if os[:name] == 'centos' and os[:release].start_with?('6')
   service_name = 'crond'
 end
 
-control 'Template service' do
+control 'template service' do
   impact 0.5
   title 'should be running and enabled'
 
