@@ -1,5 +1,23 @@
 # Changelog
 
+# [3.0.0](https://github.com/saltstack-formulas/template-formula/compare/v2.2.1...v3.0.0) (2019-06-13)
+
+
+### Code Refactoring
+
+* **pkgname:** reserve 'pkg' as packaging dict ([c6ae81c](https://github.com/saltstack-formulas/template-formula/commit/c6ae81c))
+
+
+### Continuous Integration
+
+* **kitchen+travis:** modify matrix to include `develop` platform ([7b5d4ff](https://github.com/saltstack-formulas/template-formula/commit/7b5d4ff))
+
+
+### BREAKING CHANGES
+
+* **pkgname:** the parameter `pkg` is now a dictionary. References
+ to `template.pkg` should be changed to `template.pkg.name`.
+
 ## [2.2.1](https://github.com/saltstack-formulas/template-formula/compare/v2.2.0...v2.2.1) (2019-05-31)
 
 
