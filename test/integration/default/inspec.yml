@@ -4,9 +4,9 @@ maintainer: Your Name
 license: Apache-2.0
 summary: Verify that the template formula is setup and configured correctly
 supports:
-  - os-name: debian
-  - os-name: ubuntu
-  - os-name: centos
-  - os-name: fedora
-  - os-name: opensuse
-  - os-name: suse
+  - platform-name: debian
+  - platform-name: ubuntu
+  - platform-name: centos
+  - platform-name: fedora
+  - platform-name: opensuse
+  - platform-name: suse
