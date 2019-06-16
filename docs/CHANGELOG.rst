@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`3.0.1 <https://github.com/saltstack-formulas/template-formula/compare/v3.0.0...v3.0.1>`_ (2019-06-16)
+----------------------------------------------------------------------------------------------------------
+
+Tests
+^^^^^
+
+
+* **inspec:** readme for default profile & os-name depreciated (\ `3fa7bce <https://github.com/saltstack-formulas/template-formula/commit/3fa7bce>`_\ )
+
 `3.0.0 <https://github.com/saltstack-formulas/template-formula/compare/v2.2.1...v3.0.0>`_ (2019-06-13)
 ----------------------------------------------------------------------------------------------------------
 
