@@ -175,6 +175,7 @@ These formulas are already compatible with semantic-release:
 * `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
 * `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
 * `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
+* `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_
 * `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
 * `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
 * `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
