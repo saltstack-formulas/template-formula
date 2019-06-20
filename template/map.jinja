@@ -5,6 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {#- Start imports as #}
 {%- import_yaml tplroot ~ "/defaults.yaml" as default_settings %}
+{%- import_yaml tplroot ~ "/osarchmap.yaml" as osarchmap %}
 {%- import_yaml tplroot ~ "/osfamilymap.yaml" as osfamilymap %}
 {%- import_yaml tplroot ~ "/osmap.yaml" as osmap %}
 {%- import_yaml tplroot ~ "/osfingermap.yaml" as osfingermap %}
@@ -16,17 +17,21 @@
       default_settings,
       default=tplroot,
       merge=salt['grains.filter_by'](
-        osfamilymap,
-        grain='os_family',
+        osarchmap,
+        grain='osarch',
         merge=salt['grains.filter_by'](
-          osmap,
-          grain='os',
+          osfamilymap,
+          grain='os_family',
           merge=salt['grains.filter_by'](
-            osfingermap,
-            grain='osfinger',
+            osmap,
+            grain='os',
             merge=salt['grains.filter_by'](
-              _config,
-              default='lookup'
+              osfingermap,
+              grain='osfinger',
+              merge=salt['grains.filter_by'](
+                _config,
+                default='lookup'
+              )
             )
           )
         )
