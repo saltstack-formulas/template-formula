@@ -26,7 +26,7 @@ armv6l:
   arch: armv6l
 
 armv7l:
-  arch: armv6l
+  arch: armv7l
 
 ppc64le:
   arch: ppc64le
