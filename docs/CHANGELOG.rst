@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`3.0.3 <https://github.com/saltstack-formulas/template-formula/compare/v3.0.2...v3.0.3>`_ (2019-06-25)
+----------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **contributing:** add recent ``semantic-release`` formula (\ `7f56237 <https://github.com/saltstack-formulas/template-formula/commit/7f56237>`_\ )
+
 `3.0.2 <https://github.com/saltstack-formulas/template-formula/compare/v3.0.1...v3.0.2>`_ (2019-06-20)
 ----------------------------------------------------------------------------------------------------------
 
