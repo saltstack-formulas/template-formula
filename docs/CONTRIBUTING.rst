@@ -169,6 +169,7 @@ These formulas are already compatible with semantic-release:
 * `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
 * `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
+* `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
 * `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 * `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
