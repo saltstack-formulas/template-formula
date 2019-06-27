@@ -163,14 +163,19 @@ Semantic release formulas
 
 These formulas are already compatible with semantic-release:
 
+* `apt-formula <https://github.com/saltstack-formulas/apt-formula>`_
 * `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
 * `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 * `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 * `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
 * `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
+* `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
+* `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
+* `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 * `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
+* `php-formula <https://github.com/saltstack-formulas/php-formula>`_
 * `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 * `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
 * `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
