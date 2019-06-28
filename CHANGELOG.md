@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.6](https://github.com/saltstack-formulas/template-formula/compare/v3.0.5...v3.0.6) (2019-06-28)
+
+
+### Code Refactoring
+
+* **string:** remove capitalisation from 'template' string ([7062210](https://github.com/saltstack-formulas/template-formula/commit/7062210))
+
 ## [3.0.5](https://github.com/saltstack-formulas/template-formula/compare/v3.0.4...v3.0.5) (2019-06-28)
 
 
