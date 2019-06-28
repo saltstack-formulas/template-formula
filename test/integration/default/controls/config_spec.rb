@@ -1,4 +1,4 @@
-control 'Template configuration' do
+control 'template configuration' do
   title 'should match desired lines'
 
   describe file('/etc/template-formula.conf') do

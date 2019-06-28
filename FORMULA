@@ -4,6 +4,6 @@ os_family: Debian, RedHat, Suse, Gentoo, Arch, Alpine, FreeBSD, OpenBSD, Solaris
 version: 3.0.5
 release: 1
 minimum_version: 2016.11
-summary: Template formula
+summary: template formula
 description: Formula to use as a template for other formulas
 top_level_dir: template

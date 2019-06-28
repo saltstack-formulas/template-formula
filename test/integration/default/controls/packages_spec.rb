@@ -4,7 +4,7 @@ if os[:name] == 'centos' and os[:release].start_with?('6')
   package_name = 'cronie'
 end
 
-control 'Template package' do
+control 'template package' do
   title 'should be installed'
 
   describe package(package_name) do
