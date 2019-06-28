@@ -170,6 +170,7 @@ These formulas are already compatible with semantic-release:
 * `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
 * `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 * `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
+* `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
 * `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
 * `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
