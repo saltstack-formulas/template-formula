@@ -3,8 +3,8 @@
 #
 # Setup variables using grains['os_family'] based logic.
 # You just need to add the key:values for an `os_family` that differ
-# from `defaults.yaml`.
-# Only add an `os_family` which is/will be supported by the formula
+# from `defaults.yaml` + `osarch.yaml`.
+# Only add an `os_family` which is/will be supported by the formula.
 #
 # If you do not need to provide defaults via the `os_family` grain,
 # you will need to provide at least an empty dict in this file, e.g.
