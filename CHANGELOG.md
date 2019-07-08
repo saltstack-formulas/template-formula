@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.8](https://github.com/saltstack-formulas/template-formula/compare/v3.0.7...v3.0.8) (2019-07-08)
+
+
+### Documentation
+
+* **contributing:** add template-formula to `semantic-release` formulas ([87e4ebc](https://github.com/saltstack-formulas/template-formula/commit/87e4ebc))
+
 ## [3.0.7](https://github.com/saltstack-formulas/template-formula/compare/v3.0.6...v3.0.7) (2019-07-04)
 
 
