@@ -174,9 +174,13 @@ These formulas are already compatible with semantic-release:
 * `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
 * `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
+* [`WIP <https://github.com/saltstack-formulas/libvirt-formula/pull/43>`_] `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 * `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 * `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
+* `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
+* [`WIP <https://github.com/saltstack-formulas/openvpn-formula/pull/102>`_] `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
+* [`WIP <https://github.com/saltstack-formulas/packages-formula/pull/54>`_] `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
 * `php-formula <https://github.com/saltstack-formulas/php-formula>`_
 * `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 * `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
@@ -185,11 +189,11 @@ These formulas are already compatible with semantic-release:
 * `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
 * `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_
 * `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
+* [`WIP <https://github.com/saltstack-formulas/sysstat-formula/pull/12>`_] `sysstat-formula <https://github.com/saltstack-formulas/sysstat-formula>`_
 * `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
 * `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 * `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
-
 
 Documentation
 -------------
