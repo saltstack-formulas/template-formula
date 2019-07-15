@@ -174,7 +174,7 @@ These formulas are already compatible with semantic-release:
 * `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
 * `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
-* [`WIP <https://github.com/saltstack-formulas/libvirt-formula/pull/43>`_] `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
+* `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 * `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 * `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
 * `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
