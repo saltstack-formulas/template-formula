@@ -124,8 +124,10 @@ provisioner:
       base:
         '*':
           - template
+          - define_roles
   pillars_from_files:
     template.sls: pillar.example
+    define_roles.sls: test/salt/pillar/define_roles.sls
 
 verifier:
   # https://www.inspec.io/
