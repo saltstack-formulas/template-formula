@@ -2,6 +2,33 @@
 Changelog
 =========
 
+`3.1.0 <https://github.com/saltstack-formulas/template-formula/compare/v3.0.9...v3.1.0>`_ (2019-07-24)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **grain:** fix grain value (\ `26edfa0 <https://github.com/saltstack-formulas/template-formula/commit/26edfa0>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **map:** update comments in ``os*.yaml`` after adding ``osarchmap`` (\ `d71a258 <https://github.com/saltstack-formulas/template-formula/commit/d71a258>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **mapping:** introduce osarchmap per issue `#13 <https://github.com/saltstack-formulas/template-formula/issues/13>`_ (\ `41ac40d <https://github.com/saltstack-formulas/template-formula/commit/41ac40d>`_\ )
+
+Tests
+^^^^^
+
+
+* **osarch:** add unit test for osarch (\ `1be2052 <https://github.com/saltstack-formulas/template-formula/commit/1be2052>`_\ )
+
 `3.0.9 <https://github.com/saltstack-formulas/template-formula/compare/v3.0.8...v3.0.9>`_ (2019-07-24)
 ----------------------------------------------------------------------------------------------------------
 
