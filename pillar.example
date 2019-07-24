@@ -33,6 +33,7 @@ template:
     files_switch:
       - any/path/can/be/used/here
       - id
+      - roles
       - osfinger
       - os
       - os_family

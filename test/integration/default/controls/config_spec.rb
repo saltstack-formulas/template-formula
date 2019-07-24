@@ -14,7 +14,7 @@ control 'template configuration' do
     its('content') { should include '"lookup": {"added_in_lookup": "lookup_value",' }
     its('content') { should include '"pkg": {"name": "' }
     its('content') { should include '"service": {"name": "' }
-    its('content') { should include '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", "osfinger", "os", "os_family"], "source_files": {"template-config-file-file-managed": ["example.tmpl.jinja"]}' }
+    its('content') { should include '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", "roles", "osfinger", "os", "os_family"], "source_files": {"template-config-file-file-managed": ["example.tmpl.jinja"]}' }
     its('content') { should include '"winner": "pillar"}' }
     its('content') { should include 'winner of the merge: pillar' }
   end
