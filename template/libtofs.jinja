@@ -83,18 +83,25 @@
     {%- for fs in fsl %}
       {%- for src_file in src_files %}
         {%- if fs %}
-          {%- set fs_dir = salt['config.get'](fs, fs) %}
+          {%- set fs_dirs = salt['config.get'](fs, fs) %}
         {%- else %}
-          {%- set fs_dir = salt['config.get'](tplroot ~ ':tofs:dirs:default', 'default') %}
+          {%- set fs_dirs = salt['config.get'](tplroot ~ ':tofs:dirs:default', 'default') %}
         {%- endif %}
-        {%- set url = [
-            '- salt:/',
-            path_prefix_inc_ext.strip('/'),
-            files_dir.strip('/'),
-            fs_dir.strip('/'),
-            src_file.strip('/'),
-        ] | select | join('/') %}
+        {#- Force the `config.get` lookup result as a list where necessary #}
+        {#- since we need to also handle grains that are lists #}
+        {%- if fs_dirs is string %}
+          {%- set fs_dirs = [fs_dirs] %}
+        {%- endif %}
+        {%- for fs_dir in fs_dirs %}
+          {%- set url = [
+              '- salt:/',
+              path_prefix_inc_ext.strip('/'),
+              files_dir.strip('/'),
+              fs_dir.strip('/'),
+              src_file.strip('/'),
+          ] | select | join('/') %}
 {{ url | indent(indent_width, true) }}
+        {%- endfor %}
       {%- endfor %}
     {%- endfor %}
   {%- endfor %}
