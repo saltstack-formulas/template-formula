@@ -2,6 +2,29 @@
 Changelog
 =========
 
+`3.0.9 <https://github.com/saltstack-formulas/template-formula/compare/v3.0.8...v3.0.9>`_ (2019-07-24)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libtofs:** don't crash if “tofs.files_switch” lookup a list (\ `0979d35 <https://github.com/saltstack-formulas/template-formula/commit/0979d35>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **contributing:** add recent ``semantic-release`` formula (\ `f9def86 <https://github.com/saltstack-formulas/template-formula/commit/f9def86>`_\ )
+* **contributing:** add recent ``semantic-release`` formula (\ `ed8c55a <https://github.com/saltstack-formulas/template-formula/commit/ed8c55a>`_\ )
+* **contributing:** add recent ``semantic-release`` formulas (\ `57d0b85 <https://github.com/saltstack-formulas/template-formula/commit/57d0b85>`_\ )
+
+Tests
+^^^^^
+
+
+* **libtofs:** “tofs.files_switch” lookup can return a list (\ `13f1728 <https://github.com/saltstack-formulas/template-formula/commit/13f1728>`_\ )
+
 `3.0.8 <https://github.com/saltstack-formulas/template-formula/compare/v3.0.7...v3.0.8>`_ (2019-07-08)
 ----------------------------------------------------------------------------------------------------------
 
