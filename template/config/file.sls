@@ -13,7 +13,7 @@ include:
 template-config-file-file-managed:
   file.managed:
     - name: {{ template.config }}
-    - source: {{ files_switch(['example.tmpl', 'example.tmpl.jinja'],
+    - source: {{ files_switch(['example.tmpl'],
                               lookup='template-config-file-file-managed'
                  )
               }}

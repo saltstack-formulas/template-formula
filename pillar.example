@@ -43,6 +43,8 @@ template:
     # dirs:
     #   files: files_alt
     #   default: default_alt
+    # The entries under `source_files` are prepended to the default source files
+    # given for the state
     # source_files:
     #   template-config-file-file-managed:
     #     - 'example_alt.tmpl'
