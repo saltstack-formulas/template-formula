@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.1](https://github.com/saltstack-formulas/template-formula/compare/v3.1.0...v3.1.1) (2019-07-25)
+
+
+### Bug Fixes
+
+* **tofs:** prepend the config-based `source_files` to the default ([3483e76](https://github.com/saltstack-formulas/template-formula/commit/3483e76)), closes [/github.com/saltstack-formulas/nginx-formula/pull/247#issuecomment-514262549](https://github.com//github.com/saltstack-formulas/nginx-formula/pull/247/issues/issuecomment-514262549) [#151](https://github.com/saltstack-formulas/template-formula/issues/151)
+
+
+### Documentation
+
+* **tofs:** ensure merged will all recent changes ([6a614d9](https://github.com/saltstack-formulas/template-formula/commit/6a614d9))
+* **tofs:** update from `nginx-formula` ([23a221e](https://github.com/saltstack-formulas/template-formula/commit/23a221e)), closes [/github.com/saltstack-formulas/nginx-formula/pull/238#discussion_r289124365](https://github.com//github.com/saltstack-formulas/nginx-formula/pull/238/issues/discussion_r289124365)
+
 # [3.1.0](https://github.com/saltstack-formulas/template-formula/compare/v3.0.9...v3.1.0) (2019-07-24)
 
 
