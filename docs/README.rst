@@ -99,6 +99,28 @@ dependency on ``template.service.clean`` via include list.
 This state will remove the template package and has a depency on
 ``template.config.clean`` via include list.
 
+``template.subcomponent``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Meta-state (This is a state that includes other states)*.
+
+This state installs a subcomponent configuration file before
+configuring and starting the template service.
+
+``template.subcomponent.config``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will configure the template subcomponent and has a
+dependency on ``template.config`` via include list.
+
+``template.subcomponent.config.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will remove the configuration of the template subcomponent
+and reload the template service by a dependency on
+``template.service.running`` via include list and ``watch_in``
+requisite.
+
 Testing
 -------
 
