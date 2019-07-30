@@ -48,6 +48,7 @@ coverage.xml
 .kitchen
 .kitchen.local.yml
 kitchen.local.yml
+junit-*.xml
 
 # Translations
 *.mo
@@ -111,3 +112,11 @@ docs/*.md
 
 # Vim
 *.sw?
+
+## Collected when centralising formulas (check and sort)
+# `collectd-formula`
+.pytest_cache/
+/.idea/
+Dockerfile.*_*
+ignore/
+tmp/

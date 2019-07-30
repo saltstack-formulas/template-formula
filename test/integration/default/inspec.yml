@@ -1,6 +1,6 @@
-name: template
+name: default
 title: template formula
-maintainer: Your Name
+maintainer: SaltStack Formulas
 license: Apache-2.0
 summary: Verify that the template formula is setup and configured correctly
 supports:
@@ -10,3 +10,5 @@ supports:
   - platform-name: fedora
   - platform-name: opensuse
   - platform-name: suse
+  - platform-name: freebsd
+  - platform-name: amazon

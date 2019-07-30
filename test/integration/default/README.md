@@ -1,6 +1,6 @@
-# Default InSpec Profile
+# InSpec Profile: `default`
 
-This shows the implementation of the Default InSpec [profile](https://github.com/inspec/inspec/blob/master/docs/profiles.md).
+This shows the implementation of the `default` InSpec [profile](https://github.com/inspec/inspec/blob/master/docs/profiles.md).
 
 ## Verify a profile
 
