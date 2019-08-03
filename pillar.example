@@ -24,6 +24,9 @@ template:
   {%- endif %}
   config: /etc/template-formula.conf
 
+  subcomponent:
+    config: /etc/template-subcomponent-formula.conf
+
   tofs:
     # The files_switch key serves as a selector for alternative
     # directories under the formula files directory. See TOFS pattern
@@ -54,6 +57,8 @@ template:
     source_files:
       template-config-file-file-managed:
         - 'example.tmpl.jinja'
+      template-subcomponent-config-file-file-managed:
+        - 'subcomponent-example.tmpl.jinja'
 
   # Just for testing purposes
   winner: pillar

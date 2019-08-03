@@ -66,8 +66,15 @@
   {%- set path_prefix_exts = [''] %}
   {%- if v1_path_prefix != '' %}
     {%- do path_prefix_exts.append(v1_path_prefix) %}
+  {%- elif tplroot != tpldir %}
+    {#- Walk directory tree to find {{ files_dir }} #}
+    {%- set subpath_parts = tpldir.lstrip(tplroot).lstrip('/').split('/') %}
+    {%- for path in subpath_parts %}
+      {%- set subpath = subpath_parts[0:loop.index] | join('/') %}
+      {%- do path_prefix_exts.append('/' ~ subpath) %}
+    {%- endfor %}
   {%- endif %}
-  {%- for path_prefix_ext in path_prefix_exts %}
+  {%- for path_prefix_ext in path_prefix_exts|reverse %}
     {%- set path_prefix_inc_ext = path_prefix ~ path_prefix_ext %}
     {#- For older TOFS implementation, use `files_switch` from the config #}
     {#- Use the default, new method otherwise #}
