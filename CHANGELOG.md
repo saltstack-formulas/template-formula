@@ -1,5 +1,29 @@
 # Changelog
 
+# [3.2.0](https://github.com/saltstack-formulas/template-formula/compare/v3.1.1...v3.2.0) (2019-08-03)
+
+
+### Bug Fixes
+
+* **formula:** update to current oldest supported version of Salt ([878eca1](https://github.com/saltstack-formulas/template-formula/commit/878eca1))
+
+
+### Documentation
+
+* **libtofs:** explain usage of sub-directory for components ([42a75d9](https://github.com/saltstack-formulas/template-formula/commit/42a75d9))
+* **readme:** describe the new “template.subcomponent” states ([6b595cd](https://github.com/saltstack-formulas/template-formula/commit/6b595cd))
+
+
+### Features
+
+* **sub-component:** manage a dedicated configuration file ([c4440d7](https://github.com/saltstack-formulas/template-formula/commit/c4440d7))
+* **tofs:** lookup files directory in “tpldir” hierarchy ([5c495fb](https://github.com/saltstack-formulas/template-formula/commit/5c495fb))
+
+
+### Tests
+
+* **inspec:** verify subcomponent configuration file ([fd55e03](https://github.com/saltstack-formulas/template-formula/commit/fd55e03))
+
 ## [3.1.1](https://github.com/saltstack-formulas/template-formula/compare/v3.1.0...v3.1.1) (2019-07-25)
 
 
