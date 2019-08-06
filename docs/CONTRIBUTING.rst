@@ -194,6 +194,7 @@ These formulas are already compatible with semantic-release:
 * `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
 * `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 * `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
+* [`WIP <https://github.com/saltstack-formulas/users-formula/pull/207>`_] `users-formula <https://github.com/saltstack-formulas/users-formula>`_
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 
 Documentation
