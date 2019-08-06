@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`3.2.1 <https://github.com/saltstack-formulas/template-formula/compare/v3.2.0...v3.2.1>`_ (2019-08-06)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **tofs:** move subcomponent definition to ``defaults.yaml`` (\ `c269673 <https://github.com/saltstack-formulas/template-formula/commit/c269673>`_\ )
+* **tofs:** move subcomponent templates to first ``source`` match (\ `70cc92d <https://github.com/saltstack-formulas/template-formula/commit/70cc92d>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen+travis:** replace EOL pre-salted images (\ `42ab22c <https://github.com/saltstack-formulas/template-formula/commit/42ab22c>`_\ )
+
 `3.2.0 <https://github.com/saltstack-formulas/template-formula/compare/v3.1.1...v3.2.0>`_ (2019-08-03)
 ----------------------------------------------------------------------------------------------------------
 
