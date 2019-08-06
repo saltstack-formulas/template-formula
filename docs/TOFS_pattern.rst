@@ -493,7 +493,8 @@ For example, the following ``formula.component.config`` SLS:
        - mode: 644
        - template: jinja
        - source: {{ files_switch(['formula.conf'],
-                                 lookup='formula'
+                                 lookup='formula',
+                                 use_subpath=True
                     )
                  }}
 
