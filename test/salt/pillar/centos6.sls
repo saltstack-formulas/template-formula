@@ -12,9 +12,9 @@ template:
   # test the template formula itself. You should set these parameters to
   # examples that make sense in the contexto of the formula you're writing.
   pkg:
-    name: bash
+    name: cronie
   service:
-    name: systemd-udevd
+    name: crond
   config: /etc/template-formula.conf
 
   tofs:

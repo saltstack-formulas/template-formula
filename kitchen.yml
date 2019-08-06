@@ -134,6 +134,8 @@ verifier:
 
 suites:
   - name: default
+    excludes:
+      - centos-6-2017-7-py2
     provisioner:
       state_top:
         base:
@@ -144,8 +146,30 @@ suites:
           base:
             '*':
               - template
+              - define_roles
       pillars_from_files:
         template.sls: pillar.example
+        define_roles.sls: test/salt/pillar/define_roles.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/default
+  - name: centos6
+    includes:
+      - centos-6-2017-7-py2
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - template
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - template
+              - define_roles
+      pillars_from_files:
+        template.sls: test/salt/pillar/centos6.sls
+        define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:
         - path: test/integration/default
