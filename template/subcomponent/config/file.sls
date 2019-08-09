@@ -14,7 +14,8 @@ template-subcomponent-config-file-file-managed:
   file.managed:
     - name: {{ template.subcomponent.config }}
     - source: {{ files_switch(['subcomponent-example.tmpl'],
-                              lookup='template-subcomponent-config-file-file-managed'
+                              lookup='template-subcomponent-config-file-file-managed',
+                              use_subpath=True
                  )
               }}
     - mode: 644
