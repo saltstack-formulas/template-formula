@@ -48,3 +48,9 @@
 
 {#- Change **template** to match with your formula's name and then remove this line #}
 {%- set template = config %}
+
+{#- Post-processing for specific non-YAML customisations #}
+{%- if grains.os == 'MacOS' %}
+{%-   set macos_group = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
+{%-   do template.update({'rootgroup': macos_group}) %}
+{%- endif %}

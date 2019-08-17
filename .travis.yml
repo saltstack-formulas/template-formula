@@ -3,7 +3,7 @@
 ---
 stages:
   - test
-  - commitlint
+  - lint
   - name: release
     if: branch = master AND type != pull_request
 
@@ -50,7 +50,7 @@ env:
     # - INSTANCE: default-amazonlinux-2-2018-3-py2
     # - INSTANCE: default-debian-8-2017-7-py2
     # - INSTANCE: default-ubuntu-1604-2017-7-py2
-    - INSTANCE: default-centos-6-2017-7-py2
+    - INSTANCE: centos6-centos-6-2017-7-py2
     # - INSTANCE: default-fedora-29-2017-7-py2
     # - INSTANCE: default-opensuse-leap-15-2017-7-py2
     # - INSTANCE: default-amazonlinux-2-2017-7-py2
@@ -60,16 +60,21 @@ script:
 
 jobs:
   include:
-    # Define the commitlint stage
-    - stage: commitlint
+    # Define the `lint` stage (runs `yamllint` and `commitlint`)
+    - stage: lint
       language: node_js
       node_js: lts/*
       before_install: skip
       script:
+        # Install and run `yamllint`
+        - pip install --user yamllint
+        # yamllint disable-line rule:line-length
+        - yamllint -s . .yamllint pillar.example test/salt/pillar/define_roles.sls test/salt/pillar/centos6.sls
+        # Install and run `commitlint`
         - npm install @commitlint/config-conventional -D
         - npm install @commitlint/travis-cli -D
         - commitlint-travis
-    # Define the release stage that runs semantic-release
+    # Define the release stage that runs `semantic-release`
     - stage: release
       language: node_js
       node_js: lts/*
