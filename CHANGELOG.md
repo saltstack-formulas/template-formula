@@ -1,5 +1,22 @@
 # Changelog
 
+# [3.3.0](https://github.com/saltstack-formulas/template-formula/compare/v3.2.1...v3.3.0) (2019-08-27)
+
+
+### Bug Fixes
+
+* **libtofs:** avoid using subpath by default ([c07471d](https://github.com/saltstack-formulas/template-formula/commit/c07471d))
+
+
+### Code Refactoring
+
+* **libtofs:** remove deprecated `v1_path_prefix` argument ([ad2a965](https://github.com/saltstack-formulas/template-formula/commit/ad2a965))
+
+
+### Features
+
+* **yamllint:** include for this repo and apply rules throughout ([e76525f](https://github.com/saltstack-formulas/template-formula/commit/e76525f))
+
 ## [3.2.1](https://github.com/saltstack-formulas/template-formula/compare/v3.2.0...v3.2.1) (2019-08-06)
 
 
