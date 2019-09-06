@@ -200,6 +200,7 @@ These formulas are already compatible with semantic-release:
 * `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
 * `users-formula <https://github.com/saltstack-formulas/users-formula>`_
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
+* `vim-formula <https://github.com/saltstack-formulas/vim-formula>`_
 * `vsftpd-formula <https://github.com/saltstack-formulas/vsftpd-formula>`_
 
 Documentation
