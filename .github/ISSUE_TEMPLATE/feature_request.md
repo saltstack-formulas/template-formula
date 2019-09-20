@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
+title: '[FEATURE]'
+labels: 'enhancement'
 assignees: ''
 
 ---
@@ -31,3 +31,5 @@ Notes:
 
 #### Additional context
 <!-- Add any other context about the feature request here. -->
+
+

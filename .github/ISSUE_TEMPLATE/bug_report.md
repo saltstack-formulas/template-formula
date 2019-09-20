@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: "[BUG]"
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
@@ -25,7 +25,7 @@ Notes:
 
 
 #### Steps to reproduce the bug
-<!-- Include debug logs if possible and relevant. -->
+<!-- Include debug logs if possible and relevant, e.g. using `salt-minion -l debug`. -->
 
 
 
@@ -41,3 +41,5 @@ Notes:
 
 #### Additional context
 <!-- Add any other context about the problem here. -->
+
+
