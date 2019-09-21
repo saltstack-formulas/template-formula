@@ -164,6 +164,7 @@ Semantic release formulas
 These formulas are already compatible with semantic-release:
 
 * `apt-formula <https://github.com/saltstack-formulas/apt-formula>`_
+* `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 * `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
 * `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 * `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
@@ -171,6 +172,7 @@ These formulas are already compatible with semantic-release:
 * `cron-formula <https://github.com/saltstack-formulas/cron-formula>`_
 * `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 * `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
+* `exim-formula <https://github.com/saltstack-formulas/exim-formula>`_
 * `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 * `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 * `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
@@ -182,12 +184,14 @@ These formulas are already compatible with semantic-release:
 * `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
 * `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
+* `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
 * `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
 * [`WIP <https://github.com/saltstack-formulas/packages-formula/pull/54>`_] `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
 * `php-formula <https://github.com/saltstack-formulas/php-formula>`_
 * `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 * `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
 * `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
+* `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
 * `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
 * `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
 * `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_
