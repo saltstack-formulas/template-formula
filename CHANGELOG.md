@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.3.1](https://github.com/saltstack-formulas/template-formula/compare/v3.3.0...v3.3.1) (2019-09-23)
+
+
+### Bug Fixes
+
+* **subcomponent:** clean referencing wrong sls ([394808e](https://github.com/saltstack-formulas/template-formula/commit/394808e))
+
+
+### Continuous Integration
+
+* use `dist: bionic` & apply `opensuse-leap-15` SCP error workaround ([330b0cb](https://github.com/saltstack-formulas/template-formula/commit/330b0cb))
+* **kitchen:** change `log_level` to `debug` instead of `info` ([1b929ff](https://github.com/saltstack-formulas/template-formula/commit/1b929ff))
+* **platform:** add `arch-base-latest` ([042e8e2](https://github.com/saltstack-formulas/template-formula/commit/042e8e2))
+* **yamllint:** add rule `empty-values` & use new `yaml-files` setting ([70ed7e2](https://github.com/saltstack-formulas/template-formula/commit/70ed7e2)), closes [#164](https://github.com/saltstack-formulas/template-formula/issues/164)
+
+
+### Documentation
+
+* **contributing:** add recent `semantic-release` formulas ([7f36ae9](https://github.com/saltstack-formulas/template-formula/commit/7f36ae9))
+
 # [3.3.0](https://github.com/saltstack-formulas/template-formula/compare/v3.2.1...v3.3.0) (2019-08-27)
 
 
