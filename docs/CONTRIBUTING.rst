@@ -182,6 +182,7 @@ These formulas are already compatible with semantic-release:
 * `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 * `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 * `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
+* `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
 * `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
 * `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
