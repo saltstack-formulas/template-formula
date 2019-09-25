@@ -194,6 +194,7 @@ These formulas are already compatible with semantic-release:
 * `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
 * `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
 * `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
+* `stunnel-formula <https://github.com/saltstack-formulas/stunnel-formula>`_
 * `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_
 * `sysctl-formula <https://github.com/saltstack-formulas/sysctl-formula>`_
 * `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
