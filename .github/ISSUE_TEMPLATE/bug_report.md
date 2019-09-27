@@ -26,6 +26,8 @@ Notes:
 
 #### Steps to reproduce the bug
 <!-- Include debug logs if possible and relevant, e.g. using `salt-minion -l debug`. -->
+<!-- Alternatively, linking to Kitchen debug logs is useful, e.g. via. Travis CI. -->
+<!-- Most useful is providing a failing InSpec test, which can be used to verify any proposed fix. -->
 
 
 
@@ -34,12 +36,19 @@ Notes:
 
 
 
-#### Versions Report
+#### Versions report
 <!-- Provided by running `salt --versions-report`. Please also mention any differences in master/minion versions. -->
 
 
 
 #### Additional context
 <!-- Add any other context about the problem here. -->
+
+
+
+---
+
+#### Optional: How can this template be improved?
+<!-- Feel free to suggest how this template can be improved. -->
 
 
