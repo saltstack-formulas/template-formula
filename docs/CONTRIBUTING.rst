@@ -201,6 +201,7 @@ These formulas are already compatible with semantic-release:
 * `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
 * `sysstat-formula <https://github.com/saltstack-formulas/sysstat-formula>`_
 * `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
+* `telegraf-formula <https://github.com/saltstack-formulas/telegraf-formula>`_
 * `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 * `timezone-formula <https://github.com/saltstack-formulas/timezone-formula>`_
 * `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
