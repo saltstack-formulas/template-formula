@@ -36,6 +36,11 @@ Notes:
 
 
 
+#### Formula commit hash / release tag
+<!-- Please specify the formula's commit hash and/or release tag that you are using. -->
+
+
+
 #### Versions report
 <!-- Provided by running `salt --versions-report`. Please also mention any differences in master/minion versions. -->
 
