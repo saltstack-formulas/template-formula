@@ -14,13 +14,27 @@ Notes:
 3. Please direct questions to the [`#formulas` channel on Slack](https://saltstackcommunity.slack.com/messages/C7LG8SV54/), which is bridged to `#saltstack-formulas` on Freenode.
 -->
 
+## Your setup
+### Formula commit hash / release tag
+<!-- Please specify the formula's commit hash and/or release tag that you are using. -->
+
+
+
+### Versions reports (master & minion)
+<!-- Provided by running `salt --versions-report`. Please also mention any differences in master/minion versions. -->
+
+
+
+### Pillar / config used
+<!-- Provide links to the SLS files and/or relevant configs (be sure to remove sensitive info). -->
+
+
+
+---
+
+## Bug details
 ### Describe the bug
 <!-- A clear and concise description of what the bug is. -->
-
-
-
-### Setup
-<!-- Provide links to the SLS files and/or relevant configs (be sure to remove sensitive info). -->
 
 
 
@@ -36,13 +50,8 @@ Notes:
 
 
 
-### Formula commit hash / release tag
-<!-- Please specify the formula's commit hash and/or release tag that you are using. -->
-
-
-
-### Versions report
-<!-- Provided by running `salt --versions-report`. Please also mention any differences in master/minion versions. -->
+### Attempts to fix the bug
+<!-- Please mention any attempts you have made to fix the bug and what the results were. -->
 
 
 
