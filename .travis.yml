@@ -27,7 +27,7 @@ jobs:
     # Run all of the linters in a single job
     - language: node_js
       node_js: lts/*
-      env: 'Lint: salt-lint, yamllint & commitlint'
+      env: 'Lint: salt-lint, yamllint, rubocop & commitlint'
       before_install: skip
       script:
         # Install and run `salt-lint`
@@ -38,6 +38,9 @@ jobs:
         # Need at least `v1.17.0` for the `yaml-files` setting
         - pip install --user yamllint>=1.17.0
         - yamllint -s .
+        # Install and run `rubocop`
+        - gem install rubocop
+        - rubocop -d
         # Install and run `commitlint`
         - npm install @commitlint/config-conventional -D
         - npm install @commitlint/travis-cli -D
