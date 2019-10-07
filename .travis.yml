@@ -27,9 +27,13 @@ jobs:
     # Run all of the linters in a single job
     - language: node_js
       node_js: lts/*
-      env: 'Lint: yamllint & commitlint'
+      env: 'Lint: salt-lint, yamllint & commitlint'
       before_install: skip
       script:
+        # Install and run `salt-lint`
+        - pip install --user salt-lint
+        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$'
+                       | xargs -I {} salt-lint {}
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
         - pip install --user yamllint>=1.17.0
