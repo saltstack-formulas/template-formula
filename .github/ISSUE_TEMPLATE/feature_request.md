@@ -36,7 +36,7 @@ Notes:
 
 ---
 
-### Optional: How can this template be improved?
+### Meta: How can this template be improved?
 <!-- Feel free to suggest how this template can be improved. -->
 
 
