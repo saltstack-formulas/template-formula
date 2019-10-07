@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'template configuration' do
   title 'should match desired lines'
 
