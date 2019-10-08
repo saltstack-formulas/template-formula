@@ -1,5 +1,42 @@
 # Changelog
 
+## [3.3.2](https://github.com/saltstack-formulas/template-formula/compare/v3.3.1...v3.3.2) (2019-10-08)
+
+
+### Bug Fixes
+
+* **rubocop:** add fixes using `rubocop --safe-auto-correct` ([484ce24](https://github.com/saltstack-formulas/template-formula/commit/484ce24))
+* **rubocop:** fix remaining errors manually ([9566b6f](https://github.com/saltstack-formulas/template-formula/commit/9566b6f))
+
+
+### Code Refactoring
+
+* **travis:** merge `lint` stage into the `test` stage ([d3b93f8](https://github.com/saltstack-formulas/template-formula/commit/d3b93f8))
+
+
+### Continuous Integration
+
+* **kitchen:** install required packages to bootstrapped `opensuse` [skip ci] ([1cfed60](https://github.com/saltstack-formulas/template-formula/commit/1cfed60))
+* **kitchen:** use bootstrapped `opensuse` images until `2019.2.2` [skip ci] ([0467bdf](https://github.com/saltstack-formulas/template-formula/commit/0467bdf))
+* **travis:** quote `${INSTANCE}` when running `kitchen verify` ([00d56a4](https://github.com/saltstack-formulas/template-formula/commit/00d56a4)), closes [/github.com/saltstack-formulas/template-formula/pull/175#discussion_r332525964](https://github.com//github.com/saltstack-formulas/template-formula/pull/175/issues/discussion_r332525964)
+* **travis:** run `rubocop` during the `Lint` job ([8d8c766](https://github.com/saltstack-formulas/template-formula/commit/8d8c766))
+* **travis:** run `salt-lint` during the `Lint` job ([2df4646](https://github.com/saltstack-formulas/template-formula/commit/2df4646)), closes [/freenode.logbot.info/saltstack-formulas/20191004#c2723464](https://github.com//freenode.logbot.info/saltstack-formulas/20191004/issues/c2723464) [/freenode.logbot.info/saltstack-formulas/20191004#c2724272](https://github.com//freenode.logbot.info/saltstack-formulas/20191004/issues/c2724272)
+* **travis:** use `env` and `name` for improved display in Travis ([5f773d1](https://github.com/saltstack-formulas/template-formula/commit/5f773d1)), closes [/github.com/saltstack-formulas/template-formula/pull/175#discussion_r332613933](https://github.com//github.com/saltstack-formulas/template-formula/pull/175/issues/discussion_r332613933)
+
+
+### Documentation
+
+* **bug_report:** add section requesting commit hash / release tag ([faccb6a](https://github.com/saltstack-formulas/template-formula/commit/faccb6a))
+* **bug_report:** group into sections for better logical ordering ([e9b6c2f](https://github.com/saltstack-formulas/template-formula/commit/e9b6c2f))
+* **contributing:** add recent `semantic-release` formula ([c2924b0](https://github.com/saltstack-formulas/template-formula/commit/c2924b0))
+* **contributing:** add recent `semantic-release` formula ([8d2318c](https://github.com/saltstack-formulas/template-formula/commit/8d2318c))
+* **contributing:** add recent `semantic-release` formula [skip ci] ([85118de](https://github.com/saltstack-formulas/template-formula/commit/85118de))
+* **issues:** provide `Bug report` & `Feature request` templates ([f90f1f6](https://github.com/saltstack-formulas/template-formula/commit/f90f1f6))
+* **issues:** use `Meta` instead of `Optional` as suggested ([65cadb4](https://github.com/saltstack-formulas/template-formula/commit/65cadb4)), closes [/github.com/saltstack-formulas/template-formula/pull/174#issuecomment-538999459](https://github.com//github.com/saltstack-formulas/template-formula/pull/174/issues/issuecomment-538999459)
+* **issues:** use larger headings (from level 4 to level 3) ([53e7b75](https://github.com/saltstack-formulas/template-formula/commit/53e7b75))
+* **pillar.example:** fix TOFS comment to explain the default path [skip ci] ([fde5063](https://github.com/saltstack-formulas/template-formula/commit/fde5063)), closes [/github.com/saltstack-formulas/libvirt-formula/pull/60#issuecomment-537965254](https://github.com//github.com/saltstack-formulas/libvirt-formula/pull/60/issues/issuecomment-537965254) [/github.com/saltstack-formulas/libvirt-formula/pull/60#issuecomment-537988138](https://github.com//github.com/saltstack-formulas/libvirt-formula/pull/60/issues/issuecomment-537988138)
+* **pillar.example:** improve TOFS comment to explain the default path [skip ci] ([27d2fe4](https://github.com/saltstack-formulas/template-formula/commit/27d2fe4)), closes [/github.com/saltstack-formulas/nginx-formula/blob/17291a0ae2c2554707b79d897bb6ddec716e8426/pillar.example#L340-L341](https://github.com//github.com/saltstack-formulas/nginx-formula/blob/17291a0ae2c2554707b79d897bb6ddec716e8426/pillar.example/issues/L340-L341)
+
 ## [3.3.1](https://github.com/saltstack-formulas/template-formula/compare/v3.3.0...v3.3.1) (2019-09-23)
 
 
