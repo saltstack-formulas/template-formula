@@ -27,7 +27,8 @@ jobs:
     # Run all of the linters in a single job
     - language: node_js
       node_js: lts/*
-      env: 'Lint: salt-lint, yamllint, rubocop & commitlint'
+      env: Lint
+      name: 'Lint: salt-lint, yamllint, rubocop & commitlint'
       before_install: skip
       script:
         # Install and run `salt-lint`
@@ -93,6 +94,8 @@ jobs:
     - stage: release
       language: node_js
       node_js: lts/*
+      env: Release
+      name: 'Run semantic-release inc. file updates to AUTHORS, CHANGELOG & FORMULA'
       before_install: skip
       script:
         # Update `AUTHORS.md`
