@@ -178,6 +178,7 @@ These formulas are already compatible with semantic-release:
 * `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
 * `influxdb-formula <https://github.com/saltstack-formulas/influxdb-formula>`_
 * `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
+* `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
 * `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 * `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
@@ -209,6 +210,7 @@ These formulas are already compatible with semantic-release:
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 * `vim-formula <https://github.com/saltstack-formulas/vim-formula>`_
 * `vsftpd-formula <https://github.com/saltstack-formulas/vsftpd-formula>`_
+* `zabbix-formula <https://github.com/saltstack-formulas/zabbix-formula>`_
 
 Documentation
 -------------
