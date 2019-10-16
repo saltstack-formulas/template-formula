@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.3.3](https://github.com/saltstack-formulas/template-formula/compare/v3.3.2...v3.3.3) (2019-10-16)
+
+
+### Documentation
+
+* **contributing:** add recent `semantic-release` formulas [skip ci] ([](https://github.com/saltstack-formulas/template-formula/commit/e6fb519))
+* **contributing:** remove to use org-level file instead [skip ci] ([](https://github.com/saltstack-formulas/template-formula/commit/d2ebccf))
+* **readme:** update link to `CONTRIBUTING` [skip ci] ([](https://github.com/saltstack-formulas/template-formula/commit/ed61d09))
+* **reamde:** have special notes section ([](https://github.com/saltstack-formulas/template-formula/commit/c68aed5))
+
 ## [3.3.2](https://github.com/saltstack-formulas/template-formula/compare/v3.3.1...v3.3.2) (2019-10-08)
 
 
