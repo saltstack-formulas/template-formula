@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-template:
+TEMPLATE:
   pkg:
-    name: template
+    name: TEMPLATE
   rootgroup: root
-  config: '/etc/template'
+  config: '/etc/TEMPLATE'
   service:
-    name: template
+    name: TEMPLATE
   subcomponent:
-    config: '/etc/template-subcomponent-formula.conf'
+    config: '/etc/TEMPLATE-subcomponent-formula.conf'
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults

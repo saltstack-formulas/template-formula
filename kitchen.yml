@@ -162,7 +162,7 @@ provisioner:
   log_level: debug
   salt_install: none
   require_chef: false
-  formula: template
+  formula: TEMPLATE
   salt_copy_filter:
     - .kitchen
     - .git
@@ -183,15 +183,15 @@ suites:
       state_top:
         base:
           '*':
-            - template
+            - TEMPLATE
       pillars:
         top.sls:
           base:
             '*':
-              - template
+              - TEMPLATE
               - define_roles
       pillars_from_files:
-        template.sls: pillar.example
+        TEMPLATE.sls: pillar.example
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:
@@ -203,15 +203,15 @@ suites:
       state_top:
         base:
           '*':
-            - template
+            - TEMPLATE
       pillars:
         top.sls:
           base:
             '*':
-              - template
+              - TEMPLATE
               - define_roles
       pillars_from_files:
-        template.sls: test/salt/pillar/centos6.sls
+        TEMPLATE.sls: test/salt/pillar/centos6.sls
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:

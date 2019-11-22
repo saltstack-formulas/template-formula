@@ -4,7 +4,7 @@
 service_name = 'systemd-udevd'
 service_name = 'crond' if (os[:name] == 'centos') && os[:release].start_with?('6')
 
-control 'template service' do
+control 'TEMPLATE service' do
   impact 0.5
   title 'should be running and enabled'
 
