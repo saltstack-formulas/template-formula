@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.3.4](https://github.com/saltstack-formulas/template-formula/compare/v3.3.3...v3.3.4) (2019-11-27)
+
+
+### Bug Fixes
+
+* **release.config.js:** use full commit hash in commit link [skip ci] ([4ac8d92](https://github.com/saltstack-formulas/template-formula/commit/4ac8d92778977ed63fe99e4506a2b0a2d41a2bce))
+
+
+### Continuous Integration
+
+* **kitchen:** use `debian-10-master-py3` instead of `develop` [skip ci] ([14ebf92](https://github.com/saltstack-formulas/template-formula/commit/14ebf928bc07cefa086523e63bed5df7c2879e9b))
+* **kitchen:** use `develop` image until `master` is ready (`amazonlinux`) [skip ci] ([42482d7](https://github.com/saltstack-formulas/template-formula/commit/42482d7f9b77f5d34417e25233a9f385075feace))
+* **kitchen+travis:** upgrade matrix after `2019.2.2` release [skip ci] ([d0e07b8](https://github.com/saltstack-formulas/template-formula/commit/d0e07b88834f68cc81ce4de34c14a880347fc497))
+* **travis:** apply changes from build config validation [skip ci] ([b625245](https://github.com/saltstack-formulas/template-formula/commit/b625245fc62deb6da7cb35de1280ec267718b1cd))
+* **travis:** opt-in to `dpl v2` to complete build config validation [skip ci] ([f1fbf7f](https://github.com/saltstack-formulas/template-formula/commit/f1fbf7f620c886827c70fb3970e3b2fac58b8db8))
+* **travis:** run `shellcheck` during lint job ([a711665](https://github.com/saltstack-formulas/template-formula/commit/a7116654d875ecb0e7e3e10fc96cbab2e91575f7))
+* **travis:** update `salt-lint` config for `v0.0.10` [skip ci] ([faea464](https://github.com/saltstack-formulas/template-formula/commit/faea464f923f552e23a83f28e3192c437f7eabfe))
+* **travis:** use build config validation (beta) [skip ci] ([66494bb](https://github.com/saltstack-formulas/template-formula/commit/66494bbc1058adc9ed6fa0074b1c4b6018c4cd48))
+
+
+### Performance Improvements
+
+* **travis:** improve `salt-lint` invocation [skip ci] ([7a96cd7](https://github.com/saltstack-formulas/template-formula/commit/7a96cd77db71eb8b022df7bd5c1014664124a022))
+
 ## [3.3.3](https://github.com/saltstack-formulas/template-formula/compare/v3.3.2...v3.3.3) (2019-10-16)
 
 
