@@ -2,6 +2,40 @@
 Changelog
 =========
 
+`4.0.0 <https://github.com/saltstack-formulas/template-formula/compare/v3.3.4...v4.0.0>`_ (2019-12-16)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* improve reusability using an unique keyword TEMPLATE (\ `2e8ded6 <https://github.com/saltstack-formulas/template-formula/commit/2e8ded6565f7bad166323792bf42979aac2980fa>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **gemfile:** restrict ``train`` gem version until upstream fix [skip ci] (\ `1b6164f <https://github.com/saltstack-formulas/template-formula/commit/1b6164fc4a5bda44e8cb1104039606603dab4c2e>`_\ )
+* **travis:** quote pathspecs used with ``git ls-files`` [skip ci] (\ `341f495 <https://github.com/saltstack-formulas/template-formula/commit/341f495336da0e35d92b3b4acda30f9efa44ec52>`_\ )
+
+Features
+^^^^^^^^
+
+
+* add script to ease conversion from template to real formula (\ `edfa269 <https://github.com/saltstack-formulas/template-formula/commit/edfa269e9655407ca26788a8d5564c759abbbb30>`_\ )
+
+Tests
+^^^^^
+
+
+* add CI test of conversion script (\ `7ad85ae <https://github.com/saltstack-formulas/template-formula/commit/7ad85ae0db21888921efabbc88bcafbc65e5bd21>`_\ )
+
+BREAKING CHANGES
+^^^^^^^^^^^^^^^^
+
+
+* changed all state names and ids
+
 `3.3.4 <https://github.com/saltstack-formulas/template-formula/compare/v3.3.3...v3.3.4>`_ (2019-11-27)
 ----------------------------------------------------------------------------------------------------------
 
