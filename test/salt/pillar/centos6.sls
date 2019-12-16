@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-template:
+TEMPLATE:
   lookup:
     master: template-master
     # Just for testing purposes
@@ -45,9 +45,9 @@ template:
 
     # For testing purposes
     source_files:
-      template-config-file-file-managed:
+      TEMPLATE-config-file-file-managed:
         - 'example.tmpl.jinja'
-      template-subcomponent-config-file-file-managed:
+      TEMPLATE-subcomponent-config-file-file-managed:
         - 'subcomponent-example.tmpl.jinja'
 
   # Just for testing purposes

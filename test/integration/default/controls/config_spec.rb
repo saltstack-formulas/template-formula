@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-control 'template configuration' do
+control 'TEMPLATE configuration' do
   title 'should match desired lines'
 
   describe file('/etc/template-formula.conf') do
@@ -24,8 +24,8 @@ control 'template configuration' do
       should include(
         '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", '\
         '"roles", "osfinger", "os", "os_family"], "source_files": '\
-        '{"template-config-file-file-managed": ["example.tmpl.jinja"], '\
-        '"template-subcomponent-config-file-file-managed": '\
+        '{"TEMPLATE-config-file-file-managed": ["example.tmpl.jinja"], '\
+        '"TEMPLATE-subcomponent-config-file-file-managed": '\
         '["subcomponent-example.tmpl.jinja"]}'
       )
     end

@@ -12,23 +12,23 @@
 ---
 Debian:
   pkg:
-    name: template-debian
-  config: /etc/template.d/custom.conf
+    name: TEMPLATE-debian
+  config: /etc/TEMPLATE.d/custom.conf
 
 RedHat:
   pkg:
-    name: template-redhat
-  config: /etc/template.conf
+    name: TEMPLATE-redhat
+  config: /etc/TEMPLATE.conf
 
 Suse:
   pkg:
-    name: template-suse
+    name: TEMPLATE-suse
 
 Gentoo: {}
 
 Arch:
   pkg:
-    name: template-arch
+    name: TEMPLATE-arch
   service:
     name: service-arch
 

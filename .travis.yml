@@ -100,6 +100,17 @@ jobs:
     # - env: INSTANCE=default-amazonlinux-2-2017-7-py2
     # - env: INSTANCE=default-arch-base-latest-2017-7-py2
 
+    # Test the conversion of `template-formula` into another formula
+    # ready for development
+    - env: 'Conversion'
+      name: 'Test: bin/convert-formula.sh'
+      script:
+        - git clone . tmp/converted-formula
+        - cd tmp/converted-formula
+        - DEBUG=true bin/convert-formula.sh converted
+        - '[ $(git rev-list HEAD --count) -eq 2 ]'
+        - bin/kitchen verify default-debian-10-2019-2-py3
+
     ## Define the release stage that runs `semantic-release`
     - stage: 'release'
       language: 'node_js'

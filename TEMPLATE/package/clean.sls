@@ -4,13 +4,13 @@
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- set sls_config_clean = tplroot ~ '.config.clean' %}
-{%- from tplroot ~ "/map.jinja" import template with context %}
+{%- from tplroot ~ "/map.jinja" import TEMPLATE with context %}
 
 include:
   - {{ sls_config_clean }}
 
-template-package-clean-pkg-removed:
+TEMPLATE-package-clean-pkg-removed:
   pkg.removed:
-    - name: {{ template.pkg.name }}
+    - name: {{ TEMPLATE.pkg.name }}
     - require:
       - sls: {{ sls_config_clean }}
