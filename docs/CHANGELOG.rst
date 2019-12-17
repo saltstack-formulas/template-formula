@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`4.0.1 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.0...v4.0.1>`_ (2019-12-17)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **convert-formula.sh:** apply remaining suggestions from `#180 <https://github.com/saltstack-formulas/template-formula/issues/180>`_ (\ `76ecd44 <https://github.com/saltstack-formulas/template-formula/commit/76ecd447be66fd9b33ace56836796d3ce24537db>`_\ ), closes `/github.com/saltstack-formulas/template-formula/pull/180#discussion_r357308821 <https://github.com//github.com/saltstack-formulas/template-formula/pull/180/issues/discussion_r357308821>`_ `/github.com/saltstack-formulas/template-formula/pull/180#discussion_r357318860 <https://github.com//github.com/saltstack-formulas/template-formula/pull/180/issues/discussion_r357318860>`_ `/github.com/saltstack-formulas/template-formula/pull/180#discussion_r357362707 <https://github.com//github.com/saltstack-formulas/template-formula/pull/180/issues/discussion_r357362707>`_
+
 `4.0.0 <https://github.com/saltstack-formulas/template-formula/compare/v3.3.4...v4.0.0>`_ (2019-12-16)
 ----------------------------------------------------------------------------------------------------------
 
