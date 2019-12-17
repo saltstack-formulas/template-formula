@@ -37,15 +37,16 @@ convert_formula() {
   git reset \
     "$(echo 'feat: initial commit' \
       | git commit-tree 'HEAD^{tree}')"
-  git rm --quiet bin/convert-formula.sh AUTHORS.md CHANGELOG.md
+  git rm --quiet bin/convert-formula.sh AUTHORS.md CHANGELOG.md \
+    docs/_static/css/custom.css docs/AUTHORS.rst docs/CHANGELOG.rst \
+    docs/conf.py docs/CONTRIBUTING_DOCS.rst docs/index.rst
   git mv TEMPLATE "${NEW_NAME}"
   grep --recursive --files-with-matches --exclude-dir=.git TEMPLATE . \
-    | xargs -L 1 ex -sc '%s/TEMPLATE/'"${NEW_NAME}"'/g|x'
+    | xargs -L 1 ex -u NONE -sc '%s/TEMPLATE/'"${NEW_NAME}"'/g|x'
   # shellcheck disable=SC2016 # Expressions don't expand in single quotes
   git commit --quiet --all \
-    --message 'feat: convert `template-formula` to `'"${NEW_NAME}"'-formula`
-
-BREAKING CHANGE: changed all state names and ids'
+    --message 'feat: convert `template-formula` to `'"${NEW_NAME}"'-formula`' \
+    --message 'BREAKING CHANGE: changed all state names and ids'
 }
 
 args "$@"
