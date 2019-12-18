@@ -45,7 +45,33 @@ Please see `How to contribute <https://github.com/saltstack-formulas/.github/blo
 Special notes
 -------------
 
-None
+.. <REMOVEME
+
+Using this template
+^^^^^^^^^^^^^^^^^^^
+
+The easiest way to use this template formula as a base for a new formula is to use GitHub's **Use this template** button to create a new repository. For consistency with the rest of the formula ecosystem, name your formula repository following the pattern ``<formula theme>-formula``, where ``<formula theme>`` consists of lower-case alphabetic characters and numbers.
+
+In the rest of this example we'll use ``example`` as the ``<formula theme>``.
+
+Follow these steps to complete the conversion from ``template-formula`` to ``example-formula``. ::
+
+  $ git clone git@github.com:YOUR-USERNAME/example-formula.git
+  $ cd example-formula/
+  $ bin/convert-formula.sh example
+  $ git push --force
+
+Alternatively, it's possible to clone ``template-formula`` into a new repository and perform the conversion there. For example::
+
+  $ git clone https://github.com/saltstack-formulas/template-formula example-formula
+  $ cd example-formula/
+  $ bin/convert-formula.sh example
+
+To take advantage of `semantic-release <https://github.com/semantic-release/semantic-release>`_ for automated changelog generation and release tagging, you will need a GitHub `Personal Access Token <https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line>`_ with at least the **public_repo** scope.
+
+In the Travis repository settings for your new repository, create an `environment variable <https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings>`_ named ``GH_TOKEN`` with the personal access token as value, restricted to the ``master`` branch for security.
+
+.. REMOVEME>
 
 Available states
 ----------------
