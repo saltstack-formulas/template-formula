@@ -48,6 +48,7 @@ convert_formula() {
   ex -u NONE -sc '%s/^.. <REMOVEME\_.\{-}.. REMOVEME>/None/g|x' docs/README.rst
   ex -u NONE -sc '%s/^\s*# <REMOVEME\_.\{-}# REMOVEME>\n//g|x' .travis.yml
   ex -u NONE -sc '%s/^\s*# <REMOVEME\_.\{-}# REMOVEME>\n//g|x' .rubocop.yml
+  ex -u NONE -sc '%s/^\(version:\).*/\1 1.0.0/g|x' FORMULA
   # shellcheck disable=SC2016 # Expressions don't expand in single quotes
   git commit --quiet --all \
     --message 'feat: convert `template-formula` to `'"${NEW_NAME}"'-formula`' \
