@@ -8,5 +8,7 @@ Metrics/LineLength:
   Max: 88
 
 # Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`
+# <REMOVEME
 Metrics/BlockLength:
   Max: 36
+# REMOVEME>
