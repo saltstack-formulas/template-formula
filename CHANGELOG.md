@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.0.2](https://github.com/saltstack-formulas/template-formula/compare/v4.0.1...v4.0.2) (2019-12-19)
+
+
+### Bug Fixes
+
+* **convert-formula.sh:** remove "Using this template" post-conversion ([55ab937](https://github.com/saltstack-formulas/template-formula/commit/55ab937c047374fce0548d8c18e8513bc15ead78))
+* **convert-formula.sh:** remove `rubocop` override post-conversion ([aca4e44](https://github.com/saltstack-formulas/template-formula/commit/aca4e4428964da745e7b1b7dce15d2c751f76490))
+* **convert-formula.sh:** remove CI test post-conversion ([06ec949](https://github.com/saltstack-formulas/template-formula/commit/06ec949fd17bb4b52bb230a6ad2eddfe08a4e693))
+* **convert-formula.sh:** reset version to `1.0.0` ([39889ce](https://github.com/saltstack-formulas/template-formula/commit/39889ce303cb57125ba0411ab55266ee018d40e1))
+
+
+### Documentation
+
+* **convert-formula.sh:** add usage guide ([539a335](https://github.com/saltstack-formulas/template-formula/commit/539a335f8b01ffb3944b742cc2f5852a718546dd))
+
 ## [4.0.1](https://github.com/saltstack-formulas/template-formula/compare/v4.0.0...v4.0.1) (2019-12-17)
 
 
