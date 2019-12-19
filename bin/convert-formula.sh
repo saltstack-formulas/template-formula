@@ -43,6 +43,9 @@ convert_formula() {
   git mv TEMPLATE "${NEW_NAME}"
   grep --recursive --files-with-matches --exclude-dir=.git TEMPLATE . \
     | xargs -L 1 ex -u NONE -sc '%s/TEMPLATE/'"${NEW_NAME}"'/g|x'
+  # Searching across multiple lines.
+  # See https://vim.fandom.com/wiki/Search_across_multiple_lines
+  ex -u NONE -sc '%s/^.. <REMOVEME\_.\{-}.. REMOVEME>/None/g|x' docs/README.rst
   # shellcheck disable=SC2016 # Expressions don't expand in single quotes
   git commit --quiet --all \
     --message 'feat: convert `template-formula` to `'"${NEW_NAME}"'-formula`' \
