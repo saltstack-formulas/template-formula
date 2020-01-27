@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`4.0.3 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.2...v4.0.3>`_ (2020-01-27)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* fix ``CentOS Linux-7`` and add ``os`` details from current CI setup (\ `4be16ca <https://github.com/saltstack-formulas/template-formula/commit/4be16ca4befeddeeb8be1199cd088df7c547523f>`_\ )
+* **travis:** reinstate conversion test [skip ci] (\ `5d47fda <https://github.com/saltstack-formulas/template-formula/commit/5d47fda1b9f52bff1a4c2cad5097cd3d8cd43521>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** use ``major.minor`` for ``semantic-release`` version [skip ci] (\ `e9bfb71 <https://github.com/saltstack-formulas/template-formula/commit/e9bfb71fdc0fa80ac63e6ce724f0e5621a4b30ca>`_\ )
+
 `4.0.2 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.1...v4.0.2>`_ (2019-12-19)
 ----------------------------------------------------------------------------------------------------------
 
