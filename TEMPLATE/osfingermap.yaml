@@ -10,13 +10,40 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osfingermap: {}
 ---
+# os: Debian
+Debian-10: {}
+Debian-9: {}
+Debian-8: {}
+
 # os: Ubuntu
 Ubuntu-18.04:
   config: /etc/TEMPLATE.d/custom-ubuntu-18.04.conf
+Ubuntu-16.04: {}
+
+# os: Fedora
+Fedora-31: {}
+Fedora-30: {}
 
 # os: CentOS
+CentOS Linux-8: {}
+CentOS Linux-7: {}
 CentOS-6:
   pkg:
     name: TEMPLATE-centos-6
   config: /etc/TEMPLATE.d/custom-centos-6.conf
-CentOS-7: {}
+
+# os: Amazon
+Amazon Linux-2: {}
+Amazon Linux AMI-2018: {}
+
+# os: SUSE
+Leap-15: {}
+
+# os: FreeBSD
+FreeBSD-12: {}
+
+# os: Windows
+Windows-8.1: {}
+
+# os: Gentoo
+Gentoo-2: {}

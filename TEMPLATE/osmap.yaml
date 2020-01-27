@@ -15,7 +15,6 @@ Ubuntu:
   pkg:
     name: TEMPLATE-ubuntu
   config: /etc/TEMPLATE.d/custom-ubuntu.conf
-
 Raspbian: {}
 
 # os_family: RedHat
@@ -24,10 +23,11 @@ Fedora:
     name: TEMPLATE-fedora
   service:
     name: service-fedora
-
 CentOS: {}
+Amazon: {}
 
 # os_family: Suse
+SUSE: {}
 openSUSE: {}
 
 # os_family: Gentoo
