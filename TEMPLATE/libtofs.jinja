@@ -82,7 +82,7 @@
     ) %}
     {#- Append an empty value to evaluate as `default` in the loop below #}
     {%- if '' not in fsl %}
-      {%- do fsl.append('') %}
+      {%- set fsl = fsl + [''] %}
     {%- endif %}
     {%- for fs in fsl %}
       {%- for src_file in src_files %}
