@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`4.0.4 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.3...v4.0.4>`_ (2020-02-14)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libtofs:** “files_switch” mess up the variable defined by “map.jinja” (\ `ab4ce75 <https://github.com/saltstack-formulas/template-formula/commit/ab4ce751a4640303af7acbf7a278aef79b530bb6>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** avoid using bootstrap for ``master`` instances (\ `6ecdb99 <https://github.com/saltstack-formulas/template-formula/commit/6ecdb99f83b807b4679dc6534ae425b97eefbe54>`_\ )
+
 `4.0.3 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.2...v4.0.3>`_ (2020-01-27)
 ----------------------------------------------------------------------------------------------------------
 
