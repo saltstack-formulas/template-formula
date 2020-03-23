@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Overide by OS
-service_name = 'systemd-udevd'
+service_name = 'systemd-journald'
 service_name = 'crond' if (os[:name] == 'centos') && os[:release].start_with?('6')
 
 control 'TEMPLATE service' do

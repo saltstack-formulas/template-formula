@@ -14,7 +14,7 @@ TEMPLATE:
   pkg:
     name: bash
   service:
-    name: systemd-udevd
+    name: systemd-journald
   config: /etc/template-formula.conf
 
   tofs:
