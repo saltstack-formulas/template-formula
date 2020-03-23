@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`4.0.5 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.4...v4.0.5>`_ (2020-03-23)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libtofs:** “files_switch” mess up the variable exported by “map.jinja” [skip ci] (\ `241646f <https://github.com/saltstack-formulas/template-formula/commit/241646fe96447369df00f17ec1c27a53de08bec4>`_\ )
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **service:** use ``systemd-journald`` instead of ``systemd-udevd`` (\ `a265105 <https://github.com/saltstack-formulas/template-formula/commit/a2651058be0d8b09f910aeee2f23703b6cefaa09>`_\ )
+
 `4.0.4 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.3...v4.0.4>`_ (2020-02-14)
 ----------------------------------------------------------------------------------------------------------
 
