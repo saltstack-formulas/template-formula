@@ -3,51 +3,118 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
-{#- Start imports as #}
-{%- import_yaml tplroot ~ "/defaults.yaml" as default_settings %}
-{%- import_yaml tplroot ~ "/osarchmap.yaml" as osarchmap %}
-{%- import_yaml tplroot ~ "/osfamilymap.yaml" as osfamilymap %}
-{%- import_yaml tplroot ~ "/osmap.yaml" as osmap %}
-{%- import_yaml tplroot ~ "/osfingermap.yaml" as osfingermap %}
+{%- from tplroot ~ "/libsaltcli.jinja" import cli with context %}
 
-{#- Retrieve the config dict only once #}
-{%- set _config = salt['config.get'](tplroot, default={}) %}
+{#- Where to lookup parameters source files #}
+{%- set map_sources_dir = tplroot | path_join('parameters') %}
 
-{%- set defaults = salt['grains.filter_by'](
-      default_settings,
-      default=tplroot,
-      merge=salt['grains.filter_by'](
-        osarchmap,
-        grain='osarch',
-        merge=salt['grains.filter_by'](
-          osfamilymap,
-          grain='os_family',
-          merge=salt['grains.filter_by'](
-            osmap,
-            grain='os',
-            merge=salt['grains.filter_by'](
-              osfingermap,
-              grain='osfinger',
-              merge=salt['grains.filter_by'](
-                _config,
-                default='lookup'
-              )
-            )
-          )
-        )
-      )
-    )
-%}
+{#- Load defaults first to allow per formula default map.jinja configuration #}
+{%- set _defaults_filename = map_sources_dir | path_join('defaults.yaml') %}
+{%- do salt['log.debug']('map.jinja: initialise parameters from ' ~ _defaults_filename ) %}
+{%- import_yaml _defaults_filename as default_settings %}
 
-{%- set config = salt['grains.filter_by'](
-      {'defaults': defaults},
-      default='defaults',
-      merge=_config
-    )
-%}
+{#- List of sources to lookup for parameters #}
+{%- do salt['log.debug']("map.jinja: lookup 'map_jinja' configuration sources") %}
+{#- Fallback to previously used grains plus minion `id` #}
+{%- set map_sources = ['osarch', 'os_family', 'os', 'osfinger', 'config_get_lookup', 'config_get', 'id'] %}
+{#- Configure map.jinja from defaults.yaml #}
+{%- set map_sources = default_settings | traverse('values:map_jinja:sources', map_sources) %}
+
+{#- Lookup global sources #}
+{%- set map_sources = salt['config.get']('map_jinja:sources', map_sources) %}
+{#- Lookup per formula sources #}
+{%- set map_sources = salt['config.get'](tplroot ~ ':map_jinja:sources', map_sources) %}
+
+{%- do salt['log.debug']('map.jinja: load parameters with sources from ' ~ map_sources) %}
+
+
+{#- Work around assignment inside for loop #}
+{#- load configuration values used in `config.get` merging strategies #}
+{%- set _config = {'stack': default_settings.get('values', {}),
+                   'merge_strategy': salt['config.get'](tplroot ~ ':strategy', None),
+                   'merge_lists': salt['config.get'](tplroot ~ ':merge_lists', False)
+                  } %}
+
+{#- the `config.get` merge option only works for `minion` or `local` salt command types #}
+{%- if cli in ['minion', 'local'] %}
+  {%- do _config.update({'merge_opt': {'merge': _config['merge_strategy']},
+                         'merge_msg': ", merge: strategy='" ~ _config['merge_strategy'] ~ "'"}) %}
+{#- the `config.get` merge option is not available for `ssh` or `unknown` salt command types #}
+{%- else %}
+  {%- if _config['merge_strategy'] %}
+    {%- do salt['log.error']("map.jinja: the 'merge' option of 'config.get' is skipped when the salt command type is '" ~ cli ~ "'") %}
+  {%- endif %}
+  {%- do _config.update({'merge_opt': {},
+                         'merge_msg': ''}) %}
+{%- endif %}
+
+
+{#- process each `map.jinja` source #}
+{%- for map_source in map_sources %}
+  {%- if map_source  in ['config_get', 'config_get_lookup'] %}
+    {%- set _config_key = {'config_get': tplroot,
+                           'config_get_lookup': tplroot ~ ':lookup'}.get(map_source) %}
+    {%- set _config_type = {'config_get': 'configuration',
+                            'config_get_lookup': 'lookup'}.get(map_source) %}
+
+    {%- do salt['log.debug']("map.jinja: retrieve formula " ~ _config_type
+                             ~ " with 'config.get'"
+                             ~ _config['merge_msg']
+                             ) %}
+    {%- set _config_get = salt['config.get'](_config_key, default={}, **_config['merge_opt']) %}
+
+    {#- `slsutil.merge` defaults to `smart` instead of `None` for `config.get` #}
+    {%- set _strategy = _config['merge_strategy'] | default('smart', boolean=True) %}
+    {%- do salt['log.debug']("map.jinja: merge formula " ~ _config_type
+                             ~ " retrieved with 'config.get'"
+                             ~ ", merge: strategy='" ~ _strategy
+                             ~ "', lists='" ~ _config['merge_lists'] ~ "'"
+                            ) %}
+    {%- do _config.update({'stack': salt['slsutil.merge'](_config['stack'],
+                                                          _config_get,
+                                                          strategy=_strategy,
+                                                          merge_lists=_config['merge_lists'])})
+      %}
+  {%- else %}
+    {#- Lookup the grain/pillar/... #}
+    {#- Fallback to use the source name as a direct filename #}
+    {%- set map_values = salt['config.get'](map_source, []) %}
+
+    {#- Mangle `map_source` to use it as literal path #}
+    {%- if map_values|length == 0 %}
+      {%- set map_source_parts = map_source.split('/') %}
+      {%- set map_source = map_source_parts[0:-1] | join('/') %}
+      {%- set map_values = map_source_parts[-1].rstrip('.yaml') %}
+    {%- endif %}
+
+    {#- Some configuration return list #}
+    {%- if map_values is string %}
+      {%- set map_values = [map_values] %}
+    {%- endif %}
+
+    {%- for map_value in map_values %}
+      {%- set yamlfile = map_sources_dir | path_join(map_source, map_value ~ '.yaml') %}
+      {%- do salt['log.debug']('map.jinja: load parameters from file ' ~ yamlfile) %}
+      {%- load_yaml as loaded_values %}
+        {%- include yamlfile ignore missing %}
+      {%- endload %}
+
+      {%- if loaded_values %}
+        {#- Merge loaded values on the stack #}
+        {%- do salt['log.debug']('map.jinja: merge parameters from ' ~ yamlfile) %}
+        {%- do _config.update({'stack': salt['slsutil.merge'](_config['stack'],
+                                                              loaded_values.get('values', {}),
+                                                              strategy=loaded_values.get('strategy', 'smart'),
+                                                              merge_lists=loaded_values.get('merge_lists', False) | to_bool)})
+          %}
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
+{%- endfor %}
 
 {#- Change **TEMPLATE** to match with your formula's name and then remove this line #}
-{%- set TEMPLATE = config %}
+{%- do salt['log.debug']('map.jinja: save parameters in variable "TEMPLATE"') %}
+{%- set TEMPLATE = _config['stack'] %}
 
 {#- Post-processing for specific non-YAML customisations #}
 {%- if grains.os == 'MacOS' %}
