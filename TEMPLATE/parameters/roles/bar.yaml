@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Variables specific to the role "bar" looked up with salt['config.get']('roles').
+#
+# This is only for demonstration and testing purpose:
+# - we test the presence of parameter "added_in_role_bar" and the
+#   corresponding value
+# - we make test that the "winner" parameter is properly overwritten
+#   by pillar
+---
+strategy: 'overwrite'
+values:
+  added_in_role_bar: 'bar_role_value'
+  winner: 'role bar'

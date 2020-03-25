@@ -32,5 +32,13 @@ control 'TEMPLATE configuration' do
     its('content') { should include '"arch": "amd64"' }
     its('content') { should include '"winner": "pillar"}' }
     its('content') { should include 'winner of the merge: pillar' }
+    its('content') do
+      should include(
+        '"map_jinja": {"sources": ["osarch", "os_family", "os", "osfinger", ' \
+        '"roles", "config_get_lookup", "config_get", "id", ' \
+        '"any/path/can/be/used/here.yaml"]}'
+      )
+    end
+    its('content') { should include '"added_in_role_bar": "bar_role_value"' }
   end
 end

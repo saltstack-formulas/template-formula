@@ -10,5 +10,8 @@ Layout/LineLength:
 # Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`
 # <REMOVEME
 Metrics/BlockLength:
-  Max: 36
+  # Increase from default of `25`
+  Include:
+    - test/integration/default/controls/config_spec.rb
+  Max: 39
 # REMOVEME>
