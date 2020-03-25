@@ -3,7 +3,7 @@ os: Debian, Ubuntu, Raspbian, RedHat, Fedora, CentOS, Amazon, Suse, openSUSE, Ge
 os_family: Debian, RedHat, Suse, Gentoo, Arch, Alpine, FreeBSD, OpenBSD, Solaris, Windows, MacOS
 version: 4.0.5
 release: 1
-minimum_version: 2017.7
+minimum_version: 2018.3
 summary: TEMPLATE formula
 description: Formula to use as a template for other formulas
 top_level_dir: TEMPLATE
