@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+values:
+  pkg:
+    name: TEMPLATE
+  rootgroup: root
+  config: '/etc/TEMPLATE'
+  service:
+    name: TEMPLATE
+  subcomponent:
+    config: '/etc/TEMPLATE-subcomponent-formula.conf'
+
+  # Just here for testing
+  added_in_defaults: defaults_value
+  winner: defaults
+  # Configure map.jinja to load formula parameters values and merge them
+  # in the order from most generic (first) to most specific (last).
+  # Each source can define the merging `strategy` which default to the
+  # `smart` strategy of `salt.slsutil.merge`.
+  # Note: Any value not evaluated by `config.get` will be used literally.
+  # This can be used to set custom paths, as many levels deep as required.
+  map_jinja:
+    sources:
+      - osarch
+      - os_family
+      - os
+      - osfinger
+      - roles
+      - config_get_lookup
+      - config_get
+      - id
+      - any/path/can/be/used/here.yaml
+...
