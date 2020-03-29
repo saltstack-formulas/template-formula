@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 # vim: ft=jinja
 
-{#- Determine the type of command being run #}
-{%- if salt['config.get']('__cli') == 'salt-minion' %}
+{#- Get the relevant values from the `opts` dict #}
+{%- set opts_cli = opts.get('__cli', '') %}
+{%- set opts_masteropts_cli = opts | traverse('__master_opts__:__cli', '') %}
+
+{#- Determine the type of salt command being run #}
+{%- if opts_cli == 'salt-minion' %}
 {%-   set cli = 'minion' %}
-{%- elif salt['config.get']('__cli') == 'salt-call' %}
-{%-   if salt['config.get']('root_dir').endswith('/running_data') %}
-{%-     set cli = 'ssh' %}
-{%-   else %}
-{%-     set cli = 'local' %}
-{%-   endif %}
+{%- elif opts_cli == 'salt-call' %}
+{%-   set cli = 'ssh' if opts_masteropts_cli == 'salt-ssh' else 'local' %}
 {%- else %}
 {%-   set cli = 'unknown' %}
 {%- endif %}
