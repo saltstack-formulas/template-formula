@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.0.6](https://github.com/saltstack-formulas/template-formula/compare/v4.0.5...v4.0.6) (2020-04-07)
+
+
+### Bug Fixes
+
+* **running.sls:** use `watch` not `require` to ensure service restart ([3a1fc35](https://github.com/saltstack-formulas/template-formula/commit/3a1fc35a13f66714cd42583f13679c6f189ae48f))
+
+
+### Code Refactoring
+
+* **libsaltcli:** use the `opts` dict throughout [skip ci] ([69b632f](https://github.com/saltstack-formulas/template-formula/commit/69b632fbe613d4f99a48f59f64ec93c3897431c8))
+
+
+### Continuous Integration
+
+* **kitchen+travis:** adjust matrix to add `3000` & remove `2017.7` [skip ci] ([f81c372](https://github.com/saltstack-formulas/template-formula/commit/f81c372dfe12d42139275fc8c9e7aad1b6eec976))
+* **kitchen+travis:** adjust matrix to update `3000` to `3000.1` [skip ci] ([f48a727](https://github.com/saltstack-formulas/template-formula/commit/f48a7275644d2baef06adb0d8e74b3c19fd2d8a0))
+
 ## [4.0.5](https://github.com/saltstack-formulas/template-formula/compare/v4.0.4...v4.0.5) (2020-03-23)
 
 
