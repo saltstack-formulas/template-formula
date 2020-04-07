@@ -13,5 +13,5 @@ TEMPLATE-service-running-service-running:
   service.running:
     - name: {{ TEMPLATE.service.name }}
     - enable: True
-    - require:
+    - watch:
       - sls: {{ sls_config_file }}
