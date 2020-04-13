@@ -116,6 +116,8 @@ jobs:
         - cd tmp/converted-formula
         - DEBUG=true bin/convert-formula.sh converted
         - '[ $(git rev-list HEAD --count) -eq 2 ]'
+        # Quick visual check that correct files have been updated
+        - git show --pretty="" --name-status
         - bin/kitchen verify default-debian-10-2019-2-py3
     # REMOVEME>
 
