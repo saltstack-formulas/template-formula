@@ -14,6 +14,16 @@ usage() {
   echo "<new-formula-name> should not be any of 'bin' 'docs' 'test'." 1>&2
 }
 
+sedi() {
+  # Run different sed -i arguments based on GNU vs BSD sed
+  # See https://stackoverflow.com/a/38595160
+  if sed --version >/dev/null 2>&1 ; then
+    sed -i"" "$@"
+  else
+    sed -i "" "$@"
+  fi
+}
+
 args() {
   if [ $# -ne 1 ]; then
     usage
@@ -36,19 +46,22 @@ convert_formula() {
   # See https://stackoverflow.com/a/15572071/5009408
   git reset \
     "$(echo 'feat: initial commit' \
-      | git commit-tree 'HEAD^{tree}')"
+    | git commit-tree 'HEAD^{tree}')"
   git rm --quiet bin/convert-formula.sh AUTHORS.md CHANGELOG.md \
     docs/_static/css/custom.css docs/AUTHORS.rst docs/CHANGELOG.rst \
     docs/conf.py docs/CONTRIBUTING_DOCS.rst docs/index.rst
   git mv TEMPLATE "${NEW_NAME}"
   grep --recursive --files-with-matches --exclude-dir=.git TEMPLATE . \
-    | xargs -L 1 ex -u NONE -sc '%s/TEMPLATE/'"${NEW_NAME}"'/g|x'
-  # Searching across multiple lines.
-  # See https://vim.fandom.com/wiki/Search_across_multiple_lines
-  ex -u NONE -sc '%s/^.. <REMOVEME\_.\{-}.. REMOVEME>/None/g|x' docs/README.rst
-  ex -u NONE -sc '%s/^\s*# <REMOVEME\_.\{-}# REMOVEME>\n//g|x' .travis.yml
-  ex -u NONE -sc '%s/^\s*# <REMOVEME\_.\{-}# REMOVEME>\n//g|x' .rubocop.yml
-  ex -u NONE -sc '%s/^\(version:\).*/\1 1.0.0/g|x' FORMULA
+    | while read -r filename; do
+      sedi 's/TEMPLATE/'"${NEW_NAME}"'/g' "${filename}"
+    done
+  sedi 's/^\(version:\).*/\1 1.0.0/' FORMULA
+  # Deleting lines between two patterns
+  sedi '/<REMOVEME/,/REMOVEME>/d' .travis.yml .rubocop.yml
+  # shellcheck disable=SC1004 # This backslash+linefeed is literal (sed: replace text)
+  sedi '/<REMOVEME/,/REMOVEME>/c \
+None
+' docs/README.rst
   # shellcheck disable=SC2016 # Expressions don't expand in single quotes
   git commit --quiet --all \
     --message 'feat: convert `template-formula` to `'"${NEW_NAME}"'-formula`' \
