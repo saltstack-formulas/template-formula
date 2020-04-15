@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`4.0.7 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.6...v4.0.7>`_ (2020-04-15)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **convert-formula.sh:** use portable sed function to make replacements (\ `41e10b5 <https://github.com/saltstack-formulas/template-formula/commit/41e10b5249e0c8827844f438d1995cf7cb42d63a>`_\ ), closes `#192 <https://github.com/saltstack-formulas/template-formula/issues/192>`_
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** add quick check that ``convert-formula.sh`` has worked (\ `8312063 <https://github.com/saltstack-formulas/template-formula/commit/83120632f3a2246ac640155d374634836c34965a>`_\ )
+
 `4.0.6 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.5...v4.0.6>`_ (2020-04-07)
 ----------------------------------------------------------------------------------------------------------
 
