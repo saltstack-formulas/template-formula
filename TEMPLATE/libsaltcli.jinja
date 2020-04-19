@@ -9,7 +9,7 @@
 {%- if opts_cli == 'salt-minion' %}
 {%-   set cli = 'minion' %}
 {%- elif opts_cli == 'salt-call' %}
-{%-   set cli = 'ssh' if opts_masteropts_cli == 'salt-ssh' else 'local' %}
+{%-   set cli = 'ssh' if opts_masteropts_cli in ('salt-ssh', 'salt-master') else 'local' %}
 {%- else %}
 {%-   set cli = 'unknown' %}
 {%- endif %}
