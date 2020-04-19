@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`4.0.8 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.7...v4.0.8>`_ (2020-04-19)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libsaltcli:** update ``salt-ssh`` detection for ``enable_ssh_minions`` (\ `f0e7192 <https://github.com/saltstack-formulas/template-formula/commit/f0e7192fb5a546cb0569f9d4257807c8592a00b6>`_\ )
+
 `4.0.7 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.6...v4.0.7>`_ (2020-04-15)
 ----------------------------------------------------------------------------------------------------------
 
