@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.9](https://github.com/saltstack-formulas/template-formula/compare/v4.0.8...v4.0.9) (2020-04-25)
+
+
+### Continuous Integration
+
+* **gemfile.lock:** add to repo with updated `Gemfile` [skip ci] ([d798928](https://github.com/saltstack-formulas/template-formula/commit/d79892867549e13737a2d0f887a1388ec45704af))
+
+
+### Documentation
+
+* **readme:** show only one level in table of contents ([446b815](https://github.com/saltstack-formulas/template-formula/commit/446b81595822a54792cfbaf23fade20e652d7062))
+
 ## [4.0.8](https://github.com/saltstack-formulas/template-formula/compare/v4.0.7...v4.0.8) (2020-04-19)
 
 
