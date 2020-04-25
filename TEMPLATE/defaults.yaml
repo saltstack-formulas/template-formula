@@ -13,3 +13,10 @@ TEMPLATE:
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
+
+  retry_option:
+    # https://docs.saltstack.com/en/latest/ref/states/requisites.html#retrying-states
+    attempts: 3
+    until: true
+    interval: 10
+    splay: 10
