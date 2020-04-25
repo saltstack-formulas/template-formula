@@ -93,6 +93,11 @@ starts the associated TEMPLATE service.
 
 This state will install the TEMPLATE package only.
 
+``TEMPLATE.package.repo``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will add the TEMPLATE package repo if applicable.
+
 ``TEMPLATE.config``
 ^^^^^^^^^^^^^^^^^^^
 
@@ -131,6 +136,11 @@ dependency on ``TEMPLATE.service.clean`` via include list.
 
 This state will remove the TEMPLATE package and has a depency on
 ``TEMPLATE.config.clean`` via include list.
+
+``TEMPLATE.package.repo.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will remove the TEMPLATE package repo if applicable.
 
 ``TEMPLATE.subcomponent``
 ^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -2,8 +2,6 @@
 # vim: ft=yaml
 ---
 TEMPLATE:
-  pkg:
-    name: TEMPLATE
   rootgroup: root
   config: '/etc/TEMPLATE'
   service:
@@ -13,3 +11,15 @@ TEMPLATE:
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
+
+  pkg:
+    name: TEMPLATE
+    use_upstream_package: true  # reserve for future use
+    use_upstream_repo: false    # managed by os(family)maps
+    repo:                       # managed by os(family)maps
+      humanname: TEMPLATE
+      name: TEMPLATE
+      comments:
+        - installed by salt
+      enabled: 1
+      gpgcheck: 1

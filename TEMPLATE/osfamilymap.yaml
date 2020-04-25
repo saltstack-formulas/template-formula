@@ -11,9 +11,14 @@
 # osfamilymap: {}
 ---
 Debian:
+  config: /etc/TEMPLATE.d/custom.conf
   pkg:
     name: TEMPLATE-debian
-  config: /etc/TEMPLATE.d/custom.conf
+    use_upstream_repo: true
+    repo:
+      name: deb https://apt.TEMPLATE.io/ TEMPLATE-xenial main
+      file: /etc/apt/sources.list.d/TEMPLATE.list
+      key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
 RedHat:
   pkg:
