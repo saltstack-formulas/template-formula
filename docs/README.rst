@@ -72,6 +72,8 @@ To take advantage of `semantic-release <https://github.com/semantic-release/sema
 
 In the Travis repository settings for your new repository, create an `environment variable <https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings>`_ named ``GH_TOKEN`` with the personal access token as value, restricted to the ``master`` branch for security.
 
+Note that this repository uses a `CODEOWNERS <https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners>`_ file to assign ownership to various parts of the formula. The conversion process removes overall ownership, but you should consider assigning ownership to yourself or your organisation when contributing your new formula to the ``saltstack-formulas`` organisation.
+
 .. REMOVEME>
 
 Available states
