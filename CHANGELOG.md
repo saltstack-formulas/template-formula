@@ -1,5 +1,19 @@
 # Changelog
 
+# [4.1.0](https://github.com/saltstack-formulas/template-formula/compare/v4.0.9...v4.1.0) (2020-05-12)
+
+
+### Continuous Integration
+
+* **kitchen+travis:** adjust matrix to add `3000.2` & remove `2018.3` [skip ci] ([efd8797](https://github.com/saltstack-formulas/template-formula/commit/efd8797e66bbe45d58a7155283b6ef47bb3fb7a4))
+* **kitchen+travis:** remove `master-py2-arch-base-latest` [skip ci] ([d693f9d](https://github.com/saltstack-formulas/template-formula/commit/d693f9dabf722946a978c64ed4fbfa03653e828c))
+* **workflows/commitlint:** add to repo [skip ci] ([574d18f](https://github.com/saltstack-formulas/template-formula/commit/574d18fc2c9628ed142a380aaff3b4c31592bb6f))
+
+
+### Features
+
+* **convert-formula.sh:** assign `@NONE` as whole-formula owner ([cceffff](https://github.com/saltstack-formulas/template-formula/commit/cceffffef5924b6c156890562e6f64f4872d6867))
+
 ## [4.0.9](https://github.com/saltstack-formulas/template-formula/compare/v4.0.8...v4.0.9) (2020-04-25)
 
 
