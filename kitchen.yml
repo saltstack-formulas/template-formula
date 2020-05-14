@@ -36,45 +36,45 @@ platforms:
     driver:
       image: netmanagers/salt-master-py3:amazonlinux-2
 
-  ## SALT `3000.2`
-  - name: debian-10-3000-2-py3
+  ## SALT `3000.3`
+  - name: debian-10-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:debian-10
-  - name: debian-9-3000-2-py3
+      image: netmanagers/salt-3000.3-py3:debian-10
+  - name: debian-9-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:debian-9
-  - name: ubuntu-1804-3000-2-py3
+      image: netmanagers/salt-3000.3-py3:debian-9
+  - name: ubuntu-1804-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:ubuntu-18.04
-  - name: centos-8-3000-2-py3
+      image: netmanagers/salt-3000.3-py3:ubuntu-18.04
+  - name: centos-8-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:centos-8
-  - name: centos-7-3000-2-py3
+      image: netmanagers/salt-3000.3-py3:centos-8
+  - name: centos-7-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:centos-7
-  - name: fedora-31-3000-2-py3
+      image: netmanagers/salt-3000.3-py3:centos-7
+  - name: fedora-31-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:fedora-31
-  - name: opensuse-leap-151-3000-2-py3
+      image: netmanagers/salt-3000.3-py3:fedora-31
+  - name: opensuse-leap-151-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:opensuse-leap-15.1
+      image: netmanagers/salt-3000.3-py3:opensuse-leap-15.1
       run_command: /usr/lib/systemd/systemd
     # Workaround to avoid intermittent failures on `opensuse-leap-15.1`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
-  - name: amazonlinux-2-3000-2-py3
+  - name: amazonlinux-2-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.2-py3:amazonlinux-2
-  - name: ubuntu-1804-3000-2-py2
+      image: netmanagers/salt-3000.3-py3:amazonlinux-2
+  - name: ubuntu-1804-3000-3-py2
     driver:
-      image: netmanagers/salt-3000.2-py2:ubuntu-18.04
-  - name: ubuntu-1604-3000-2-py2
+      image: netmanagers/salt-3000.3-py2:ubuntu-18.04
+  - name: ubuntu-1604-3000-3-py2
     driver:
-      image: netmanagers/salt-3000.2-py2:ubuntu-16.04
-  - name: arch-base-latest-3000-2-py2
+      image: netmanagers/salt-3000.3-py2:ubuntu-16.04
+  - name: arch-base-latest-3000-3-py2
     driver:
-      image: netmanagers/salt-3000.2-py2:arch-base-latest
+      image: netmanagers/salt-3000.3-py2:arch-base-latest
       run_command: /usr/lib/systemd/systemd
 
   ## SALT `2019.2`
