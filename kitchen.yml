@@ -14,25 +14,25 @@ platforms:
   ## SALT `master`
   - name: debian-10-master-py3
     driver:
-      image: netmanagers/salt-master-py3:debian-10
+      image: saltimages/salt-master-py3:debian-10
   - name: ubuntu-2004-master-py3
     driver:
-      image: netmanagers/salt-master-py3:ubuntu-20.04
+      image: saltimages/salt-master-py3:ubuntu-20.04
   - name: ubuntu-1804-master-py3
     driver:
-      image: netmanagers/salt-master-py3:ubuntu-18.04
+      image: saltimages/salt-master-py3:ubuntu-18.04
   - name: centos-8-master-py3
     driver:
-      image: netmanagers/salt-master-py3:centos-8
+      image: saltimages/salt-master-py3:centos-8
   - name: fedora-32-master-py3
     driver:
-      image: netmanagers/salt-master-py3:fedora-32
+      image: saltimages/salt-master-py3:fedora-32
   - name: fedora-31-master-py3
     driver:
-      image: netmanagers/salt-master-py3:fedora-31
+      image: saltimages/salt-master-py3:fedora-31
   - name: opensuse-leap-152-master-py3
     driver:
-      image: netmanagers/salt-master-py3:opensuse-leap-15.2
+      image: saltimages/salt-master-py3:opensuse-leap-15.2
       run_command: /usr/lib/systemd/systemd
     # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
@@ -40,30 +40,30 @@ platforms:
       max_ssh_sessions: 1
   - name: amazonlinux-2-master-py3
     driver:
-      image: netmanagers/salt-master-py3:amazonlinux-2
+      image: saltimages/salt-master-py3:amazonlinux-2
 
   ## SALT `3000.3`
   - name: debian-10-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:debian-10
+      image: saltimages/salt-3000.3-py3:debian-10
   - name: debian-9-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:debian-9
+      image: saltimages/salt-3000.3-py3:debian-9
   - name: ubuntu-1804-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:ubuntu-18.04
+      image: saltimages/salt-3000.3-py3:ubuntu-18.04
   - name: centos-8-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:centos-8
+      image: saltimages/salt-3000.3-py3:centos-8
   - name: centos-7-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:centos-7
+      image: saltimages/salt-3000.3-py3:centos-7
   - name: fedora-31-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:fedora-31
+      image: saltimages/salt-3000.3-py3:fedora-31
   - name: opensuse-leap-152-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:opensuse-leap-15.2
+      image: saltimages/salt-3000.3-py3:opensuse-leap-15.2
       run_command: /usr/lib/systemd/systemd
     # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
@@ -71,43 +71,43 @@ platforms:
       max_ssh_sessions: 1
   - name: amazonlinux-2-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:amazonlinux-2
+      image: saltimages/salt-3000.3-py3:amazonlinux-2
   - name: ubuntu-1804-3000-3-py2
     driver:
-      image: netmanagers/salt-3000.3-py2:ubuntu-18.04
+      image: saltimages/salt-3000.3-py2:ubuntu-18.04
   - name: ubuntu-1604-3000-3-py2
     driver:
-      image: netmanagers/salt-3000.3-py2:ubuntu-16.04
+      image: saltimages/salt-3000.3-py2:ubuntu-16.04
   - name: arch-base-latest-3000-3-py2
     driver:
-      image: netmanagers/salt-3000.3-py2:arch-base-latest
+      image: saltimages/salt-3000.3-py2:arch-base-latest
       run_command: /usr/lib/systemd/systemd
 
   ## SALT `2019.2`
   - name: debian-10-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:debian-10
+      image: saltimages/salt-2019.2-py3:debian-10
   - name: debian-9-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:debian-9
+      image: saltimages/salt-2019.2-py3:debian-9
   - name: ubuntu-1804-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:ubuntu-18.04
+      image: saltimages/salt-2019.2-py3:ubuntu-18.04
   - name: ubuntu-1604-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:ubuntu-16.04
+      image: saltimages/salt-2019.2-py3:ubuntu-16.04
   - name: centos-8-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:centos-8
+      image: saltimages/salt-2019.2-py3:centos-8
   - name: centos-7-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:centos-7
+      image: saltimages/salt-2019.2-py3:centos-7
   - name: fedora-31-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:fedora-31
+      image: saltimages/salt-2019.2-py3:fedora-31
   - name: opensuse-leap-152-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:opensuse-leap-15.2
+      image: saltimages/salt-2019.2-py3:opensuse-leap-15.2
       run_command: /usr/lib/systemd/systemd
     # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
@@ -115,18 +115,18 @@ platforms:
       max_ssh_sessions: 1
   - name: amazonlinux-2-2019-2-py3
     driver:
-      image: netmanagers/salt-2019.2-py3:amazonlinux-2
+      image: saltimages/salt-2019.2-py3:amazonlinux-2
   - name: centos-6-2019-2-py2
     driver:
-      image: netmanagers/salt-2019.2-py2:centos-6
+      image: saltimages/salt-2019.2-py2:centos-6
       run_command: /sbin/init
   - name: amazonlinux-1-2019-2-py2
     driver:
-      image: netmanagers/salt-2019.2-py2:amazonlinux-1
+      image: saltimages/salt-2019.2-py2:amazonlinux-1
       run_command: /sbin/init
   - name: arch-base-latest-2019-2-py2
     driver:
-      image: netmanagers/salt-2019.2-py2:arch-base-latest
+      image: saltimages/salt-2019.2-py2:arch-base-latest
       run_command: /usr/lib/systemd/systemd
 
 provisioner:
