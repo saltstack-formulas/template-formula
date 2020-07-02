@@ -17,3 +17,19 @@ repos:
     hooks:
       - id: rubocop
         exclude: ^Gemfile\.lock$
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.23.0
+    hooks:
+      - id: yamllint
+        name: Check YAML syntax with yamllint
+        args: [--strict]
+        types: [file]
+        files: >
+          (?x)^(
+              \.salt-lint|
+              \.yamllint|
+              .*\.example|
+              test/.*\.sls|
+              .*\.(yaml|yml)
+          )$
+        exclude: ^test/.*/states/.*\.sls$
