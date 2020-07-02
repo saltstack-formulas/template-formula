@@ -37,3 +37,9 @@ repos:
               .*\.(yaml|yml)
           )$
         exclude: ^test/.*/states/.*\.sls$
+  - repo: https://github.com/warpnet/salt-lint
+    rev: v0.3.0
+    hooks:
+      - id: salt-lint
+        name: Check Salt files using salt-lint
+        files: ^.*\.(sls|jinja|j2|tmpl|tst)$
