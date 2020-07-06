@@ -3,7 +3,7 @@
 TEMPLATE-formula
 ================
 
-|img_travis| |img_sr|
+|img_travis| |img_sr| |img_pc|
 
 .. |img_travis| image:: https://travis-ci.com/saltstack-formulas/TEMPLATE-formula.svg?branch=master
    :alt: Travis CI Build Status
@@ -13,6 +13,10 @@ TEMPLATE-formula
    :alt: Semantic Release
    :scale: 100%
    :target: https://github.com/semantic-release/semantic-release
+.. |img_pc| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+   :alt: pre-commit
+   :scale: 100%
+   :target: https://github.com/pre-commit/pre-commit
 
 A SaltStack formula that is empty. It has dummy content to help with a quick
 start on a new formula and it serves as a style guide.
@@ -39,9 +43,23 @@ If you need (non-default) configuration, please pay attention to the ``pillar.ex
 Contributing to this repo
 -------------------------
 
+Commit messages
+^^^^^^^^^^^^^^^
+
 **Commit message formatting is significant!!**
 
 Please see `How to contribute <https://github.com/saltstack-formulas/.github/blob/master/CONTRIBUTING.rst>`_ for more details.
+
+pre-commit
+^^^^^^^^^^
+
+`pre-commit <https://pre-commit.com/>`_ is configured for this formula, which you may optionally use to ease the steps involved in submitting your changes.
+First install  the ``pre-commit`` package manager using the appropriate `method <https://pre-commit.com/#installation>`_, then run ``bin/install-hooks`` and
+now ``pre-commit`` will run automatically on each ``git commit``. ::
+
+  $ bin/install-hooks
+  pre-commit installed at .git/hooks/pre-commit
+  pre-commit installed at .git/hooks/commit-msg
 
 Special notes
 -------------
