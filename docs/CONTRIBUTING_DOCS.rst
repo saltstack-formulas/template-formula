@@ -93,4 +93,3 @@ we are using for some of the pages of this documentation.
 Obviously, it is not necessary to follow the steps in the order above.
 For example, it is usually easier to write the ``[Introductory paragraph]``
 at the end.
-
