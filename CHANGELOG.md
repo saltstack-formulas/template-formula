@@ -1,5 +1,27 @@
 # Changelog
 
+## [4.1.1](https://github.com/saltstack-formulas/template-formula/compare/v4.1.0...v4.1.1) (2020-07-28)
+
+
+### Continuous Integration
+
+* **kitchen:** use `saltimages` Docker Hub where available [skip ci] ([eab21c3](https://github.com/saltstack-formulas/template-formula/commit/eab21c39fb180d3cf3be93a4ae0678b1fbe6357d))
+* **kitchen+travis:** add new platforms [skip ci] ([111a20b](https://github.com/saltstack-formulas/template-formula/commit/111a20b47d89d275ce4ff5213656d6828acb2760))
+* **kitchen+travis:** adjust matrix to add `3000.3` [skip ci] ([19ae826](https://github.com/saltstack-formulas/template-formula/commit/19ae82632ece95047b535390bd2325fb30a09af7))
+* **travis:** add notifications => zulip [skip ci] ([ac93ad8](https://github.com/saltstack-formulas/template-formula/commit/ac93ad82f143ce9348f841a263df87d717034103))
+* **travis:** run linters using `pre-commit` ([6da26cc](https://github.com/saltstack-formulas/template-formula/commit/6da26cca6a3b3ac89137d81b837633358c534396))
+
+
+### Documentation
+
+* add basic `pre-commit` usage instructions ([c78c068](https://github.com/saltstack-formulas/template-formula/commit/c78c06876eb4c117b3ab00f9da479e8a4c3f1cf5))
+* fix whitespace ([d98d98f](https://github.com/saltstack-formulas/template-formula/commit/d98d98f4da1096f4c60c5ec5c15d56d1945c9f50))
+
+
+### Styles
+
+* **libtofs.jinja:** use Black-inspired Jinja formatting [skip ci] ([55bc69a](https://github.com/saltstack-formulas/template-formula/commit/55bc69a2b194874ceb594c93c8750c320239103c))
+
 # [4.1.0](https://github.com/saltstack-formulas/template-formula/compare/v4.0.9...v4.1.0) (2020-05-12)
 
 

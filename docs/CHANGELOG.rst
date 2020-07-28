@@ -2,6 +2,32 @@
 Changelog
 =========
 
+`4.1.1 <https://github.com/saltstack-formulas/template-formula/compare/v4.1.0...v4.1.1>`_ (2020-07-28)
+----------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use ``saltimages`` Docker Hub where available [skip ci] (\ `eab21c3 <https://github.com/saltstack-formulas/template-formula/commit/eab21c39fb180d3cf3be93a4ae0678b1fbe6357d>`_\ )
+* **kitchen+travis:** add new platforms [skip ci] (\ `111a20b <https://github.com/saltstack-formulas/template-formula/commit/111a20b47d89d275ce4ff5213656d6828acb2760>`_\ )
+* **kitchen+travis:** adjust matrix to add ``3000.3`` [skip ci] (\ `19ae826 <https://github.com/saltstack-formulas/template-formula/commit/19ae82632ece95047b535390bd2325fb30a09af7>`_\ )
+* **travis:** add notifications => zulip [skip ci] (\ `ac93ad8 <https://github.com/saltstack-formulas/template-formula/commit/ac93ad82f143ce9348f841a263df87d717034103>`_\ )
+* **travis:** run linters using ``pre-commit`` (\ `6da26cc <https://github.com/saltstack-formulas/template-formula/commit/6da26cca6a3b3ac89137d81b837633358c534396>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* add basic ``pre-commit`` usage instructions (\ `c78c068 <https://github.com/saltstack-formulas/template-formula/commit/c78c06876eb4c117b3ab00f9da479e8a4c3f1cf5>`_\ )
+* fix whitespace (\ `d98d98f <https://github.com/saltstack-formulas/template-formula/commit/d98d98f4da1096f4c60c5ec5c15d56d1945c9f50>`_\ )
+
+Styles
+^^^^^^
+
+
+* **libtofs.jinja:** use Black-inspired Jinja formatting [skip ci] (\ `55bc69a <https://github.com/saltstack-formulas/template-formula/commit/55bc69a2b194874ceb594c93c8750c320239103c>`_\ )
+
 `4.1.0 <https://github.com/saltstack-formulas/template-formula/compare/v4.0.9...v4.1.0>`_ (2020-05-12)
 ----------------------------------------------------------------------------------------------------------
 
@@ -821,20 +847,20 @@ BREAKING CHANGES
 ^^^^^^^^^^^^^^^^
 
 
-*
+* 
   **tofs:** every formula writer will need to change the import
   to use this new version.
 
-*
+* 
   template/libtofs.jinja: provides the “files_switch” macro.
 
-*
+* 
   docs/TOFS_pattern.rst: update documentation to use the new path.
 
-*
+* 
   template/config/clean.sls: change import from “macros.jinja” to “libtofs.jinja”.
 
-*
+* 
   template/config/file.sls: ditoo.
 
 `1.2.6 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.5...v1.2.6>`_ (2019-03-24)
@@ -1292,7 +1318,7 @@ Other
 
 
 * Updated changelog and version. [Alexander Weidinger]
-*
+* 
   Map.jinja: use grains.filter_by instead of defaults.merge. [Alexander Weidinger]
 
     because defaults.merge does not work with salt-ssh. https://github.com/saltstack/salt/issues/51605
@@ -1317,7 +1343,7 @@ Other
 ----------------------------------------------------------------------------------------------------------
 
 
-*
+* 
   Examples must be consistent. [Daniel Dehennin]
 
     The “template” is kept during rendering.
@@ -1326,7 +1352,7 @@ Other
   * TOFS_pattern.md: add “template” to rendered state.
   * template/macros.jinja: ditoo.
 
-*
+* 
   Remove double slash in generated salt URL. [Daniel Dehennin]
 
     When the files are “full path” with leading slash “/”, the generated URL contain a double slash because of the join.
@@ -1335,22 +1361,22 @@ Other
   * template/macros.jinja: remove leading slash before joining parts.
   * TOFS_pattern.md: mirror changes of “macros.jinja”.
 
-*
+* 
   Add an example for “ntp” of the use of “files_switch” [Daniel Dehennin]
 
-*
+* 
   Accept pillar separator in “files_switch” prefix. [Daniel Dehennin]
 
     The prefix was used for 2 purposes:
 
 
   * define the pillar prefix where to lookup “:files_switch”. It supports the colon “:” separator to lookup in pillar subtree like “foo:bar”
-  *
+  * 
     define the path prefix where to look for “files/”, It did not support separator to lookup inside directory tree.
 
     This patch only replace any colon “:” with “/” when looking up “files/” directory, with the “foo:bar” prefix:
 
-  *
+  * 
     lookup “foo:bar:files_switch” pillar to get list of grains to match
 
   * lookup files under “salt://foo/bar/files/”
@@ -1358,7 +1384,7 @@ Other
   * template/macros.jinja: transform any colon “:” in “prefix” by slash
     “/” to lookup files.
 
-*
+* 
   Make TOFS pattern example usable. [Daniel Dehennin]
 
     The example could not be used as-is. This commit improve conformity to formula conventions.
@@ -1367,14 +1393,14 @@ Other
   * TOFS_pattern.md: add missing commas “,” in “map.jinja” and extra one
     to ease the addition of new entries. Import “map.jinja” in “init.sls” and “conf.sls”. Declare descriptive state IDs. Use the “module.function” notation. Use the “name” parameter.
 
-*
+* 
   Cosmetics modification of TOFS pattern documentation. [Daniel Dehennin]
 
 
   * TOFS_pattern.md: add myself as modifier.
     Trim trailing whitespaces. Separate titles from first paragraph.
 
-*
+* 
   Switch template.config to TOFS pattern. [Daniel Dehennin]
 
 * Import TOFS pattern from Zabbix formula. [Daniel Dehennin]
@@ -1413,12 +1439,12 @@ Other
 
 * Change states to use short-dec style. [Seth House]
 * Update CHANGELOG.rst. [Nitin Madhok]
-*
+* 
   Update README.rst. [Nitin Madhok]
 
     Fix broken link
 
-*
+* 
   Fixing pillar to match the map file. [Forrest]
 
     Map file and pillar didn't match.
