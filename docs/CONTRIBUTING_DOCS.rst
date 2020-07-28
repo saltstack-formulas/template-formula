@@ -34,10 +34,10 @@ Adding a new page involves two steps:
    a. Do not just append it to the list.
    #. Select the best place where it fits within the overall documentation.
 
+.. _saltstack_formulas_rst_page_template:
+
 SaltStack-Formulas' RST page template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _saltstack_formulas_rst_page_template
 
 Use the following template when creating a new page.
 This ensures consistency across the documentation for this formula.
@@ -93,4 +93,3 @@ we are using for some of the pages of this documentation.
 Obviously, it is not necessary to follow the steps in the order above.
 For example, it is usually easier to write the ``[Introductory paragraph]``
 at the end.
-

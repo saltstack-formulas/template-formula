@@ -821,20 +821,20 @@ BREAKING CHANGES
 ^^^^^^^^^^^^^^^^
 
 
-* 
+*
   **tofs:** every formula writer will need to change the import
   to use this new version.
 
-* 
+*
   template/libtofs.jinja: provides the “files_switch” macro.
 
-* 
+*
   docs/TOFS_pattern.rst: update documentation to use the new path.
 
-* 
+*
   template/config/clean.sls: change import from “macros.jinja” to “libtofs.jinja”.
 
-* 
+*
   template/config/file.sls: ditoo.
 
 `1.2.6 <https://github.com/saltstack-formulas/template-formula/compare/v1.2.5...v1.2.6>`_ (2019-03-24)
@@ -1292,7 +1292,7 @@ Other
 
 
 * Updated changelog and version. [Alexander Weidinger]
-* 
+*
   Map.jinja: use grains.filter_by instead of defaults.merge. [Alexander Weidinger]
 
     because defaults.merge does not work with salt-ssh. https://github.com/saltstack/salt/issues/51605
@@ -1317,7 +1317,7 @@ Other
 ----------------------------------------------------------------------------------------------------------
 
 
-* 
+*
   Examples must be consistent. [Daniel Dehennin]
 
     The “template” is kept during rendering.
@@ -1326,7 +1326,7 @@ Other
   * TOFS_pattern.md: add “template” to rendered state.
   * template/macros.jinja: ditoo.
 
-* 
+*
   Remove double slash in generated salt URL. [Daniel Dehennin]
 
     When the files are “full path” with leading slash “/”, the generated URL contain a double slash because of the join.
@@ -1335,22 +1335,22 @@ Other
   * template/macros.jinja: remove leading slash before joining parts.
   * TOFS_pattern.md: mirror changes of “macros.jinja”.
 
-* 
+*
   Add an example for “ntp” of the use of “files_switch” [Daniel Dehennin]
 
-* 
+*
   Accept pillar separator in “files_switch” prefix. [Daniel Dehennin]
 
     The prefix was used for 2 purposes:
 
 
   * define the pillar prefix where to lookup “:files_switch”. It supports the colon “:” separator to lookup in pillar subtree like “foo:bar”
-  * 
+  *
     define the path prefix where to look for “files/”, It did not support separator to lookup inside directory tree.
 
     This patch only replace any colon “:” with “/” when looking up “files/” directory, with the “foo:bar” prefix:
 
-  * 
+  *
     lookup “foo:bar:files_switch” pillar to get list of grains to match
 
   * lookup files under “salt://foo/bar/files/”
@@ -1358,7 +1358,7 @@ Other
   * template/macros.jinja: transform any colon “:” in “prefix” by slash
     “/” to lookup files.
 
-* 
+*
   Make TOFS pattern example usable. [Daniel Dehennin]
 
     The example could not be used as-is. This commit improve conformity to formula conventions.
@@ -1367,14 +1367,14 @@ Other
   * TOFS_pattern.md: add missing commas “,” in “map.jinja” and extra one
     to ease the addition of new entries. Import “map.jinja” in “init.sls” and “conf.sls”. Declare descriptive state IDs. Use the “module.function” notation. Use the “name” parameter.
 
-* 
+*
   Cosmetics modification of TOFS pattern documentation. [Daniel Dehennin]
 
 
   * TOFS_pattern.md: add myself as modifier.
     Trim trailing whitespaces. Separate titles from first paragraph.
 
-* 
+*
   Switch template.config to TOFS pattern. [Daniel Dehennin]
 
 * Import TOFS pattern from Zabbix formula. [Daniel Dehennin]
@@ -1413,12 +1413,12 @@ Other
 
 * Change states to use short-dec style. [Seth House]
 * Update CHANGELOG.rst. [Nitin Madhok]
-* 
+*
   Update README.rst. [Nitin Madhok]
 
     Fix broken link
 
-* 
+*
   Fixing pillar to match the map file. [Forrest]
 
     Map file and pillar didn't match.
