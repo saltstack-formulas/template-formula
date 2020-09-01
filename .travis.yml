@@ -104,8 +104,8 @@ jobs:
     # - env: INSTANCE=default-fedora-31-2019-2-py3
     # - env: INSTANCE=default-opensuse-leap-152-2019-2-py3
     # - env: INSTANCE=default-amazonlinux-2-2019-2-py3
-    # - env: INSTANCE=default-centos-6-2019-2-py2
-    # - env: INSTANCE=default-amazonlinux-1-2019-2-py2
+    - env: INSTANCE=upstart-centos-6-2019-2-py2
+    # - env: INSTANCE=upstart-amazonlinux-1-2019-2-py2
     - env: INSTANCE=default-arch-base-latest-2019-2-py2
     # <REMOVEME
 
