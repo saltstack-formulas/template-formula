@@ -156,6 +156,7 @@ suites:
       state_top:
         base:
           '*':
+            - TEMPLATE._mapdata
             - TEMPLATE
       pillars:
         top.sls:
@@ -177,6 +178,7 @@ suites:
       state_top:
         base:
           '*':
+            - TEMPLATE._mapdata
             - TEMPLATE
       pillars:
         top.sls:
