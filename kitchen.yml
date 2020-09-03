@@ -150,7 +150,8 @@ verifier:
 suites:
   - name: default
     excludes:
-      - centos-6-2018-3-py2
+      - centos-6-2019-2-py2
+      - amazonlinux-1-2019-2-py2
     provisioner:
       state_top:
         base:
@@ -168,9 +169,10 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
-  - name: centos6
+  - name: upstart
     includes:
-      - centos-6-2018-3-py2
+      - centos-6-2019-2-py2
+      - amazonlinux-1-2019-2-py2
     provisioner:
       state_top:
         base:
@@ -183,7 +185,7 @@ suites:
               - TEMPLATE
               - define_roles
       pillars_from_files:
-        TEMPLATE.sls: test/salt/pillar/centos6.sls
+        TEMPLATE.sls: test/salt/pillar/upstart.sls
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:
