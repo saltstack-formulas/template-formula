@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Prepare platform "finger"
-platform_finger = "#{platform[:name]}-#{platform[:release].split('.')[0]}"
+platform_finger = system.platform[:finger].split('.').first.to_s
 
 control 'TEMPLATE package' do
   title 'should be installed'
@@ -9,7 +9,7 @@ control 'TEMPLATE package' do
   # Overide by `platform_finger`
   package_name =
     case platform_finger
-    when 'centos-6', 'amazon-2018'
+    when 'centos-6', 'amazonlinux-1'
       'cronie'
     else
       'bash'

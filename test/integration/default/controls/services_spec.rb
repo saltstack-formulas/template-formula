@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Prepare platform "finger"
-platform_finger = "#{platform[:name]}-#{platform[:release].split('.')[0]}"
+platform_finger = system.platform[:finger].split('.').first.to_s
 
 control 'TEMPLATE service' do
   impact 0.5
@@ -10,7 +10,7 @@ control 'TEMPLATE service' do
   # Overide by `platform_finger`
   service_name =
     case platform_finger
-    when 'centos-6', 'amazon-2018'
+    when 'centos-6', 'amazonlinux-1'
       'crond'
     else
       'systemd-journald'
