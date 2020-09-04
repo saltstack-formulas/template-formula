@@ -2,6 +2,30 @@
 Changelog
 =========
 
+`4.2.0 <https://github.com/saltstack-formulas/template-formula/compare/v4.1.1...v4.2.0>`_ (2020-09-04)
+----------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** execute ``_madata`` state (\ `31e1096 <https://github.com/saltstack-formulas/template-formula/commit/31e1096adda4c23f77b797f35c465ba09043b3a6>`_\ )
+* **kitchen+travis:** fix ``centos6`` suite and rename to ``upstart`` (\ `97309c6 <https://github.com/saltstack-formulas/template-formula/commit/97309c6f4d6b18723ec5492564b1344155960ae0>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **map:** generate a YAML file to validate ``map.jinja`` (\ `fc90075 <https://github.com/saltstack-formulas/template-formula/commit/fc90075dd94d874eb283d96259f552812d8a8d82>`_\ )
+
+Tests
+^^^^^
+
+
+* **inspec:** share library to access some minion informations (\ `64c2b6c <https://github.com/saltstack-formulas/template-formula/commit/64c2b6cdae1ad91959b5c0fe67863a529a070428>`_\ )
+* **inspec:** verify ``map.jinja`` dump (\ `3dc28bf <https://github.com/saltstack-formulas/template-formula/commit/3dc28bfb3453079deca899352ecdff30daeb42f5>`_\ )
+* **platform_finger:** extract from shared library (\ `d68ed45 <https://github.com/saltstack-formulas/template-formula/commit/d68ed45109aa1274c6bf236db30758d795a3ba2a>`_\ )
+
 `4.1.1 <https://github.com/saltstack-formulas/template-formula/compare/v4.1.0...v4.1.1>`_ (2020-07-28)
 ----------------------------------------------------------------------------------------------------------
 
