@@ -10,7 +10,6 @@ Its goal is to share the libraries between all profiles.
 
 The `system` library provides easy access to system dependent information:
 
-- `system.hostname`: return the result of `hostname -s` or `hostnamectl --static` based on the availability of either command
 - `system.platform`: based on `inspec.platform`, modify to values that are more consistent from a SaltStack perspective
   - `system.platform[:family]` provide a family name for Arch
   - `system.platform[:name]` modify `amazon` to `amazonlinux`

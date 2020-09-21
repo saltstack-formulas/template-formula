@@ -1,15 +1,10 @@
 # frozen_string_literal: true
 
-# Replace per minion strings
-replacement = {
-  hostname: system.hostname
-}
-
 # Keep only first 2 digits from Ubuntu finger
 mapdata_file = "_mapdata/#{system.platform[:finger].split('.').first}.yaml"
 
 # Load the mapdata from profile https://docs.chef.io/inspec/profiles/#profile-files
-mapdata_dump = inspec.profile.file(mapdata_file) % replacement
+mapdata_dump = inspec.profile.file(mapdata_file)
 
 control '`map.jinja` YAML dump' do
   title 'should contain the lines'
