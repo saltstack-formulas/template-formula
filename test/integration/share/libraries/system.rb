@@ -4,46 +4,16 @@
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 # Copyright (C) 2020 Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 
-HOSTNAME_CMDS = %w[hostname hostnamectl].freeze
-HOSTNAME_CMDS_OPT = {
-  'hostname' => '-s',
-  'hostnamectl' => '--static'
-}.freeze
-
 class SystemResource < Inspec.resource(1)
   name 'system'
 
   attr_reader :platform
-  attr_reader :hostname
 
   def initialize
     @platform = build_platform
-    @hostname = found_hostname
   end
 
   private
-
-  def found_hostname
-    cmd = guess_hostname_cmd
-
-    unless cmd.exit_status.zero?
-      raise Inspec::Exceptions::ResourceSkipped,
-            "Error running '#{cmd}': #{cmd.stderr}"
-    end
-
-    cmd.stdout.chomp
-  end
-
-  def guess_hostname_cmd
-    HOSTNAME_CMDS.each do |cmd|
-      if inspec.command(cmd).exist?
-        return inspec.command("#{cmd} #{HOSTNAME_CMDS_OPT[cmd]}")
-      end
-    end
-
-    raise Inspec::Exceptions::ResourceSkipped,
-          "Error: #{@platform[:finger]}} has none of #{HOSTNAME_CMDS.join(', ')}"
-  end
 
   def build_platform
     {
