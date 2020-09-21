@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.2.1](https://github.com/saltstack-formulas/template-formula/compare/v4.2.0...v4.2.1) (2020-09-21)
+
+
+### Continuous Integration
+
+* **kitchen+travis:** use `tiamat` pre-salted images ([3a63304](https://github.com/saltstack-formulas/template-formula/commit/3a63304f13d717fc28efbb06252ffde421ab3621))
+
+
+### Tests
+
+* **oracle:** add InSpec configuration for `oraclelinux` ([c4b66d8](https://github.com/saltstack-formulas/template-formula/commit/c4b66d8f0b5666261b43ee923565cc516b7fb92f))
+* **share:** remove unnecessary hostname mangling ([194aa97](https://github.com/saltstack-formulas/template-formula/commit/194aa97dff47acd59076865489914b4148b1b76d))
+
 # [4.2.0](https://github.com/saltstack-formulas/template-formula/compare/v4.1.1...v4.2.0) (2020-09-04)
 
 
