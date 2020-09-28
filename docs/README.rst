@@ -69,7 +69,7 @@ Special notes
 Using this template
 ^^^^^^^^^^^^^^^^^^^
 
-The easiest way to use this template formula as a base for a new formula is to use GitHub's **Use this template** button to create a new repository. For consistency with the rest of the formula ecosystem, name your formula repository following the pattern ``<formula theme>-formula``, where ``<formula theme>`` consists of lower-case alphabetic characters and numbers.
+The easiest way to use this template formula as a base for a new formula is to use GitHub's **Use this template** button to create a new repository. For consistency with the rest of the formula ecosystem, name your formula repository following the pattern ``<formula theme>-formula``, where ``<formula theme>`` consists of lower-case alphabetic characters, numbers, '-' or '_'.
 
 In the rest of this example we'll use ``example`` as the ``<formula theme>``.
 

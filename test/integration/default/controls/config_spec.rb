@@ -21,6 +21,8 @@ control 'TEMPLATE configuration' do
     its('content') { should include '"pkg": {"name": "' }
     its('content') { should include '"service": {"name": "' }
     its('content') do
+      # rubocop:disable Lint/RedundantCopDisableDirective
+      # rubocop:disable Layout/LineLength
       should include(
         '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", '\
         '"roles", "osfinger", "os", "os_family"], "source_files": '\
@@ -28,6 +30,8 @@ control 'TEMPLATE configuration' do
         '"TEMPLATE-subcomponent-config-file-file-managed": '\
         '["subcomponent-example.tmpl.jinja"]}'
       )
+      # rubocop:enable Layout/LineLength
+      # rubocop:enable Lint/RedundantCopDisableDirective
     end
     its('content') { should include '"arch": "amd64"' }
     its('content') { should include '"winner": "pillar"}' }

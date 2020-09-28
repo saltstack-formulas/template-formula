@@ -126,9 +126,13 @@ jobs:
     - env: 'Conversion'
       name: 'Test: bin/convert-formula.sh'
       script:
-        - git clone . tmp/converted-formula
-        - cd tmp/converted-formula
-        - DEBUG=true bin/convert-formula.sh converted
+        - export CONVERTED=test-the-use_this_template-button
+        - git clone . tmp/"$CONVERTED"-formula
+        - cd tmp/"$CONVERTED"-formula
+        - pyenv global 3.8
+        - pip install pre-commit==2.7.1
+        - bin/install-hooks
+        - DEBUG=true bin/convert-formula.sh "$CONVERTED"
         - '[ $(git rev-list HEAD --count) -eq 2 ]'
         # Quick visual check that correct files have been updated
         - git show --pretty="" --name-status
