@@ -73,6 +73,13 @@ platforms:
   - name: amazonlinux-2-master-py3
     driver:
       image: saltimages/salt-master-py3:amazonlinux-2
+  - name: gentoo-stage3-latest-master-py3
+    driver:
+      image: saltimages/salt-master-py3:gentoo-stage3-latest
+      run_command: /sbin/init
+  - name: gentoo-stage3-systemd-master-py3
+    driver:
+      image: saltimages/salt-master-py3:gentoo-stage3-systemd
 
   ## SALT `3001`
   - name: debian-10-3001-py3
@@ -116,6 +123,13 @@ platforms:
   - name: oraclelinux-7-3001-py3
     driver:
       image: saltimages/salt-3001-py3:oraclelinux-7
+  - name: gentoo-stage3-latest-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:gentoo-stage3-latest
+      run_command: /sbin/init
+  - name: gentoo-stage3-systemd-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:gentoo-stage3-systemd
 
   ## SALT `3000.3`
   - name: debian-10-3000-3-py3
@@ -147,6 +161,13 @@ platforms:
   - name: amazonlinux-2-3000-3-py3
     driver:
       image: saltimages/salt-3000.3-py3:amazonlinux-2
+  - name: gentoo-stage3-latest-3000-3-py3
+    driver:
+      image: saltimages/salt-3000.3-py3:gentoo-stage3-latest
+      run_command: /sbin/init
+  - name: gentoo-stage3-systemd-3000-3-py3
+    driver:
+      image: saltimages/salt-3000.3-py3:gentoo-stage3-systemd
   - name: ubuntu-1804-3000-3-py2
     driver:
       image: saltimages/salt-3000.3-py2:ubuntu-18.04
@@ -191,6 +212,12 @@ suites:
     excludes:
       - centos-6-2019-2-py2
       - amazonlinux-1-2019-2-py2
+      - gentoo-stage3-latest-master-py3
+      - gentoo-stage3-systemd-master-py3
+      - gentoo-stage3-latest-3001-py3
+      - gentoo-stage3-systemd-3001-py3
+      - gentoo-stage3-latest-3000-3-py3
+      - gentoo-stage3-systemd-3000-3-py3
     provisioner:
       state_top:
         base:
@@ -227,6 +254,34 @@ suites:
               - define_roles
       pillars_from_files:
         TEMPLATE.sls: test/salt/pillar/upstart.sls
+        define_roles.sls: test/salt/pillar/define_roles.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/default
+  - name: gentoo
+    includes:
+      - gentoo-stage3-latest-master-py3
+      - gentoo-stage3-systemd-master-py3
+      - gentoo-stage3-latest-3001-py3
+      - gentoo-stage3-systemd-3001-py3
+      - gentoo-stage3-latest-3000-3-py3
+      - gentoo-stage3-systemd-3000-3-py3
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - TEMPLATE._mapdata
+            - TEMPLATE
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - TEMPLATE
+              - gentoo
+              - define_roles
+      pillars_from_files:
+        TEMPLATE.sls: pillar.example
+        gentoo.sls: test/salt/pillar/gentoo.sls
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:
