@@ -31,9 +31,6 @@ jobs:
     # Run all of the linters in a single job
     - language: 'node_js'
       node_js: 'lts/*'
-      cache:
-        directories:
-          - $HOME/.cache/pre-commit
       env: 'Lint'
       name: 'Lint: salt-lint, yamllint, rubocop, shellcheck & commitlint'
       before_install: 'skip'
@@ -57,10 +54,20 @@ jobs:
         - npm i -D @commitlint/config-conventional
                    @commitlint/travis-cli
         - commitlint-travis
+
+    # Run `pre-commit` linters in a single job
+    - language: 'python'
+      env: 'Lint_pre-commit'
+      name: 'Lint: pre-commit'
+      before_install: 'skip'
+      cache:
+        directories:
+          - $HOME/.cache/pre-commit
+      script:
         # Install and run `pre-commit`
-        - pip install pre-commit
-        - pre-commit run --all-files --verbose
-        - pre-commit run --hook-stage manual --verbose commitlint-travis
+        - pip install pre-commit==2.7.1
+        - pre-commit run --all-files --color always --verbose
+        - pre-commit run --color always --hook-stage manual --verbose commitlint-travis
 
     ## Define the rest of the matrix based on Kitchen testing
     # Make sure the instances listed below match up with
