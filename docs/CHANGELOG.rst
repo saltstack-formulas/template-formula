@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`4.2.2 <https://github.com/saltstack-formulas/template-formula/compare/v4.2.1...v4.2.2>`_ (2020-10-06)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **commitlint:** fix header length at 72 chars as agreed (\ `a95061d <https://github.com/saltstack-formulas/template-formula/commit/a95061ddd088210c5111490234bc1588002cddd5>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **pre-commit:** add to formula [skip ci] (\ `fd89d62 <https://github.com/saltstack-formulas/template-formula/commit/fd89d62ec656dc3e6f84b9834860bf51359452f5>`_\ )
+* **pre-commit:** enable/disable ``rstcheck`` as relevant [skip ci] (\ `219e6b7 <https://github.com/saltstack-formulas/template-formula/commit/219e6b71c85f06657564c87ba58877cfc5ebe511>`_\ )
+
 `4.2.1 <https://github.com/saltstack-formulas/template-formula/compare/v4.2.0...v4.2.1>`_ (2020-09-21)
 ----------------------------------------------------------------------------------------------------------
 
