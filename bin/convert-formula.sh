@@ -52,6 +52,11 @@ convert_formula() {
   git rm --quiet bin/convert-formula.sh AUTHORS.md CHANGELOG.md \
     docs/_static/css/custom.css docs/AUTHORS.rst docs/CHANGELOG.rst \
     docs/conf.py docs/CONTRIBUTING_DOCS.rst docs/index.rst
+  tag_out=$(git tag --list | xargs git tag --delete)
+  if [ "${DEBUG:-false}" = "true" ]; then
+    echo "$tag_out"
+  fi
+
   git mv TEMPLATE "$NEW_NAME"
 
   # Replace TEMPLATE within sls and jinja files with py-safe formula name
