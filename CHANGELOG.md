@@ -1,5 +1,17 @@
 # Changelog
 
+# [4.3.0](https://github.com/saltstack-formulas/template-formula/compare/v4.2.2...v4.3.0) (2020-10-12)
+
+
+### Continuous Integration
+
+* **pre-commit:** finalise `rstcheck` configuration [skip ci] ([e78aa0c](https://github.com/saltstack-formulas/template-formula/commit/e78aa0cb784752ae699196c6309fe93bf223a306))
+
+
+### Features
+
+* add Gentoo support ([4c2f4ed](https://github.com/saltstack-formulas/template-formula/commit/4c2f4ede0223e83e1958be33288fa6b83cce7140))
+
 ## [4.2.2](https://github.com/saltstack-formulas/template-formula/compare/v4.2.1...v4.2.2) (2020-10-06)
 
 
