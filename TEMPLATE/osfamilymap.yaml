@@ -24,7 +24,9 @@ Suse:
   pkg:
     name: TEMPLATE-suse
 
-Gentoo: {}
+Gentoo:
+  pkg:
+    name: TEMPLATE-gentoo
 
 Arch:
   pkg:

@@ -49,8 +49,19 @@ class SystemResource < Inspec.resource(1)
       inspec.platform[:release].gsub(/2018.*/, '1')
     when 'arch'
       'base-latest'
+    when 'gentoo'
+      "#{inspec.platform[:release].split('.')[0]}-#{derive_gentoo_init_system}"
     else
       inspec.platform[:release]
+    end
+  end
+
+  def derive_gentoo_init_system
+    case inspec.command('systemctl').exist?
+    when true
+      'sysd'
+    else
+      'sysv'
     end
   end
 
