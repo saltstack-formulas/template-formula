@@ -10,6 +10,7 @@ class SystemResource < Inspec.resource(1)
   attr_reader :platform
 
   def initialize
+    super
     @platform = build_platform
   end
 
