@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`4.3.1 <https://github.com/saltstack-formulas/template-formula/compare/v4.3.0...v4.3.1>`_ (2020-10-28)
+----------------------------------------------------------------------------------------------------------
+
+Tests
+^^^^^
+
+
+* **inspec:** ``system.rb`` must call parent class initialisation (\ `1ff9ab1 <https://github.com/saltstack-formulas/template-formula/commit/1ff9ab15f23ba9f3b78a1b8f9dcef7a062e2b192>`_\ )
+
 `4.3.0 <https://github.com/saltstack-formulas/template-formula/compare/v4.2.2...v4.3.0>`_ (2020-10-12)
 ----------------------------------------------------------------------------------------------------------
 
