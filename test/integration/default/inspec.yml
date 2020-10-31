@@ -5,6 +5,7 @@ name: default
 title: TEMPLATE formula
 maintainer: SaltStack Formulas
 license: Apache-2.0
+# yamllint disable-line rule:line-length
 summary: Verify that the TEMPLATE formula is setup and configured correctly
 depends:
   - name: share
