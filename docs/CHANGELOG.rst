@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`4.3.2 <https://github.com/saltstack-formulas/template-formula/compare/v4.3.1...v4.3.2>`_ (2020-10-31)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **convert-formula.sh:** add -_ to allowed chars in formula name (\ `a999fee <https://github.com/saltstack-formulas/template-formula/commit/a999fee2145d9b0484049808c3c331943580cc3f>`_\ )
+* **convert-formula.sh:** delete all existing tags (\ `7c33601 <https://github.com/saltstack-formulas/template-formula/commit/7c33601fd455df90b1082791cdd282a507334898>`_\ ), closes `#210 <https://github.com/saltstack-formulas/template-formula/issues/210>`_
+
 `4.3.1 <https://github.com/saltstack-formulas/template-formula/compare/v4.3.0...v4.3.1>`_ (2020-10-28)
 ----------------------------------------------------------------------------------------------------------
 
