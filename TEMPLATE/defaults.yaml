@@ -4,6 +4,16 @@
 TEMPLATE:
   pkg:
     name: TEMPLATE
+    deps: []
+    use_upstream: package
+    uri_a: https://github.com/saltstack-formulas/TEMPLATE-formula/archive
+    version: 4.3.2
+    archive:
+      options: '--strip-components=1'
+      source_hash: b388f72c306507d4e59615b6c917a90e5486b0eea6511c5ea09d3ff2b3cfaf89
+    commands: []
+    suffix: tar.gz
+  rootuser: root
   rootgroup: root
   config: '/etc/TEMPLATE'
   service:
@@ -13,3 +23,9 @@ TEMPLATE:
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
+  dir:
+    base: /opt
+    lib: /var/lib/TEMPLATE
+    service: /lib/systemd/system
+  linux:
+    altpriority: 0   # zero disables alternatives

@@ -286,3 +286,22 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
+  - name: archive
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - TEMPLATE._mapdata
+            - TEMPLATE
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - archive
+              - define_roles
+      pillars_from_files:
+        archive.sls: test/salt/pillar/archive.sls
+        define_roles.sls: test/salt/pillar/define_roles.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/archive

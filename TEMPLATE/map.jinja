@@ -46,6 +46,26 @@
     )
 %}
 
+{# archive handling #}
+{%- if config.pkg.use_upstream|lower == 'archive' and 'archive' in config.pkg %}
+
+    {# path is C:\TEMPLATE\bin or /opt/TEMPLATE-n.n.n/bin #}
+    {%- if grains.os == 'Windows' %}
+        {%- do config.pkg.update({'path': config.dir.base ~ "\\bin\\"}) %}
+    {%- else %}
+        {%- do config.pkg.update({ 'path': '%s/TEMPLATE-%s/bin/'|format(config.dir.base, config.pkg.version) }) %}
+    {%- endif %}
+
+    {# github releases url is uri/v1.0.0 or variants; source_hash is explict or online as xxx.sha256 #}
+    {%- set url = '%s/v%s.%s'|format(config.pkg.uri_a, config.pkg.version, config.pkg.suffix) %}
+    {%- if 'source_hash' in config.pkg.archive and config.pkg.archive.source_hash %}
+        {%- do config.pkg.archive.update({'name': config.pkg.path, 'source': url, 'source_hash': config.pkg.archive.source_hash}) %}
+    {%- else %}
+        {%- do config.pkg.archive.update({'name': config.pkg.path, 'source': url, 'source_hash': url ~ '.sha256'}) %}
+    {%- endif %}
+{%- endif %}
+
+
 {#- <REMOVEME #}
 {#- Change **TEMPLATE** to match with your formula's name and then remove this line #}
 {#- REMOVEME> #}

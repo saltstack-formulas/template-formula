@@ -130,6 +130,7 @@ jobs:
     # - env: INSTANCE=default-ubuntu-1804-3000-3-py2
     # - env: INSTANCE=default-ubuntu-1604-3000-3-py2
     - env: INSTANCE=default-arch-base-latest-3000-3-py2
+    - env: INSTANCE=archive-arch-base-latest-3000-3-py2
     - env: INSTANCE=upstart-centos-6-2019-2-py2
     - env: INSTANCE=upstart-amazonlinux-1-2019-2-py2
     # <REMOVEME
@@ -139,7 +140,7 @@ jobs:
     - env: 'Conversion'
       name: 'Test: bin/convert-formula.sh'
       script:
-        - export CONVERTED=test-the-use_this_template-button
+        - export CONVERTED=test-usetemplate-button
         - git clone . tmp/"$CONVERTED"-formula
         - cd tmp/"$CONVERTED"-formula
         - pyenv global 3.8

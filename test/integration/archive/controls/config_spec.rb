@@ -18,7 +18,6 @@ control 'TEMPLATE configuration' do
     its('content') { should include '"added_in_lookup": "lookup_value"' }
     its('content') { should include '"config": "/etc/template-formula.conf"' }
     its('content') { should include '"lookup": {"added_in_lookup": "lookup_value",' }
-    its('content') { should include '"pkg": {' }
     its('content') { should include '"service": {"name": "' }
     its('content') do
       # rubocop:disable Lint/RedundantCopDisableDirective

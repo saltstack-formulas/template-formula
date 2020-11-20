@@ -13,10 +13,9 @@ TEMPLATE:
   # examples that make sense in the contexto of the formula you're writing.
   pkg:
     name: bash
-    use_upstream: package
+    use_upstream: archive
     version: 4.3.2
-    archive:
-      source_hash: b388f72c306507d4e59615b6c917a90e5486b0eea6511c5ea09d3ff2b3cfaf89
+    uri_a: https://github.com/saltstack-formulas/template-formula/archive
   service:
     name: systemd-journald
   config: /etc/template-formula.conf
