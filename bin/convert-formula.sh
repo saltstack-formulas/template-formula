@@ -79,7 +79,7 @@ convert_formula() {
   sedi 's/^\(*[[:space:]]\{1,\}\)@saltstack-formulas\/wg/\1@NONE/' CODEOWNERS
 
   # Deleting lines between two patterns
-  git ls-files -- '.travis.yml' '.rubocop.yml' '*/map.jinja' \
+  git ls-files -- '.gitlab-ci.yml' '.travis.yml' '.rubocop.yml' '*/map.jinja' \
   | while read -r filename; do
     sedi '/<REMOVEME/,/REMOVEME>/d' "$filename"
   done
