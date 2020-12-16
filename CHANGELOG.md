@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.3.3](https://github.com/saltstack-formulas/template-formula/compare/v4.3.2...v4.3.3) (2020-12-16)
+
+
+### Bug Fixes
+
+* **codeowners:** ensure `lib*` files are owned by `ssf` ([d60cc15](https://github.com/saltstack-formulas/template-formula/commit/d60cc1536637831ef76b2f2c84086b3f88f2684f))
+
+
+### Continuous Integration
+
+* **gitlab-ci:** use GitLab CI as Travis CI replacement ([0403f62](https://github.com/saltstack-formulas/template-formula/commit/0403f62c7780a8a449617003c5363118a8b6ecd6))
+
 ## [4.3.2](https://github.com/saltstack-formulas/template-formula/compare/v4.3.1...v4.3.2) (2020-10-31)
 
 
