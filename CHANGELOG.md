@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.3.4](https://github.com/saltstack-formulas/template-formula/compare/v4.3.3...v4.3.4) (2020-12-22)
+
+
+### Continuous Integration
+
+* **commitlint:** ensure `upstream/master` uses main repo URL [skip ci] ([e476d5a](https://github.com/saltstack-formulas/template-formula/commit/e476d5a567d90592ea32f193d2264de59d261711))
+* **gitlab-ci:** add `rubocop` linter (with `allow_failure`) [skip ci] ([4c300d0](https://github.com/saltstack-formulas/template-formula/commit/4c300d01cb909f2fbed07d39b22c06198c304cdf))
+
+
+### Tests
+
+* **_mapdata:** fix existing verification files ([6bbafed](https://github.com/saltstack-formulas/template-formula/commit/6bbafedd1f9ad6e6b659ab6ab4b1736b5c4d9a66))
+* **map:** standardise `map.jinja` verification ([4c8cf32](https://github.com/saltstack-formulas/template-formula/commit/4c8cf32db1824fb9841996d758d19c563f5414c5))
+
 ## [4.3.3](https://github.com/saltstack-formulas/template-formula/compare/v4.3.2...v4.3.3) (2020-12-16)
 
 
