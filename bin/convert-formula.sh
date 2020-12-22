@@ -68,6 +68,16 @@ convert_formula() {
     sedi "s/\([[:space:]]\{1,\}\)TEMPLATE:/\1${NEW_NAME_PYSAFE}:/" "$filename"
   done
 
+  # Temporarily, until the v5 `map.jinja` is implemented for this formula, this
+  # specific py-safe replacement is also required (`map.jinja` import variable)
+  sedi "s/TEMPLATE/${NEW_NAME_PYSAFE}/g" "${NEW_NAME}/_mapdata/init.sls"
+  # However, this section will probably be needed even for the v5 `map.jinja`
+  # All of the YAML comparison files need the py-safe `map.jinja` import variable
+  git ls-files -- 'test/integration/*.yaml' \
+  | while read -r filename; do
+    sedi "/^\(  \)TEMPLATE\(:\)$/s//\1${NEW_NAME_PYSAFE}\2/" "$filename"
+  done
+
   # Replace all other instances of TEMPLATE with the regular new formula name
   grep --recursive --files-with-matches --exclude-dir=.git TEMPLATE . \
   | while read -r filename; do
