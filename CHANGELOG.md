@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.5](https://github.com/saltstack-formulas/template-formula/compare/v4.3.4...v4.3.5) (2020-12-23)
+
+
+### Code Refactoring
+
+* **map:** use top-level `values:` key in `map.jinja` dumps ([f8e8fcb](https://github.com/saltstack-formulas/template-formula/commit/f8e8fcb29e77d1afded74a2c92789ac8807a4768))
+
 ## [4.3.4](https://github.com/saltstack-formulas/template-formula/compare/v4.3.3...v4.3.4) (2020-12-22)
 
 
