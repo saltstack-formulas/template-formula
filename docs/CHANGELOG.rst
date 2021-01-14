@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`4.3.6 <https://github.com/saltstack-formulas/template-formula/compare/v4.3.5...v4.3.6>`_ (2021-01-14)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **_mapdata:** ensure map data is directly under ``values`` (\ `bcb8e29 <https://github.com/saltstack-formulas/template-formula/commit/bcb8e29b687f9804a1cfbda1253da290432cd5b0>`_\ )
+
+Tests
+^^^^^
+
+
+* **_mapdata:** update for ``_mapdata/init.sls`` change (\ `50162ad <https://github.com/saltstack-formulas/template-formula/commit/50162adad7119285a649321b5f66710974a7983d>`_\ )
+
 `4.3.5 <https://github.com/saltstack-formulas/template-formula/compare/v4.3.4...v4.3.5>`_ (2020-12-23)
 ----------------------------------------------------------------------------------------------------------
 
