@@ -2,35 +2,34 @@
 # Amazon Linux AMI-2018
 ---
 values:
-  TEMPLATE:
-    added_in_defaults: defaults_value
+  added_in_defaults: defaults_value
+  added_in_lookup: lookup_value
+  added_in_pillar: pillar_value
+  arch: amd64
+  config: /etc/template-formula.conf
+  lookup:
     added_in_lookup: lookup_value
-    added_in_pillar: pillar_value
-    arch: amd64
-    config: /etc/template-formula.conf
-    lookup:
-      added_in_lookup: lookup_value
-      master: template-master
-      winner: lookup
     master: template-master
-    pkg:
-      name: cronie
-    rootgroup: root
-    service:
-      name: crond
-    subcomponent:
-      config: /etc/TEMPLATE-subcomponent-formula.conf
-    tofs:
-      files_switch:
-      - any/path/can/be/used/here
-      - id
-      - roles
-      - osfinger
-      - os
-      - os_family
-      source_files:
-        TEMPLATE-config-file-file-managed:
-        - example.tmpl.jinja
-        TEMPLATE-subcomponent-config-file-file-managed:
-        - subcomponent-example.tmpl.jinja
-    winner: pillar
+    winner: lookup
+  master: template-master
+  pkg:
+    name: cronie
+  rootgroup: root
+  service:
+    name: crond
+  subcomponent:
+    config: /etc/TEMPLATE-subcomponent-formula.conf
+  tofs:
+    files_switch:
+    - any/path/can/be/used/here
+    - id
+    - roles
+    - osfinger
+    - os
+    - os_family
+    source_files:
+      TEMPLATE-config-file-file-managed:
+      - example.tmpl.jinja
+      TEMPLATE-subcomponent-config-file-file-managed:
+      - subcomponent-example.tmpl.jinja
+  winner: pillar
