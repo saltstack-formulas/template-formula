@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.3.7](https://github.com/saltstack-formulas/template-formula/compare/v4.3.6...v4.3.7) (2021-02-11)
+
+
+### Continuous Integration
+
+* **pre-commit:** update hook for `rubocop` [skip ci] ([978a7e7](https://github.com/saltstack-formulas/template-formula/commit/978a7e7cd04c00fe6e7b5d113926683a86534094))
+
+
+### Styles
+
+* **inspec:** match current practices for file and control names ([aa8a58b](https://github.com/saltstack-formulas/template-formula/commit/aa8a58b715fec48b256ff0aa8a0b697b1ae20399))
+
+
+### Tests
+
+* **share:** standardise with latest changes [skip ci] ([dab2f34](https://github.com/saltstack-formulas/template-formula/commit/dab2f34c587ea6194351c768e9ba141744536607))
+
 ## [4.3.6](https://github.com/saltstack-formulas/template-formula/compare/v4.3.5...v4.3.6) (2021-01-14)
 
 
