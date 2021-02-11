@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-control 'TEMPLATE configuration' do
-  title 'should match desired lines'
+control 'TEMPLATE.config.file' do
+  title 'Verify the configuration file'
 
   describe file('/etc/template-formula.conf') do
     it { should be_file }

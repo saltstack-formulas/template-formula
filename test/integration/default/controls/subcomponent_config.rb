@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-control 'TEMPLATE subcomponent configuration' do
-  title 'should match desired lines'
+control 'TEMPLATE.subcomponent.config.file' do
+  title 'Verify the subcomponent configuration file'
 
   describe file('/etc/TEMPLATE-subcomponent-formula.conf') do
     it { should be_file }
