@@ -123,3 +123,11 @@ docs/*.md
 Dockerfile.*_*
 ignore/
 tmp/
+
+# `salt-formula` -- Vagrant Specific files
+.vagrant
+top.sls
+
+# `suricata-formula` -- Platform binaries
+*.rpm
+*.deb
