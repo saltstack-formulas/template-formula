@@ -2,7 +2,7 @@
 
 require 'yaml'
 
-control 'template._mapdata' do
+control 'TEMPLATE._mapdata' do
   title '`map.jinja` should match the reference file'
 
   ### Method
