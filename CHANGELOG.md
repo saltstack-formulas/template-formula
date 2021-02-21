@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.3.8](https://github.com/saltstack-formulas/template-formula/compare/v4.3.7...v4.3.8) (2021-02-21)
+
+
+### Continuous Integration
+
+* **gemfile+lock:** use `ssf` customised `kitchen-docker` repo [skip ci] ([23c2bb2](https://github.com/saltstack-formulas/template-formula/commit/23c2bb2dc26f4c1600d484312a79dd0af0e232d7))
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] ([00823a2](https://github.com/saltstack-formulas/template-formula/commit/00823a2d276648d184c92308f7829d0fdeefe0ba))
+
+
+### Tests
+
+* **_mapdata:** add verification files for Fedora 33 & Tumbleweed ([3347b85](https://github.com/saltstack-formulas/template-formula/commit/3347b85c928cebe8b0c376eae654e67e01730260))
+
 ## [4.3.7](https://github.com/saltstack-formulas/template-formula/compare/v4.3.6...v4.3.7) (2021-02-11)
 
 

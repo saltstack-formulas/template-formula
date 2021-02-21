@@ -1,7 +1,7 @@
 name: TEMPLATE
 os: Debian, Ubuntu, Raspbian, RedHat, Fedora, CentOS, Amazon, Oracle, Suse, openSUSE, Gentoo, Funtoo, Arch, Manjaro, Alpine, FreeBSD, OpenBSD, Solaris, SmartOS, Windows, MacOS
 os_family: Debian, RedHat, Suse, Gentoo, Arch, Alpine, FreeBSD, OpenBSD, Solaris, Windows, MacOS
-version: 4.3.7
+version: 4.3.8
 release: 1
 minimum_version: 2019.2
 summary: TEMPLATE formula
