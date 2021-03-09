@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`5.0.1 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.0...v5.0.1>`_ (2021-03-09)
+----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **convert-formula:** ``_mapdata`` control name must use the formula one (\ `1f3600d <https://github.com/saltstack-formulas/template-formula/commit/1f3600d66fd710bd1a41cb937cb345369d0e3e18>`_\ )
+
 `5.0.0 <https://github.com/saltstack-formulas/template-formula/compare/v4.3.8...v5.0.0>`_ (2021-03-09)
 ----------------------------------------------------------------------------------------------------------
 
