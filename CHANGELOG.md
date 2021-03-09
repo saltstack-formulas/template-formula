@@ -1,5 +1,28 @@
 # Changelog
 
+# [5.0.0](https://github.com/saltstack-formulas/template-formula/compare/v4.3.8...v5.0.0) (2021-03-09)
+
+
+### Bug Fixes
+
+* **inspec:** validate `map.jinja` configuration ([41d222e](https://github.com/saltstack-formulas/template-formula/commit/41d222e30c0da10fabeea23a7ab2886f02ea6479))
+
+
+### Continuous Integration
+
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] ([6453145](https://github.com/saltstack-formulas/template-formula/commit/6453145da16ab73c7307d14a5b864a91a5573c68))
+
+
+### Features
+
+* **map:** update to v5 `map.jinja` ([42e1932](https://github.com/saltstack-formulas/template-formula/commit/42e19322c9c4d91a6cfa1e406723b5a799f33f80))
+
+
+### BREAKING CHANGES
+
+* **map:** `map.jinja` now exports a generic `mapdata` variable
+* **map:** The per grain parameter values are now under `TEMPLATE/parameters/`
+
 ## [4.3.8](https://github.com/saltstack-formulas/template-formula/compare/v4.3.7...v4.3.8) (2021-02-21)
 
 
