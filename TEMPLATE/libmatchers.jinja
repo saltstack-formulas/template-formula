@@ -1,0 +1,222 @@
+{#- -*- coding: utf-8 -*- #}
+{#- vim: ft=jinja #}
+
+{#- Get the `tplroot` from `tpldir` #}
+{%- set tplroot = tpldir.split("/")[0] %}
+{%- from tplroot ~ "/libsaltcli.jinja" import cli %}
+
+{%- set query_map = {
+      "C": "config.get",
+      "G": "grains.get",
+      "I": "pillar.get",
+    } %}
+
+{#- When no part before `@` is provided: #}
+{#-   - define a filename path, noted `F` #}
+{#-   - use `salt["config.get"]`, noted `C` #}
+{#-   - use colon `:` delimiter for querying #}
+{%- set _defaults = {
+      "type": "F",
+      "query_type": "C",
+      "query_delimiter": ":"
+    } %}
+
+{%- macro parse_matchers(
+      matchers,
+      config_get_strategy=None,
+      log_prefix="libmatchers: "
+    ) %}
+{#-   matcher format is `[<TYPE>[:<OPTION>[:DELIMITER]]@]<KEY>` #}
+{#-   each matcher has a type: #}
+{#-   - `F` to build a file name (the default when no type is set) #}
+{#-   - `C` to lookup values with `config.get` #}
+{#-   - `G` to lookup values with `grains.get` #}
+{#-   - `I` to lookup values with `pillar.get` #}
+{#-   The `FILE` type option can define query type to build the file name: #}
+{#-   - `C` for query with `config.get` (the default when to query type is set) #}
+{#-   - `G` for query with `grains.get` #}
+{#-   - `I` for query with `pillar.get` #}
+{#-   With `DELIMITER`, you can choose a different delimiter when doing queries #}
+{%-   set parsed_matchers = [] %}
+{%-   for matcher in matchers %}
+{%-     do salt["log.debug"](
+          log_prefix
+          ~ "process matcher: '"
+          ~ matcher
+          ~ "'"
+        ) %}
+
+{%-     set parsed = {} %}
+{%-     set matcher_parts = matcher.split('@') %}
+{%-     if matcher_parts | length == 1 %}
+{#-       By default we load YAML files for config looked up by `config.get` #}
+{%-       do parsed.update(
+            {
+              "type": _defaults["type"],
+              "option": None,
+              "query_method": query_map[_defaults["query_type"]],
+              "query_delimiter": _defaults["query_delimiter"],
+              "query": matcher
+            }
+          ) %}
+{%-       do salt["log.debug"](
+            log_prefix
+            ~ "use built-in defaults for matcher:\n"
+            ~ parsed
+            | yaml(False)
+            | indent(4, True)
+          ) %}
+{%-     else %}
+{%-       do salt["log.debug"](
+            log_prefix
+            ~ "parse matcher: '"
+            ~ matcher
+            ~ "'"
+          ) %}
+{%-       set metadatas = matcher_parts[0].split(":") %}
+{%-       do parsed.update(
+            {
+              "query": matcher_parts[1]
+            }
+          ) %}
+{%-       if metadatas | length == 1 %}
+{%-         do parsed.update(
+              {
+                "type": metadatas[0],
+                "option": "C",
+                "query_delimiter": ":"
+              }
+            ) %}
+{%-         do salt["log.debug"](
+              log_prefix
+              ~ "parse as 1 metadata matcher:\n"
+              ~ parsed
+              | yaml(False)
+              | indent(4, True)
+            ) %}
+{%-       elif metadatas | length == 2 %}
+{%-         do parsed.update(
+              {
+                "type": metadatas[0],
+                "option": metadatas[1],
+                "query_delimiter": ":"
+              }
+            ) %}
+{%-         do salt["log.debug"](
+              log_prefix
+              ~ "parse as 2 metadata matcher:\n"
+              ~ parsed
+              | yaml(False)
+              | indent(4, True)
+            ) %}
+{%-       elif metadatas | length == 3 %}
+{%-         do parsed.update(
+              {
+                "type": metadatas[0],
+                "option": metadatas[1],
+                "query_delimiter": metadatas[2] | default(":", boolean=True)
+              }
+            ) %}
+{%-         do salt["log.debug"](
+              log_prefix
+              ~ "parse as 3 metadata matcher:\n"
+              ~ parsed
+              | yaml(False)
+              | indent(4, True)
+            ) %}
+{%-       elif metadatas | length == 4 %}
+{#-         The delimiter is `:` #}
+{%-         do parsed.update(
+              {
+                "type": metadatas[0],
+                "option": metadatas[1],
+                "query_delimiter": ":"
+              }
+            ) %}
+{%-         do salt["log.debug"](
+              log_prefix
+              ~ "parse as 4 metadata matcher:\n"
+              ~ parsed
+              | yaml(False)
+              | indent(4, True)
+            ) %}
+{%-       endif %}
+{%-     endif %}
+
+{#-     The `<OPTION>` has different meaning based on type #}
+{%-     if query_map.get(parsed.type, False) %}
+{%-       do parsed.update(
+            {
+              "query_method": query_map[parsed.type]
+            }
+          ) %}
+{%-     else %}
+{%-       do parsed.update(
+            {
+              "query_method": query_map[
+                parsed.option
+                | default("C", boolean=True)
+              ]
+            }
+          ) %}
+{%-     endif %}
+
+{#-     Add `merge:` option to `salt["config.get"]` if configured #}
+{%-     if cli in ["minion", "local"] and parsed.query_method == "config.get" and config_get_strategy %}
+{%-       set query_opts = {
+            "merge": config_get_strategy,
+            "delimiter": parsed.query_delimiter,
+          } %}
+{%-       set query_opts_msg = (
+            ", delimiter='"
+            ~ parsed.query_delimiter
+            ~ "', merge: strategy='"
+            ~ config_get_strategy
+            ~ "'"
+          ) %}
+{%-     else %}
+{%-       if cli not in ["minion", "local"] %}
+{%-         do salt["log.error"](
+              log_prefix
+              ~ "the 'delimiter' and 'merge' options of 'config.get' are skipped when the salt command type is '"
+              ~ cli
+              ~ "'"
+            ) %}
+{%-       endif %}
+{%-       set query_opts = {} %}
+{%-       set query_opts_msg = "" %}
+{%-     endif %}
+
+{%-     do salt["log.debug"](
+          log_prefix
+          ~ "lookup '"
+          ~ parsed.query
+          ~ "' with '"
+          ~ parsed.query_method
+          ~ "'"
+          ~ query_opts_msg
+        ) %}
+{%-     set values = salt[parsed.query_method](
+          parsed.query,
+          default=[],
+          **query_opts
+        ) %}
+{%-     do parsed.update(
+          {
+            "value": values
+          }
+        ) %}
+
+{%-     do parsed_matchers.append(parsed) %}
+
+{%-   endfor %}
+{%-   do salt["log.debug"](
+        log_prefix
+        ~ "parsed matchers:\n"
+        ~ parsed_matchers
+        | yaml(False)
+        | indent(4, True)
+      ) %}
+
+{{ parsed_matchers | yaml }}
+{%- endmacro %}

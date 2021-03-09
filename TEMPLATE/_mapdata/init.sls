@@ -3,10 +3,10 @@
 ---
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split("/")[0] %}
-{%- from tplroot ~ "/map.jinja" import TEMPLATE with context %}
+{%- from tplroot ~ "/map.jinja" import mapdata with context %}
 
 {%- set _mapdata = {
-      "values": TEMPLATE,
+      "values": mapdata,
     } %}
 {%- do salt["log.debug"]("### MAP.JINJA DUMP ###\n" ~ _mapdata | yaml(False)) %}
 

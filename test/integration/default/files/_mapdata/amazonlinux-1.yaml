@@ -11,6 +11,15 @@ values:
     added_in_lookup: lookup_value
     master: template-master
     winner: lookup
+  map_jinja:
+    sources:
+    - Y:G@osarch
+    - Y:G@os_family
+    - Y:G@os
+    - Y:G@osfinger
+    - C@TEMPLATE:lookup
+    - C@TEMPLATE
+    - Y:G@id
   master: template-master
   pkg:
     name: cronie

@@ -2,57 +2,65 @@
 # vim: ft=jinja
 
 {#- Get the `tplroot` from `tpldir` #}
-{%- set tplroot = tpldir.split('/')[0] %}
-{#- Start imports as #}
-{%- import_yaml tplroot ~ "/defaults.yaml" as default_settings %}
-{%- import_yaml tplroot ~ "/osarchmap.yaml" as osarchmap %}
-{%- import_yaml tplroot ~ "/osfamilymap.yaml" as osfamilymap %}
-{%- import_yaml tplroot ~ "/osmap.yaml" as osmap %}
-{%- import_yaml tplroot ~ "/osfingermap.yaml" as osfingermap %}
+{%- set tplroot = tpldir.split("/")[0] %}
+{%- from tplroot ~ "/libmapstack.jinja" import mapstack %}
 
-{#- Retrieve the config dict only once #}
-{%- set _config = salt['config.get'](tplroot, default={}) %}
+{#- Where to lookup parameters source files #}
+{%- set formula_param_dir = tplroot ~ "/parameters" %}
 
-{%- set defaults = salt['grains.filter_by'](
-      default_settings,
-      default=tplroot,
-      merge=salt['grains.filter_by'](
-        osarchmap,
-        grain='osarch',
-        merge=salt['grains.filter_by'](
-          osfamilymap,
-          grain='os_family',
-          merge=salt['grains.filter_by'](
-            osmap,
-            grain='os',
-            merge=salt['grains.filter_by'](
-              osfingermap,
-              grain='osfinger',
-              merge=salt['grains.filter_by'](
-                _config,
-                default='lookup'
-              )
-            )
-          )
-        )
-      )
+{#- List of sources to lookup for parameters #}
+{#- Fallback to previously used grains plus minion `id` #}
+{%- set map_sources = [
+      "Y:G@osarch",
+      "Y:G@os_family",
+      "Y:G@os",
+      "Y:G@osfinger",
+      "C@" ~ tplroot ~ ":lookup",
+      "C@" ~ tplroot,
+      "Y:G@id",
+    ] %}
+
+{%- set _map_settings = mapstack(
+      matchers=["map_jinja.yaml"],
+      defaults={
+        "values": {"sources": map_sources}
+      },
+      log_prefix="map.jinja configuration: ",
     )
-%}
+    | load_yaml %}
 
-{%- set config = salt['grains.filter_by'](
-      {'defaults': defaults},
-      default='defaults',
-      merge=_config
+{%- set map_sources = _map_settings | traverse("values:sources") %}
+{%- do salt["log.debug"](
+      "map.jinja: load parameters from sources:\n"
+      ~ map_sources
+      | yaml(False)
+    ) %}
+
+{#- Load formula parameters values #}
+{%- set _formula_matchers = ["defaults.yaml"] + map_sources %}
+
+{%- set _formula_settings = mapstack(
+      matchers=_formula_matchers,
+      dirs=[formula_param_dir],
+      defaults={
+        "values": {},
+        "merge_strategy": salt["config.get"](tplroot ~ ":strategy", None),
+        "merge_lists": salt["config.get"](tplroot ~ ":merge_lists", False),
+      },
+      log_prefix="map.jinja: ",
     )
-%}
+    | load_yaml %}
 
-{#- <REMOVEME #}
-{#- Change **TEMPLATE** to match with your formula's name and then remove this line #}
-{#- REMOVEME> #}
-{%- set TEMPLATE = config %}
+{#- Make sure to track `map.jinja` configuration with `_mapdata` #}
+{%- do _formula_settings["values"].update(
+      {
+        "map_jinja": _map_settings["values"]
+      }
+    ) %}
 
-{#- Post-processing for specific non-YAML customisations #}
-{%- if grains.os == 'MacOS' %}
-{%-   set macos_group = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
-{%-   do TEMPLATE.update({'rootgroup': macos_group}) %}
-{%- endif %}
+{%- do salt["log.debug"]("map.jinja: save parameters in variable 'mapdata'") %}
+{%- set mapdata = _formula_settings["values"] %}
+
+{#- Per formula post-processing of `mapdata` if it exists #}
+{%- do salt["log.debug"]("map.jinja: post-processing of 'mapdata'") %}
+{%- include tplroot ~ "/post-map.jinja" ignore missing %}

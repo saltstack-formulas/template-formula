@@ -1,0 +1,310 @@
+{#- -*- coding: utf-8 -*- #}
+{#- vim: ft=jinja #}
+
+{#- Get the `tplroot` from `tpldir` #}
+{%- set tplroot = tpldir.split("/")[0] %}
+{%- from tplroot ~ "/libmatchers.jinja" import parse_matchers, query_map %}
+
+{%- set _default_config_dirs = [
+      "parameters/",
+      tplroot ~ "/parameters"
+    ] %}
+
+{%- macro mapstack(
+      matchers,
+      defaults=None,
+      dirs=_default_config_dirs,
+      log_prefix="libmapstack: "
+    ) %}
+{#-
+    Load configuration in the order of `matchers` and merge
+    successively the values with `defaults`.
+
+    The `matchers` are processed using `libmatchers.jinja` to select
+    the configuration sources from where the values are loaded.
+
+    Parameters:
+
+      - `matchers`: list of matchers in the form
+        `[<TYPE>[:<OPTION>[:<DELIMITER>]]@]<QUERY>`
+
+      - `defaults`: dictionary of default values to start the merging,
+        they are considered built-ins. It must conform to the same
+        layout as the YAML files: a mandatory `values` key and two
+        optional `strategy` and `merge_lists` keys.
+
+      - `dirs`: list of directory where to look-up the configuration
+        file matching the matchers, by default a global `salt://parameters/`
+        and a per formula `salt://<tplroot>/parameters`
+
+      - `log_prefix`: prefix used in the log outputs, by default it is
+        `libmapstack: `
+
+    Example: On a Debian system with `roles=["nginx/server", "telegraf"]`
+
+      {%- set settings = mapstack(
+            matchers=[
+              "Y:G@os_family",
+              "I@" ~ tplroot,
+              "Y:C@roles",
+            ],
+            dirs=["defaults", tplroot ~ "/parameters"],
+          )
+          | load_yaml %}
+
+      This will merge the values:
+
+        - starting with the default empty dictionary `{}` (no
+          `defaults` parameter)
+
+        - from the YAML files
+
+          - `salt://defaults/os_family/Debian.yaml`
+
+          - `salt://{{ tplroot }}/parameters/os_family/Debian.yaml`
+
+        - from the pillar `salt["pillar.get"](tplroot)`
+
+        - from the `nginx/server` YAML files:
+
+          - `salt://defaults/roles/nginx/server.yaml`
+
+          - `salt://{{ tplroot }}/parameters/roles/nginx/server.yaml`
+
+        - from the `telegraf` YAML files:
+
+          - `salt://defaults/roles/telegraf.yaml`
+
+          - `salt://{{ tplroot }}/parameters/roles/telegraf.yaml`
+
+    Each YAML file and the `defaults` parameters must conform to the
+    following layout:
+
+      - a mandatory `values` key to store the configuration values
+
+      - two optional keys to configure the use of `salt.slsutil.merge`
+
+        - an optional `strategy` key to configure the merging
+          strategy, for example `strategy: 'recurse'`, the default is
+          `smart`
+
+        - an optional `merge_lists` key to configure if lists should
+          be merged or overridden for the `recurse` and `overwrite`
+          strategies, for example `merge_lists: 'true'`
+#}
+{%-   set stack = defaults | default({"values": {} }, boolean=True) %}
+
+{#-   Build configuration file names based on matchers #}
+{%-   set config_get_strategy = salt["config.get"](tplroot ~ ":strategy", None) %}
+{%-   set matchers = parse_matchers(
+        matchers,
+        config_get_strategy=config_get_strategy,
+        log_prefix=log_prefix
+      )
+      | load_yaml %}
+
+{%-   do salt["log.debug"](
+        log_prefix
+        ~ "built-in configuration:\n"
+        ~ {"values": defaults | traverse("values")}
+        | yaml(False)
+      ) %}
+
+{%-   for param_dir in dirs %}
+{%-     for matcher in matchers %}
+{#-       `slsutil.merge` options from #}
+{#-       1. the `value` #}
+{#-       2. the `defaults` #}
+{#-       3. the built-in #}
+{%-       set strategy = matcher.value
+          | traverse(
+            "strategy",
+            defaults
+            | traverse(
+              "strategy",
+              "smart"
+            )
+          ) %}
+{%-       set merge_lists = matcher.value
+          | traverse(
+            "merge_lists",
+            defaults
+            | traverse(
+              "merge_lists",
+              False
+            )
+          )
+          | to_bool %}
+
+{%-       if matcher.type in query_map.keys() %}
+{#-         No value is an empty list, must be a dict for `stack.update` #}
+{%-         set normalized_value = matcher.value | default({}, boolean=True) %}
+
+{#-         Merge in `mapdata.<query>` instead of directly in `mapdata` #}
+{%-         set is_sub_key = matcher.option | default(False) == "SUB" %}
+{%-         if is_sub_key %}
+{#-           Merge values with `mapdata.<key>`, `<key>` and `<key>:lookup` are merged together #}
+{%-           set value = { matcher.query | regex_replace(":lookup$", ""): normalized_value } %}
+{%-         else %}
+{%-           set value = normalized_value %}
+{%-         endif %}
+
+{%-         do salt["log.debug"](
+              log_prefix
+              ~ "merge "
+              ~ "sub key " * is_sub_key
+              ~ "'"
+              ~ matcher.query
+              ~ "' retrieved with '"
+              ~ matcher.query_method
+              ~ "', merge: strategy='"
+              ~ strategy
+              ~ "', lists='"
+              ~ merge_lists
+              ~ "':\n"
+              ~ value
+              | yaml(False)
+            ) %}
+
+{%-         do stack.update(
+              {
+                "values": salt["slsutil.merge"](
+                  stack["values"],
+                  value,
+                  strategy=strategy,
+                  merge_lists=merge_lists,
+                )
+              }
+            ) %}
+
+{%-       else %}
+{#-         Load YAML file matching the grain/pillar/... #}
+{#-         Fallback to use the source name as a direct filename #}
+
+{%-         if matcher.value | length == 0 %}
+{#-           Mangle `matcher.value` to use it as literal path #}
+{%-           set query_parts = matcher.query.split("/") %}
+{%-           set yaml_dirname = query_parts[0:-1] | join("/") %}
+{%-           set yaml_names = query_parts[-1] %}
+{%-         else %}
+{%-           set yaml_dirname = matcher.query %}
+{%-           set yaml_names = matcher.value %}
+{%-         endif %}
+
+{#-         Some configuration return list #}
+{%-         if yaml_names is string %}
+{%-           set yaml_names = [yaml_names] %}
+{%-         endif %}
+
+{#-         Try to load a `.yaml.jinja` file for each `.yaml` file #}
+{%-         set all_yaml_names = [] %}
+{%-         for name in yaml_names %}
+{%-           set extension = name.rpartition(".")[2] %}
+{%-           if extension not in ["yaml", "jinja"] %}
+{%-             do all_yaml_names.extend([name ~ ".yaml", name ~ ".yaml.jinja"]) %}
+{%-           elif extension == "yaml" %}
+{%-             do all_yaml_names.extend([name, name ~ ".jinja"]) %}
+{%-           else %}
+{%-             do all_yaml_names.append(name) %}
+{%-           endif %}
+{%-         endfor %}
+
+{#-         `yaml_dirname` can be an empty string with literal path like `myconf.yaml` #}
+{%-         set yaml_dir = [
+              param_dir,
+              yaml_dirname
+            ]
+            | select
+            | join("/") %}
+
+{%-         for yaml_name in all_yaml_names %}
+{%-           set yaml_filename = [
+                yaml_dir.rstrip("/"),
+                yaml_name
+              ]
+              | select
+              | join("/") %}
+
+{%-           do salt["log.debug"](
+                log_prefix
+                ~ "load configuration values from "
+                ~ yaml_filename
+              ) %}
+{%-           load_yaml as yaml_values %}
+{%-             include yaml_filename ignore missing %}
+{%-           endload %}
+
+{%-           if yaml_values %}
+{%-             do salt["log.debug"](
+                  log_prefix
+                  ~ "loaded configuration values from "
+                  ~ yaml_filename
+                  ~ ":\n"
+                  ~ yaml_values
+                  | yaml(False)
+                ) %}
+
+{#-             `slsutil.merge` options from #}
+{#-             1. the `value` #}
+{#-             2. the `defaults` #}
+{#-             3. the built-in #}
+{%-             set strategy = yaml_values
+                  | traverse(
+                    "strategy",
+                    defaults
+                    | traverse(
+                      "strategy",
+                      "smart"
+                    )
+                  ) %}
+{%-             set merge_lists = yaml_values
+                  | traverse(
+                    "merge_lists",
+                    defaults
+                    | traverse(
+                      "merge_lists",
+                      False
+                    )
+                  )
+                  | to_bool %}
+{%-             do stack.update(
+                  {
+                    "values": salt["slsutil.merge"](
+                      stack["values"],
+                      yaml_values
+                      | traverse("values", {}),
+                      strategy=strategy,
+                      merge_lists=merge_lists,
+                    )
+                  }
+                ) %}
+{%-             do salt["log.debug"](
+                  log_prefix
+                  ~ "merged configuration values from "
+                  ~ yaml_filename
+                  ~ ", merge: strategy='"
+                  ~ strategy
+                  ~ "', merge_lists='"
+                  ~ merge_lists
+                  ~ "':\n"
+                  ~ {"values": stack["values"]}
+                  | yaml(False)
+                ) %}
+{%-           endif %}
+{%-         endfor %}
+{%-       endif %}
+{%-     endfor %}
+{%-   endfor %}
+
+{%-   do salt["log.debug"](
+        log_prefix
+        ~ "final configuration values:\n"
+        ~ {"values": stack["values"]}
+        | yaml(False)
+      ) %}
+
+{#- Output stack as YAML, caller should use with something like #}
+{#- `{%- set config = mapstack(matchers=["foo"]) | load_yaml %}` #}
+{{ stack | yaml }}
+
+{%- endmacro %}
