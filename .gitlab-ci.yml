@@ -9,6 +9,7 @@
   only_branch_master_parent_repo: &only_branch_master_parent_repo
     - 'master@saltstack-formulas/template-formula'
   # `stage`
+  stage_constraints: &stage_constraints 'constraints'
   stage_lint: &stage_lint 'lint'
   stage_release: &stage_release 'release'
   stage_test: &stage_test 'test'
