@@ -3,22 +3,19 @@
 # Prepare platform "finger"
 platform_finger = system.platform[:finger].split('.').first.to_s
 
-control 'TEMPLATE service' do
-  impact 0.5
-  title 'should be running and enabled'
+control 'TEMPLATE.package.install' do
+  title 'The required package should be installed'
 
   # Overide by `platform_finger`
-  service_name =
+  package_name =
     case platform_finger
     when 'centos-6', 'amazonlinux-1'
-      'crond'
+      'cronie'
     else
-      'systemd-journald'
+      'bash'
     end
 
-  describe service(service_name) do
+  describe package(package_name) do
     it { should be_installed }
-    it { should be_enabled }
-    it { should be_running }
   end
 end

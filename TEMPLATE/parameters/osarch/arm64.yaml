@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set values specific to:
+#   salt['config.get']('osarch') == arm64.
+#
+# You just need to add the key:values for this `osarch` that differ
+# from `defaults.yaml`.
+#
+# If you do not need to provide defaults via the `osarch` config,
+# you can remove this file or provide at least an empty dict, e.g.
+# values: {}
+---
+values:
+  arch: arm64
+...

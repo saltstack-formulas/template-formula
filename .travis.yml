@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
+################################################################################
+# NOTE: This file is UNMAINTAINED; it is provided for references purposes only.
+#       No guarantees are tendered that this structure will work after 2020.
+################################################################################
+# * https://en.wikipedia.org/wiki/Travis_CI:
+#   - "... free open-source plans were removed in [sic] the end of 2020"
+#   - https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing
+#   - https://ropensci.org/technotes/2020/11/19/moving-away-travis/
+################################################################################
 ## Machine config
 os: 'linux'
 arch: 'amd64'
@@ -22,8 +31,10 @@ script:
 ## Stages and jobs matrix
 stages:
   - test
-  - name: 'release'
-    if: 'branch = master AND type != pull_request'
+  # # As part of the switch away from Travis CI, ensure that the `release` stage
+  # # is not run inadvertently
+  # - name: 'release'
+  #   if: 'branch = master AND type != pull_request'
 jobs:
   include:
     ## Define the test stage that runs the linters (and testing matrix, if applicable)
@@ -83,56 +94,81 @@ jobs:
     #       to allow for comprehensive local testing
     #       Ref: https://github.com/saltstack-formulas/template-formula/issues/118
     #       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
-    - env: INSTANCE=default-debian-10-tiamat-py3
+    # - env: INSTANCE=default-debian-10-tiamat-py3
     # - env: INSTANCE=default-debian-9-tiamat-py3
-    - env: INSTANCE=default-ubuntu-2004-tiamat-py3
+    # - env: INSTANCE=default-ubuntu-2004-tiamat-py3
     # - env: INSTANCE=default-ubuntu-1804-tiamat-py3
     # - env: INSTANCE=default-ubuntu-1604-tiamat-py3
-    - env: INSTANCE=default-centos-8-tiamat-py3
+    # - env: INSTANCE=default-centos-8-tiamat-py3
     # - env: INSTANCE=default-centos-7-tiamat-py3
-    - env: INSTANCE=default-amazonlinux-2-tiamat-py3
-    - env: INSTANCE=default-oraclelinux-8-tiamat-py3
+    # - env: INSTANCE=default-amazonlinux-2-tiamat-py3
+    # - env: INSTANCE=default-oraclelinux-8-tiamat-py3
     # - env: INSTANCE=default-oraclelinux-7-tiamat-py3
-    # - env: INSTANCE=default-debian-10-master-py3
-    # - env: INSTANCE=default-ubuntu-2004-master-py3
-    # - env: INSTANCE=default-ubuntu-1804-master-py3
-    # - env: INSTANCE=default-centos-8-master-py3
+    - env: INSTANCE=default-debian-10-master-py3
+    - env: INSTANCE=default-debian-9-master-py3
+    - env: INSTANCE=default-ubuntu-2004-master-py3
+    - env: INSTANCE=default-ubuntu-1804-master-py3
+    - env: INSTANCE=default-ubuntu-1604-master-py3
+    - env: INSTANCE=default-centos-8-master-py3
+    - env: INSTANCE=default-centos-7-master-py3
+    - env: INSTANCE=default-fedora-33-master-py3
     - env: INSTANCE=default-fedora-32-master-py3
-    # - env: INSTANCE=default-fedora-31-master-py3
     - env: INSTANCE=default-opensuse-leap-152-master-py3
-    # - env: INSTANCE=default-amazonlinux-2-master-py3
+    - env: INSTANCE=default-opensuse-tmbl-latest-master-py3
+    - env: INSTANCE=default-amazonlinux-2-master-py3
+    - env: INSTANCE=default-oraclelinux-8-master-py3
+    - env: INSTANCE=default-oraclelinux-7-master-py3
     - env: INSTANCE=gentoo-gentoo-stage3-latest-master-py3
     - env: INSTANCE=gentoo-gentoo-stage3-systemd-master-py3
-    # - env: INSTANCE=default-debian-10-3001-py3
-    # - env: INSTANCE=default-debian-9-3001-py3
-    # - env: INSTANCE=default-ubuntu-2004-3001-py3
-    # - env: INSTANCE=default-ubuntu-1804-3001-py3
-    # - env: INSTANCE=default-centos-8-3001-py3
-    # - env: INSTANCE=default-centos-7-3001-py3
-    # - env: INSTANCE=default-fedora-32-3001-py3
-    # - env: INSTANCE=default-fedora-31-3001-py3
-    # - env: INSTANCE=default-opensuse-leap-152-3001-py3
-    # - env: INSTANCE=default-amazonlinux-2-3001-py3
-    # - env: INSTANCE=default-oraclelinux-8-3001-py3
-    # - env: INSTANCE=default-oraclelinux-7-3001-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3001-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3001-py3
-    # - env: INSTANCE=default-debian-10-3000-3-py3
-    # - env: INSTANCE=default-debian-9-3000-3-py3
-    # - env: INSTANCE=default-ubuntu-1804-3000-3-py3
-    # - env: INSTANCE=default-centos-8-3000-3-py3
-    # - env: INSTANCE=default-centos-7-3000-3-py3
-    # - env: INSTANCE=default-fedora-31-3000-3-py3
-    # - env: INSTANCE=default-opensuse-leap-152-3000-3-py3
-    # - env: INSTANCE=default-amazonlinux-2-3000-3-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3000-3-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3000-3-py3
-    # - env: INSTANCE=default-ubuntu-1804-3000-3-py2
-    # - env: INSTANCE=default-ubuntu-1604-3000-3-py2
-    - env: INSTANCE=default-arch-base-latest-3000-3-py2
-    - env: INSTANCE=archive-arch-base-latest-3000-3-py2
-    - env: INSTANCE=upstart-centos-6-2019-2-py2
-    - env: INSTANCE=upstart-amazonlinux-1-2019-2-py2
+    # - env: INSTANCE=default-debian-10-3002-5-py3
+    # - env: INSTANCE=default-debian-9-3002-5-py3
+    # - env: INSTANCE=default-ubuntu-2004-3002-5-py3
+    # - env: INSTANCE=default-ubuntu-1804-3002-5-py3
+    # - env: INSTANCE=default-ubuntu-1604-3002-5-py3
+    # - env: INSTANCE=default-centos-8-3002-5-py3
+    # - env: INSTANCE=default-centos-7-3002-5-py3
+    # - env: INSTANCE=default-fedora-33-3002-5-py3
+    # - env: INSTANCE=default-fedora-32-3002-5-py3
+    # - env: INSTANCE=default-amazonlinux-2-3002-5-py3
+    # - env: INSTANCE=default-oraclelinux-8-3002-5-py3
+    # - env: INSTANCE=default-oraclelinux-7-3002-5-py3
+    - env: INSTANCE=default-arch-base-latest-3002-5-py3
+    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3002-5-py3
+    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3002-5-py3
+    # - env: INSTANCE=default-opensuse-leap-152-3002-2-py3
+    # - env: INSTANCE=default-opensuse-tmbl-latest-3002-2-py3
+    # - env: INSTANCE=default-debian-10-3001-6-py3
+    # - env: INSTANCE=default-debian-9-3001-6-py3
+    # - env: INSTANCE=default-ubuntu-2004-3001-6-py3
+    # - env: INSTANCE=default-ubuntu-1804-3001-6-py3
+    # - env: INSTANCE=default-ubuntu-1604-3001-6-py3
+    # - env: INSTANCE=default-centos-8-3001-6-py3
+    # - env: INSTANCE=default-centos-7-3001-6-py3
+    # - env: INSTANCE=default-fedora-33-3001-6-py3
+    # - env: INSTANCE=default-fedora-32-3001-6-py3
+    # - env: INSTANCE=default-opensuse-leap-152-3001-6-py3
+    # - env: INSTANCE=default-opensuse-tmbl-latest-3001-6-py3
+    # - env: INSTANCE=default-amazonlinux-2-3001-6-py3
+    # - env: INSTANCE=default-oraclelinux-8-3001-6-py3
+    # - env: INSTANCE=default-oraclelinux-7-3001-6-py3
+    # - env: INSTANCE=default-arch-base-latest-3001-6-py3
+    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3001-6-py3
+    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3001-6-py3
+    # - env: INSTANCE=default-debian-10-3000-8-py3
+    # - env: INSTANCE=default-debian-9-3000-8-py3
+    # - env: INSTANCE=default-ubuntu-1804-3000-8-py3
+    # - env: INSTANCE=default-ubuntu-1604-3000-8-py3
+    # - env: INSTANCE=default-centos-8-3000-8-py3
+    # - env: INSTANCE=default-centos-7-3000-8-py3
+    # - env: INSTANCE=default-opensuse-leap-152-3000-8-py3
+    # - env: INSTANCE=default-amazonlinux-2-3000-8-py3
+    # - env: INSTANCE=default-oraclelinux-8-3000-8-py3
+    # - env: INSTANCE=default-oraclelinux-7-3000-8-py3
+    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3000-8-py3
+    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3000-8-py3
+    # - env: INSTANCE=default-ubuntu-1804-3000-8-py2
+    # - env: INSTANCE=default-ubuntu-1604-3000-8-py2
+    # - env: INSTANCE=default-arch-base-latest-3000-8-py2
     # <REMOVEME
 
     # Test the conversion of `template-formula` into another formula

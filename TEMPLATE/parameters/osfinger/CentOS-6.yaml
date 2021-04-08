@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set values specific to:
+#   salt['config.get']('osfinger') == CentOS-6.
+#
+# You just need to add the key:values for this `osfinger` that differ
+# from `defaults.yaml`.
+#
+# If you do not need to provide defaults via the `osfinger` config,
+# you can remove this file or provide at least an empty dict, e.g.
+# values: {}
+---
+values:
+  pkg:
+    name: TEMPLATE-centos-6
+  config: /etc/TEMPLATE.d/custom-centos-6.conf
+...
