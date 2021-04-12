@@ -9,12 +9,15 @@
   only_branch_master_parent_repo: &only_branch_master_parent_repo
     - 'master@saltstack-formulas/template-formula'
   # `stage`
-  stage_constraints: &stage_constraints 'constraints'
+  stage_schema: &stage_schema 'schema'
   stage_lint: &stage_lint 'lint'
   stage_release: &stage_release 'release'
   stage_test: &stage_test 'test'
   # `image`
   image_commitlint: &image_commitlint 'myii/ssf-commitlint:11'
+  image_cuelang: &image_cuelang
+    name: 'myii/ssf-cue:0.3.2'    # instead of cuelang/cue
+    entrypoint: ['/bin/ash', '-c']
   image_dindruby: &image_dindruby 'myii/ssf-dind-ruby:2.7.1-r3'
   image_dindrubybionic: &image_dindrubybionic 'myii/ssf-dind-ruby-bionic:1_2.5.1'
   image_precommit: &image_precommit
@@ -42,6 +45,7 @@
 ###############################################################################
 stages:
   - *stage_lint
+  - *stage_schema
   - *stage_test
   - *stage_release
 variables:
@@ -100,6 +104,16 @@ rubocop:
   image: *image_rubocop
   script:
     - 'rubocop -d -P -S --enable-pending-cops'
+
+cue:
+  allow_failure: true
+  stage: *stage_schema
+  image: *image_cuelang
+  variables:
+    DIR: 'TEMPLATE/parameters'
+    RULES: 'schema.cue'
+  script:
+    - 'cue vet -v $(find ${DIR} -name "*.yaml") ${DIR}/${RULES} --schema "#Values"'
 
 ###############################################################################
 # Define `test` template
