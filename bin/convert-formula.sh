@@ -87,6 +87,7 @@ convert_formula() {
   # Miscellaneous other replacements
   sedi 's/^\(version:\).*/\1 1.0.0/' FORMULA
   sedi 's/^\(*[[:space:]]\{1,\}\)@saltstack-formulas\/wg/\1@NONE/' CODEOWNERS
+  sedi "s/template-formula/${NEW_NAME}-formula/" .gitlab-ci.yml release.config.js
 
   # Deleting lines between two patterns
   git ls-files -- '.gitlab-ci.yml' '.travis.yml' '.rubocop.yml' '*/map.jinja' \
