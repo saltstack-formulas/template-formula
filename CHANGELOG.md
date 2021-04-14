@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.0.2](https://github.com/saltstack-formulas/template-formula/compare/v5.0.1...v5.0.2) (2021-04-14)
+
+
+### Bug Fixes
+
+* **convert-formula.sh:** replace instances of `template-formula` for CI ([537fe65](https://github.com/saltstack-formulas/template-formula/commit/537fe65d456741e64823af33865f34457e0e3853)), closes [#231](https://github.com/saltstack-formulas/template-formula/issues/231)
+
+
+### Tests
+
+* standardise use of `share` suite & `_mapdata` state [skip ci] ([bbe1c78](https://github.com/saltstack-formulas/template-formula/commit/bbe1c7840990790eb2df564e96cc9b465093eb62))
+
 ## [5.0.1](https://github.com/saltstack-formulas/template-formula/compare/v5.0.0...v5.0.1) (2021-03-09)
 
 
