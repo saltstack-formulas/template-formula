@@ -269,7 +269,7 @@ Using Jinja2 YAML template
 
 You can provide a Jinja2 YAML template file with a name suffixed with ``.yaml.jinja``, it must produce a YAML file conform to the `Format of configuration YAML files`_, for example:
 
-.. code-block:: jinja2
+.. code-block:: jinja
 
     ---
     strategy: 'overwrite'
