@@ -98,7 +98,6 @@ jobs:
     # - env: INSTANCE=default-debian-9-tiamat-py3
     # - env: INSTANCE=default-ubuntu-2004-tiamat-py3
     # - env: INSTANCE=default-ubuntu-1804-tiamat-py3
-    # - env: INSTANCE=default-ubuntu-1604-tiamat-py3
     # - env: INSTANCE=default-centos-8-tiamat-py3
     # - env: INSTANCE=default-centos-7-tiamat-py3
     # - env: INSTANCE=default-amazonlinux-2-tiamat-py3
@@ -108,12 +107,10 @@ jobs:
     - env: INSTANCE=default-debian-9-master-py3
     - env: INSTANCE=default-ubuntu-2004-master-py3
     - env: INSTANCE=default-ubuntu-1804-master-py3
-    - env: INSTANCE=default-ubuntu-1604-master-py3
     - env: INSTANCE=default-centos-8-master-py3
     - env: INSTANCE=default-centos-7-master-py3
     - env: INSTANCE=default-fedora-34-master-py3
     - env: INSTANCE=default-fedora-33-master-py3
-    - env: INSTANCE=default-fedora-32-master-py3
     - env: INSTANCE=default-opensuse-leap-152-master-py3
     - env: INSTANCE=default-opensuse-tmbl-latest-master-py3
     - env: INSTANCE=default-amazonlinux-2-master-py3
@@ -130,7 +127,6 @@ jobs:
     # - env: INSTANCE=default-centos-7-3003-0-py3
     # - env: INSTANCE=default-fedora-34-3003-0-py3
     # - env: INSTANCE=default-fedora-33-3003-0-py3
-    # - env: INSTANCE=default-fedora-32-3003-0-py3
     # - env: INSTANCE=default-amazonlinux-2-3003-0-py3
     # - env: INSTANCE=default-oraclelinux-8-3003-0-py3
     # - env: INSTANCE=default-oraclelinux-7-3003-0-py3
@@ -141,12 +137,10 @@ jobs:
     # - env: INSTANCE=default-debian-9-3002-6-py3
     # - env: INSTANCE=default-ubuntu-2004-3002-6-py3
     # - env: INSTANCE=default-ubuntu-1804-3002-6-py3
-    # - env: INSTANCE=default-ubuntu-1604-3002-6-py3
     # - env: INSTANCE=default-centos-8-3002-6-py3
     # - env: INSTANCE=default-centos-7-3002-6-py3
     # - env: INSTANCE=default-fedora-34-3002-6-py3
     # - env: INSTANCE=default-fedora-33-3002-6-py3
-    # - env: INSTANCE=default-fedora-32-3002-6-py3
     # - env: INSTANCE=default-amazonlinux-2-3002-6-py3
     # - env: INSTANCE=default-oraclelinux-8-3002-6-py3
     # - env: INSTANCE=default-oraclelinux-7-3002-6-py3
@@ -159,12 +153,10 @@ jobs:
     # - env: INSTANCE=default-debian-9-3001-7-py3
     # - env: INSTANCE=default-ubuntu-2004-3001-7-py3
     # - env: INSTANCE=default-ubuntu-1804-3001-7-py3
-    # - env: INSTANCE=default-ubuntu-1604-3001-7-py3
     # - env: INSTANCE=default-centos-8-3001-7-py3
     # - env: INSTANCE=default-centos-7-3001-7-py3
     # - env: INSTANCE=default-fedora-34-3001-7-py3
     # - env: INSTANCE=default-fedora-33-3001-7-py3
-    # - env: INSTANCE=default-fedora-32-3001-7-py3
     # - env: INSTANCE=default-opensuse-leap-152-3001-7-py3
     # - env: INSTANCE=default-opensuse-tmbl-latest-3001-7-py3
     # - env: INSTANCE=default-amazonlinux-2-3001-7-py3
@@ -176,7 +168,6 @@ jobs:
     # - env: INSTANCE=default-debian-10-3000-9-py3
     # - env: INSTANCE=default-debian-9-3000-9-py3
     # - env: INSTANCE=default-ubuntu-1804-3000-9-py3
-    # - env: INSTANCE=default-ubuntu-1604-3000-9-py3
     # - env: INSTANCE=default-centos-8-3000-9-py3
     # - env: INSTANCE=default-centos-7-3000-9-py3
     # - env: INSTANCE=default-opensuse-leap-152-3000-9-py3
@@ -184,7 +175,6 @@ jobs:
     # - env: INSTANCE=default-oraclelinux-8-3000-9-py3
     # - env: INSTANCE=default-oraclelinux-7-3000-9-py3
     # - env: INSTANCE=default-ubuntu-1804-3000-9-py2
-    # - env: INSTANCE=default-ubuntu-1604-3000-9-py2
     # - env: INSTANCE=default-arch-base-latest-3000-9-py2
     # - env: INSTANCE=gentoo-gentoo-stage3-latest-3000-8-py3
     # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3000-8-py3
