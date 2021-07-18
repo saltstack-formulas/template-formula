@@ -144,7 +144,7 @@ rubocop:
     - 'bundle config set without "${BUNDLE_WITHOUT}"'
     - 'bundle install'
   script:
-    - 'bin/kitchen verify default-debian-10-tiamat-py3'
+    - 'bin/kitchen verify default-debian-11-master-py3'
 # REMOVEME>
 
 ###############################################################################
@@ -167,6 +167,7 @@ rubocop:
 #       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
 test-formula-conversion: {extends: '.test_conversion'}
 # REMOVEME>
+# default-debian-11-tiamat-py3: {extends: '.test_instance'}
 # default-debian-10-tiamat-py3: {extends: '.test_instance'}
 # default-debian-9-tiamat-py3: {extends: '.test_instance'}
 # default-ubuntu-2004-tiamat-py3: {extends: '.test_instance'}
@@ -178,6 +179,7 @@ test-formula-conversion: {extends: '.test_conversion'}
 # default-oraclelinux-7-tiamat-py3: {extends: '.test_instance'}
 # default-almalinux-8-tiamat-py3: {extends: '.test_instance'}
 # default-rockylinux-8-tiamat-py3: {extends: '.test_instance'}
+default-debian-11-master-py3: {extends: '.test_instance'}
 default-debian-10-master-py3: {extends: '.test_instance'}
 default-debian-9-master-py3: {extends: '.test_instance'}
 default-ubuntu-2004-master-py3: {extends: '.test_instance'}
@@ -197,6 +199,7 @@ gentoo-gentoo-stage3-latest-master-py3: {extends: '.test_instance'}
 gentoo-gentoo-stage3-systemd-master-py3: {extends: '.test_instance'}
 default-almalinux-8-master-py3: {extends: '.test_instance'}
 default-rockylinux-8-master-py3: {extends: '.test_instance'}
+# default-debian-11-3003-1-py3: {extends: '.test_instance'}
 # default-debian-10-3003-1-py3: {extends: '.test_instance'}
 # default-debian-9-3003-1-py3: {extends: '.test_instance'}
 # default-ubuntu-2004-3003-1-py3: {extends: '.test_instance'}
@@ -214,6 +217,7 @@ default-rockylinux-8-master-py3: {extends: '.test_instance'}
 # default-arch-base-latest-3003-1-py3: {extends: '.test_instance'}
 # gentoo-gentoo-stage3-latest-3003-1-py3: {extends: '.test_instance'}
 # gentoo-gentoo-stage3-systemd-3003-1-py3: {extends: '.test_instance'}
+# default-debian-11-3002-6-py3: {extends: '.test_instance'}
 # default-debian-10-3002-6-py3: {extends: '.test_instance'}
 # default-debian-9-3002-6-py3: {extends: '.test_instance'}
 # default-ubuntu-2004-3002-6-py3: {extends: '.test_instance'}
