@@ -25,6 +25,10 @@ sedi() {
   fi
 }
 
+repeat_char() {
+  printf %"${NEW_NAME_LENGTH}"s | tr " " "$1"
+}
+
 args() {
   if [ $# -ne 1 ]; then
     usage
@@ -32,6 +36,7 @@ args() {
   fi
   NEW_NAME=$1
   NEW_NAME_PYSAFE=$(echo "$NEW_NAME" | sed 's/-/__/g')
+  NEW_NAME_LENGTH=${#NEW_NAME}
   if echo "$NEW_NAME" | grep -E --quiet --invert-match '^[a-z0-9_-]+$'; then
     usage
     exit 1
@@ -77,6 +82,16 @@ convert_formula() {
   | while read -r filename; do
     sedi "/^\(  \)TEMPLATE\(:\)$/s//\1${NEW_NAME_PYSAFE}\2/" "$filename"
   done
+
+  # Where a section heading contains TEMPLATE, ensure the length of underlining
+  # on the following line matches the length of the new formula name
+  sedi "/TEMPLATE/{
+        n
+        s/========/$(repeat_char =)/
+        s/--------/$(repeat_char -)/
+        s/\^^^^^^^^/$(repeat_char ^)/"'
+        s/""""""""/'"$(repeat_char \")/
+        }" docs/README.rst docs/map.jinja.rst
 
   # Replace all other instances of TEMPLATE with the regular new formula name
   grep --recursive --files-with-matches --exclude-dir=.git TEMPLATE . \
