@@ -15,7 +15,7 @@
   # `image`
   image_commitlint: &image_commitlint 'myii/ssf-commitlint:11'
   image_dindruby: &image_dindruby 'myii/ssf-dind-ruby:2.7.1-r3'
-  image_dindrubybionic: &image_dindrubybionic 'myii/ssf-dind-ruby-bionic:1_2.5.1'
+  image_dindrubybionic: &image_dindrubybionic 'myii/ssf-dind-ruby-bionic:2.7.1-1bbox1'
   image_precommit: &image_precommit
     name: 'myii/ssf-pre-commit:2.9.2'
     entrypoint: ['/bin/bash', '-c']
@@ -142,7 +142,9 @@ rubocop:
     # TODO: This should work from the env vars above automatically
     - 'bundle config set path "${BUNDLE_CACHE_PATH}"'
     - 'bundle config set without "${BUNDLE_WITHOUT}"'
-    - 'bundle install'
+    - 'bundle update --bundler --conservative'
+    - 'bundle binstubs bundler --force'
+    - 'PATH=./bin:"$PATH" bundle install'
   script:
     - 'bin/kitchen verify default-debian-11-master-py3'
 # REMOVEME>
