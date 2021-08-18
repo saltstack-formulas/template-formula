@@ -37,7 +37,7 @@ For this example, I'll define 2 kinds of `fileserver`_ sources:
 
 
 Configure the fileserver backends
-`````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 I configure the `fileserver`_ backends to serve:
 
@@ -73,7 +73,7 @@ Create the file ``/etc/salt/master.d/fileserver.conf`` and restart the ``master`
 
 
 Create per DNS configuration for ``TEMPLATE`` formula
-`````````````````````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now, we can provides the per DNS domain name configuration files for the ``TEMPLATE`` formulas under ``/srv/salt/TEMPLATE/parameters/``.
 
@@ -104,7 +104,7 @@ We create another configuration for the DNS domain ``example.com`` in the Jinja 
 
 
 Create per role configuration for ``TEMPLATE`` formula
-``````````````````````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now, we can provides the per role configuration files for the ``TEMPLATE`` formulas under ``/srv/salt/TEMPLATE/parameters/``.
 
@@ -139,7 +139,7 @@ We create another configuration for the role ``TEMPLATE/client`` in ``/srv/salt/
 
 
 Enable roles and the ``dns:domain`` and ``domain`` grains for ``map.jinja``
-```````````````````````````````````````````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We need to redefine the sources for ``map.jinja`` to load values from our new configuration files, we provide a global configuration for all our minions.
 
@@ -177,7 +177,7 @@ The syntax is explained later at `Sources of configuration values`_.
 
 
 Bind roles to minions
-`````````````````````
+~~~~~~~~~~~~~~~~~~~~~
 
 We associate roles `grains`_ to minion using `grains.append`_.
 
@@ -198,7 +198,7 @@ For the clients:
     Since we used ``Y:C@roles``, ``map.jinja`` will do a ``salt['config.get']('roles')`` to retrieve the roles so you could use any other method to bind roles to minions (`pillars`_ or `SDB`_) but `grains`_ seems to be the preferred method.
 
 Note for Microsoft Windows systems
-``````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you have a minion running under windows, you can't use colon ``:`` as a delimiter for grain path query (see `bug 58726`_) in which case you should use an alternate delimiter:
 
@@ -265,7 +265,7 @@ Here is a valid example:
 
 
 Using Jinja2 YAML template
-``````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can provide a Jinja2 YAML template file with a name suffixed with ``.yaml.jinja``, it must produce a YAML file conform to the `Format of configuration YAML files`_, for example:
 
@@ -296,7 +296,7 @@ For the values loaded from YAML files, ``map.jinja`` will automatically try to l
 After loading values from all sources, it will try to include the ``salt://parameters/post-map.jinja`` Jinja file if it exists which can post-process the ``mapdata`` variable.
 
 Configuring ``map.jinja`` sources
-`````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``map.jinja`` file uses several sources where to lookup parameter values. The list of sources can be configured in two places:
 
@@ -373,7 +373,7 @@ This is strictly equivalent to the following ``map_jinja.yaml.jinja``:
 
 
 Loading values from the configuration sources
-`````````````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For each configuration source defined, ``map.jinja`` will:
 
@@ -399,7 +399,7 @@ There will be no error if a YAML or Jinja2 file does not exists, they are all op
 
 
 Configuration values from ``salt['config.get']``
-````````````````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For sources with of type ``C`` declared in ``map_jinja:sources``, you can configure the ``merge`` option of `salt['config.get']`_ by defining per formula ``strategy`` configuration key (retrieved with ``salt['config.get'](tplroot ~ ':strategy')`` with one of the following values:
 
@@ -410,7 +410,7 @@ By default, no merging is done, the first value found is returned.
 
 
 Global view of the order of preferences
-```````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To summarise, here is a complete example of the load order of formula configuration values for an ``AMD64`` ``Ubuntu 18.04`` minion named ``minion1.example.net`` for the ``libvirt`` formula:
 
