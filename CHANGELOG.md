@@ -1,5 +1,39 @@
 # Changelog
 
+## [5.0.3](https://github.com/saltstack-formulas/template-formula/compare/v5.0.2...v5.0.3) (2021-08-19)
+
+
+### Bug Fixes
+
+* **convert-formula.sh:** add `~` to reST underlining during conversion ([80ed8cd](https://github.com/saltstack-formulas/template-formula/commit/80ed8cd4153f99ec0acaac2996387f565981e7aa))
+* **convert-formula.sh:** fix reST underlining during conversion ([11068af](https://github.com/saltstack-formulas/template-formula/commit/11068afae9a3b6957695b79f92b4588388a13632))
+
+
+### Continuous Integration
+
+* **3003.1:** update inc. AlmaLinux, Rocky & `rst-lint` [skip ci] ([be3ee0b](https://github.com/saltstack-formulas/template-formula/commit/be3ee0be5148ab598a613342e902284ffb547628))
+* **gemfile+lock:** use `ssf` customised `inspec` repo [skip ci] ([3c7fb0f](https://github.com/saltstack-formulas/template-formula/commit/3c7fb0fca0498d7fd5b2e23c763a14e9258c051f))
+* **gitlab:** update `dind-ruby-bionic` with ruby 2.7.1 ([b2fe67a](https://github.com/saltstack-formulas/template-formula/commit/b2fe67a79d582313b6fd2468441141eae2705ae2))
+* **kitchen:** move `provisioner` block & update `run_command` [skip ci] ([29df15e](https://github.com/saltstack-formulas/template-formula/commit/29df15e21ca972915b4ac5718c65c9aa6305eaff))
+* **kitchen+ci:** update with latest `3003.2` pre-salted images [skip ci] ([1b8604d](https://github.com/saltstack-formulas/template-formula/commit/1b8604dd02907ea6da50c0ab539dd510f9fb755b))
+* add `arch-master` to matrix and update `.travis.yml` [skip ci] ([7e74001](https://github.com/saltstack-formulas/template-formula/commit/7e74001c05292eb313a8f4a539784cdf94e232a0))
+* add Debian 11 Bullseye & update `yamllint` configuration [skip ci] ([e14f830](https://github.com/saltstack-formulas/template-formula/commit/e14f83019a97ea49b4b056c6a9c2f51cac7887a9))
+* **kitchen+gitlab:** adjust matrix to add `3003` [skip ci] ([c99c5a1](https://github.com/saltstack-formulas/template-formula/commit/c99c5a1b68cfe2374f38e1577515efd73c58a610))
+* **kitchen+gitlab:** remove Ubuntu 16.04 & Fedora 32 (EOL) [skip ci] ([858ef8a](https://github.com/saltstack-formulas/template-formula/commit/858ef8a2b7097421a5073b0963c8b29ec3840bf3))
+
+
+### Documentation
+
+* **map.jinja:** fix `rst-lint` violation [skip ci] ([e43d6ce](https://github.com/saltstack-formulas/template-formula/commit/e43d6ce83f4cacfd70a5df3bbc53e22a9b442b24))
+* **map.jinja:** make section headings consistent with other docs ([40277fc](https://github.com/saltstack-formulas/template-formula/commit/40277fc582a62d2255b478fb0b880eda1f46d77a))
+
+
+### Tests
+
+* **_mapdata:** add verification file for `debian-11` [skip ci] ([98edfd3](https://github.com/saltstack-formulas/template-formula/commit/98edfd3ac403353e9bd7d1d335e9ab48af3f1892))
+* **_mapdata:** add verification file for `fedora-34` [skip ci] ([79587c4](https://github.com/saltstack-formulas/template-formula/commit/79587c422c0d30dc8ce203021afc63b62d4cbdf3))
+* **alma+rocky:** add platforms (based on CentOS 8) [skip ci] ([ec7ede0](https://github.com/saltstack-formulas/template-formula/commit/ec7ede04077566dd3bc69ac3032b09ffcc3b7876))
+
 ## [5.0.2](https://github.com/saltstack-formulas/template-formula/compare/v5.0.1...v5.0.2) (2021-04-14)
 
 
