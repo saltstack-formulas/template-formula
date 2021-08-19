@@ -89,7 +89,8 @@ convert_formula() {
         n
         s/========/$(repeat_char =)/
         s/--------/$(repeat_char -)/
-        s/\^^^^^^^^/$(repeat_char ^)/"'
+        s/\^^^^^^^^/$(repeat_char ^)/
+        s/\~~~~~~~~/$(repeat_char \~)/"'
         s/""""""""/'"$(repeat_char \")/
         }" docs/README.rst docs/map.jinja.rst
 
