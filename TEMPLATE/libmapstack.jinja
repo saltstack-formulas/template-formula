@@ -1,8 +1,17 @@
 {#- -*- coding: utf-8 -*- #}
 {#- vim: ft=jinja #}
 
-{#- Get the `tplroot` from `tpldir` #}
-{%- set tplroot = tpldir.split("/")[0] %}
+{%- if not tplfile.endswith("/libmapstack.jinja") %}
+{#-   Force import `without context` #}
+{#-   `with context` override the `tplfile` and `tpldir` variables #}
+{{-   raise("Import error: libmapstack.jinja must be imported without context. tplfile='" ~ tplfile ~ "'") }}
+{%- elif tplfile.startswith("../") %}
+{#-   Force import with absolute path #}
+{{-   raise("Import error: libmapstack.jinja must be imported with absolute path. tplfile='" ~ tplfile ~ "'") }}
+{%- endif %}
+
+{#- `tplroot` is the directory of the current imported file #}
+{%- set tplroot = tpldir %}
 {%- from tplroot ~ "/libmatchers.jinja" import parse_matchers, query_map %}
 
 {%- set _default_config_dirs = [
