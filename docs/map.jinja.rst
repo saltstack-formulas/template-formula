@@ -458,7 +458,7 @@ Here is the best way to use it in an ``sls`` file:
 
     {#- Get the `tplroot` from `tpldir` #}
     {%- set tplroot = tpldir.split("/")[0] %}
-    {%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE with context %}
+    {%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE without context %}
 
     test-does-nothing-but-display-TEMPLATE-as-json:
       test.nop:
@@ -480,7 +480,7 @@ Here is an example based on `template-formula/TEMPLATE/config/file.sls`_:
     {#- Get the `tplroot` from `tpldir` #}
     {%- set tplroot = tpldir.split('/')[0] %}
     {%- set sls_package_install = tplroot ~ '.package.install' %}
-    {%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE with context %}
+    {%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE without context %}
     {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
     include:
