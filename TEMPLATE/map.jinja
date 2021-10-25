@@ -1,9 +1,18 @@
-# -*- coding: utf-8 -*-
-# vim: ft=jinja
+{#- -*- coding: utf-8 -*- #}
+{#- vim: ft=jinja #}
 
-{#- Get the `tplroot` from `tpldir` #}
-{%- set tplroot = tpldir.split("/")[0] %}
-{%- from tplroot ~ "/libmapstack.jinja" import mapstack %}
+{%- if not tplfile.endswith("/map.jinja") %}
+{#-   Force import `without context` #}
+{#-   `with context` override the `tplfile` and `tpldir` variables #}
+{{-   raise("Import error: map.jinja must be imported without context. tplfile='" ~ tplfile ~ "'") }}
+{%- elif tplfile.startswith("../") %}
+{#-   Force import with absolute path #}
+{{-   raise("Import error: map.jinja must be imported with absolute path. tplfile='" ~ tplfile ~ "'") }}
+{%- endif %}
+
+{#- `tplroot` is the directory of the current imported file #}
+{%- set tplroot = tpldir %}
+{%- from tplroot ~ "/libmapstack.jinja" import mapstack without context %}
 
 {#- Where to lookup parameters source files #}
 {%- set formula_param_dir = tplroot ~ "/parameters" %}
