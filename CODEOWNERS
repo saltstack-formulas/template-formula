@@ -16,8 +16,11 @@
 /docs/CHANGELOG.rst                         @saltstack-formulas/ssf
 /docs/TOFS_pattern.rst                      @saltstack-formulas/ssf
 /*/_mapdata/                                @saltstack-formulas/ssf
+/*/libmapstack.jinja                        @saltstack-formulas/ssf
+/*/libmatchers.jinja                        @saltstack-formulas/ssf
 /*/libsaltcli.jinja                         @saltstack-formulas/ssf
 /*/libtofs.jinja                            @saltstack-formulas/ssf
+/*/map.jinja                                @saltstack-formulas/ssf
 /test/integration/**/_mapdata.rb            @saltstack-formulas/ssf
 /test/integration/**/libraries/system.rb    @saltstack-formulas/ssf
 /test/integration/**/inspec.yml             @saltstack-formulas/ssf

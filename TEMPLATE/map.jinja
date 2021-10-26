@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
-# vim: ft=jinja
+{#- -*- coding: utf-8 -*- #}
+{#- vim: ft=jinja #}
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split("/")[0] %}
-{%- from tplroot ~ "/libmapstack.jinja" import mapstack %}
+{%- from tplroot ~ "/libmapstack.jinja" import mapstack with context %}
 
 {#- Where to lookup parameters source files #}
 {%- set formula_param_dir = tplroot ~ "/parameters" %}
