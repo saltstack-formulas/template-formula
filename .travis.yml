@@ -122,8 +122,8 @@ jobs:
     - env: INSTANCE=default-oraclelinux-8-master-py3
     - env: INSTANCE=default-oraclelinux-7-master-py3
     - env: INSTANCE=default-arch-base-latest-master-py3
-    - env: INSTANCE=gentoo-gentoo-stage3-latest-master-py3
-    - env: INSTANCE=gentoo-gentoo-stage3-systemd-master-py3
+    - env: INSTANCE=default-gentoo-stage3-latest-master-py3
+    - env: INSTANCE=default-gentoo-stage3-systemd-master-py3
     - env: INSTANCE=default-almalinux-8-master-py3
     - env: INSTANCE=default-rockylinux-8-master-py3
     # - env: INSTANCE=default-debian-11-3003-3-py3
@@ -142,8 +142,8 @@ jobs:
     # - env: INSTANCE=default-oraclelinux-8-3003-3-py3
     # - env: INSTANCE=default-oraclelinux-7-3003-3-py3
     # - env: INSTANCE=default-arch-base-latest-3003-3-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3003-3-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3003-3-py3
+    # - env: INSTANCE=default-gentoo-stage3-latest-3003-3-py3
+    # - env: INSTANCE=default-gentoo-stage3-systemd-3003-3-py3
     # - env: INSTANCE=default-almalinux-8-3003-3-py3
     # - env: INSTANCE=default-debian-11-3002-7-py3
     # - env: INSTANCE=default-debian-10-3002-7-py3
@@ -161,8 +161,8 @@ jobs:
     # - env: INSTANCE=default-oraclelinux-8-3002-7-py3
     # - env: INSTANCE=default-oraclelinux-7-3002-7-py3
     # - env: INSTANCE=default-arch-base-latest-3002-7-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3002-7-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3002-7-py3
+    # - env: INSTANCE=default-gentoo-stage3-latest-3002-7-py3
+    # - env: INSTANCE=default-gentoo-stage3-systemd-3002-7-py3
     # - env: INSTANCE=default-debian-10-3001-8-py3
     # - env: INSTANCE=default-debian-9-3001-8-py3
     # - env: INSTANCE=default-ubuntu-2004-3001-8-py3
@@ -178,8 +178,8 @@ jobs:
     # - env: INSTANCE=default-oraclelinux-8-3001-8-py3
     # - env: INSTANCE=default-oraclelinux-7-3001-8-py3
     # - env: INSTANCE=default-arch-base-latest-3001-8-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-latest-3001-8-py3
-    # - env: INSTANCE=gentoo-gentoo-stage3-systemd-3001-8-py3
+    # - env: INSTANCE=default-gentoo-stage3-latest-3001-8-py3
+    # - env: INSTANCE=default-gentoo-stage3-systemd-3001-8-py3
     # <REMOVEME
 
     # Test the conversion of `template-formula` into another formula
