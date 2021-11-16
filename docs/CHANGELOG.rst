@@ -2,6 +2,28 @@
 Changelog
 =========
 
+`5.0.4 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.3...v5.0.4>`_ (2021-11-16)
+----------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **map.jinja:** standardise v5 structure [skip ci] (\ `bf9a9bd <https://github.com/saltstack-formulas/template-formula/commit/bf9a9bd20482b5a5a748933094f58a0f88b41aee>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use ``pillars_from_directories`` under ``provisioner`` (\ `5f80cf2 <https://github.com/saltstack-formulas/template-formula/commit/5f80cf2b7dc9dc90cd2de2121787c3b7b5efc6bf>`_\ )
+* **kitchen+ci:** update with latest CVE pre-salted images [skip ci] (\ `6c5809d <https://github.com/saltstack-formulas/template-formula/commit/6c5809d067ae5ae7db52c17bda30b0cd133b7966>`_\ )
+
+Tests
+^^^^^
+
+
+* **pillar:** use static test/salt/pillar/top.sls (\ `7708e12 <https://github.com/saltstack-formulas/template-formula/commit/7708e1292303431d9ac4a46f0c4123cc95b98bc6>`_\ )
+
 `5.0.3 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.2...v5.0.3>`_ (2021-08-19)
 ----------------------------------------------------------------------------------------------------------
 
