@@ -3,9 +3,8 @@
 ---
 base:
   '*':
-    - defaults
-  'os_family:Gentoo':
-    - match: grain
+    - default
+  'G@os_family:Gentoo':
     - gentoo
   'os:*':
     - define_roles

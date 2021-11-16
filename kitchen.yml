@@ -17,6 +17,8 @@ provisioner:
   salt_copy_filter:
     - .kitchen
     - .git
+  pillars_from_directories:
+    - test/salt/pillar
 
 platforms:
   ## SALT `tiamat`
@@ -379,8 +381,6 @@ suites:
           '*':
             - TEMPLATE._mapdata
             - TEMPLATE
-      pillars_from_directories:
-        - test/salt/pillar
     verifier:
       inspec_tests:
         - path: test/integration/default
