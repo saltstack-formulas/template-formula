@@ -45,9 +45,6 @@ platforms:
   - name: centos-stream8-tiamat-py3
     driver:
       image: saltimages/salt-tiamat-py3:centos-stream8
-  - name: centos-8-tiamat-py3
-    driver:
-      image: saltimages/salt-tiamat-py3:centos-8
   - name: centos-7-tiamat-py3
     driver:
       image: saltimages/salt-tiamat-py3:centos-7
@@ -91,29 +88,16 @@ platforms:
   - name: centos-stream8-master-py3
     driver:
       image: saltimages/salt-master-py3:centos-stream8
-  - name: centos-8-master-py3
-    driver:
-      image: saltimages/salt-master-py3:centos-8
   - name: centos-7-master-py3
     driver:
       image: saltimages/salt-master-py3:centos-7
   - name: fedora-34-master-py3
     driver:
       image: saltimages/salt-master-py3:fedora-34
-  - name: fedora-33-master-py3
-    driver:
-      image: saltimages/salt-master-py3:fedora-33
   - name: opensuse-leap-153-master-py3
     driver:
       image: saltimages/salt-master-py3:opensuse-leap-15.3
     # Workaround to avoid intermittent failures on `opensuse-leap-15.3`:
-    # => SCP did not finish successfully (255):  (Net::SCP::Error)
-    transport:
-      max_ssh_sessions: 1
-  - name: opensuse-leap-152-master-py3
-    driver:
-      image: saltimages/salt-master-py3:opensuse-leap-15.2
-    # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
@@ -174,29 +158,16 @@ platforms:
   - name: centos-stream8-3004-0-py3
     driver:
       image: saltimages/salt-3004.0-py3:centos-stream8
-  - name: centos-8-3004-0-py3
-    driver:
-      image: saltimages/salt-3004.0-py3:centos-8
   - name: centos-7-3004-0-py3
     driver:
       image: saltimages/salt-3004.0-py3:centos-7
   - name: fedora-34-3004-0-py3
     driver:
       image: saltimages/salt-3004.0-py3:fedora-34
-  - name: fedora-33-3004-0-py3
-    driver:
-      image: saltimages/salt-3004.0-py3:fedora-33
   - name: opensuse-leap-153-3004-0-py3
     driver:
       image: saltimages/salt-3004.0-py3:opensuse-leap-15.3
     # Workaround to avoid intermittent failures on `opensuse-leap-15.3`:
-    # => SCP did not finish successfully (255):  (Net::SCP::Error)
-    transport:
-      max_ssh_sessions: 1
-  - name: opensuse-leap-152-3004-0-py3
-    driver:
-      image: saltimages/salt-3004.0-py3:opensuse-leap-15.2
-    # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
@@ -234,10 +205,6 @@ platforms:
       image: saltimages/salt-3004.0-py3:rockylinux-8
 
   ## SALT `3003.3`
-  - name: debian-11-3003-3-py3
-    driver:
-      image: saltimages/salt-3003.3-py3:debian-11
-      run_command: /lib/systemd/systemd
   - name: debian-10-3003-3-py3
     driver:
       image: saltimages/salt-3003.3-py3:debian-10
@@ -257,29 +224,19 @@ platforms:
   - name: centos-stream8-3003-3-py3
     driver:
       image: saltimages/salt-3003.3-py3:centos-stream8
-  - name: centos-8-3003-3-py3
-    driver:
-      image: saltimages/salt-3003.3-py3:centos-8
   - name: centos-7-3003-3-py3
     driver:
       image: saltimages/salt-3003.3-py3:centos-7
+  - name: fedora-35-3003-3-py3
+    driver:
+      image: saltimages/salt-3003.3-py3:fedora-35
   - name: fedora-34-3003-3-py3
     driver:
       image: saltimages/salt-3003.3-py3:fedora-34
-  - name: fedora-33-3003-3-py3
-    driver:
-      image: saltimages/salt-3003.3-py3:fedora-33
   - name: opensuse-leap-153-3003-3-py3
     driver:
       image: saltimages/salt-3003.3-py3:opensuse-leap-15.3
     # Workaround to avoid intermittent failures on `opensuse-leap-15.3`:
-    # => SCP did not finish successfully (255):  (Net::SCP::Error)
-    transport:
-      max_ssh_sessions: 1
-  - name: opensuse-leap-152-3003-3-py3
-    driver:
-      image: saltimages/salt-3003.3-py3:opensuse-leap-15.2
-    # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
@@ -299,9 +256,6 @@ platforms:
   - name: oraclelinux-7-3003-3-py3
     driver:
       image: saltimages/salt-3003.3-py3:oraclelinux-7
-  - name: arch-base-latest-3003-3-py3
-    driver:
-      image: saltimages/salt-3003.3-py3:arch-base-latest
   - name: gentoo-stage3-latest-3003-3-py3
     driver:
       image: saltimages/salt-3003.3-py3:gentoo-stage3-latest
@@ -314,10 +268,6 @@ platforms:
       image: saltimages/salt-3003.3-py3:almalinux-8
 
   ## SALT `3002.7`
-  - name: debian-11-3002-7-py3
-    driver:
-      image: saltimages/salt-3002.7-py3:debian-11
-      run_command: /lib/systemd/systemd
   - name: debian-10-3002-7-py3
     driver:
       image: saltimages/salt-3002.7-py3:debian-10
@@ -334,29 +284,19 @@ platforms:
     driver:
       image: saltimages/salt-3002.7-py3:ubuntu-18.04
       run_command: /lib/systemd/systemd
-  - name: centos-8-3002-7-py3
-    driver:
-      image: saltimages/salt-3002.7-py3:centos-8
   - name: centos-7-3002-7-py3
     driver:
       image: saltimages/salt-3002.7-py3:centos-7
+  - name: fedora-35-3002-7-py3
+    driver:
+      image: saltimages/salt-3002.7-py3:fedora-35
   - name: fedora-34-3002-7-py3
     driver:
       image: saltimages/salt-3002.7-py3:fedora-34
-  - name: fedora-33-3002-7-py3
-    driver:
-      image: saltimages/salt-3002.7-py3:fedora-33
   - name: opensuse-leap-153-3002-7-py3
     driver:
       image: saltimages/salt-3002.7-py3:opensuse-leap-15.3
     # Workaround to avoid intermittent failures on `opensuse-leap-15.3`:
-    # => SCP did not finish successfully (255):  (Net::SCP::Error)
-    transport:
-      max_ssh_sessions: 1
-  - name: opensuse-leap-152-3002-7-py3
-    driver:
-      image: saltimages/salt-3002.7-py3:opensuse-leap-15.2
-    # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
@@ -376,9 +316,6 @@ platforms:
   - name: oraclelinux-7-3002-7-py3
     driver:
       image: saltimages/salt-3002.7-py3:oraclelinux-7
-  - name: arch-base-latest-3002-7-py3
-    driver:
-      image: saltimages/salt-3002.7-py3:arch-base-latest
   - name: gentoo-stage3-latest-3002-7-py3
     driver:
       image: saltimages/salt-3002.7-py3:gentoo-stage3-latest
@@ -386,76 +323,6 @@ platforms:
   - name: gentoo-stage3-systemd-3002-7-py3
     driver:
       image: saltimages/salt-3002.7-py3:gentoo-stage3-systemd
-
-  ## SALT `3001.8`
-  - name: debian-10-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:debian-10
-      run_command: /lib/systemd/systemd
-  - name: debian-9-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:debian-9
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-2004-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:ubuntu-20.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-1804-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:ubuntu-18.04
-      run_command: /lib/systemd/systemd
-  - name: centos-8-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:centos-8
-  - name: centos-7-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:centos-7
-  - name: fedora-34-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:fedora-34
-  - name: fedora-33-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:fedora-33
-  - name: opensuse-leap-153-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:opensuse-leap-15.3
-    # Workaround to avoid intermittent failures on `opensuse-leap-15.3`:
-    # => SCP did not finish successfully (255):  (Net::SCP::Error)
-    transport:
-      max_ssh_sessions: 1
-  - name: opensuse-leap-152-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:opensuse-leap-15.2
-    # Workaround to avoid intermittent failures on `opensuse-leap-15.2`:
-    # => SCP did not finish successfully (255):  (Net::SCP::Error)
-    transport:
-      max_ssh_sessions: 1
-  - name: opensuse-tmbl-latest-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:opensuse-tumbleweed-latest
-    # Workaround to avoid intermittent failures on `opensuse-tumbleweed`:
-    # => SCP did not finish successfully (255):  (Net::SCP::Error)
-    transport:
-      max_ssh_sessions: 1
-  - name: amazonlinux-2-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:amazonlinux-2
-  - name: oraclelinux-8-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:oraclelinux-8
-  - name: oraclelinux-7-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:oraclelinux-7
-  - name: arch-base-latest-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:arch-base-latest
-  - name: gentoo-stage3-latest-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:gentoo-stage3-latest
-      run_command: /sbin/init
-  - name: gentoo-stage3-systemd-3001-8-py3
-    driver:
-      image: saltimages/salt-3001.8-py3:gentoo-stage3-systemd
 
 verifier:
   # https://www.inspec.io/
