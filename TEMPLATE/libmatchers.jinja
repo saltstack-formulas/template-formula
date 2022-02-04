@@ -162,7 +162,7 @@
 {%-     endif %}
 
 {#-     Add `merge:` option to `salt["config.get"]` if configured #}
-{%-     if cli in ["minion", "local"] and parsed.query_method == "config.get" and config_get_strategy %}
+{%-     if cli not in ["ssh", "unknown"] and parsed.query_method == "config.get" and config_get_strategy %}
 {%-       set query_opts = {
             "merge": config_get_strategy,
             "delimiter": parsed.query_delimiter,
@@ -175,8 +175,8 @@
             ~ "'"
           ) %}
 {%-     else %}
-{%-       if cli not in ["minion", "local"] %}
-{%-         do salt["log.error"](
+{%-       if cli in ["ssh", "unknown"] %}
+{%-         do salt["log.warning"](
               log_prefix
               ~ "the 'delimiter' and 'merge' options of 'config.get' are skipped when the salt command type is '"
               ~ cli
