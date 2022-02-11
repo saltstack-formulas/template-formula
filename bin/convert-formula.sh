@@ -87,7 +87,7 @@ convert_formula() {
   # on the following line matches the length of the new formula name
   sedi "/TEMPLATE/{
         n
-        s/========/$(repeat_char =)/
+        s/========/$(repeat_char '=')/
         s/--------/$(repeat_char -)/
         s/\^^^^^^^^/$(repeat_char ^)/
         s/\~~~~~~~~/$(repeat_char \~)/"'
