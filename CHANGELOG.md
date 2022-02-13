@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.0.5](https://github.com/saltstack-formulas/template-formula/compare/v5.0.4...v5.0.5) (2022-02-13)
+
+
+### Bug Fixes
+
+* **libsaltcli+libmatchers:** ensure Salt client API detection [skip ci] ([6eb2073](https://github.com/saltstack-formulas/template-formula/commit/6eb2073d02ff8006dac86c59e683ae983ecccd25))
+
+
+### Code Refactoring
+
+* **shellcheck:** fix violation ([4ee6387](https://github.com/saltstack-formulas/template-formula/commit/4ee6387bf97aeb9c965bd2638ba934208d00874c))
+
+
+### Continuous Integration
+
+* **gitlab-ci:** update `dind-ruby-bionic` (use Python 3.7 for pre-commit) ([8ff2152](https://github.com/saltstack-formulas/template-formula/commit/8ff2152b32262fe2082f68e42532f3c0178f55b0))
+* update linters to latest versions [skip ci] ([a284a56](https://github.com/saltstack-formulas/template-formula/commit/a284a566b4284966c7bbbc9da7ad182083a60796))
+* **kitchen+ci:** update with `3004` pre-salted images/boxes [skip ci] ([ea37971](https://github.com/saltstack-formulas/template-formula/commit/ea379716bea3d9d93a88671b8c0ae368033dcd62))
+* **kitchen+gitlab:** update for new pre-salted images [skip ci] ([fd34718](https://github.com/saltstack-formulas/template-formula/commit/fd347183f992f2d0511986744f65c715445d7c5e))
+* **proxy:** allow rubygems proxy in gemfile ([7109cfd](https://github.com/saltstack-formulas/template-formula/commit/7109cfd411804514607a70edc3339e011e1db1cc))
+
 ## [5.0.4](https://github.com/saltstack-formulas/template-formula/compare/v5.0.3...v5.0.4) (2021-11-16)
 
 
