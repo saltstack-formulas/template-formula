@@ -12,11 +12,11 @@
     } %}
 
 {#- When no part before `@` is provided: #}
-{#-   - define a filename path, noted `F` #}
+{#-   - define a YAML file path, noted `Y` #}
 {#-   - use `salt["config.get"]`, noted `C` #}
 {#-   - use colon `:` delimiter for querying #}
 {%- set _defaults = {
-      "type": "F",
+      "type": "Y",
       "query_type": "C",
       "query_delimiter": ":"
     } %}
@@ -28,11 +28,11 @@
     ) %}
 {#-   matcher format is `[<TYPE>[:<OPTION>[:DELIMITER]]@]<KEY>` #}
 {#-   each matcher has a type: #}
-{#-   - `F` to build a file name (the default when no type is set) #}
+{#-   - `Y` to build a YAML file name (the default when no type is set) #}
 {#-   - `C` to lookup values with `config.get` #}
 {#-   - `G` to lookup values with `grains.get` #}
 {#-   - `I` to lookup values with `pillar.get` #}
-{#-   The `FILE` type option can define query type to build the file name: #}
+{#-   The `YAML` type option can define query type to build the file name: #}
 {#-   - `C` for query with `config.get` (the default when to query type is set) #}
 {#-   - `G` for query with `grains.get` #}
 {#-   - `I` for query with `pillar.get` #}
