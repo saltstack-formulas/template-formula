@@ -181,7 +181,7 @@
 {#-         Load YAML file matching the grain/pillar/... #}
 {#-         Fallback to use the source name as a direct filename #}
 
-{%-         if matcher.value | length == 0 %}
+{%-         if matcher.value is sequence and matcher.value | length == 0 %}
 {#-           Mangle `matcher.value` to use it as literal path #}
 {%-           set query_parts = matcher.query.split("/") %}
 {%-           set yaml_dirname = query_parts[0:-1] | join("/") %}
@@ -194,6 +194,11 @@
 {#-         Some configuration return list #}
 {%-         if yaml_names is string %}
 {%-           set yaml_names = [yaml_names] %}
+{%-         elif yaml_names is sequence %}
+{#-           Convert to strings if it's a sequence of numbers #}
+{%-           set yaml_names = yaml_names | map("string") | list %}
+{%-         else %}
+{%-           set yaml_names = [yaml_names | string] %}
 {%-         endif %}
 
 {#-         Try to load a `.yaml.jinja` file for each `.yaml` file #}
