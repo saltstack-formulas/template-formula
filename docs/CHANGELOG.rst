@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`5.0.6 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.5...v5.0.6>`_ (2022-02-15)
+----------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **map.jinja:** fix path to post-map.jinja in docs (\ `d64cd75 <https://github.com/saltstack-formulas/template-formula/commit/d64cd75f62b7ad20f61de85e19534da492f55eda>`_\ )
+
+Tests
+^^^^^
+
+
+* **system:** add ``build_platform_codename`` [skip ci] (\ `65cf22c <https://github.com/saltstack-formulas/template-formula/commit/65cf22c436903a65f93b9f5e708d8639499d542b>`_\ )
+
 `5.0.5 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.4...v5.0.5>`_ (2022-02-13)
 ----------------------------------------------------------------------------------------------------------
 
