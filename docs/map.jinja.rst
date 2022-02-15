@@ -293,7 +293,7 @@ The ``map.jinja`` file aggregates configuration values from several sources:
 
 For the values loaded from YAML files, ``map.jinja`` will automatically try to load a Jinja2 template with the same name as the YAML file with the addition of the ``.jinja`` extension, for example ``foo/bar/quux.yaml.jinja``.
 
-After loading values from all sources, it will try to include the ``salt://parameters/post-map.jinja`` Jinja file if it exists which can post-process the ``mapdata`` variable.
+After loading values from all sources, it will try to include the ``salt://{{ tplroot }}/post-map.jinja`` Jinja file if it exists which can post-process the ``mapdata`` variable.
 
 Configuring ``map.jinja`` sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
