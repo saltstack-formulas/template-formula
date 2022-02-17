@@ -1,5 +1,22 @@
 # Changelog
 
+## [5.0.7](https://github.com/saltstack-formulas/template-formula/compare/v5.0.6...v5.0.7) (2022-02-17)
+
+
+### Bug Fixes
+
+* **libmapstack:** allow mapping by booleans and numbers ([bb3a7ea](https://github.com/saltstack-formulas/template-formula/commit/bb3a7ea0b208eeb2b6472ca9cb011935032c0356))
+
+
+### Code Refactoring
+
+* **libmatchers:** match default type with docs ([8f847be](https://github.com/saltstack-formulas/template-formula/commit/8f847bebfd4809b9c4acbfc1c20c1738243f9fd7))
+
+
+### Styles
+
+* **libsaltcli:** fix comments to jinja comments ([e1735f4](https://github.com/saltstack-formulas/template-formula/commit/e1735f47f8e7af13d8d3d4be9206851560e30c52))
+
 ## [5.0.6](https://github.com/saltstack-formulas/template-formula/compare/v5.0.5...v5.0.6) (2022-02-15)
 
 
