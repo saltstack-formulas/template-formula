@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`5.0.8 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.7...v5.0.8>`_ (2022-02-23)
+----------------------------------------------------------------------------------------------------------
+
+Styles
+^^^^^^
+
+
+* fix typo (\ `68d5ba0 <https://github.com/saltstack-formulas/template-formula/commit/68d5ba0507ad0d10d51934f68fcea78470003669>`_\ )
+
 `5.0.7 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.6...v5.0.7>`_ (2022-02-17)
 ----------------------------------------------------------------------------------------------------------
 
