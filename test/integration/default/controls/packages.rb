@@ -6,7 +6,7 @@ platform_finger = system.platform[:finger].split('.').first.to_s
 control 'TEMPLATE.package.install' do
   title 'The required package should be installed'
 
-  # Overide by `platform_finger`
+  # Override by `platform_finger`
   package_name =
     case platform_finger
     when 'centos-6', 'amazonlinux-1'
