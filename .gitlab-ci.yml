@@ -137,8 +137,12 @@ rubocop:
   cache: *cache_bundler
   before_script:
     - 'export CONVERTED=test-the-use_this_template-button'
-    - 'git clone . tmp/"${CONVERTED}"-formula'
-    - 'cd tmp/"${CONVERTED}"-formula'
+    - 'git clone . /tmp/"${CONVERTED}"-formula'
+    - 'cd /tmp/"${CONVERTED}"-formula'
+    # Limit the version of `node` used by `pre-commit`, to avoid the following error:
+    #   .../bin/node: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found
+    - 'echo "default_language_version:" >> .pre-commit-config.yaml'
+    - 'echo "  node: 16.14.2" >> .pre-commit-config.yaml'
     # Install `pre-commit` hooks
     - 'bin/install-hooks'
     # Run the conversion script with debug output
