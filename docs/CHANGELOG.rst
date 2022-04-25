@@ -2,6 +2,23 @@
 Changelog
 =========
 
+`5.0.9 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.8...v5.0.9>`_ (2022-04-25)
+----------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **gitlab-ci:** use Node ``16.x`` for ``pre-commit`` in test conversion job (\ `a1a46ae <https://github.com/saltstack-formulas/template-formula/commit/a1a46ae38995f1506c3574c7818cfc8fcc887d6c>`_\ )
+* **kitchen+gitlab:** update for new pre-salted images [skip ci] (\ `801be3d <https://github.com/saltstack-formulas/template-formula/commit/801be3d974abdc28e786d4ac462f018db45a891b>`_\ )
+
+Tests
+^^^^^
+
+
+* **_mapdata:** add verification file for ``fedora-35`` [skip ci] (\ `6f02d2c <https://github.com/saltstack-formulas/template-formula/commit/6f02d2c28a7d3fe1449b93d862d02268344aa475>`_\ )
+* **_mapdata:** add verification file for ``fedora-36`` [skip ci] (\ `4a38a29 <https://github.com/saltstack-formulas/template-formula/commit/4a38a292d66563984505ed082166b25f831fb460>`_\ )
+
 `5.0.8 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.7...v5.0.8>`_ (2022-02-23)
 ----------------------------------------------------------------------------------------------------------
 
