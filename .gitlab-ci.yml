@@ -137,12 +137,8 @@ rubocop:
   cache: *cache_bundler
   before_script:
     - 'export CONVERTED=test-the-use_this_template-button'
-    - 'git clone . /tmp/"${CONVERTED}"-formula'
-    - 'cd /tmp/"${CONVERTED}"-formula'
-    # Limit the version of `node` used by `pre-commit`, to avoid the following error:
-    #   .../bin/node: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found
-    - 'echo "default_language_version:" >> .pre-commit-config.yaml'
-    - 'echo "  node: 16.14.2" >> .pre-commit-config.yaml'
+    - 'git clone . tmp/"${CONVERTED}"-formula'
+    - 'cd tmp/"${CONVERTED}"-formula'
     # Install `pre-commit` hooks
     - 'bin/install-hooks'
     # Run the conversion script with debug output
@@ -184,6 +180,7 @@ test-formula-conversion: {extends: '.test_conversion'}
 # default-debian-11-tiamat-py3: {extends: '.test_instance'}
 # default-debian-10-tiamat-py3: {extends: '.test_instance'}
 # default-debian-9-tiamat-py3: {extends: '.test_instance'}
+# default-ubuntu-2204-tiamat-py3: {extends: '.test_instance_failure_permitted'}
 # default-ubuntu-2004-tiamat-py3: {extends: '.test_instance'}
 # default-ubuntu-1804-tiamat-py3: {extends: '.test_instance'}
 # default-centos-stream8-tiamat-py3: {extends: '.test_instance_failure_permitted'}
@@ -196,6 +193,7 @@ test-formula-conversion: {extends: '.test_conversion'}
 default-debian-11-master-py3: {extends: '.test_instance'}
 default-debian-10-master-py3: {extends: '.test_instance'}
 default-debian-9-master-py3: {extends: '.test_instance'}
+default-ubuntu-2204-master-py3: {extends: '.test_instance_failure_permitted'}
 default-ubuntu-2004-master-py3: {extends: '.test_instance'}
 default-ubuntu-1804-master-py3: {extends: '.test_instance'}
 default-centos-stream8-master-py3: {extends: '.test_instance_failure_permitted'}
@@ -216,6 +214,7 @@ default-rockylinux-8-master-py3: {extends: '.test_instance'}
 # default-debian-11-3004-1-py3: {extends: '.test_instance'}
 # default-debian-10-3004-1-py3: {extends: '.test_instance'}
 # default-debian-9-3004-1-py3: {extends: '.test_instance'}
+# default-ubuntu-2204-3004-1-py3: {extends: '.test_instance_failure_permitted'}
 # default-ubuntu-2004-3004-1-py3: {extends: '.test_instance'}
 # default-ubuntu-1804-3004-1-py3: {extends: '.test_instance'}
 # default-centos-stream8-3004-1-py3: {extends: '.test_instance_failure_permitted'}
