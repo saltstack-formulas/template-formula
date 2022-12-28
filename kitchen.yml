@@ -138,6 +138,10 @@ platforms:
   - name: gentoo-stage3-systemd-master-py3
     driver:
       image: saltimages/salt-master-py3:gentoo-stage3-systemd
+      # workaround for https://github.com/systemd/systemd/issues/9771
+      provision_command: sudo sed -i
+        "s/#\{0,1\}DNSSEC=.*/DNSSEC=no/g"
+        /etc/systemd/resolved.conf
   - name: almalinux-8-master-py3
     driver:
       image: saltimages/salt-master-py3:almalinux-8
@@ -201,6 +205,10 @@ platforms:
   - name: gentoo-stage3-systemd-3004-1-py3
     driver:
       image: saltimages/salt-3004.1-py3:gentoo-stage3-systemd
+      # workaround for https://github.com/systemd/systemd/issues/9771
+      provision_command: sudo sed -i
+        "s/#\{0,1\}DNSSEC=.*/DNSSEC=no/g"
+        /etc/systemd/resolved.conf
   - name: almalinux-8-3004-1-py3
     driver:
       image: saltimages/salt-3004.1-py3:almalinux-8
