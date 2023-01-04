@@ -63,4 +63,4 @@
 
 {#- Per formula post-processing of `mapdata` if it exists #}
 {%- do salt["log.debug"]("map.jinja: post-processing of 'mapdata'") %}
-{%- include tplroot ~ "/libs/post-map.jinja" ignore missing %}
+{%- include formula_param_dir ~ "/post-map.jinja" ignore missing %}
