@@ -17,3 +17,6 @@ gem 'kitchen-docker', git: 'https://gitlab.com/saltstack-formulas/infrastructure
 
 gem 'kitchen-inspec', '>= 2.5.0'
 gem 'kitchen-salt', '>= 0.7.2'
+
+# Avoid the error 'pkeys are immutable on OpenSSL 3.0'
+gem 'net-ssh', '>= 7.0.0'
