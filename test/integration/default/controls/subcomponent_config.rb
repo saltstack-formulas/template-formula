@@ -10,14 +10,14 @@ control 'TEMPLATE.subcomponent.config.file' do
     its('mode') { should cmp '0644' }
     its('content') do
       should include(
-        '# File managed by Salt at '\
-        '<salt://TEMPLATE/subcomponent/config/files/default/'\
+        '# File managed by Salt at ' \
+        '<salt://TEMPLATE/subcomponent/config/files/default/' \
         'subcomponent-example.tmpl.jinja>.'
       )
     end
     its('content') do
       should include(
-        'This is another subcomponent example file from SaltStack '\
+        'This is another subcomponent example file from SaltStack ' \
         'template-formula.'
       )
     end

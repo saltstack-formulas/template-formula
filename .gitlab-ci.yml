@@ -14,11 +14,11 @@
   stage_test: &stage_test 'test'
   # `image`
   image_commitlint: &image_commitlint 'myii/ssf-commitlint:11'
-  image_dindruby: &image_dindruby 'myii/ssf-dind-ruby:2.7.1-r3'
-  image_dindrubybionic: &image_dindrubybionic 'myii/ssf-dind-ruby-bionic:2.7.5-1bbox1'
-  image_precommit: &image_precommit
-    name: 'myii/ssf-pre-commit:2.9.2'
-    entrypoint: ['/bin/bash', '-c']
+  image_dindruby: &image_dindruby
+    'dafyddj/ci-dind-python-ruby:2.0.0'
+  image_dindrubybionic: &image_dindrubybionic
+    'dafyddj/ci-dind-python-ruby:2.0.0'
+  image_precommit: &image_precommit 'dafyddj/ci-pre-commit:2.0.2'
   image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest'
   image_semantic-release: &image_semanticrelease 'myii/ssf-semantic-release:15.14'
   # `services`
@@ -139,10 +139,8 @@ rubocop:
     - 'export CONVERTED=test-the-use_this_template-button'
     - 'git clone . /tmp/"${CONVERTED}"-formula'
     - 'cd /tmp/"${CONVERTED}"-formula'
-    # Limit the version of `node` used by `pre-commit`, to avoid the following error:
-    #   .../bin/node: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found
-    - 'echo "default_language_version:" >> .pre-commit-config.yaml'
-    - 'echo "  node: 16.14.2" >> .pre-commit-config.yaml'
+    - 'git config user.email "test@example.com"'
+    - 'git config user.name "Test Name"'
     # Install `pre-commit` hooks
     - 'bin/install-hooks'
     # Run the conversion script with debug output
@@ -153,9 +151,7 @@ rubocop:
     # TODO: This should work from the env vars above automatically
     - 'bundle config set path "${BUNDLE_CACHE_PATH}"'
     - 'bundle config set without "${BUNDLE_WITHOUT}"'
-    - 'bundle update --bundler --conservative'
-    - 'bundle binstubs bundler --force'
-    - 'PATH=./bin:"$PATH" bundle install'
+    - 'bundle install'
   script:
     - 'bin/kitchen verify default-debian-11-master-py3'
 # REMOVEME>
