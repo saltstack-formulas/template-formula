@@ -1,5 +1,35 @@
 # Changelog
 
+## [5.0.10](https://github.com/saltstack-formulas/template-formula/compare/v5.0.9...v5.0.10) (2023-11-13)
+
+
+### Bug Fixes
+
+* broken install-hooks due to saltlint v0.8.0 ([7da11c9](https://github.com/saltstack-formulas/template-formula/commit/7da11c9c3ace8efc379cdec804420ca810e43548))
+
+
+### Continuous Integration
+
+* update the container images and refactor steps ([b84343e](https://github.com/saltstack-formulas/template-formula/commit/b84343ef831832c7b02326506d2398ef1d6fb67c))
+* **commitlint:** update action versions ([c69928d](https://github.com/saltstack-formulas/template-formula/commit/c69928d2495966daaf4ca8bf82dd53e999e1739c))
+* update `pre-commit` configuration inc. for pre-commit.ci [skip ci] ([32518b9](https://github.com/saltstack-formulas/template-formula/commit/32518b9798ae537f9448214126fb1bc11f2a0ac7))
+* **gitlab-ci:** fix test conversion job (reset back to [#249](https://github.com/saltstack-formulas/template-formula/issues/249)) [skip ci] ([6ea1cc2](https://github.com/saltstack-formulas/template-formula/commit/6ea1cc2f4066796ca00c2bf0cb630ef4302df660))
+
+
+### Styles
+
+* **default.sls:** fix minor typo ([3d1581e](https://github.com/saltstack-formulas/template-formula/commit/3d1581e72611bfdac1ae14c57b69921c45f6b886))
+* **inspec:** fix whitespace ([1df9861](https://github.com/saltstack-formulas/template-formula/commit/1df98610848bff149cb7c55549d691ca960005f9))
+
+
+### Tests
+
+* **_mapdata:** add verification file for `ubuntu-22` [skip ci] ([9349c83](https://github.com/saltstack-formulas/template-formula/commit/9349c838742a1396c092311e2529e80d3d76fabd))
+* **pre-commit:** switch to using `pre-commit`'s built-in file filtering ([46130c4](https://github.com/saltstack-formulas/template-formula/commit/46130c4c092c89dd372f2a3f3b14e7568375d067))
+* **pre-commit:** update `pre-commit` hooks ([2bd3ef9](https://github.com/saltstack-formulas/template-formula/commit/2bd3ef9a1835db081a86d3ea0f4434e3e17ce1a7))
+* **rstcheck:** ignore Markdown-style links as false positives ([b2c28aa](https://github.com/saltstack-formulas/template-formula/commit/b2c28aa906fcce406b01523e7b7eccd04e658984))
+* **system.rb:** add support for `mac_os_x` [skip ci] ([d46507b](https://github.com/saltstack-formulas/template-formula/commit/d46507ba82b2a197e1275d7c258f7245862c2662))
+
 ## [5.0.9](https://github.com/saltstack-formulas/template-formula/compare/v5.0.8...v5.0.9) (2022-04-25)
 
 
