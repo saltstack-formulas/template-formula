@@ -1,5 +1,18 @@
 # Changelog
 
+## [5.0.11](https://github.com/saltstack-formulas/template-formula/compare/v5.0.10...v5.0.11) (2023-12-04)
+
+
+### Continuous Integration
+
+* update container images ([963522f](https://github.com/saltstack-formulas/template-formula/commit/963522f342f34c30b3f222642eca71da73bdcc32))
+
+
+### Tests
+
+* **rubocop:** switch to using `pre-commit`'s built-in file filtering ([c3b4c14](https://github.com/saltstack-formulas/template-formula/commit/c3b4c1407051cda4421914921947f17de3101c6b))
+* **rubocop:** use `AllowedMethods` not deprecated `IgnoredMethods` ([9261a27](https://github.com/saltstack-formulas/template-formula/commit/9261a27794137490a8810522d6541a62a75a2011))
+
 ## [5.0.10](https://github.com/saltstack-formulas/template-formula/compare/v5.0.9...v5.0.10) (2023-11-13)
 
 
