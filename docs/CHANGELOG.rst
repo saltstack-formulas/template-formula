@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`5.0.12 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.11...v5.0.12>`_ (2024-01-02)
+-------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **suse:** correct OS grain (\ `6aee580 <https://github.com/saltstack-formulas/template-formula/commit/6aee5804d3d4282322c6421befefa7b803eca699>`_\ )
+
 `5.0.11 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.10...v5.0.11>`_ (2023-12-04)
 -------------------------------------------------------------------------------------------------------------
 
