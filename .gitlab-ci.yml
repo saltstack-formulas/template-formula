@@ -16,7 +16,7 @@
   image_commitlint: &image_commitlint 'jeff350/ssf-commitlint:18'
   image_dindruby: &image_dindruby 'jeff350/ci-dind-ruby:2.7.6-r0'
   image_dindrubybionic: &image_dindrubybionic 'jeff350/ssf-dind-ruby-bionic:2.7'
-  image_precommit: &image_precommit 'jeff350/ssf-pre-commit:2.21.0'
+  image_precommit: &image_precommit 'jeff350/ssf-pre-commit:2.9.2'
   image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest'
   image_semantic-release: &image_semanticrelease 'myii/ssf-semantic-release:15.14'
   # `services`
