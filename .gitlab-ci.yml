@@ -74,7 +74,10 @@ commitlint:
 
 pre-commit:
   stage: *stage_lint
-  image: *image_precommit
+  image:
+    name: *image_precommit
+    pull_policy: always
+
   # https://pre-commit.com/#gitlab-ci-example
   variables:
     PRE_COMMIT_HOME: '${CI_PROJECT_DIR}/.cache/pre-commit'
