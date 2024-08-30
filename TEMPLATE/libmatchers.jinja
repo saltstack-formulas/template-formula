@@ -161,28 +161,39 @@
           ) %}
 {%-     endif %}
 
-{#-     Add `merge:` option to `salt["config.get"]` if configured #}
-{%-     if cli not in ["ssh", "unknown"] and parsed.query_method == "config.get" and config_get_strategy %}
-{%-       set query_opts = {
-            "merge": config_get_strategy,
-            "delimiter": parsed.query_delimiter,
-          } %}
+{#-     Defaults for query #}
+{%-     set query_opts = {
+          "delimiter": parsed.query_delimiter,
+        } %}
+{%-     set query_opts_msg = (
+          ", delimiter='"
+          ~ parsed.query_delimiter
+          ~ "'"
+        ) %}
+
+{#-     Add `merge:` option to `salt["config.get"]` if config_get_strategy is provided #}
+{%-     if parsed.query_method == "config.get" and config_get_strategy %}
+{%-       do query_opts.update(
+            {
+              "merge": config_get_strategy
+            }
+          ) %}
 {%-       set query_opts_msg = (
-            ", delimiter='"
-            ~ parsed.query_delimiter
+            query_opts_msg
             ~ "', merge: strategy='"
             ~ config_get_strategy
             ~ "'"
           ) %}
-{%-     else %}
-{%-       if cli in ["ssh", "unknown"] %}
-{%-         do salt["log.warning"](
-              log_prefix
-              ~ "the 'delimiter' and 'merge' options of 'config.get' are skipped when the salt command type is '"
-              ~ cli
-              ~ "'"
-            ) %}
-{%-       endif %}
+{%-     endif  %}
+
+{#-     Reset 'query_opts' and 'query_opts_msg' if 'cli' is 'ssh' or 'unknown' #}
+{%-     if cli in ["ssh", "unknown"] %}
+{%-       do salt["log.warning"](
+            log_prefix
+            ~ "the 'delimiter' and 'merge' options of 'config.get' are skipped when the salt command type is '"
+            ~ cli
+            ~ "'"
+          ) %}
 {%-       set query_opts = {} %}
 {%-       set query_opts_msg = "" %}
 {%-     endif %}
