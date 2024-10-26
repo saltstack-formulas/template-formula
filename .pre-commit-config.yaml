@@ -24,7 +24,7 @@ repos:
         name: Check commit message using commitlint
         description: Lint commit message against @commitlint/config-conventional rules
         stages: [commit-msg]
-        additional_dependencies: ['@commitlint/config-conventional@17.1.0']
+        additional_dependencies: ['@commitlint/config-conventional@19.5.0']
   - repo: https://github.com/rubocop-hq/rubocop
     rev: v1.57.0
     hooks:
