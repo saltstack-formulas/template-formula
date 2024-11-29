@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   should-run:
-    name: Should run
+    name: Prep / Should run
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -22,18 +22,40 @@ jobs:
         uses:
           # yamllint disable-line rule:comments rule:line-length
           techneg-it/should-workflow-run@dcbb88600d59ec2842778ef1e2d41f680f876329 # v1.0.0
+  gtp:
+    name: Prep / Get platforms
+    needs:
+      - should-run
+    if: fromJSON(needs.should-run.outputs.should-run)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      test-platforms: ${{ steps.get-test-platforms.outputs.test-platforms }}
+    steps:
+      # yamllint disable-line rule:comments
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - id: get-test-platforms
+        run: |
+          PLATFORMS=$(
+            yq '[keys | .[] | select(test("^default-(deb|ubu)"))]' \
+              -o=json -I=0 .gitlab-ci.yml
+          )
+          OUTPUT="test-platforms=$PLATFORMS"
+          echo "Setting '$OUTPUT'"
+          echo "$OUTPUT" >> $GITHUB_OUTPUT
   pre-commit:
-    name: Run `pre-commit`
+    name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
     container: techneg/ci-pre-commit:v2.2.29
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      # yamllint disable-line rule:comments rule:line-length
+      # yamllint disable-line rule:comments
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Export Python package hash for caching
         run: echo "PYTHON_SHA256=$PYTHON_SHA256" >> $GITHUB_ENV
-      # yamllint disable-line rule:comments rule:line-length
+      # yamllint disable-line rule:comments
       - uses: actions/cache@v4.1.2
         with:
           path: ~/.cache/pre-commit
@@ -43,3 +65,57 @@ jobs:
         run: |
           git config --global --add safe.directory $(pwd)
           pre-commit run --all-files --color always --verbose
+  test:
+    name: Test / Kitchen
+    needs:
+      - gtp
+      - pre-commit
+      - should-run
+    if: fromJSON(needs.should-run.outputs.should-run)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: ${{ fromJSON(needs.gtp.outputs.test-platforms) }}
+    steps:
+      # yamllint disable-line rule:comments
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      # yamllint disable-line rule:comments
+      - uses: ruby/setup-ruby@v1.202.0
+        with:
+          bundler-cache: true
+          ruby-version: 3.1.2
+      - run: |
+          bin/kitchen test ${{ matrix.platform }}
+  test-conversion:
+    name: Test / Conversion
+    needs:
+      - pre-commit
+      - should-run
+    if: fromJSON(needs.should-run.outputs.should-run)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # yamllint disable-line rule:comments
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Convert the formula
+        run: |
+         export CONVERTED=test-the-use_this_template-button
+         git config user.email "test@example.com"
+         git config user.name "Test Name"
+         # Run the conversion script with debug output
+         DEBUG=true bin/convert-formula.sh "${CONVERTED}"
+         [ $(git rev-list HEAD --count) -eq 2 ]
+         # Quick visual check that correct files have been updated
+         git show --pretty="" --name-status
+         echo Done!
+      # yamllint disable-line rule:comments
+      - uses: ruby/setup-ruby@v1.202.0
+        with:
+          bundler-cache: true
+          ruby-version: 3.1.2
+      - name: Test / Kitchen
+        run: |
+         bin/kitchen list
+         bin/kitchen test default-debian-11-master-py3
