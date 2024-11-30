@@ -29,6 +29,12 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-added-large-files
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.29.4
+    hooks:
+      - id: check-github-workflows
+        name: Check GitHub workflows with check-jsonschema
+        args: ["--verbose"]
   - repo: https://github.com/rubocop-hq/rubocop
     rev: v1.57.0
     hooks:
