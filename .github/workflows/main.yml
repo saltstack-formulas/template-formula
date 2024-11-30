@@ -47,19 +47,19 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.2.29
+    container: techneg/ci-pre-commit:v2.3.1
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       # yamllint disable-line rule:comments
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Export Python package hash for caching
-        run: echo "PYTHON_SHA256=$PYTHON_SHA256" >> $GITHUB_ENV
+      - name: Export `CI_CACHE_ID` from container
+        run: echo "CI_CACHE_ID=$(cat /.ci_cache_id)" >> $GITHUB_ENV
       # yamllint disable-line rule:comments
       - uses: actions/cache@v4.1.2
         with:
           path: ~/.cache/pre-commit
-          key: "pre-commit-4|${{ env.PYTHON_SHA256 }}|\
+          key: "${{ env.CI_CACHE_ID }}|\
                 ${{ hashFiles('.pre-commit-config.yaml') }}"
       - name: Run `pre-commit`
         run: |
