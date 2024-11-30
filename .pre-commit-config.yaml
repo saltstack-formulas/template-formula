@@ -15,7 +15,8 @@ ci:
   autoupdate_schedule: quarterly
   skip: []
   submodules: false
-default_stages: [commit]
+default_install_hook_types: [commit-msg, pre-commit]
+default_stages: [pre-commit]
 repos:
   - repo: https://github.com/dafyddj/commitlint-pre-commit-hook
     rev: v2.3.0
@@ -25,6 +26,23 @@ repos:
         description: Lint commit message against @commitlint/config-conventional rules
         stages: [commit-msg]
         additional_dependencies: ['@commitlint/config-conventional@17.1.0']
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.29.4
+    hooks:
+      - id: check-github-workflows
+        name: Check GitHub workflows with check-jsonschema
+        args: [--verbose]
+      - id: check-gitlab-ci
+        name: Check Gitlab CI config with check-jsonschema
+        args: [--verbose]
+      - id: check-renovate
+        name: Check Renovate config with check-jsonschema
+        additional_dependencies: [json5==0.9.14]
+        args: [--verbose]
   - repo: https://github.com/rubocop-hq/rubocop
     rev: v1.57.0
     hooks:
@@ -78,7 +96,7 @@ repos:
     hooks:
       - id: rstcheck
         name: Check reST files using rstcheck
-        exclude: 'docs/CHANGELOG.rst'
+        exclude: docs/CHANGELOG.rst
         additional_dependencies: [sphinx==7.2.6]
   - repo: https://github.com/saltstack-formulas/mirrors-rst-lint
     rev: v1.3.2
