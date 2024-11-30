@@ -8,5 +8,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      # yamllint disable-line rule:comments
       - uses: actions/checkout@v4.2.2
+      # yamllint disable-line rule:comments rule:line-length
       - uses: wagoid/commitlint-github-action@v5.5.1
