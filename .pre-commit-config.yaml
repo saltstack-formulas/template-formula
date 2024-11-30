@@ -25,6 +25,10 @@ repos:
         description: Lint commit message against @commitlint/config-conventional rules
         stages: [commit-msg]
         additional_dependencies: ['@commitlint/config-conventional@17.1.0']
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
   - repo: https://github.com/rubocop-hq/rubocop
     rev: v1.57.0
     hooks:
