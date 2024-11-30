@@ -35,6 +35,9 @@ repos:
       - id: check-github-workflows
         name: Check GitHub workflows with check-jsonschema
         args: ["--verbose"]
+      - id: check-gitlab-ci
+        name: Check Gitlab CI config with check-jsonschema
+        args: ["--verbose"]
       - id: check-renovate
         name: Check Renovate config with check-jsonschema
         additional_dependencies: [json5==0.9.14]
