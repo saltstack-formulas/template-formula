@@ -31,7 +31,7 @@ repos:
     hooks:
       - id: check-added-large-files
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.29.4
+    rev: 0.30.0
     hooks:
       - id: check-github-workflows
         name: Check GitHub workflows with check-jsonschema
@@ -44,7 +44,7 @@ repos:
         additional_dependencies: [json5==0.9.14]
         args: [--verbose]
   - repo: https://github.com/rubocop-hq/rubocop
-    rev: v1.57.0
+    rev: v1.69.0
     hooks:
       - id: rubocop
         name: Check Ruby files with rubocop
@@ -57,7 +57,7 @@ repos:
         files: ^.*\.(sh|bash|ksh)$
         types: []
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.32.0
+    rev: v1.35.1
     hooks:
       - id: yamllint
         name: Check YAML syntax with yamllint
@@ -92,14 +92,14 @@ repos:
         name: Check Salt files using salt-lint
         files: ^.*\.(sls|jinja|j2|tmpl|tst)$
   - repo: https://github.com/myint/rstcheck
-    rev: v6.2.0
+    rev: v6.2.4
     hooks:
       - id: rstcheck
         name: Check reST files using rstcheck
         exclude: docs/CHANGELOG.rst
         additional_dependencies: [sphinx==7.2.6]
   - repo: https://github.com/saltstack-formulas/mirrors-rst-lint
-    rev: v1.3.2
+    rev: v1.4.0
     hooks:
       - id: rst-lint
         name: Check reST files using rst-lint
