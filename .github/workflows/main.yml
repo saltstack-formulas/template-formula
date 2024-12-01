@@ -138,12 +138,19 @@ jobs:
       # yamllint disable-line rule:comments rule:line-length
       - uses: codfish/semantic-release-action@b621d34fabe0940f031e89b6ebfea28322892a10 # v3.5.0
         with:
-          branches: ma(in|ster)
+          branches: '"ma(in|ster)"'
           dry-run: true
           plugins: |
-            [ "@semantic-release/commit-analyzer",
+            [
+              [
+                "@semantic-release/commit-analyzer",
+                {
+                  "releaseRules": "./release-rules.js"
+                }
+              ],
               "@semantic-release/release-notes-generator",
               "@semantic-release/github"
             ]
+          repository-url: ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
