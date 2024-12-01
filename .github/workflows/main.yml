@@ -119,3 +119,31 @@ jobs:
         run: |
          bin/kitchen list
          bin/kitchen test default-debian-11-master-py3
+  results:
+    name: Release / Collect results
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      checks: read
+    runs-on: ubuntu-latest
+    steps:
+      # yamllint disable-line rule:comments rule:line-length
+      - uses: poseidon/wait-for-status-checks@899c768d191b56eef585c18f8558da19e1f3e707 # v0.6.0
+        with:
+          ignore: Release / Collect results
+          token: ${{ secrets.GITHUB_TOKEN }}
+      # yamllint disable-line rule:comments
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      # yamllint disable-line rule:comments rule:line-length
+      - uses: codfish/semantic-release-action@b621d34fabe0940f031e89b6ebfea28322892a10 # v3.5.0
+        with:
+          branches: ma(in|ster)
+          dry-run: true
+          plugins: |
+            [ "@semantic-release/commit-analyzer",
+              "@semantic-release/release-notes-generator",
+              "@semantic-release/github"
+            ]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
