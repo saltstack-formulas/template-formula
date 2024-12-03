@@ -44,7 +44,7 @@ repos:
         additional_dependencies: [json5==0.9.14]
         args: [--verbose]
   - repo: https://github.com/rubocop-hq/rubocop
-    rev: v1.69.0
+    rev: v1.69.1
     hooks:
       - id: rubocop
         name: Check Ruby files with rubocop
