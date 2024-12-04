@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# CI/CD Tooling
+.gitlab-ci-local/
+
 # Distribution / packaging
 .Python
 env/
@@ -45,7 +48,7 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
-.kitchen
+.kitchen/
 .kitchen.local.yml
 kitchen.local.yml
 junit-*.xml
@@ -110,11 +113,17 @@ ENV/
 # Bundler
 .bundle/
 
+# Node.js/npm
+node_modules/
+
 # copied `.md` files used for conversion to `.rst` using `m2r`
 docs/*.md
 
 # Vim
 *.sw?
+
+# Salt package files (SPM)
+*.spm
 
 ## Collected when centralising formulas (check and sort)
 # `collectd-formula`
