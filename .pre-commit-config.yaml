@@ -30,6 +30,7 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-added-large-files
+        name: Check for added large files
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.30.0
     hooks:
