@@ -12,6 +12,9 @@
     "helpers:pinGitHubActionDigests"
   ],
   "automergeStrategy": "merge-commit",
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "matchManagers": [
