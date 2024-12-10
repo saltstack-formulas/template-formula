@@ -455,7 +455,7 @@ GEM
     mutex_m (0.1.2)
     net-scp (4.0.0)
       net-ssh (>= 2.6.5, < 8.0.0)
-    net-ssh (7.2.0)
+    net-ssh (7.3.0)
     net-ssh-gateway (2.0.0)
       net-ssh (>= 4.0.0)
     nokogiri (1.15.4)

@@ -1,0 +1,40 @@
+{
+  "forkProcessing": "enabled",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "enabledManagers": [
+    "bundler",
+    "github-actions",
+    "pre-commit"
+  ],
+  "extends": [
+    "config:recommended",
+    ":enablePreCommit",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "automergeStrategy": "merge-commit",
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "github-actions minor/patch"
+    },
+    {
+      "matchManagers": [
+        "pre-commit"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "pre-commit hook minor/patch"
+    }
+  ]
+}
