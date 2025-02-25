@@ -14,8 +14,8 @@
   stage_test: &stage_test 'test'
   # `image`
   image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.76'
-  image_dindruby: &image_dindruby 'dafyddj/ci-dind-python-ruby:2.0.2'
-  image_dindrubybionic: &image_dindrubybionic 'dafyddj/ci-dind-python-ruby:2.0.2'
+  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.45'
+  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.45'
   image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.4.10'
   image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest'
   image_semantic-release: &image_semanticrelease 'myii/ssf-semantic-release:15.14'
