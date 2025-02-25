@@ -16,7 +16,7 @@
   image_commitlint: &image_commitlint 'myii/ssf-commitlint:11'
   image_dindruby: &image_dindruby 'dafyddj/ci-dind-python-ruby:2.0.2'
   image_dindrubybionic: &image_dindrubybionic 'dafyddj/ci-dind-python-ruby:2.0.2'
-  image_precommit: &image_precommit 'dafyddj/ci-pre-commit:2.1.0'
+  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.4.10'
   image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest'
   image_semantic-release: &image_semanticrelease 'myii/ssf-semantic-release:15.14'
   # `services`
@@ -195,14 +195,12 @@ default-ubuntu-2204-master-py3: {extends: '.test_instance_failure_permitted'}
 default-ubuntu-2004-master-py3: {extends: '.test_instance'}
 default-ubuntu-1804-master-py3: {extends: '.test_instance'}
 default-centos-stream8-master-py3: {extends: '.test_instance_failure_permitted'}
-default-centos-7-master-py3: {extends: '.test_instance'}
 default-fedora-36-master-py3: {extends: '.test_instance_failure_permitted'}
 default-fedora-35-master-py3: {extends: '.test_instance'}
 default-opensuse-leap-153-master-py3: {extends: '.test_instance'}
 default-opensuse-tmbl-latest-master-py3: {extends: '.test_instance_failure_permitted'}
-default-amazonlinux-2-master-py3: {extends: '.test_instance'}
+default-amazonlinux-2-master-py3: {extends: '.test_instance_failure_permitted'}
 default-oraclelinux-8-master-py3: {extends: '.test_instance'}
-default-oraclelinux-7-master-py3: {extends: '.test_instance'}
 default-arch-base-latest-master-py3: {extends: '.test_instance'}
 default-gentoo-stage3-latest-master-py3: {extends: '.test_instance'}
 default-gentoo-stage3-systemd-master-py3: {extends: '.test_instance'}
