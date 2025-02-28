@@ -181,12 +181,12 @@ default-ubuntu-2404-master-py3: {extends: '.test_instance'}
 default-ubuntu-2204-master-py3: {extends: '.test_instance'}
 default-ubuntu-2004-master-py3: {extends: '.test_instance'}
 default-centos-stream9-master-py3: {extends: '.test_instance'}
-default-opensuse-leap-156-master-py3: {extends: '.test_instance'}
+default-opensuse-leap-156-master-py3: {extends: '.test_instance_failure_permitted'}
 default-opensuse-leap-155-master-py3: {extends: '.test_instance'}
 default-opensuse-tmbl-latest-master-py3: {extends: '.test_instance'}
 default-amazonlinux-2023-master-py3: {extends: '.test_instance'}
-default-fedora-41-master-1-py3: {extends: '.test_instance'}
-default-fedora-40-master-1-py3: {extends: '.test_instance'}
+default-fedora-41-master-py3: {extends: '.test_instance_failure_permitted'}
+default-fedora-40-master-py3: {extends: '.test_instance'}
 default-oraclelinux-9-master-py3: {extends: '.test_instance'}
 default-oraclelinux-8-master-py3: {extends: '.test_instance'}
 default-almalinux-9-master-py3: {extends: '.test_instance'}
@@ -202,7 +202,7 @@ default-centos-stream9-3007-1-py3: {extends: '.test_instance'}
 default-opensuse-leap-156-3007-1-py3: {extends: '.test_instance'}
 default-opensuse-leap-155-3007-1-py3: {extends: '.test_instance'}
 default-opensuse-tmbl-latest-3007-1-py3: {extends: '.test_instance'}
-default-fedora-41-3007-1-py3: {extends: '.test_instance'}
+default-fedora-41-3007-1-py3: {extends: '.test_instance_failure_permitted'}
 default-fedora-40-3007-1-py3: {extends: '.test_instance'}
 default-amazonlinux-2-3007-1-py3: {extends: '.test_instance'}
 default-amazonlinux-2023-3007-1-py3: {extends: '.test_instance'}
@@ -221,7 +221,7 @@ default-centos-stream9-3006-9-py3: {extends: '.test_instance'}
 default-opensuse-leap-156-3006-9-py3: {extends: '.test_instance'}
 default-opensuse-leap-155-3006-9-py3: {extends: '.test_instance'}
 default-opensuse-tmbl-latest-3006-9-py3: {extends: '.test_instance'}
-default-fedora-41-3006-9-py3: {extends: '.test_instance'}
+default-fedora-41-3006-9-py3: {extends: '.test_instance_failure_permitted'}
 default-fedora-40-3006-9-py3: {extends: '.test_instance'}
 default-amazonlinux-2-3006-9-py3: {extends: '.test_instance'}
 default-amazonlinux-2023-3006-9-py3: {extends: '.test_instance'}

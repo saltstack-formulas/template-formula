@@ -120,21 +120,21 @@ platforms:
       image: saltimages/salt-3007.1-py3:centos-stream9
   - name: opensuse-leap-155-3007-1-py3
     driver:
-      image: saltimages/salt-master-py3:opensuse-leap-15.5
+      image: saltimages/salt-3007.1-py3:opensuse-leap-15.5
     # Workaround to avoid intermittent failures on `opensuse-leap-15.5`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
   - name: opensuse-leap-156-3007-1-py3
     driver:
-      image: saltimages/salt-master-py3:opensuse-leap-15.6
+      image: saltimages/salt-3007.1-py3:opensuse-leap-15.6
     # Workaround to avoid intermittent failures on `opensuse-leap-15.6`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
   - name: opensuse-tmbl-latest-3007-1-py3
     driver:
-      image: saltimages/salt-master-py3:opensuse-tumbleweed-latest
+      image: saltimages/salt-3007.1-py3:opensuse-tumbleweed-latest
     # Workaround to avoid intermittent failures on `opensuse-tumbleweed`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
@@ -196,21 +196,21 @@ platforms:
       image: saltimages/salt-3006.9-py3:centos-stream9
   - name: opensuse-tmbl-latest-3006-9-py3
     driver:
-      image: saltimages/salt-master-py3:opensuse-tumbleweed-latest
+      image: saltimages/salt-3006.9-py3:opensuse-tumbleweed-latest
     # Workaround to avoid intermittent failures on `opensuse-tumbleweed`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
   - name: opensuse-leap-156-3006-9-py3
     driver:
-      image: saltimages/salt-master-py3:opensuse-leap-15.6
+      image: saltimages/salt-3006.9-py3:opensuse-leap-15.6
     # Workaround to avoid intermittent failures on `opensuse-leap-15.6`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
   - name: opensuse-leap-155-3006-9-py3
     driver:
-      image: saltimages/salt-master-py3:opensuse-leap-15.5
+      image: saltimages/salt-3006.9-py3:opensuse-leap-15.5
     # Workaround to avoid intermittent failures on `opensuse-leap-15.5`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
