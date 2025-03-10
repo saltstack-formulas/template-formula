@@ -64,6 +64,8 @@ convert_formula() {
 
   git mv TEMPLATE "$NEW_NAME"
 
+  git mv test/salt/states/TEMPLATE "test/salt/states/$NEW_NAME"
+
   # Replace TEMPLATE within sls and jinja files with py-safe formula name
   # due to python limitations on identifier names (no hyphen)
   # including when specifying jinja context variables
