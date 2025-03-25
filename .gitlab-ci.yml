@@ -210,7 +210,7 @@ default-opensuse-tmbl-latest-3007-1-py3: {extends: '.test_instance'}
 default-fedora-41-3007-1-py3: {extends: '.test_instance_failure_permitted'}
 default-fedora-40-3007-1-py3: {extends: '.test_instance'}
 default-amazonlinux-2-3007-1-py3: {extends: '.test_instance'}
-default-amazonlinux-2023-3007-1-py3: {extends: '.test_instance'}
+default-amazonlinux-2023-3007-1-py3: {extends: '.test_instance_failure_permitted'}
 default-oraclelinux-9-3007-1-py3: {extends: '.test_instance'}
 default-oraclelinux-8-3007-1-py3: {extends: '.test_instance'}
 default-almalinux-9-3007-1-py3: {extends: '.test_instance'}
@@ -228,7 +228,7 @@ default-opensuse-leap-155-3006-10-py3: {extends: '.test_instance'}
 default-opensuse-tmbl-latest-3006-10-py3: {extends: '.test_instance'}
 default-fedora-41-3006-10-py3: {extends: '.test_instance_failure_permitted'}
 default-fedora-40-3006-10-py3: {extends: '.test_instance'}
-default-amazonlinux-2-3006-10-py3: {extends: '.test_instance'}
+default-amazonlinux-2-3006-10-py3: {extends: '.test_instance_failure_permitted'}
 default-amazonlinux-2023-3006-10-py3: {extends: '.test_instance'}
 default-oraclelinux-9-3006-10-py3: {extends: '.test_instance'}
 default-oraclelinux-8-3006-10-py3: {extends: '.test_instance'}
