@@ -175,6 +175,11 @@ rubocop:
 test-formula-conversion: {extends: '.test_conversion'}
 # REMOVEME>
 # yamllint disable rule:line-length
+# Fedora 41+ will permit failure until this PR is merged into kitchen-docker
+# https://github.com/test-kitchen/kitchen-docker/pull/427 is merged
+# OpenSUSE master branch will fail until zypperpkg module is back in salt core
+# https://github.com/saltstack/great-module-migration/issues/14
+#
 default-debian-12-master-py3: {extends: '.test_instance'}
 default-debian-11-master-py3: {extends: '.test_instance'}
 default-ubuntu-2404-master-py3: {extends: '.test_instance'}
