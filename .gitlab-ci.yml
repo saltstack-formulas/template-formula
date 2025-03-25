@@ -217,25 +217,25 @@ default-almalinux-9-3007-1-py3: {extends: '.test_instance'}
 default-almalinux-8-3007-1-py3: {extends: '.test_instance'}
 default-rockylinux-9-3007-1-py3: {extends: '.test_instance'}
 default-rockylinux-8-3007-1-py3: {extends: '.test_instance'}
-default-debian-12-3006-9-py3: {extends: '.test_instance'}
-default-debian-11-3006-9-py3: {extends: '.test_instance'}
-default-ubuntu-2404-3006-9-py3: {extends: '.test_instance'}
-default-ubuntu-2204-3006-9-py3: {extends: '.test_instance'}
-default-ubuntu-2004-3006-9-py3: {extends: '.test_instance'}
-default-centos-stream9-3006-9-py3: {extends: '.test_instance'}
-default-opensuse-leap-156-3006-9-py3: {extends: '.test_instance'}
-default-opensuse-leap-155-3006-9-py3: {extends: '.test_instance'}
-default-opensuse-tmbl-latest-3006-9-py3: {extends: '.test_instance'}
-default-fedora-41-3006-9-py3: {extends: '.test_instance_failure_permitted'}
-default-fedora-40-3006-9-py3: {extends: '.test_instance'}
-default-amazonlinux-2-3006-9-py3: {extends: '.test_instance'}
-default-amazonlinux-2023-3006-9-py3: {extends: '.test_instance'}
-default-oraclelinux-9-3006-9-py3: {extends: '.test_instance'}
-default-oraclelinux-8-3006-9-py3: {extends: '.test_instance'}
-default-almalinux-9-3006-9-py3: {extends: '.test_instance'}
-default-almalinux-8-3006-9-py3: {extends: '.test_instance'}
-default-rockylinux-9-3006-9-py3: {extends: '.test_instance'}
-default-rockylinux-8-3006-9-py3: {extends: '.test_instance'}
+default-debian-12-3006-10-py3: {extends: '.test_instance'}
+default-debian-11-3006-10-py3: {extends: '.test_instance'}
+default-ubuntu-2404-3006-10-py3: {extends: '.test_instance'}
+default-ubuntu-2204-3006-10-py3: {extends: '.test_instance'}
+default-ubuntu-2004-3006-10-py3: {extends: '.test_instance'}
+default-centos-stream9-3006-10-py3: {extends: '.test_instance'}
+default-opensuse-leap-156-3006-10-py3: {extends: '.test_instance'}
+default-opensuse-leap-155-3006-10-py3: {extends: '.test_instance'}
+default-opensuse-tmbl-latest-3006-10-py3: {extends: '.test_instance'}
+default-fedora-41-3006-10-py3: {extends: '.test_instance_failure_permitted'}
+default-fedora-40-3006-10-py3: {extends: '.test_instance'}
+default-amazonlinux-2-3006-10-py3: {extends: '.test_instance'}
+default-amazonlinux-2023-3006-10-py3: {extends: '.test_instance'}
+default-oraclelinux-9-3006-10-py3: {extends: '.test_instance'}
+default-oraclelinux-8-3006-10-py3: {extends: '.test_instance'}
+default-almalinux-9-3006-10-py3: {extends: '.test_instance'}
+default-almalinux-8-3006-10-py3: {extends: '.test_instance'}
+default-rockylinux-9-3006-10-py3: {extends: '.test_instance'}
+default-rockylinux-8-3006-10-py3: {extends: '.test_instance'}
 # yamllint enable rule:line-length
 
 ###############################################################################
