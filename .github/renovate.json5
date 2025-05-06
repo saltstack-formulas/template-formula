@@ -1,0 +1,14 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  enabledManagers: [
+    'gitlabci',
+  ],
+  extends: [
+    'config:best-practices',
+  ],
+  automergeStrategy: 'merge-commit',
+  dependencyDashboardTitle: 'Renovate Dashboard',
+  schedule: [
+    '* * * * 2',        // Tuesdays only
+  ],
+}
