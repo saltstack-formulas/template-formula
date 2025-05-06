@@ -56,7 +56,9 @@ convert_formula() {
     | git commit-tree 'HEAD^{tree}')"
   git rm --quiet bin/convert-formula.sh AUTHORS.md CHANGELOG.md \
     docs/_static/css/custom.css docs/AUTHORS.rst docs/CHANGELOG.rst \
-    docs/conf.py docs/CONTRIBUTING_DOCS.rst docs/index.rst
+    docs/conf.py docs/CONTRIBUTING_DOCS.rst docs/index.rst \
+    .github/renovate.json5 \
+    && :
   tag_out=$(git tag --list | xargs git tag --delete)
   if [ "${DEBUG:-false}" = "true" ]; then
     echo "$tag_out"
