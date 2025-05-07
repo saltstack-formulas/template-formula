@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`5.0.14 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.13...v5.0.14>`_ (2025-05-07)
+-------------------------------------------------------------------------------------------------------------
+
+Tests
+^^^^^
+
+
+* **kitchen:** avoid lengthy waits for containers (\ `2db5865 <https://github.com/saltstack-formulas/template-formula/commit/2db58656b4dbccea0b50d3debdf2da9859f86ed6>`_\ )
+
 `5.0.13 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.12...v5.0.13>`_ (2025-05-07)
 -------------------------------------------------------------------------------------------------------------
 
