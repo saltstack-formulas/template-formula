@@ -98,3 +98,9 @@ repos:
     hooks:
       - id: renovate-config-validator
         name: Check Renovate config with renovate-config-validator
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.33.0
+    hooks:
+      - id: check-gitlab-ci
+        name: Check GitLab CI config with check-jsonschema
+        args: ["--verbose"]
