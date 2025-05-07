@@ -13,6 +13,7 @@
   stage_release: &stage_release 'release'
   stage_test: &stage_test 'test'
   # `image`
+  # yamllint disable rule:line-length
   image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.76'
   image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.45'
   image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.45'
@@ -22,6 +23,7 @@
   # `services`
   services_docker_dind: &services_docker_dind
     - 'docker:dind'
+  # yamllint enable rule:line-length
   # `variables`
   # https://forum.gitlab.com/t/gitlab-com-ci-caching-rubygems/5627/3
   # https://bundler.io/v1.16/bundle_config.html
