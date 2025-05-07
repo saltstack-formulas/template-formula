@@ -1,5 +1,32 @@
 # Changelog
 
+## [5.0.13](https://github.com/saltstack-formulas/template-formula/compare/v5.0.12...v5.0.13) (2025-05-07)
+
+
+### Continuous Integration
+
+* ignore `yamllint rule:line-length` for Docker images ([ec26bf1](https://github.com/saltstack-formulas/template-formula/commit/ec26bf1adba0833df44170978ae65492a2976b80))
+* **renovate:** initial commit of basic Renovate config ([bd7464b](https://github.com/saltstack-formulas/template-formula/commit/bd7464b80705a2b26a1f902ba9f1ff270680239f))
+* add mapdata for new os ([a1bdd12](https://github.com/saltstack-formulas/template-formula/commit/a1bdd126089d1e6d222580fe931e2632a9df1ed5))
+* remove EOL images & allow failure of `amazonlinux-2` ([6e6d524](https://github.com/saltstack-formulas/template-formula/commit/6e6d524ea4f2bf55115be2517c3556a7477138b5))
+* update `ci-commitlint` to v1.1.76 ([6cf5ef9](https://github.com/saltstack-formulas/template-formula/commit/6cf5ef9957f87a03bb4a4de4315e81fb712d923e))
+* update `ci-docker-python-ruby` to v2.2.45 ([78f551d](https://github.com/saltstack-formulas/template-formula/commit/78f551d6392160eeff181fc9e8c4aa53b2fca66d))
+* update `ci-pre-commit` to v2.4.10 ([f266a50](https://github.com/saltstack-formulas/template-formula/commit/f266a5065b93296b7e5c125a5991f381ed1a36f5))
+* update `ci-pre-commit` to v2.4.10 ([28d90f5](https://github.com/saltstack-formulas/template-formula/commit/28d90f506f5aae1d849f7324519ab5c74464126b))
+* update `ci-pre-commit` to v2.4.10 ([20de9ca](https://github.com/saltstack-formulas/template-formula/commit/20de9ca6386e5b8ce76dffd40978d935f9c0dc3b))
+* use latest test images ([417ca53](https://github.com/saltstack-formulas/template-formula/commit/417ca530dd961d47af6ed2132fddbca835989e6d))
+* use latest test images ([5fb252c](https://github.com/saltstack-formulas/template-formula/commit/5fb252c0340146cbacdb339cb1a5556f0f85aa8a))
+* use latest test images ([b41b8dc](https://github.com/saltstack-formulas/template-formula/commit/b41b8dc94bfdb658a881a6f7bded22e912bbb323))
+* use latest test images ([579a43b](https://github.com/saltstack-formulas/template-formula/commit/579a43b7a9c80ccb3bad179c61ee2af50ac139bb))
+* use latest test images ([b71ff75](https://github.com/saltstack-formulas/template-formula/commit/b71ff7523ae70b8501479ca943b885a1c283bf38))
+* use latest test images ([d53ceae](https://github.com/saltstack-formulas/template-formula/commit/d53ceae71bfb149e766f0bde28a20a469f2ab5f3))
+
+
+### Tests
+
+* **gitlab-ci:** check GitLab CI config using `check-jsonschema` ([670c139](https://github.com/saltstack-formulas/template-formula/commit/670c139f6b84667c9e9259ddf661f366753f18d4))
+* **pre-commit:** update deprecated stage name ([a82b2ed](https://github.com/saltstack-formulas/template-formula/commit/a82b2eda6d7968689975cf0bdadbff19c4841ed5))
+
 ## [5.0.12](https://github.com/saltstack-formulas/template-formula/compare/v5.0.11...v5.0.12) (2024-01-02)
 
 
