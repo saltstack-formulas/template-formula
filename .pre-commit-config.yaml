@@ -15,7 +15,7 @@ ci:
   autoupdate_schedule: quarterly
   skip: []
   submodules: false
-default_stages: [commit]
+default_stages: [pre-commit]
 repos:
   - repo: https://github.com/dafyddj/commitlint-pre-commit-hook
     rev: v2.3.0
