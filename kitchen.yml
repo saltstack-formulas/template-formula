@@ -20,6 +20,10 @@ provisioner:
   pillars_from_directories:
     - test/salt/pillar
 
+transport:
+  # Avoid lengthy waits when a container does not launch correctly
+  max_wait_until_ready: 180
+
 platforms:
   ## SALT `master`
   - name: debian-12-master-py3
