@@ -14,7 +14,7 @@
   stage_test: &stage_test 'test'
   # `image`
   # yamllint disable rule:line-length
-  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.76'
+  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.86@sha256:8c5ba8332790247b0bdd0e0f7a87fee169aa5405197a9cca4e79be30e45b0269'
   image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.45'
   image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.45'
   image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.4.10'
