@@ -53,6 +53,7 @@ repos:
         # 1. SLS files under directory `test/` which are state files
         # 2. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
         # 3. YAML files heavily reliant on Jinja
+        # 4. `.copier-answers.yml` and its variants which are auto-generated
         files: |
           (?x)^(
                 .*\.yaml|
@@ -64,6 +65,7 @@ repos:
           )$
         exclude: |
           (?x)^(
+                \.copier-answers(\..+)?\.ya?ml|
                 kitchen.vagrant.yml|
                 test/.*/states/.*\.sls
           )$
