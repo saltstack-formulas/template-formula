@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`5.0.15 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.14...v5.0.15>`_ (2025-05-09)
+-------------------------------------------------------------------------------------------------------------
+
+Tests
+^^^^^
+
+
+* **yamllint:** exclude auto-generated Copier files from linting (\ `6cda6ad <https://github.com/saltstack-formulas/template-formula/commit/6cda6adc52c836406eaeee618ae2228db3e0a0bc>`_\ )
+
 `5.0.14 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.13...v5.0.14>`_ (2025-05-07)
 -------------------------------------------------------------------------------------------------------------
 
