@@ -2,9 +2,11 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   enabledManagers: [
     'gitlabci',
+    'pre-commit',
   ],
   extends: [
     'config:best-practices',
+    ':enablePreCommit',
   ],
   automergeStrategy: 'merge-commit',
   dependencyDashboardTitle: 'Renovate Dashboard',
@@ -20,6 +22,16 @@
       matchUpdateTypes: [
         'minor',
         'patch',
+      ],
+    },
+    {
+      groupName: 'pre-commit hook minor/patch',
+      matchManagers: [
+        'pre-commit',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch'
       ],
     },
   ],
