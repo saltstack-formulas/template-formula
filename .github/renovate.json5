@@ -11,4 +11,16 @@
   schedule: [
     '* * * * 2',        // Tuesdays only
   ],
+  packageRules: [
+    {
+      groupName: 'GitLab CI Docker non-major images',
+      matchManagers: [
+        'gitlabci',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ],
+    },
+  ],
 }
