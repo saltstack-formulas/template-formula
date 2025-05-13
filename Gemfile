@@ -15,7 +15,7 @@ gem 'inspec', git: 'https://gitlab.com/saltstack-formulas/infrastructure/inspec'
 gem 'kitchen-docker', git: 'https://gitlab.com/saltstack-formulas/infrastructure/kitchen-docker', branch: 'ssf'
 # rubocop:enable Layout/LineLength
 
-gem 'kitchen-inspec', '2.6.2'
+gem 'kitchen-inspec', '3.0.0'
 gem 'kitchen-salt', '0.7.2'
 
 # Avoid the error 'pkeys are immutable on OpenSSL 3.0'
