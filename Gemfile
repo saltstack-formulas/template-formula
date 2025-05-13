@@ -21,4 +21,4 @@ gem 'kitchen-salt', '0.7.2'
 # Avoid the error 'pkeys are immutable on OpenSSL 3.0'
 gem 'net-ssh', '>= 7.0.0'
 
-gem 'test-kitchen', '3.6.0'
+gem 'test-kitchen', '3.7.0'
