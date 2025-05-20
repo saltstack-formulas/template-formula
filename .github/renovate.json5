@@ -12,7 +12,7 @@
   automergeStrategy: 'merge-commit',
   dependencyDashboardTitle: 'Renovate Dashboard',
   schedule: [
-    '* * * * 2',        // Tuesdays only
+    '* 0-5 * * 2',        // Tuesdays before 6AM only
   ],
   packageRules: [
     {
