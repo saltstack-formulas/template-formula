@@ -27,7 +27,7 @@
       ],
     },
     {
-      groupName: 'pre-commit hook minor/patch',
+      groupName: 'pre-commit non-major hooks',
       matchManagers: [
         'pre-commit',
       ],
