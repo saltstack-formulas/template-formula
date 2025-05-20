@@ -21,6 +21,7 @@
         'gitlabci',
       ],
       matchUpdateTypes: [
+        'digest',
         'minor',
         'patch',
       ],
