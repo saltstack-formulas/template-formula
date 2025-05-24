@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.0.16](https://github.com/saltstack-formulas/template-formula/compare/v5.0.15...v5.0.16) (2025-05-24)
+
+
+### Continuous Integration
+
+* **gitlab-ci:** remove `py3` from instance names ([076a6cb](https://github.com/saltstack-formulas/template-formula/commit/076a6cb875a880869685fe6fea31ac3a7f939203))
+* **gitlab-ci:** specify version for `dind` service image ([235a963](https://github.com/saltstack-formulas/template-formula/commit/235a963b6b771ae99543f3ddb0b2031d73936d46))
+* **renovate:** enable and group Pre-commit hook non-major updates ([d21a192](https://github.com/saltstack-formulas/template-formula/commit/d21a192c1c1ad062f631a7da9a1e160ed4866460))
+* **renovate:** group GitLab CI Docker images together ([0a8dd28](https://github.com/saltstack-formulas/template-formula/commit/0a8dd28c355f77f019fc595e5fc9c5883c84d46d))
+* **renovate:** improve wording ([079ec01](https://github.com/saltstack-formulas/template-formula/commit/079ec0189873b15f3e9f691b9ac0fa6f3b2d007a))
+* **renovate:** include digest updates in GitLab images group ([6146090](https://github.com/saltstack-formulas/template-formula/commit/614609094b522f4ec711f5690532934bec8878ce))
+* **renovate:** limit schedule to Tuesdays before 6AM ([9b3d017](https://github.com/saltstack-formulas/template-formula/commit/9b3d017bbd678febd2285bf6a39c12d2b59f734e))
+* update images for v3007.2 ([0741129](https://github.com/saltstack-formulas/template-formula/commit/0741129b2d11ce8d02a4f13cfab857b7c2cd3e5d))
+* **gitlab-ci:** simplify list of TestKitchen instances ([888286a](https://github.com/saltstack-formulas/template-formula/commit/888286a82a7ec53c9ce5022d70368a447466881c))
+* **renovate:** enable Bundler (Ruby Gems) updates ([2781f77](https://github.com/saltstack-formulas/template-formula/commit/2781f77703d88b09973a83818abb81087a68e670))
+
+
+### Styles
+
+* **gitlab-ci:** order instances alphabetically for consistency ([06cfa97](https://github.com/saltstack-formulas/template-formula/commit/06cfa9739a2cf12ef0120c3ca0564f613e2fe001))
+
 ## [5.0.15](https://github.com/saltstack-formulas/template-formula/compare/v5.0.14...v5.0.15) (2025-05-09)
 
 
