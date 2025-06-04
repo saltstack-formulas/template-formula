@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.17](https://github.com/saltstack-formulas/template-formula/compare/v5.0.16...v5.0.17) (2025-06-04)
+
+
+### Tests
+
+* update `commitlint` hook to v19.8.1 ([0d060d9](https://github.com/saltstack-formulas/template-formula/commit/0d060d93e3c54f9ed2ebb620d6b0ff62691c05e0))
+
 ## [5.0.16](https://github.com/saltstack-formulas/template-formula/compare/v5.0.15...v5.0.16) (2025-05-24)
 
 
