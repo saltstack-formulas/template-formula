@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`5.0.18 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.17...v5.0.18>`_ (2025-06-04)
+-------------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **gitlab-ci:** run ``commitlint`` in ``pre-commit`` job (\ `a5a6962 <https://github.com/saltstack-formulas/template-formula/commit/a5a6962840a35462482425d6c93abde63504d8a2>`_\ )
+* **workflows:** add new ``main`` workflow running ``pre-commit`` (\ `5bc2f5d <https://github.com/saltstack-formulas/template-formula/commit/5bc2f5da1d4cda245aff13180906bdd88e37e700>`_\ )
+
+Tests
+^^^^^
+
+
+* **github-actions:** check GitHub Actions using ``check-jsonschema`` (\ `1600e5f <https://github.com/saltstack-formulas/template-formula/commit/1600e5f92695bcd377aba31f7f877f6c6dff89da>`_\ )
+
 `5.0.17 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.16...v5.0.17>`_ (2025-06-04)
 -------------------------------------------------------------------------------------------------------------
 
