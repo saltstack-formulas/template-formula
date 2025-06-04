@@ -86,6 +86,7 @@ pre-commit:
       - '${PRE_COMMIT_HOME}'
   script:
     - 'pre-commit run --all-files --color always --verbose'
+    - 'pre-commit run --color always --hook-stage manual commitlint-ci'
 
 # Use a separate job for `rubocop` other than the one potentially run by `pre-commit`
 # - The `pre-commit` check will only be available for formulas that pass the default
