@@ -100,6 +100,9 @@ repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.33.0
     hooks:
+      - id: check-github-workflows
+        name: Check GitHub workflows with check-jsonschema
+        args: [--verbose]
       - id: check-gitlab-ci
         name: Check GitLab CI config with check-jsonschema
-        args: ["--verbose"]
+        args: [--verbose]
