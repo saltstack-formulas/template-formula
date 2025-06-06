@@ -30,11 +30,23 @@
   variables_bundler: &variables_bundler
     BUNDLE_CACHE_PATH: '${CI_PROJECT_DIR}/.cache/bundler'
     BUNDLE_WITHOUT: 'production'
-  # `cache`
   cache_bundler: &cache_bundler
-    key: '${CI_JOB_STAGE}'
+    key:
+      files:
+        - 'Gemfile.lock'
+      prefix: 'bundler'
     paths:
       - '${BUNDLE_CACHE_PATH}'
+  # https://pre-commit.com/#gitlab-ci-example
+  variables_pre-commit: &variables_pre-commit
+    PRE_COMMIT_HOME: '${CI_PROJECT_DIR}/.cache/pre-commit'
+  cache_pre-commit: &cache_pre-commit
+    key:
+      files:
+        - '.pre-commit-config.yaml'
+      prefix: 'pre-commit'
+    paths:
+      - '${PRE_COMMIT_HOME}'
 
 ###############################################################################
 # Define stages and global variables
@@ -78,15 +90,8 @@ pre-commit:
   stage: *stage_lint
   image: *image_precommit
   # https://pre-commit.com/#gitlab-ci-example
-  variables:
-    PRE_COMMIT_HOME: '${CI_PROJECT_DIR}/.cache/pre-commit'
-  cache:
-    key:
-      files:
-        - .pre-commit-config.yaml
-      prefix: pre-commit
-    paths:
-      - '${PRE_COMMIT_HOME}'
+  variables: *variables_pre-commit
+  cache: *cache_pre-commit
   script:
     - 'pre-commit run --all-files --color always --verbose'
     - 'pre-commit run --color always --hook-stage manual commitlint-ci'
@@ -137,8 +142,13 @@ rubocop:
   stage: *stage_test
   image: *image_dindrubybionic
   services: *services_docker_dind
-  variables: *variables_bundler
-  cache: *cache_bundler
+  variables:
+    <<: [*variables_bundler, *variables_pre-commit]
+  cache:
+    - <<: *cache_bundler
+      policy: 'pull'
+    - <<: *cache_pre-commit
+      policy: 'pull'
   before_script:
     - 'export CONVERTED=test-the-use_this_template-button'
     - 'git clone . /tmp/"${CONVERTED}"-formula'
