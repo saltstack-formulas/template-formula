@@ -22,7 +22,7 @@ provisioner:
 
 transport:
   # Avoid lengthy waits when a container does not launch correctly
-  max_wait_until_ready: 180
+  max_wait_until_ready: 60
 
 platforms:
   ## SALT `master`
