@@ -2,6 +2,25 @@
 Changelog
 =========
 
+`5.0.19 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.18...v5.0.19>`_ (2025-06-06)
+-------------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **gitlab-ci:** improve caching for ``bundler`` and ``test_conversion`` job (\ `6833620 <https://github.com/saltstack-formulas/template-formula/commit/683362093eddd47f0d2b16d49a059afe78e42781>`_\ )
+* **gitlab-ci:** optimise test instance caching (\ `efbd8c6 <https://github.com/saltstack-formulas/template-formula/commit/efbd8c682086aade92671e083496004888c226ff>`_\ )
+* update images for v3006.11 (\ `a9c769a <https://github.com/saltstack-formulas/template-formula/commit/a9c769ae170f8262e35def4d2bda5afc087eca18>`_\ )
+* update images for v3007.3 (\ `747c337 <https://github.com/saltstack-formulas/template-formula/commit/747c3370afec0e0600c3f7b7981705356c6f15ae>`_\ )
+* **gitlab-ci:** improve ``pre-commit`` caching (\ `fae68d8 <https://github.com/saltstack-formulas/template-formula/commit/fae68d8339731bfaf88be2762d3ee8dde4a6b758>`_\ )
+
+Tests
+^^^^^
+
+
+* **kitchen:** drop timeout to ``60`` seconds (\ `2817f52 <https://github.com/saltstack-formulas/template-formula/commit/2817f525cb7b1efa2e1f5c6c181437350b4a6bf0>`_\ )
+
 `5.0.18 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.17...v5.0.18>`_ (2025-06-04)
 -------------------------------------------------------------------------------------------------------------
 
