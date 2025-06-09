@@ -17,6 +17,13 @@ ci:
   submodules: false
 default_stages: [pre-commit]
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-merge-conflict
+        name: Check for Git merge conflicts
+        args: [--assume-in-merge]
+        exclude: ^docs/AUTHORS.rst$
   - repo: https://github.com/dafyddj/mirrors-commitlint
     rev: v19.8.1
     hooks:
