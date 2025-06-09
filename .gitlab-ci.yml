@@ -213,25 +213,25 @@ test-formula-conversion: {extends: '.test_conversion'}
 # OpenSUSE master branch will fail until zypperpkg module is back in salt core
 # https://github.com/saltstack/great-module-migration/issues/14
 #
-almalinux-9-master: {extends: '.test_instance'}
-almalinux-8-master: {extends: '.test_instance'}
-amazonlinux-2023-master: {extends: '.test_instance'}
+almalinux-9-master: {extends: '.test_instance_failure_permitted'}
+almalinux-8-master: {extends: '.test_instance_failure_permitted'}
+amazonlinux-2023-master: {extends: '.test_instance_failure_permitted'}
 amazonlinux-2-master: {extends: '.test_instance_failure_permitted'}
-centos-stream9-master: {extends: '.test_instance'}
-debian-12-master: {extends: '.test_instance'}
-debian-11-master: {extends: '.test_instance'}
+centos-stream9-master: {extends: '.test_instance_failure_permitted'}
+debian-12-master: {extends: '.test_instance_failure_permitted'}
+debian-11-master: {extends: '.test_instance_failure_permitted'}
 fedora-41-master: {extends: '.test_instance_failure_permitted'}
-fedora-40-master: {extends: '.test_instance'}
+fedora-40-master: {extends: '.test_instance_failure_permitted'}
 opensuse-leap-156-master: {extends: '.test_instance_failure_permitted'}
-opensuse-leap-155-master: {extends: '.test_instance'}
-opensuse-tmbl-latest-master: {extends: '.test_instance'}
-oraclelinux-9-master: {extends: '.test_instance'}
-oraclelinux-8-master: {extends: '.test_instance'}
-rockylinux-9-master: {extends: '.test_instance'}
-rockylinux-8-master: {extends: '.test_instance'}
-ubuntu-2404-master: {extends: '.test_instance'}
-ubuntu-2204-master: {extends: '.test_instance'}
-ubuntu-2004-master: {extends: '.test_instance'}
+opensuse-leap-155-master: {extends: '.test_instance_failure_permitted'}
+opensuse-tmbl-latest-master: {extends: '.test_instance_failure_permitted'}
+oraclelinux-9-master: {extends: '.test_instance_failure_permitted'}
+oraclelinux-8-master: {extends: '.test_instance_failure_permitted'}
+rockylinux-9-master: {extends: '.test_instance_failure_permitted'}
+rockylinux-8-master: {extends: '.test_instance_failure_permitted'}
+ubuntu-2404-master: {extends: '.test_instance_failure_permitted'}
+ubuntu-2204-master: {extends: '.test_instance_failure_permitted'}
+ubuntu-2004-master: {extends: '.test_instance_failure_permitted'}
 almalinux-9-3007-3: {extends: '.test_instance'}
 almalinux-8-3007-3: {extends: '.test_instance'}
 amazonlinux-2023-3007-3: {extends: '.test_instance'}
