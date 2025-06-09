@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`5.0.20 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.19...v5.0.20>`_ (2025-06-09)
+-------------------------------------------------------------------------------------------------------------
+
+Tests
+^^^^^
+
+
+* **pre-commit:** check for Git merge conflict markers (\ `895d4f9 <https://github.com/saltstack-formulas/template-formula/commit/895d4f90ebd851c74b1dd0b121f3a7f9d8618771>`_\ )
+
 `5.0.19 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.18...v5.0.19>`_ (2025-06-06)
 -------------------------------------------------------------------------------------------------------------
 
