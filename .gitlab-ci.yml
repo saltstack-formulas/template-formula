@@ -223,7 +223,6 @@ debian-11-master: {extends: '.test_instance_failure_permitted'}
 fedora-41-master: {extends: '.test_instance_failure_permitted'}
 fedora-40-master: {extends: '.test_instance_failure_permitted'}
 opensuse-leap-156-master: {extends: '.test_instance_failure_permitted'}
-opensuse-leap-155-master: {extends: '.test_instance_failure_permitted'}
 opensuse-tmbl-latest-master: {extends: '.test_instance_failure_permitted'}
 oraclelinux-9-master: {extends: '.test_instance_failure_permitted'}
 oraclelinux-8-master: {extends: '.test_instance_failure_permitted'}
@@ -242,7 +241,6 @@ debian-11-3007-3: {extends: '.test_instance'}
 fedora-41-3007-3: {extends: '.test_instance_failure_permitted'}
 fedora-40-3007-3: {extends: '.test_instance'}
 opensuse-leap-156-3007-3: {extends: '.test_instance'}
-opensuse-leap-155-3007-3: {extends: '.test_instance'}
 opensuse-tmbl-latest-3007-3: {extends: '.test_instance'}
 oraclelinux-9-3007-3: {extends: '.test_instance'}
 oraclelinux-8-3007-3: {extends: '.test_instance'}
@@ -261,7 +259,6 @@ debian-11-3006-11: {extends: '.test_instance'}
 fedora-41-3006-11: {extends: '.test_instance_failure_permitted'}
 fedora-40-3006-11: {extends: '.test_instance'}
 opensuse-leap-156-3006-11: {extends: '.test_instance'}
-opensuse-leap-155-3006-11: {extends: '.test_instance'}
 opensuse-tmbl-latest-3006-11: {extends: '.test_instance'}
 oraclelinux-9-3006-11: {extends: '.test_instance'}
 oraclelinux-8-3006-11: {extends: '.test_instance'}
