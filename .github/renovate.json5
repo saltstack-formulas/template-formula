@@ -6,11 +6,9 @@
     'pre-commit',
   ],
   extends: [
-    'config:best-practices',
+    'github>saltstack-formulas/.github',
     ':enablePreCommit',
   ],
-  automergeStrategy: 'merge-commit',
-  dependencyDashboardTitle: 'Renovate Dashboard',
   schedule: [
     '* 0-5 * * 2',        // Tuesdays before 6AM only
   ],
