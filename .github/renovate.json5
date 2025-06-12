@@ -7,32 +7,13 @@
   ],
   extends: [
     'github>saltstack-formulas/.github',
+    'github>saltstack-formulas/.github:groupManager(gitlabci,images)',
+    'github>saltstack-formulas/.github:groupManager(pre-commit,hooks)',
     ':enablePreCommit',
   ],
   schedule: [
     '* 0-5 * * 2',        // Tuesdays before 6AM only
   ],
   packageRules: [
-    {
-      groupName: 'GitLab CI Docker non-major images',
-      matchManagers: [
-        'gitlabci',
-      ],
-      matchUpdateTypes: [
-        'digest',
-        'minor',
-        'patch',
-      ],
-    },
-    {
-      groupName: 'pre-commit non-major hooks',
-      matchManagers: [
-        'pre-commit',
-      ],
-      matchUpdateTypes: [
-        'minor',
-        'patch'
-      ],
-    },
   ],
 }
