@@ -2,39 +2,20 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   enabledManagers: [
     'bundler',
+    'github-actions',
     'gitlabci',
     'pre-commit',
   ],
   extends: [
-    'config:best-practices',
+    'github>saltstack-formulas/.github',
+    'github>saltstack-formulas/.github:groupManager(github-actions,actions/images)',
+    'github>saltstack-formulas/.github:groupManager(gitlabci,images)',
+    'github>saltstack-formulas/.github:groupManager(pre-commit,hooks)',
     ':enablePreCommit',
   ],
-  automergeStrategy: 'merge-commit',
-  dependencyDashboardTitle: 'Renovate Dashboard',
   schedule: [
     '* 0-5 * * 2',        // Tuesdays before 6AM only
   ],
   packageRules: [
-    {
-      groupName: 'GitLab CI Docker non-major images',
-      matchManagers: [
-        'gitlabci',
-      ],
-      matchUpdateTypes: [
-        'digest',
-        'minor',
-        'patch',
-      ],
-    },
-    {
-      groupName: 'pre-commit non-major hooks',
-      matchManagers: [
-        'pre-commit',
-      ],
-      matchUpdateTypes: [
-        'minor',
-        'patch'
-      ],
-    },
   ],
 }
