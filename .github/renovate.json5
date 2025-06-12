@@ -2,11 +2,13 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   enabledManagers: [
     'bundler',
+    'github-actions',
     'gitlabci',
     'pre-commit',
   ],
   extends: [
     'github>saltstack-formulas/.github',
+    'github>saltstack-formulas/.github:groupManager(github-actions,actions/images)',
     'github>saltstack-formulas/.github:groupManager(gitlabci,images)',
     'github>saltstack-formulas/.github:groupManager(pre-commit,hooks)',
     ':enablePreCommit',
