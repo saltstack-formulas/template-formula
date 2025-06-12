@@ -27,6 +27,7 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
+    # yamllint disable-line rule:line-length
     container: techneg/ci-pre-commit:v2.3.3
     runs-on: ubuntu-latest
     timeout-minutes: 5
