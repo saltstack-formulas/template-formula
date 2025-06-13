@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
+# yamllint disable rule:comments
 name: Commitlint
 'on': [pull_request]
 
@@ -8,5 +9,6 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      # yamllint disable rule:line-length
       - uses: actions/checkout@v4
       - uses: wagoid/commitlint-github-action@v5
