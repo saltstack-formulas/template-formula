@@ -1,7 +1,6 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   enabledManagers: [
-    'bundler',
     'github-actions',
     'gitlabci',
     'pre-commit',
