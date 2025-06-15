@@ -52,24 +52,27 @@ jobs:
       - pre-commit
       - should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container:
-      image: techneg/ci-docker-python-ruby:v2.2.60@sha256:de98b8d1d3cf86639fe69bfc4f0416115d18300759c5ed2948ac56f973dd944f
-      volumes:
-        - .:/sockets
     runs-on: ubuntu-latest
-    services:
-      docker:
-        image: docker:dind
-        env:
-          DOCKER_HOST: unix:///sockets/dind.sock
-        options: --privileged
-        volumes:
-          - .:/sockets
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        platform: [debian-12-3006-12]
+        platform:
+          - debian-12-master
+          - debian-11-master
+          - ubuntu-2404-master
+          - ubuntu-2204-master
+          - ubuntu-2004-master
+          - debian-12-3007-4
+          - debian-11-3007-4
+          - ubuntu-2404-3007-4
+          - ubuntu-2204-3007-4
+          - ubuntu-2004-3007-4
+          - debian-12-3006-12
+          - debian-11-3006-12
+          - ubuntu-2404-3006-12
+          - ubuntu-2204-3006-12
+          - ubuntu-2004-3006-12
     steps:
       - name: Debug on runner (When re-run with "Enable debug logging" checked)
         if: runner.debug
@@ -77,22 +80,12 @@ jobs:
         with:
           detached: true
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      # - uses: ruby/setup-ruby@2a18b06812b0e15bb916e1df298d3e740422c47e # v1.203.0
-      #   with:
-      #     bundler-cache: true
-      #     ruby-version: 3.1
-      - env:
-          BUNDLE_DEPLOYMENT: true
-          DOCKER_HOST: unix:///sockets/dind.sock
-        run: |
-          cat <<EOF > kitchen.local.yml
-          driver:
-            use_internal_docker_network: true
-          EOF
-          bundle version
-          bundle config list
-          bundle install --no-cache
-          bin/kitchen test ${{ matrix.platform }}
+      - uses: ruby/setup-ruby@v1.245.0
+        with:
+          bundler-cache: true
+          ruby-version: '3.1'
+      - run: |
+          bin/kitchen verify ${{ matrix.platform }}
   results:
     name: Release / Collect results
     permissions:
@@ -103,7 +96,13 @@ jobs:
       # yamllint disable-line rule:line-length
       - uses: poseidon/wait-for-status-checks@899c768d191b56eef585c18f8558da19e1f3e707 # v0.6.0
         with:
-          ignore: Release / Collect results
+          ignore: >
+            Release / Collect results,
+            Test / Kitchen (debian-12-master),
+            Test / Kitchen (debian-11-master),
+            Test / Kitchen (ubuntu-2404-master),
+            Test / Kitchen (ubuntu-2204-master),
+            Test / Kitchen (ubuntu-2004-master),
           ignore_pattern: ^GitLab CI
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: echo "::notice ::Workflow success!"
