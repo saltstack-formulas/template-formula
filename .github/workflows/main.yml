@@ -20,12 +20,12 @@ jobs:
     steps:
       - id: action
         # yamllint disable-line rule:line-length
-        uses: techneg-it/should-workflow-run@dcbb88600d59ec2842778ef1e2d41f680f876329 # v1.0.0
+        uses: techneg-it/should-workflow-run@eff19348eb884f57e05bc6f05ae48ece3af14714 # v1.0.1
   pre-commit:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.4.25@sha256:ff5192e893c1079fbf70e3ce6bfc3773815041786a75659793158be930ba7803
+    container: techneg/ci-pre-commit:v2.4.26@sha256:60f5e15b35fd93a16bff63a6af078f2e61ca06baf1db18a7b30ebaf121f309ba
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -80,7 +80,7 @@ jobs:
         with:
           detached: true
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - uses: ruby/setup-ruby@v1.245.0
+      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
         with:
           bundler-cache: true
           ruby-version: '3.1'
