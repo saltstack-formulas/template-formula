@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.0.21](https://github.com/saltstack-formulas/template-formula/compare/v5.0.20...v5.0.21) (2025-06-16)
+
+
+### Continuous Integration
+
+* **workflows:** add testing for some platforms to GitHub Actions ([7eb8b73](https://github.com/saltstack-formulas/template-formula/commit/7eb8b737ce52ecf4e1ad0977732b53d81a28dbe7))
+* update images for v3006.12 & v3007.4 ([52f7dae](https://github.com/saltstack-formulas/template-formula/commit/52f7dae788ba58ab1be76f04e2749548a392c2f0))
+* **kitchen+gitlab:** remove OpenSUSE 15.5 (EOL) ([54bdd66](https://github.com/saltstack-formulas/template-formula/commit/54bdd661f8453ee2d4fce5d0be83e1b67b4a92f6))
+* **renovate:** disable Bundler (Ruby Gems) updates ([8a18188](https://github.com/saltstack-formulas/template-formula/commit/8a1818868966d51a4faae4aab30d0de4b4f0eb3f))
+* **renovate:** enable and group GitHub Actions updates ([0bb9c03](https://github.com/saltstack-formulas/template-formula/commit/0bb9c033f635355cf6207ab5b83039742fbae2d2))
+* **renovate:** use `groupManager` preset ([4061b00](https://github.com/saltstack-formulas/template-formula/commit/4061b00c81a5d64e7cd77f588035bc592023e060))
+* **renovate:** use org's default preset ([ef5b642](https://github.com/saltstack-formulas/template-formula/commit/ef5b642c0129a24b80ba4a28661180ee2fe16821))
+* **workflows:** checkout treeless clone w/ history/tags for `commitlint` ([e128c82](https://github.com/saltstack-formulas/template-formula/commit/e128c8203fa949c198e2cb362f38f891e224d9db))
+* **workflows:** exception for `line-length` ([f6eb9cf](https://github.com/saltstack-formulas/template-formula/commit/f6eb9cf0cf8a582e08e98a2ade35c26ca4269bb6))
+* allow failures on all `master` test instances ([aeb7926](https://github.com/saltstack-formulas/template-formula/commit/aeb7926b927f2c7c9f02442f133f680b45f58dba))
+
+
+### Tests
+
+* **yamllint:** allow for long words and Renovate-specific comments ([43a31a3](https://github.com/saltstack-formulas/template-formula/commit/43a31a39d6bd8e8a4121e07d6fb718f8a24f5b1e))
+
 ## [5.0.20](https://github.com/saltstack-formulas/template-formula/compare/v5.0.19...v5.0.20) (2025-06-09)
 
 
