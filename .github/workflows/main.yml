@@ -102,7 +102,7 @@ jobs:
             Test / Kitchen (debian-11-master),
             Test / Kitchen (ubuntu-2404-master),
             Test / Kitchen (ubuntu-2204-master),
-            Test / Kitchen (ubuntu-2004-master),
+            Test / Kitchen (ubuntu-2004-master)
           ignore_pattern: ^GitLab CI
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: echo "::notice ::Workflow success!"
