@@ -29,6 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - run: | # Needed because of bug #2031 in `actions/checkout`
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
@@ -41,11 +43,18 @@ jobs:
           path: ~/.cache/pre-commit
           key: "${{ env.CI_CACHE_ID }}|\
                 ${{ hashFiles('.pre-commit-config.yaml') }}"
+          restore-keys: |
+            ${{ env.CI_CACHE_ID }}|
+      - name: Build cache
+        shell: bash
+        run: |
+          pre-commit gc
+          echo "Installing hook environments"
+          time pre-commit install-hooks
       - name: Run `pre-commit`
         run: |
-          git config --global --add safe.directory $(pwd)
           pre-commit run --all-files --color always --verbose
-          pre-commit run --color always --hook-stage manual commitlint-ci
+          pre-commit run --color always --hook-stage manual --verbose commitlint-ci
   test:
     name: Test / Kitchen
     needs:
