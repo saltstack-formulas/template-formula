@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`5.0.22 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.21...v5.0.22>`_ (2025-06-24)
+-------------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **workflows:** improve ``pre-commit`` caching (\ `38d87fc <https://github.com/saltstack-formulas/template-formula/commit/38d87fc4d19da0c1c431d25b8bf4680e13f287be>`_\ )
+* **workflows:** remove trailing comma (\ `5039aba <https://github.com/saltstack-formulas/template-formula/commit/5039aba8fb809d427c31091b7b7e189190234b83>`_\ )
+
+Tests
+^^^^^
+
+
+* **pre-commit:** check JavaScript files using standardJS (\ `b0c7df4 <https://github.com/saltstack-formulas/template-formula/commit/b0c7df414a53b6a5da970170bb66dd7ffa75ae30>`_\ )
+
 `5.0.21 <https://github.com/saltstack-formulas/template-formula/compare/v5.0.20...v5.0.21>`_ (2025-06-16)
 -------------------------------------------------------------------------------------------------------------
 
