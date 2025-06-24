@@ -113,3 +113,8 @@ repos:
       - id: check-gitlab-ci
         name: Check GitLab CI config with check-jsonschema
         args: [--verbose]
+  - repo: https://github.com/standard/standard
+    rev: v17.1.2
+    hooks:
+      - id: standard
+        name: Check JavaScript files using standardJS
