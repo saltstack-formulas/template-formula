@@ -72,16 +72,16 @@ jobs:
           - ubuntu-2404-master
           - ubuntu-2204-master
           - ubuntu-2004-master
-          - debian-12-3007-5
-          - debian-11-3007-5
-          - ubuntu-2404-3007-5
-          - ubuntu-2204-3007-5
-          - ubuntu-2004-3007-5
-          - debian-12-3006-13
-          - debian-11-3006-13
-          - ubuntu-2404-3006-13
-          - ubuntu-2204-3006-13
-          - ubuntu-2004-3006-13
+          - debian-12-3007-6
+          - debian-11-3007-6
+          - ubuntu-2404-3007-6
+          - ubuntu-2204-3007-6
+          - ubuntu-2004-3007-6
+          - debian-12-3006-14
+          - debian-11-3006-14
+          - ubuntu-2404-3006-14
+          - ubuntu-2204-3006-14
+          - ubuntu-2004-3006-14
     steps:
       - name: Debug on runner (When re-run with "Enable debug logging" checked)
         if: runner.debug
