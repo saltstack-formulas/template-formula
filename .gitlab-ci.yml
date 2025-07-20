@@ -278,7 +278,5 @@ semantic-release:
   variables:
     MAINTAINER_TOKEN: '${GH_TOKEN}'
   script:
-    # Update `AUTHORS.md`
-    - '${HOME}/go/bin/maintainer contributor'
     # Run `semantic-release`
     - 'semantic-release'
