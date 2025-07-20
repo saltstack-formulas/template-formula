@@ -102,7 +102,7 @@ jobs:
       issues: write
       pull-requests: write
       checks: read
-    container: techneg/ci-semantic-release:v1.0.1
+    container: techneg/ci-semantic-release:v1.1.0
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
