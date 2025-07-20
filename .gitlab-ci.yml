@@ -273,7 +273,6 @@ ubuntu-2004-3006-14: {extends: '.test_instance'}
 # `release` stage: `semantic-release`
 ###############################################################################
 semantic-release:
-  only: *only_branch_master_parent_repo
   stage: *stage_release
   image: *image_semanticrelease
   variables:
