@@ -1,5 +1,12 @@
 # Changelog
 
+# [5.1.0](https://github.com/saltstack-formulas/template-formula/compare/v5.0.22...v5.1.0) (2025-07-31)
+
+
+### Features
+
+* **workflows:** dry-run `semantic-release` in GitHub Actions ([764cd4c](https://github.com/saltstack-formulas/template-formula/commit/764cd4ca8a735b4995162c4be8fea57e3dabba81))
+
 ## [5.0.22](https://github.com/saltstack-formulas/template-formula/compare/v5.0.21...v5.0.22) (2025-06-24)
 
 
