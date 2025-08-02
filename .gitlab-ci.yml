@@ -94,15 +94,6 @@ commitlint:
     # Set default commit hashes for `--from` and `--to`
     - 'export COMMITLINT_FROM="$(git merge-base upstream/master HEAD)"'
     - 'export COMMITLINT_TO="${CI_COMMIT_SHA}"'
-    # `coqbot` adds a merge commit to test PRs on top of the latest commit in
-    # the repo; amend this merge commit message to avoid failure
-    - |
-      if [ "${GITLAB_USER_LOGIN}" = "coqbot" ] \
-      && [ "${CI_COMMIT_BRANCH}" != "master" ]; then
-        git commit --amend -m \
-          'chore: reword coqbot merge commit message for commitlint'
-        export COMMITLINT_TO=HEAD
-      fi
     # Run `commitlint`
     - 'commitlint --from "${COMMITLINT_FROM}"
                   --to   "${COMMITLINT_TO}"
