@@ -27,7 +27,7 @@ jobs:
     if: fromJSON(needs.should-run.outputs.should-run)
     container: techneg/ci-pre-commit:v2.4.32@sha256:fa9eef397583add95f4fccefa6ecbbf7a3845d6168f07393da7bc619696b246b
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - run: | # Needed because of bug #2031 in `actions/checkout`
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
