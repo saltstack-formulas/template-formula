@@ -30,7 +30,7 @@ repos:
       - id: commitlint
       - id: commitlint-ci
   - repo: https://github.com/rubocop-hq/rubocop
-    rev: v1.79.0
+    rev: v1.79.2
     hooks:
       - id: rubocop
         name: Check Ruby files with rubocop
