@@ -31,7 +31,7 @@ jobs:
     steps:
       - run: | # Needed because of bug #2031 in `actions/checkout`
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -88,7 +88,7 @@ jobs:
         uses: mxschmitt/action-tmate@7b6a61a73bbb9793cb80ad69b8dd8ac19261834c # v3.22
         with:
           detached: true
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ruby/setup-ruby@829114fc20da43a41d27359103ec7a63020954d4 # v1.255.0
         with:
           bundler-cache: true
@@ -108,7 +108,7 @@ jobs:
     steps:
       - run: |  # Needed due to bug actions/checkout#2031
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       # yamllint disable-line rule:line-length
       - uses: poseidon/wait-for-status-checks@899c768d191b56eef585c18f8558da19e1f3e707 # v0.6.0
         with:
