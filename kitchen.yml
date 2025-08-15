@@ -19,6 +19,11 @@ provisioner:
     - .git
   pillars_from_directories:
     - test/salt/pillar
+  dependencies:
+    - name: parameters
+      path: ./test/salt/states
+    - name: TEMPLATE
+      path: ./test/salt/states
 
 transport:
   # Avoid lengthy waits when a container does not launch correctly
