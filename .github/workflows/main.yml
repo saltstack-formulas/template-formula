@@ -46,11 +46,10 @@ jobs:
           restore-keys: |
             ${{ env.CI_CACHE_ID }}|
       - name: Build cache
-        shell: bash
         run: |
           pre-commit gc
-          echo "Installing hook environments"
-          time pre-commit install-hooks
+          echo "Installing hook environments..."
+          time -f "Hook installation took %E" pre-commit install-hooks
       - name: Run `pre-commit`
         run: |
           pre-commit run --all-files --color always --verbose
