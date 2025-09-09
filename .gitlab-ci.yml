@@ -15,15 +15,15 @@
   stage_test: &stage_test 'test'
   # `image`
   # yamllint disable rule:line-length
-  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.103@sha256:3a2bf514e461769ed7b8880213e9637186bb7e17e0653b4a6ad3f249e4a60d33'
-  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.72@sha256:20873e73badc9d5ea93e20ef745f64fe957625a755a60c91e3dad600217e2c76'
-  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.72@sha256:20873e73badc9d5ea93e20ef745f64fe957625a755a60c91e3dad600217e2c76'
-  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.5@sha256:9d92b83a64378da3f9363668b0da244d9f12039d86579881d649ddb40ce261f3'
+  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.104@sha256:f407afc1d2a781af6d9af272f53229a577d73ddd3b1a2ead1c32c3abee151e3b'
+  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.73@sha256:7b9cf399f64ff29ec732057992bfed0bfb6131c42c318ee9eaa638086173923d'
+  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.73@sha256:7b9cf399f64ff29ec732057992bfed0bfb6131c42c318ee9eaa638086173923d'
+  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.6@sha256:d79ca519240a95a8f376c649f1ec2352826f2e46c6e62bbe771fba1758ee0bd4'
   image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:fe69f9642c7edde46bbd78326d2c42c6e13fc73694efb142e92e206725479328'
-  image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.4@sha256:e7cfe36054a56382568c0824d2539a67a956711d7b674093db320815e928ee27'
+  image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.5@sha256:1441df2f60b30fa0118249548c1d371085fa3cb75ba15e9b0fb33d6fec60ed51'
   # `services`
   services_docker_dind: &services_docker_dind
-    - 'docker:28.3.3-dind@sha256:a56b3bdde89315ed2cc0e4906e582b5033d93bf20d9cb9510c2cdd4e7f7690b1'
+    - 'docker:28.4.0-dind@sha256:831644212c5bdd0b3362b5855c87b980ea39a83c9e9adcef2ce03eced99a737a'
   # yamllint enable rule:line-length
   # `variables`
   # https://forum.gitlab.com/t/gitlab-com-ci-caching-rubygems/5627/3
