@@ -100,7 +100,7 @@ repos:
             )$
         additional_dependencies: [pygments==2.16.1]
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 41.98.4
+    rev: 41.115.2
     hooks:
       - id: renovate-config-validator
         name: Check Renovate config with renovate-config-validator
