@@ -55,3 +55,7 @@ TEMPLATE:
   # Just for testing purposes
   winner: pillar
   added_in_pillar: pillar_value
+  nested:
+    added_in_value: pillar
+nested:
+  pillar: nested_pillar_value
