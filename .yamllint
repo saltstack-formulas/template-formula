@@ -4,34 +4,9 @@
 # Extend the `default` configuration provided by `yamllint`
 extends: 'default'
 
-# Files to ignore completely
-# 1. All YAML files under directory `.bundle/`, introduced if gems are installed locally
-# 2. All YAML files under directory `.cache/`, introduced during the CI run
-# 3. All YAML files under directory `.git/`
-# 4. All YAML files under directory `node_modules/`, introduced during the CI run
-# 5. Any SLS files under directory `test/`, which are actually state files
-# 6. Any YAML files under directory `.kitchen/`, introduced during local testing
-# 7. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
-ignore: |
-  .bundle/
-  .cache/
-  .git/
-  node_modules/
-  test/**/states/**/*.sls
-  .kitchen/
-  kitchen.vagrant.yml
-
-yaml-files:
-  # Default settings
-  - '*.yaml'
-  - '*.yml'
-  - .salt-lint
-  - .yamllint
-  # SaltStack Formulas additional settings
-  - '*.example'
-  - test/**/*.sls
-
 rules:
+  comments:
+    min-spaces-from-content: 1
   empty-values:
     forbid-in-block-mappings: true
     forbid-in-flow-mappings: true
@@ -39,6 +14,7 @@ rules:
     # Increase from default of `80`
     # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
     max: 88
+    allow-non-breakable-inline-mappings: true
   octal-values:
     forbid-implicit-octal: true
     forbid-explicit-octal: true

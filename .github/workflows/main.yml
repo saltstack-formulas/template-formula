@@ -1,0 +1,129 @@
+---
+name: Test & release
+
+'on':
+  - pull_request
+  - push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != format('refs/heads/{0}',
+                          github.event.repository.default_branch) }}
+
+jobs:
+  should-run:
+    name: Prep / Should run
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      should-run: ${{ steps.action.outputs.should-run }}
+    steps:
+      - id: action
+        # yamllint disable-line rule:line-length
+        uses: techneg-it/should-workflow-run@eff19348eb884f57e05bc6f05ae48ece3af14714 # v1.0.1
+  pre-commit:
+    name: Lint / `pre-commit`
+    needs: should-run
+    if: fromJSON(needs.should-run.outputs.should-run)
+    container: techneg/ci-pre-commit:v2.5.10@sha256:b0d09e12852665ab5bd391cf0821bd7ac1509a89b0271b17d34f27c63bd63172
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - run: | # Needed because of bug #2031 in `actions/checkout`
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          filter: tree:0
+      - name: Export `CI_CACHE_ID` from container
+        run: echo "CI_CACHE_ID=$(cat /.ci_cache_id)" >> $GITHUB_ENV
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/pre-commit
+          key: "${{ env.CI_CACHE_ID }}|\
+                ${{ hashFiles('.pre-commit-config.yaml') }}"
+          restore-keys: |
+            ${{ env.CI_CACHE_ID }}|
+      - name: Build cache
+        run: |
+          pre-commit gc
+          echo "Installing hook environments..."
+          time -f "Hook installation took %E" pre-commit install-hooks
+      - name: Run `pre-commit`
+        run: |
+          pre-commit run --all-files --color always --verbose
+          pre-commit run --color always --hook-stage manual --verbose commitlint-ci
+  test:
+    name: Test / Kitchen
+    needs:
+      - pre-commit
+      - should-run
+    if: fromJSON(needs.should-run.outputs.should-run)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - debian-12-master
+          - debian-11-master
+          - ubuntu-2404-master
+          - ubuntu-2204-master
+          - ubuntu-2004-master
+          - debian-12-3007
+          - debian-11-3007
+          - ubuntu-2404-3007
+          - ubuntu-2204-3007
+          - ubuntu-2004-3007
+          - debian-12-3006
+          - debian-11-3006
+          - ubuntu-2404-3006
+          - ubuntu-2204-3006
+          - ubuntu-2004-3006
+    steps:
+      - name: Debug on runner (When re-run with "Enable debug logging" checked)
+        if: runner.debug
+        uses: mxschmitt/action-tmate@7b6a61a73bbb9793cb80ad69b8dd8ac19261834c # v3.22
+        with:
+          detached: true
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: ruby/setup-ruby@0481980f17b760ef6bca5e8c55809102a0af1e5a # v1.263.0
+        with:
+          bundler-cache: true
+          ruby-version: '3.1'
+      - run: |
+          bin/kitchen verify ${{ matrix.platform }}
+  results:
+    name: Release / Collect results
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      checks: read
+    container: techneg/ci-semantic-release:v1.2.9@sha256:291475f94d61137b2465b4c35c255e747762e1169a0503fe98c28109ad88f941
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - run: |  # Needed due to bug actions/checkout#2031
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      # yamllint disable-line rule:line-length
+      - uses: poseidon/wait-for-status-checks@899c768d191b56eef585c18f8558da19e1f3e707 # v0.6.0
+        with:
+          ignore: >
+            Release / Collect results,
+            Test / Kitchen (debian-12-master),
+            Test / Kitchen (debian-11-master),
+            Test / Kitchen (ubuntu-2404-master),
+            Test / Kitchen (ubuntu-2204-master),
+            Test / Kitchen (ubuntu-2004-master)
+          ignore_pattern: ^GitLab CI
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run `semantic-release`
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAINTAINER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          semantic-release --dry-run
+      - run: echo "::notice ::Workflow success!"

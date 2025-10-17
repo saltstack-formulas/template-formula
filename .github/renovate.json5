@@ -1,0 +1,20 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  enabledManagers: [
+    'github-actions',
+    'gitlabci',
+    'pre-commit',
+  ],
+  extends: [
+    'github>saltstack-formulas/.github',
+    'github>saltstack-formulas/.github:groupManager(github-actions,actions/images)',
+    'github>saltstack-formulas/.github:groupManager(gitlabci,images)',
+    'github>saltstack-formulas/.github:groupManager(pre-commit,hooks)',
+    ':enablePreCommit',
+  ],
+  schedule: [
+    '* 0-5 * * 2',        // Tuesdays before 6AM only
+  ],
+  packageRules: [
+  ],
+}

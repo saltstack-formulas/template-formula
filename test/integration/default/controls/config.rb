@@ -24,10 +24,10 @@ control 'TEMPLATE.config.file' do
       # rubocop:disable Lint/RedundantCopDisableDirective
       # rubocop:disable Layout/LineLength
       should include(
-        '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", '\
-        '"roles", "osfinger", "os", "os_family"], "source_files": '\
-        '{"TEMPLATE-config-file-file-managed": ["example.tmpl.jinja"], '\
-        '"TEMPLATE-subcomponent-config-file-file-managed": '\
+        '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", ' \
+        '"roles", "osfinger", "os", "os_family"], "source_files": ' \
+        '{"TEMPLATE-config-file-file-managed": ["example.tmpl.jinja"], ' \
+        '"TEMPLATE-subcomponent-config-file-file-managed": ' \
         '["subcomponent-example.tmpl.jinja"]}'
       )
       # rubocop:enable Layout/LineLength
