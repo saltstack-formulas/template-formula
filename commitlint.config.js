@@ -10,7 +10,6 @@ module.exports = {
     (commit) => commit.startsWith('chore(deps):'),
     (commit) => commit.startsWith('chore(release):'),
     (commit) => commit.startsWith('ci(pre-commit.ci):'),
-    (commit) => commit.startsWith('[CI merge]'),
-    (commit) => commit.includes('Co-authored-by: coqbot')
+    (commit) => commit.startsWith('[CI merge]')
   ]
 }
