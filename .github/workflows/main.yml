@@ -25,7 +25,7 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.5.10@sha256:b0d09e12852665ab5bd391cf0821bd7ac1509a89b0271b17d34f27c63bd63172
+    container: techneg/ci-pre-commit:v2.5.13@sha256:74ff429d2aa94c6b8012bd7caef04ae47fef33f5930cb4987a07b2170341b417
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -84,14 +84,14 @@ jobs:
     steps:
       - name: Debug on runner (When re-run with "Enable debug logging" checked)
         if: runner.debug
-        uses: mxschmitt/action-tmate@7b6a61a73bbb9793cb80ad69b8dd8ac19261834c # v3.22
+        uses: mxschmitt/action-tmate@c0afd6f790e3a5564914980036ebf83216678101 # v3.23
         with:
           detached: true
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: ruby/setup-ruby@0481980f17b760ef6bca5e8c55809102a0af1e5a # v1.263.0
+      - uses: ruby/setup-ruby@d5126b9b3579e429dd52e51e68624dda2e05be25 # v1.267.0
         with:
           bundler-cache: true
-          ruby-version: '3.1'
+          ruby-version: '3.4.7'
       - run: |
           bin/kitchen verify ${{ matrix.platform }}
   results:
@@ -101,7 +101,7 @@ jobs:
       issues: write
       pull-requests: write
       checks: read
-    container: techneg/ci-semantic-release:v1.2.9@sha256:291475f94d61137b2465b4c35c255e747762e1169a0503fe98c28109ad88f941
+    container: techneg/ci-semantic-release:v1.2.12@sha256:6ff67e6adfbf6fbb52b9ab8243ad7d913465fb40cb3ef5f40e320f8707802c93
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
