@@ -15,12 +15,12 @@
   stage_test: &stage_test 'test'
   # `image`
   # yamllint disable rule:line-length
-  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.110@sha256:663770b80010d5e40a5b6381b5516ba40e46e4885a1915ae24593b583210470e'
-  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.79@sha256:610202e24014bfd90fb519f41c08e8c221369e863c55184c41594807fed9d83e'
-  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.79@sha256:610202e24014bfd90fb519f41c08e8c221369e863c55184c41594807fed9d83e'
-  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.12@sha256:26710a389ef6825b989646cf106e596b07eee5a5701c7aca7c483cae3415cae5'
+  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.111@sha256:df22fed885f8e0fa089c0956244c85eefc21392828b98e03291340fe2c8f7d98'
+  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.80@sha256:45aa2694d70135afaf75fac3a504138565f1fe60068390228daf6e486eb6610b'
+  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.80@sha256:45aa2694d70135afaf75fac3a504138565f1fe60068390228daf6e486eb6610b'
+  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.13@sha256:74ff429d2aa94c6b8012bd7caef04ae47fef33f5930cb4987a07b2170341b417'
   image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:74850471782195453cdf91f4a5edf62b6fcc3365c124d4d975c7e87a702040d7'
-  image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.11@sha256:862f6190132034ad1c8473a6f6dc28d391f99c3d0ae198eac756484858ee34ef'
+  image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.12@sha256:6ff67e6adfbf6fbb52b9ab8243ad7d913465fb40cb3ef5f40e320f8707802c93'
   # `services`
   services_docker_dind: &services_docker_dind
     - 'docker:28.5.1-dind@sha256:24173119fa6d1b5b4a27ab164fa7863deb66574ee5b90fef3b85dc888ef1a7e6'
