@@ -105,7 +105,7 @@ repos:
       - id: renovate-config-validator
         name: Check Renovate config with renovate-config-validator
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.34.1
+    rev: 0.35.0
     hooks:
       - id: check-github-workflows
         name: Check GitHub workflows with check-jsonschema
