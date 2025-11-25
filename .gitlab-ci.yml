@@ -23,7 +23,7 @@
   image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.16@sha256:48234e3cd479efc11f82060702c7f6dc6ef0b4db9cf8189bedb6a86bcdd05e31'
   # `services`
   services_docker_dind: &services_docker_dind
-    - 'docker:28.5.2-dind@sha256:2a232a42256f70d78e3cc5d2b5d6b3276710a0de0596c145f627ecfae90282ac'
+    - 'docker:29.0.4-dind@sha256:c9699f4fc7365e8daad3eb48ce3b62dc118b2a5267f7be7bcd3c4e4b2f1cfb4c'
   # yamllint enable rule:line-length
   # `variables`
   # https://forum.gitlab.com/t/gitlab-com-ci-caching-rubygems/5627/3
