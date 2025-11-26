@@ -12,7 +12,7 @@ gem 'inspec', git: 'https://gitlab.com/saltstack-formulas/infrastructure/inspec'
 # improvement: avoid package installations which are already covered by the
 # `salt-image-builder` (i.e. the pre-salted images that we're using)
 # rubocop:disable Layout/LineLength
-gem 'kitchen-docker', git: 'https://gitlab.com/saltstack-formulas/infrastructure/kitchen-docker', branch: 'ssf'
+gem 'kitchen-docker', git: 'https://github.com/test-kitchen/kitchen-docker', ref: '511e4ad36856b9e2eccceb56603586e6cebd296a'
 # rubocop:enable Layout/LineLength
 
 gem 'kitchen-inspec', '3.0.0'
