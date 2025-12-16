@@ -25,7 +25,7 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.5.20@sha256:ea51c24e8c4576781ffe030a106d1d1847b350aa760d967dbdf6e732749c1178
+    container: techneg/ci-pre-commit:v2.5.21@sha256:b50f05625ca87de51b04015572a1db46007b537f184d3e05746bca57a5754a72
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -88,7 +88,7 @@ jobs:
         with:
           detached: true
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      - uses: ruby/setup-ruby@d697be2f83c6234b20877c3b5eac7a7f342f0d0c # v1.269.0
+      - uses: ruby/setup-ruby@ac793fdd38cc468a4dd57246fa9d0e868aba9085 # v1.270.0
         with:
           bundler-cache: true
           ruby-version: '3.1'
@@ -101,7 +101,7 @@ jobs:
       issues: write
       pull-requests: write
       checks: read
-    container: techneg/ci-semantic-release:v1.2.18@sha256:9e1d98f7ca33f10086b320dcbe0419b10f219fac73086b354153e311bd64aa6c
+    container: techneg/ci-semantic-release:v1.2.19@sha256:3a9dc0df231f093eaf05c117e3055383c356376d4c6a18737aeaaaf128241166
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
