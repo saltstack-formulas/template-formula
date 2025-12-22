@@ -3,7 +3,7 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split("/")[0] %}
-{%- from tplroot ~ "/libmatchers.jinja" import parse_matchers, query_map with context %}
+{%- from tplroot ~ "/_libs/libmatchers.jinja" import parse_matchers, query_map with context %}
 
 {%- set _default_config_dirs = [
       "parameters/",

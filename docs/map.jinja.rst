@@ -293,7 +293,7 @@ The ``map.jinja`` file aggregates configuration values from several sources:
 
 For the values loaded from YAML files, ``map.jinja`` will automatically try to load a Jinja2 template with the same name as the YAML file with the addition of the ``.jinja`` extension, for example ``foo/bar/quux.yaml.jinja``.
 
-After loading values from all sources, it will try to include the ``salt://{{ tplroot }}/post-map.jinja`` Jinja file if it exists which can post-process the ``mapdata`` variable.
+After loading values from all sources, it will try to include the ``salt://{{ tplroot }}/parameters/post-map.jinja`` Jinja file if it exists which can post-process the ``mapdata`` variable.
 
 Configuring ``map.jinja`` sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -458,7 +458,7 @@ Here is the best way to use it in an ``sls`` file:
 
     {#- Get the `tplroot` from `tpldir` #}
     {%- set tplroot = tpldir.split("/")[0] %}
-    {%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE with context %}
+    {%- from tplroot ~ "/_libs/map.jinja" import mapdata as TEMPLATE with context %}
 
     test-does-nothing-but-display-TEMPLATE-as-json:
       test.nop:
@@ -480,8 +480,8 @@ Here is an example based on `template-formula/TEMPLATE/config/file.sls`_:
     {#- Get the `tplroot` from `tpldir` #}
     {%- set tplroot = tpldir.split('/')[0] %}
     {%- set sls_package_install = tplroot ~ '.package.install' %}
-    {%- from tplroot ~ "/map.jinja" import mapdata as TEMPLATE with context %}
-    {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
+    {%- from tplroot ~ "/_libs/map.jinja" import mapdata as TEMPLATE with context %}
+    {%- from tplroot ~ "/_libs/libtofs.jinja" import files_switch with context %}
 
     include:
       - {{ sls_package_install }}
