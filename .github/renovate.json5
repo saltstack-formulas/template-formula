@@ -12,6 +12,7 @@
     'github>saltstack-formulas/.github:groupManager(gitlabci,images)',
     'github>saltstack-formulas/.github:groupManager(pre-commit,hooks)',
     ':enablePreCommit',
+    ':prHourlyLimit4',
   ],
   schedule: [
     '* 0-5 * * 2',        // Tuesdays before 6AM only
