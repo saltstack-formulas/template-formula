@@ -9,7 +9,7 @@
     'github>saltstack-formulas/.github',
     'github>saltstack-formulas/.github:automerge-for-formulas',
     'github>saltstack-formulas/.github:update-github-actions',
-    'github>saltstack-formulas/.github:groupManager(gitlabci,images)',
+    'github>saltstack-formulas/.github:update-gitlab-ci',
     'github>saltstack-formulas/.github:groupManager(pre-commit,hooks)',
     ':enablePreCommit',
     ':prHourlyLimit4',
