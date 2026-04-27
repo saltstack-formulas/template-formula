@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# This is a placeholder version to remind us to update the Gemfile
+# when a new stable Chef Workstation is released
+# renovate: chef-workstation 25.9.1094
+
 source ENV.fetch('PROXY_RUBYGEMSORG', 'https://rubygems.org')
 
 # Install the `inspec` gem using `git` because versions after `4.22.22`
