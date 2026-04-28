@@ -2,7 +2,7 @@
 
 # This is a placeholder version to remind us to update the Gemfile
 # when a new stable Chef Workstation is released
-# renovate: chef-workstation 25.9.1094
+# renovate: chef-workstation 25.13.7
 
 source ENV.fetch('PROXY_RUBYGEMSORG', 'https://rubygems.org')
 
@@ -19,10 +19,9 @@ gem 'inspec', git: 'https://gitlab.com/saltstack-formulas/infrastructure/inspec'
 gem 'kitchen-docker', git: 'https://github.com/test-kitchen/kitchen-docker', ref: '511e4ad36856b9e2eccceb56603586e6cebd296a'
 # rubocop:enable Layout/LineLength
 
-gem 'kitchen-inspec', '3.0.0'
+gem 'kitchen-inspec', '3.1.0'
 gem 'kitchen-salt', '0.7.2'
 
-# Avoid the error 'pkeys are immutable on OpenSSL 3.0'
-gem 'net-ssh', '>= 7.0.0'
+gem 'net-ssh', '7.3.0'
 
-gem 'test-kitchen', '3.9.0'
+gem 'test-kitchen', '3.9.1'
