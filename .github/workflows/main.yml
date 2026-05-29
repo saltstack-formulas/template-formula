@@ -71,6 +71,11 @@ jobs:
           - ubuntu-2404-master
           - ubuntu-2204-master
           - ubuntu-2004-master
+          - debian-12-3008
+          - debian-11-3008
+          - ubuntu-2404-3008
+          - ubuntu-2204-3008
+          - ubuntu-2004-3008
           - debian-12-3007
           - debian-11-3007
           - ubuntu-2404-3007
