@@ -25,7 +25,7 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.5.44@sha256:e651cd9efda211fc44bece0073579ed129389fdfaadfe9c70374ef83e224e913
+    container: techneg/ci-pre-commit:v2.5.45@sha256:bef8c61363feadbe5c5b66abc87d7504e71bc72f50baaf5b2b36dc6b3a5ed073
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -89,7 +89,7 @@ jobs:
     steps:
       - name: Debug on runner (When re-run with "Enable debug logging" checked)
         if: runner.debug
-        uses: mxschmitt/action-tmate@c0afd6f790e3a5564914980036ebf83216678101 # v3.23
+        uses: mxschmitt/action-tmate@35b54afac29c97fb54faba5b513f8fbd1882f113 # v3.24
         with:
           detached: true
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -106,7 +106,7 @@ jobs:
       issues: write
       pull-requests: write
       checks: read
-    container: techneg/ci-semantic-release:v1.2.42@sha256:0f29918b74e53c974bea28eef546f35fdadfcdb40ea69a3ef19777f21c1d5c96
+    container: techneg/ci-semantic-release:v1.2.43@sha256:7d28707c511e7291cf098cf8f04f1da0f7fffeae897d32910cceaf57acd786bb
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
