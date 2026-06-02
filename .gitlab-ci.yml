@@ -19,7 +19,7 @@
   image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.112@sha256:fce4a39620b9de05356bcab1a4ab56e036462c00065d505c0548867448dc58b1'
   image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.112@sha256:fce4a39620b9de05356bcab1a4ab56e036462c00065d505c0548867448dc58b1'
   image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.45@sha256:bef8c61363feadbe5c5b66abc87d7504e71bc72f50baaf5b2b36dc6b3a5ed073'
-  image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:a604eaacb2f133777754e37a22b8895fd8d4ee2a4763ba960a057a5daff443a2'
+  image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:a2abed57112d1931b77b30138d8f6a211303f10f2d03d42513cfbe7de1e25963'
   image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.43@sha256:7d28707c511e7291cf098cf8f04f1da0f7fffeae897d32910cceaf57acd786bb'
   # `services`
   services_docker_dind: &services_docker_dind
