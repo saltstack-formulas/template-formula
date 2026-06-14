@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Used to test custom delimiters
+---
+merge_lists: true
+values:
+  sources:
+    - Y:I:!@nested!pillar
+...
