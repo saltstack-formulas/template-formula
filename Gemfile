@@ -2,7 +2,7 @@
 
 # This is a placeholder version to remind us to update the Gemfile
 # when a new stable Chef Workstation is released
-# renovate: chef-workstation 25.13.7
+# renovate: chef-workstation 25.14.2
 
 source ENV.fetch('PROXY_RUBYGEMSORG', 'https://rubygems.org')
 
