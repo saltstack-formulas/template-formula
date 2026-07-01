@@ -3,7 +3,7 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split("/")[0] %}
-{%- from tplroot ~ "/libsaltcli.jinja" import cli with context %}
+{%- from tplroot ~ "/_libs/libsaltcli.jinja" import cli with context %}
 
 {%- set query_map = {
       "C": "config.get",
