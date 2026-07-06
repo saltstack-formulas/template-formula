@@ -86,6 +86,10 @@ build-cache:
 commitlint:
   extends: '.lint_job'
   image: *image_commitlint
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      when: never
+    - when: on_success
   script:
     # Add `upstream` remote to get access to `upstream/master`
     - 'git remote add upstream
