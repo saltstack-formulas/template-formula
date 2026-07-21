@@ -25,13 +25,13 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.5.50@sha256:ee83e831fcd5917ef2877eacfb6618a786fa258a597cabb6f1be55af048c96bb
+    container: techneg/ci-pre-commit:v2.5.51@sha256:80bb3816f84f652f1ca876c1390fe786a5bd698b3d1b493166e4fb704ba6da58
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - run: | # Needed because of bug #2031 in `actions/checkout`
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -92,8 +92,8 @@ jobs:
         uses: mxschmitt/action-tmate@35b54afac29c97fb54faba5b513f8fbd1882f113 # v3.24
         with:
           detached: true
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: ruby/setup-ruby@d45b1a4e94b71acab930e56e79c6aa188764e7f9 # v1.316.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ruby/setup-ruby@003a5c4d8d6321bd302e38f6f0ec593f77f06600 # v1.319.0
         with:
           bundler-cache: true
           ruby-version: '3.1'
@@ -106,13 +106,13 @@ jobs:
       issues: write
       pull-requests: write
       checks: read
-    container: techneg/ci-semantic-release:v1.2.49@sha256:4eddb9d33bab5729f748dcbc95d8b56d59f09c9ddf35e02d4815f79dbb8ee048
+    container: techneg/ci-semantic-release:v1.2.50@sha256:1d7b65480db6d90d8b1b4a0721842db363cc660933b05936c398a1ccb9b3d19e
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - run: |  # Needed due to bug actions/checkout#2031
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # yamllint disable-line rule:line-length
       - uses: poseidon/wait-for-status-checks@899c768d191b56eef585c18f8558da19e1f3e707 # v0.6.0
         with:
