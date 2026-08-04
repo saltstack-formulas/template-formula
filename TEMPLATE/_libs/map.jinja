@@ -3,7 +3,7 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split("/")[0] %}
-{%- from tplroot ~ "/libmapstack.jinja" import mapstack with context %}
+{%- from tplroot ~ "/_libs/libmapstack.jinja" import mapstack with context %}
 
 {#- Where to lookup parameters source files #}
 {%- set formula_param_dir = tplroot ~ "/parameters" %}
@@ -63,4 +63,4 @@
 
 {#- Per formula post-processing of `mapdata` if it exists #}
 {%- do salt["log.debug"]("map.jinja: post-processing of 'mapdata'") %}
-{%- include tplroot ~ "/post-map.jinja" ignore missing %}
+{%- include formula_param_dir ~ "/post-map.jinja" ignore missing %}
