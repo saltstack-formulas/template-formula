@@ -20,7 +20,10 @@ values:
     - C@TEMPLATE:lookup
     - C@TEMPLATE
     - Y:G@id
+    - Y:I:!@nested!pillar
   master: template-master
+  nested:
+    added_in_value: yaml
   pkg:
     name: bash
   rootgroup: root
