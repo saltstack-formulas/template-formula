@@ -25,10 +25,5 @@
       matchDepTypes: ['uses-with'],
       enabled: false,
     },
-    {
-      // Ignore Docker `dind` versions v29.7 and later until bugs are resolved
-      matchDepNames: ['docker'],
-      allowedVersions: '<29.7',
-    },
   ],
 }
