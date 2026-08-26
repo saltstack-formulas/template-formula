@@ -19,7 +19,6 @@
   image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.123@sha256:832ef08ef2e2e6248ec5c2a0479a38b9f5178de66827c9992611eb53d1375087'
   image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.123@sha256:832ef08ef2e2e6248ec5c2a0479a38b9f5178de66827c9992611eb53d1375087'
   image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.56@sha256:d98d2ba62822b66aa4349ed93b29aee845045cedcc4ba150c6a6c5069426245a'
-  image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:a2abed57112d1931b77b30138d8f6a211303f10f2d03d42513cfbe7de1e25963'
   image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.56@sha256:4f14752d39fd4c090279b52d7e919874e4219d71c66f513481fe9328e3d05b1b'
   # `services`
   services_docker_dind: &services_docker_dind
@@ -77,7 +76,7 @@ build-cache:
   script: *bundle_install
 
 ###############################################################################
-# `lint` stage: `commitlint`, `pre-commit` & `rubocop` (latest, failure allowed)
+# `lint` stage: `commitlint`, `pre-commit`
 ###############################################################################
 .lint_job:
   stage: *stage_lint
@@ -112,19 +111,6 @@ pre-commit:
   script:
     - 'pre-commit run --all-files --color always --verbose'
     - 'pre-commit run --color always --hook-stage manual commitlint-ci'
-
-# Use a separate job for `rubocop` other than the one potentially run by `pre-commit`
-# - The `pre-commit` check will only be available for formulas that pass the default
-#   `rubocop` check -- and must continue to do so
-# - This job is allowed to fail, so can be used for all formulas
-# - Furthermore, this job uses all of the latest `rubocop` features & cops,
-#   which will help when upgrading the `rubocop` linter used in `pre-commit`
-rubocop:
-  extends: '.lint_job'
-  allow_failure: true
-  image: *image_rubocop
-  script:
-    - 'rubocop -d -P -S --enable-pending-cops'
 
 ###############################################################################
 # Define `test` template

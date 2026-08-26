@@ -29,12 +29,12 @@ repos:
     hooks:
       - id: commitlint
       - id: commitlint-ci
-  - repo: https://github.com/rubocop-hq/rubocop
+  - repo: https://github.com/rubocop/rubocop
     rev: v1.90.0
     hooks:
       - id: rubocop
         name: Check Ruby files with rubocop
-        args: [--debug]
+        args: [--debug, --display-style-guide]
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.9.0.6
     hooks:
