@@ -1,5 +1,25 @@
 # Changelog
 
+## [5.1.3](https://github.com/saltstack-formulas/template-formula/compare/v5.1.2...v5.1.3) (2026-08-26)
+
+### Style Changes
+
+* **rubocop:** amend to make use of Rubocop's `disable-next` directive ([a3c4de3](https://github.com/saltstack-formulas/template-formula/commit/a3c4de391b99151181fa316d938a4b6247e341fe))
+
+### Continuous Integration
+
+* **gitlab-ci:** remove separate Rubocop job in favour of `pre-commit` ([b36a230](https://github.com/saltstack-formulas/template-formula/commit/b36a23094d258785b4a255fd8d5391c9f203cab9))
+
+### Maintenance
+
+* **deps:** update `github-actions` non-major actions/images ([126fb02](https://github.com/saltstack-formulas/template-formula/commit/126fb02fe251df5f208c16ed65a7f73f11b52c9a))
+* **deps:** update `github-actions` non-major actions/images ([#571](https://github.com/saltstack-formulas/template-formula/issues/571)) ([14720e2](https://github.com/saltstack-formulas/template-formula/commit/14720e2365cf07d259f878cc7c053ace3be541f2))
+* **deps:** update `gitlabci` non-major images ([04bbe43](https://github.com/saltstack-formulas/template-formula/commit/04bbe43fd018f2302ebb1f93516602aae240d8d3))
+* **deps:** update `gitlabci` non-major images ([421216d](https://github.com/saltstack-formulas/template-formula/commit/421216dd61b9619c1f99aac14921b27cb9f2029d))
+* **deps:** update `gitlabci` non-major images ([#568](https://github.com/saltstack-formulas/template-formula/issues/568)) ([ae16a8d](https://github.com/saltstack-formulas/template-formula/commit/ae16a8d345c959dbbcee7ba7aae4ee391b3a7823))
+* **deps:** update `gitlabci` non-major images ([#569](https://github.com/saltstack-formulas/template-formula/issues/569)) ([39e922d](https://github.com/saltstack-formulas/template-formula/commit/39e922d0c59558fb42078b8384fb2499481c7240))
+* **deps:** update `pre-commit` non-major hooks ([022a8fe](https://github.com/saltstack-formulas/template-formula/commit/022a8fe4b9acd04eb1e4317999adc525be2f5c1d))
+
 ## [5.1.2](https://github.com/saltstack-formulas/template-formula/compare/v5.1.1...v5.1.2) (2026-08-21)
 
 ### Reversions
