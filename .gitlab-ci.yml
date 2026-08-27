@@ -209,9 +209,9 @@ oraclelinux-9-master: {extends: '.test_instance_failure_permitted'}
 oraclelinux-8-master: {extends: '.test_instance_failure_permitted'}
 rockylinux-9-master: {extends: '.test_instance_failure_permitted'}
 rockylinux-8-master: {extends: '.test_instance_failure_permitted'}
+ubuntu-2604-master: {extends: '.test_instance_failure_permitted'}
 ubuntu-2404-master: {extends: '.test_instance_failure_permitted'}
 ubuntu-2204-master: {extends: '.test_instance_failure_permitted'}
-ubuntu-2004-master: {extends: '.test_instance_failure_permitted'}
 almalinux-9-3008: {extends: '.test_instance'}
 almalinux-8-3008: {extends: '.test_instance'}
 amazonlinux-2023-3008: {extends: '.test_instance'}
@@ -227,9 +227,9 @@ oraclelinux-9-3008: {extends: '.test_instance'}
 oraclelinux-8-3008: {extends: '.test_instance'}
 rockylinux-9-3008: {extends: '.test_instance'}
 rockylinux-8-3008: {extends: '.test_instance'}
+ubuntu-2604-3008: {extends: '.test_instance'}
 ubuntu-2404-3008: {extends: '.test_instance'}
 ubuntu-2204-3008: {extends: '.test_instance'}
-ubuntu-2004-3008: {extends: '.test_instance'}
 almalinux-9-3006: {extends: '.test_instance'}
 almalinux-8-3006: {extends: '.test_instance'}
 amazonlinux-2023-3006: {extends: '.test_instance'}
@@ -245,9 +245,9 @@ oraclelinux-9-3006: {extends: '.test_instance'}
 oraclelinux-8-3006: {extends: '.test_instance'}
 rockylinux-9-3006: {extends: '.test_instance'}
 rockylinux-8-3006: {extends: '.test_instance'}
+ubuntu-2604-3006: {extends: '.test_instance'}
 ubuntu-2404-3006: {extends: '.test_instance'}
 ubuntu-2204-3006: {extends: '.test_instance'}
-ubuntu-2004-3006: {extends: '.test_instance'}
 # yamllint enable rule:line-length
 
 ###############################################################################

@@ -34,6 +34,10 @@ platforms:
     driver:
       image: saltimages/salt-master-py3:debian-11
       run_command: /lib/systemd/systemd
+  - name: ubuntu-2604-master
+    driver:
+      image: saltimages/salt-master-py3:ubuntu-26.04
+      run_command: /lib/systemd/systemd
   - name: ubuntu-2404-master
     driver:
       image: saltimages/salt-master-py3:ubuntu-24.04
@@ -41,10 +45,6 @@ platforms:
   - name: ubuntu-2204-master
     driver:
       image: saltimages/salt-master-py3:ubuntu-22.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-2004-master
-    driver:
-      image: saltimages/salt-master-py3:ubuntu-20.04
       run_command: /lib/systemd/systemd
   - name: centos-stream9-master
     driver:
@@ -100,6 +100,10 @@ platforms:
     driver:
       image: saltimages/salt-3008.2-py3:debian-11
       run_command: /lib/systemd/systemd
+  - name: ubuntu-2604-3008-2
+    driver:
+      image: saltimages/salt-3008.2-py3:ubuntu-26.04
+      run_command: /lib/systemd/systemd
   - name: ubuntu-2404-3008-2
     driver:
       image: saltimages/salt-3008.2-py3:ubuntu-24.04
@@ -107,10 +111,6 @@ platforms:
   - name: ubuntu-2204-3008-2
     driver:
       image: saltimages/salt-3008.2-py3:ubuntu-22.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-2004-3008-2
-    driver:
-      image: saltimages/salt-3008.2-py3:ubuntu-20.04
       run_command: /lib/systemd/systemd
   - name: centos-stream9-3008-2
     driver:
@@ -169,6 +169,10 @@ platforms:
     driver:
       image: saltimages/salt-3006.27-py3:debian-11
       run_command: /lib/systemd/systemd
+  - name: ubuntu-2604-3006-27
+    driver:
+      image: saltimages/salt-3006.27-py3:ubuntu-26.04
+      run_command: /lib/systemd/systemd
   - name: ubuntu-2404-3006-27
     driver:
       image: saltimages/salt-3006.27-py3:ubuntu-24.04
@@ -176,10 +180,6 @@ platforms:
   - name: ubuntu-2204-3006-27
     driver:
       image: saltimages/salt-3006.27-py3:ubuntu-22.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-2004-3006-27
-    driver:
-      image: saltimages/salt-3006.27-py3:ubuntu-20.04
       run_command: /lib/systemd/systemd
   - name: centos-stream9-3006-27
     driver:
