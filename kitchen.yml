@@ -26,6 +26,10 @@ transport:
 
 platforms:
   ## SALT `master`
+  - name: debian-13-master
+    driver:
+      image: saltimages/salt-master-py3:debian-13
+      run_command: /lib/systemd/systemd
   - name: debian-12-master
     driver:
       image: saltimages/salt-master-py3:debian-12
@@ -92,6 +96,10 @@ platforms:
       image: saltimages/salt-master-py3:rockylinux-8
 
   ## SALT `3008.2`
+  - name: debian-13-3008-2
+    driver:
+      image: saltimages/salt-3008.2-py3:debian-13
+      run_command: /lib/systemd/systemd
   - name: debian-12-3008-2
     driver:
       image: saltimages/salt-3008.2-py3:debian-12
@@ -161,6 +169,10 @@ platforms:
       image: saltimages/salt-3008.2-py3:rockylinux-8
 
   ## SALT `3006.27`
+  - name: debian-13-3006-27
+    driver:
+      image: saltimages/salt-3006.27-py3:debian-13
+      run_command: /lib/systemd/systemd
   - name: debian-12-3006-27
     driver:
       image: saltimages/salt-3006.27-py3:debian-12

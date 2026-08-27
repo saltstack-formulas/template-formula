@@ -1,5 +1,4 @@
 # yamllint disable rule:indentation rule:line-length
-# Debian-9
 ---
 values:
   added_in_defaults: defaults_value

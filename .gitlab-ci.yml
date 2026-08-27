@@ -165,7 +165,7 @@ pre-commit:
     - 'git show --pretty="" --name-status'
     - !reference [.node_anchors, bundle_install]
   script:
-    - 'bin/kitchen verify default-debian-11-master'
+    - 'bin/kitchen verify default-debian-12-master'
 # REMOVEME>
 
 ###############################################################################
@@ -199,6 +199,7 @@ almalinux-8-master: {extends: '.test_instance_failure_permitted'}
 amazonlinux-2023-master: {extends: '.test_instance_failure_permitted'}
 amazonlinux-2-master: {extends: '.test_instance_failure_permitted'}
 centos-stream9-master: {extends: '.test_instance_failure_permitted'}
+debian-13-master: {extends: '.test_instance_failure_permitted'}
 debian-12-master: {extends: '.test_instance_failure_permitted'}
 debian-11-master: {extends: '.test_instance_failure_permitted'}
 fedora-44-master: {extends: '.test_instance_failure_permitted'}
@@ -217,6 +218,7 @@ almalinux-8-3008: {extends: '.test_instance'}
 amazonlinux-2023-3008: {extends: '.test_instance'}
 amazonlinux-2-3008: {extends: '.test_instance_failure_permitted'}
 centos-stream9-3008: {extends: '.test_instance'}
+debian-13-3008: {extends: '.test_instance'}
 debian-12-3008: {extends: '.test_instance'}
 debian-11-3008: {extends: '.test_instance'}
 fedora-44-3008: {extends: '.test_instance'}
@@ -235,6 +237,7 @@ almalinux-8-3006: {extends: '.test_instance'}
 amazonlinux-2023-3006: {extends: '.test_instance'}
 amazonlinux-2-3006: {extends: '.test_instance_failure_permitted'}
 centos-stream9-3006: {extends: '.test_instance'}
+debian-13-3006: {extends: '.test_instance'}
 debian-12-3006: {extends: '.test_instance'}
 debian-11-3006: {extends: '.test_instance'}
 fedora-44-3006: {extends: '.test_instance'}
