@@ -63,12 +63,12 @@ platforms:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
-  - name: fedora-41-master
+  - name: fedora-44-master
     driver:
-      image: saltimages/salt-master-py3:fedora-41
-  - name: fedora-40-master
+      image: saltimages/salt-master-py3:fedora-44
+  - name: fedora-43-master
     driver:
-      image: saltimages/salt-master-py3:fedora-40
+      image: saltimages/salt-master-py3:fedora-43
   - name: amazonlinux-2023-master
     driver:
       image: saltimages/salt-master-py3:amazonlinux-2023
@@ -129,12 +129,12 @@ platforms:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
-  - name: fedora-41-3008-2
+  - name: fedora-44-3008-2
     driver:
-      image: saltimages/salt-3008.2-py3:fedora-41
-  - name: fedora-40-3008-2
+      image: saltimages/salt-3008.2-py3:fedora-44
+  - name: fedora-43-3008-2
     driver:
-      image: saltimages/salt-3008.2-py3:fedora-40
+      image: saltimages/salt-3008.2-py3:fedora-43
   - name: amazonlinux-2023-3008-2
     driver:
       image: saltimages/salt-3008.2-py3:amazonlinux-2023
@@ -198,12 +198,12 @@ platforms:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
-  - name: fedora-41-3006-27
+  - name: fedora-44-3006-27
     driver:
-      image: saltimages/salt-3006.27-py3:fedora-41
-  - name: fedora-40-3006-27
+      image: saltimages/salt-3006.27-py3:fedora-44
+  - name: fedora-43-3006-27
     driver:
-      image: saltimages/salt-3006.27-py3:fedora-40
+      image: saltimages/salt-3006.27-py3:fedora-43
   - name: amazonlinux-2023-3006-27
     driver:
       image: saltimages/salt-3006.27-py3:amazonlinux-2023
