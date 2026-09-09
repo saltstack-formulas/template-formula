@@ -201,7 +201,6 @@ amazonlinux-2-master: {extends: '.test_instance_failure_permitted'}
 centos-stream9-master: {extends: '.test_instance_failure_permitted'}
 debian-13-master: {extends: '.test_instance_failure_permitted'}
 debian-12-master: {extends: '.test_instance_failure_permitted'}
-debian-11-master: {extends: '.test_instance_failure_permitted'}
 fedora-44-master: {extends: '.test_instance_failure_permitted'}
 fedora-43-master: {extends: '.test_instance_failure_permitted'}
 opensuse-leap-160-master: {extends: '.test_instance_failure_permitted'}
@@ -220,7 +219,6 @@ amazonlinux-2-3008: {extends: '.test_instance_failure_permitted'}
 centos-stream9-3008: {extends: '.test_instance'}
 debian-13-3008: {extends: '.test_instance'}
 debian-12-3008: {extends: '.test_instance'}
-debian-11-3008: {extends: '.test_instance'}
 fedora-44-3008: {extends: '.test_instance'}
 fedora-43-3008: {extends: '.test_instance'}
 opensuse-leap-160-3008: {extends: '.test_instance'}
@@ -239,7 +237,6 @@ amazonlinux-2-3006: {extends: '.test_instance_failure_permitted'}
 centos-stream9-3006: {extends: '.test_instance'}
 debian-13-3006: {extends: '.test_instance'}
 debian-12-3006: {extends: '.test_instance'}
-debian-11-3006: {extends: '.test_instance'}
 fedora-44-3006: {extends: '.test_instance'}
 fedora-43-3006: {extends: '.test_instance'}
 opensuse-leap-160-3006: {extends: '.test_instance'}
