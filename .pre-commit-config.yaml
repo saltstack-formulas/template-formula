@@ -15,7 +15,10 @@ ci:
   autoupdate_schedule: quarterly
   skip: []
   submodules: false
+default_install_hook_types: [commit-msg, pre-commit]
 default_stages: [pre-commit]
+minimum_pre_commit_version: 2.18.0
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
