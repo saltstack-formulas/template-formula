@@ -1,5 +1,70 @@
 # Changelog
 
+## [5.1.4](https://github.com/saltstack-formulas/template-formula/compare/v5.1.3...v5.1.4) (2026-10-27)
+
+### Testing
+
+* **pre-commit:** set `default_install_hook_types` ([64fdaca](https://github.com/saltstack-formulas/template-formula/commit/64fdacae806d57ccea28ceb42e320f0776eba56e))
+
+### Continuous Integration
+
+* **gitlab+kitchen:** add Debian version v13 ([2a0ee88](https://github.com/saltstack-formulas/template-formula/commit/2a0ee886caf8d2dac35051a51fffbfd5dc4baf53))
+* **gitlab+kitchen:** remove Salt v3007 due to EOL ([c2ad587](https://github.com/saltstack-formulas/template-formula/commit/c2ad58774a11ec3107f9721bc9d947d35f2c63be))
+* **gitlab+kitchen:** remove test platform Debian 11 due to EOL ([a3624e1](https://github.com/saltstack-formulas/template-formula/commit/a3624e10aeeb7ba29dbb673336215a3264dda57f))
+* **gitlab+kitchen:** update Fedora to versions v43 & v44 ([2dbd7d1](https://github.com/saltstack-formulas/template-formula/commit/2dbd7d19fbc9a3404a644314040db26a8d648373))
+* **gitlab+kitchen:** update openSUSE Leap to version v16 ([93dea2f](https://github.com/saltstack-formulas/template-formula/commit/93dea2f0450363c91c4af622f49cb5104e5595a1))
+* **gitlab+kitchen:** update Ubuntu to version v26.04 ([7413c81](https://github.com/saltstack-formulas/template-formula/commit/7413c817c2f5b02c25ae704a1e65d90070757a27))
+* update images for v3006.27 & v3008.2 ([40decf1](https://github.com/saltstack-formulas/template-formula/commit/40decf12ecec79243a946b68de076651b61e0079))
+
+### Maintenance
+
+* **deps:** update `github-actions` non-major actions/images ([b1d2cf7](https://github.com/saltstack-formulas/template-formula/commit/b1d2cf75605c849c0474ffcaef1b2422cac5c1d0))
+* **deps:** update `github-actions` non-major actions/images ([518da52](https://github.com/saltstack-formulas/template-formula/commit/518da52eb162cafdb893a62bec944ff4f616861e))
+* **deps:** update `github-actions` non-major actions/images ([5d8f253](https://github.com/saltstack-formulas/template-formula/commit/5d8f2534cce141b57ddad0ff3a75b2719c79ebea))
+* **deps:** update `github-actions` non-major actions/images ([fbd7dba](https://github.com/saltstack-formulas/template-formula/commit/fbd7dba91586f0dbc4011835296b3f299253d7e0))
+* **deps:** update `github-actions` non-major actions/images ([67b8d6b](https://github.com/saltstack-formulas/template-formula/commit/67b8d6b166b4e05730c54cf9004e367e5f642c16))
+* **deps:** update `github-actions` non-major actions/images ([5358788](https://github.com/saltstack-formulas/template-formula/commit/53587886b7cd8f1b1999bb29df61c7f9d140e337))
+* **deps:** update `github-actions` non-major actions/images ([209adfc](https://github.com/saltstack-formulas/template-formula/commit/209adfc68df14a5b09fd4cc65fa87332390b9ed4))
+* **deps:** update `github-actions` non-major actions/images ([939dcbe](https://github.com/saltstack-formulas/template-formula/commit/939dcbe2d2d133ed412153224934024fb1f9169f))
+* **deps:** update `github-actions` non-major actions/images ([#575](https://github.com/saltstack-formulas/template-formula/issues/575)) ([3917bf4](https://github.com/saltstack-formulas/template-formula/commit/3917bf4daca895ae099e432fd6c46642423d5bb5))
+* **deps:** update `github-actions` non-major actions/images ([#578](https://github.com/saltstack-formulas/template-formula/issues/578)) ([63b69e2](https://github.com/saltstack-formulas/template-formula/commit/63b69e21401fa03c10c44bdc2ddbcf65c976f38f))
+* **deps:** update `github-actions` non-major actions/images ([#582](https://github.com/saltstack-formulas/template-formula/issues/582)) ([c4a6c59](https://github.com/saltstack-formulas/template-formula/commit/c4a6c59f9b28969fdda96362c60a63a7bee7d9c6))
+* **deps:** update `github-actions` non-major actions/images ([#585](https://github.com/saltstack-formulas/template-formula/issues/585)) ([8b2342a](https://github.com/saltstack-formulas/template-formula/commit/8b2342a6b45e65be4f206729bc151ce42d050a32))
+* **deps:** update `github-actions` non-major actions/images ([#587](https://github.com/saltstack-formulas/template-formula/issues/587)) ([9c922e4](https://github.com/saltstack-formulas/template-formula/commit/9c922e4070f3c67243e0ae38b79d7c9caeee58af))
+* **deps:** update `github-actions` non-major actions/images ([#591](https://github.com/saltstack-formulas/template-formula/issues/591)) ([c7d75fb](https://github.com/saltstack-formulas/template-formula/commit/c7d75fbe97e5bfa16017ecaabd0213b108688b04))
+* **deps:** update `github-actions` non-major actions/images ([#592](https://github.com/saltstack-formulas/template-formula/issues/592)) ([f410968](https://github.com/saltstack-formulas/template-formula/commit/f4109689838522e43981ae2761a1b551195622f0))
+* **deps:** update `github-actions` non-major actions/images ([#596](https://github.com/saltstack-formulas/template-formula/issues/596)) ([c587500](https://github.com/saltstack-formulas/template-formula/commit/c5875003c06e72fced25ff6c70e49acacef34491))
+* **deps:** update `gitlabci` non-major images ([fe020e4](https://github.com/saltstack-formulas/template-formula/commit/fe020e40acd67fb6fded226bc03e37747a50d3e1))
+* **deps:** update `gitlabci` non-major images ([25daa83](https://github.com/saltstack-formulas/template-formula/commit/25daa83c1687bb2a87890ac133402b07c2cdcb9b))
+* **deps:** update `gitlabci` non-major images ([b4c289e](https://github.com/saltstack-formulas/template-formula/commit/b4c289e63f51ce25b12ba5b050f02a1e267114d2))
+* **deps:** update `gitlabci` non-major images ([96152b0](https://github.com/saltstack-formulas/template-formula/commit/96152b00615d4836b17168c4609448ba58d372bd))
+* **deps:** update `gitlabci` non-major images ([523b0a6](https://github.com/saltstack-formulas/template-formula/commit/523b0a6c6b62b781c7efc53769cb3bd2ef9fae0a))
+* **deps:** update `gitlabci` non-major images ([7efd83a](https://github.com/saltstack-formulas/template-formula/commit/7efd83af294cb3bae718d741b8e7b5f4f30367ae))
+* **deps:** update `gitlabci` non-major images ([912d536](https://github.com/saltstack-formulas/template-formula/commit/912d5364d821ad635a1c1e203320a76ff180fefd))
+* **deps:** update `gitlabci` non-major images ([#576](https://github.com/saltstack-formulas/template-formula/issues/576)) ([57c80de](https://github.com/saltstack-formulas/template-formula/commit/57c80de4b7cbb9b726f1ed465d034b7f9f17e676))
+* **deps:** update `gitlabci` non-major images ([#579](https://github.com/saltstack-formulas/template-formula/issues/579)) ([67409c9](https://github.com/saltstack-formulas/template-formula/commit/67409c93d116d06ee736f8b07306dd1ddf5e4ece))
+* **deps:** update `gitlabci` non-major images ([#583](https://github.com/saltstack-formulas/template-formula/issues/583)) ([f7e00cb](https://github.com/saltstack-formulas/template-formula/commit/f7e00cb3c39bba315e015fcd062570d47e847f86))
+* **deps:** update `gitlabci` non-major images ([#586](https://github.com/saltstack-formulas/template-formula/issues/586)) ([d01e1e3](https://github.com/saltstack-formulas/template-formula/commit/d01e1e39347ca3fb39078addfc0c81d9f35e1e2d))
+* **deps:** update `gitlabci` non-major images ([#589](https://github.com/saltstack-formulas/template-formula/issues/589)) ([84c0123](https://github.com/saltstack-formulas/template-formula/commit/84c0123904d94a35ba8a4752018aefe3eea27dcb))
+* **deps:** update `gitlabci` non-major images ([#593](https://github.com/saltstack-formulas/template-formula/issues/593)) ([0bc2b67](https://github.com/saltstack-formulas/template-formula/commit/0bc2b67c8c976cc2f08bd3080aa905cfd095e880))
+* **deps:** update `gitlabci` non-major images ([#597](https://github.com/saltstack-formulas/template-formula/issues/597)) ([c0dea91](https://github.com/saltstack-formulas/template-formula/commit/c0dea911a7141bfa8cc4bbcd7f743b18a6fb8c8d))
+* **deps:** update `pre-commit` non-major hooks ([9f6c737](https://github.com/saltstack-formulas/template-formula/commit/9f6c7370c6c569583257b1c06546a91f6188bce9))
+* **deps:** update `pre-commit` non-major hooks ([2dc7fd6](https://github.com/saltstack-formulas/template-formula/commit/2dc7fd6f4b7a92bebc27a747992e666e75b38e97))
+* **deps:** update `pre-commit` non-major hooks ([0b63655](https://github.com/saltstack-formulas/template-formula/commit/0b63655587a3b346501c7c74dfb4323e42045e63))
+* **deps:** update `pre-commit` non-major hooks ([47e812f](https://github.com/saltstack-formulas/template-formula/commit/47e812f1eca5cfcf039784783dbea9b8fa4cb3d8))
+* **deps:** update `pre-commit` non-major hooks ([3293bca](https://github.com/saltstack-formulas/template-formula/commit/3293bca3cf89f15b1050bd005ec5c068b9d34f53))
+* **deps:** update `pre-commit` non-major hooks ([0c8251f](https://github.com/saltstack-formulas/template-formula/commit/0c8251febc6e281d13f9cfff9d1e345341c2f28e))
+* **deps:** update `pre-commit` non-major hooks ([b35270a](https://github.com/saltstack-formulas/template-formula/commit/b35270ae5d18cd612900eb4aaa55b2324b09e309))
+* **deps:** update `pre-commit` non-major hooks ([e67bd66](https://github.com/saltstack-formulas/template-formula/commit/e67bd662b5e9b518d26cc01b1d921ee7b7f2b86c))
+* **deps:** update `pre-commit` non-major hooks ([#577](https://github.com/saltstack-formulas/template-formula/issues/577)) ([0552924](https://github.com/saltstack-formulas/template-formula/commit/055292467f49731793e627d8bdf60e3c09fdb5f4))
+* **deps:** update `pre-commit` non-major hooks ([#580](https://github.com/saltstack-formulas/template-formula/issues/580)) ([bbdb456](https://github.com/saltstack-formulas/template-formula/commit/bbdb45606b47cfe1412dd370830bd56c55263c0e))
+* **deps:** update `pre-commit` non-major hooks ([#584](https://github.com/saltstack-formulas/template-formula/issues/584)) ([c8aa51d](https://github.com/saltstack-formulas/template-formula/commit/c8aa51d32e85dbe9b1df1511fc4715355d86a37b))
+* **deps:** update `pre-commit` non-major hooks ([#588](https://github.com/saltstack-formulas/template-formula/issues/588)) ([8fd4c93](https://github.com/saltstack-formulas/template-formula/commit/8fd4c9310065259011c3cb377a217749345c4bc5))
+* **deps:** update `pre-commit` non-major hooks ([#590](https://github.com/saltstack-formulas/template-formula/issues/590)) ([2ab8a82](https://github.com/saltstack-formulas/template-formula/commit/2ab8a8229803d97b6def049544dd238351ee5089))
+* **deps:** update `pre-commit` non-major hooks ([#594](https://github.com/saltstack-formulas/template-formula/issues/594)) ([c4727bf](https://github.com/saltstack-formulas/template-formula/commit/c4727bfa1e61ad9b9484dac1a5334ff9b53d0fa7))
+* **deps:** update `pre-commit` non-major hooks ([#598](https://github.com/saltstack-formulas/template-formula/issues/598)) ([bec5350](https://github.com/saltstack-formulas/template-formula/commit/bec5350caecc47c40b7161b700ec2ee4505ee9ae))
+* **deps:** update `pre-commit` non-major hooks ([#602](https://github.com/saltstack-formulas/template-formula/issues/602)) ([ec55276](https://github.com/saltstack-formulas/template-formula/commit/ec5527632590a401d9957ddfa46f65708fc25d50))
+
 ## [5.1.3](https://github.com/saltstack-formulas/template-formula/compare/v5.1.2...v5.1.3) (2026-08-26)
 
 ### Style Changes
