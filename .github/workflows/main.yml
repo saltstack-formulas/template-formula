@@ -25,7 +25,7 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.5.65@sha256:28c980891a192ec02e4439e50d884c6dfea795531f166a0b88be50f8040b9aaf
+    container: techneg/ci-pre-commit:v2.5.66@sha256:a00d71824d57112a3a99dbbebd1728b821bacd3eb827970d7d3bf330b4d7fba0
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
